@@ -1,0 +1,15 @@
+{
+    "name": "GmbCore",
+    "alias": "gmbcore",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\GmbCore\\Providers\\GmbCoreServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
