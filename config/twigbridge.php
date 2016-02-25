@@ -114,6 +114,11 @@ return [
             'TwigBridge\Extension\Laravel\Form',
             'TwigBridge\Extension\Laravel\Html',
             // 'TwigBridge\Extension\Laravel\Legacy\Facades',
+
+            // debug bar integration
+            'Barryvdh\Debugbar\Twig\Extension\Debug',
+            'Barryvdh\Debugbar\Twig\Extension\Dump',
+            'Barryvdh\Debugbar\Twig\Extension\Stopwatch',
         ],
 
         /*
