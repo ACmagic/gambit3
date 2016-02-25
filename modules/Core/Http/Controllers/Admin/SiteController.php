@@ -3,22 +3,23 @@
 namespace Modules\Core\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Doctrine\ORM\EntityManagerInterface;
+use Modules\Core\Repositories\SiteRepository;
 
 class SiteController extends Controller
 {
 
-    protected $em;
+    protected $siteRepository;
 
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
+     * @param SiteRepository $siteRepository
+     *   The site repository.
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(SiteRepository $siteRepository)
     {
         //$this->middleware('guest', ['except' => 'logout']);
-        $this->em = $em;
+        $this->siteRepository = $siteRepository;
 
         // middleware to require login
 
@@ -26,7 +27,7 @@ class SiteController extends Controller
 
     public function getList() {
 
-        $site = $this->em->find('Modules\Core\Entities\Site',1);
+        $site = $this->siteRepository->findById(1);
         $site->getCreator()->getEmail();
 
         return view('core::admin.site.list',['site'=>$site]);

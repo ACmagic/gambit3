@@ -1,6 +1,13 @@
 <?php namespace Modules\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Core\Repositories\UserRepository;
+use Modules\Core\Repositories\SiteRepository;
+use Modules\Core\Repositories\Doctrine\DoctrineUserRepository;
+use Modules\Core\Repositories\Doctrine\DoctrineSiteRepository;
+use Modules\Core\Entities\User as UserEntity;
+use Modules\Core\Entities\Site as SiteEntity;
 
 class CoreServiceProvider extends ServiceProvider {
 
@@ -30,7 +37,19 @@ class CoreServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{		
-		//
+
+		$this->app->bind(UserRepository::class,function() {
+			return new DoctrineUserRepository(
+				EntityManager::getRepository(UserEntity::class)
+			);
+		});
+
+		$this->app->bind(SiteRepository::class,function() {
+			return new DoctrineSiteRepository(
+				EntityManager::getRepository(SiteEntity::class)
+			);
+		});
+
 	}
 
 	/**
