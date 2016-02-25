@@ -184,6 +184,9 @@ return [
         // Twig bridge
         TwigBridge\ServiceProvider::class,
 
+        // Debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
@@ -251,7 +254,10 @@ return [
         /*
          * Twig bridge
          */
-        'Twig' => 'TwigBridge\Facade\Twig',
+        'Twig' => TwigBridge\Facade\Twig::class,
+
+        // Debugbar logging
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
