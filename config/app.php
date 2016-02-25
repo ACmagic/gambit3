@@ -149,6 +149,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+         * Collective extensions that are no longer installed by default since 5.1.
+         */
+        Collective\Html\HtmlServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -161,10 +166,23 @@ return [
          */
         LaravelDoctrine\ORM\DoctrineServiceProvider::class,
 
+        // Replace migration system with Doctrine migration implementation.
+        LaravelDoctrine\Migrations\MigrationsServiceProvider::class,
+
+        // Gedmo Extensions
+        LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
+
+        // Others
+        LaravelDoctrine\Extensions\BeberleiExtensionsServiceProvider::class,
+
         /*
          * Pingpong labs modules
          */
+        Pingpong\Generators\GeneratorsServiceProvider::class,
         Pingpong\Modules\ModulesServiceProvider::class,
+
+        // Twig bridge
+        TwigBridge\ServiceProvider::class,
 
     ],
 
@@ -213,6 +231,12 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         /*
+         * HTML collective
+         */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        /*
          * Aliases supplied by Laravel doctrine package.
          */
         'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
@@ -223,6 +247,11 @@ return [
          * Aliases supplied by the Pingpong labs modules package.
          */
         'Module'        => Pingpong\Modules\Facades\Module::class,
+
+        /*
+         * Twig bridge
+         */
+        'Twig' => 'TwigBridge\Facade\Twig',
 
     ],
 

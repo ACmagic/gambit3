@@ -1,0 +1,42 @@
+<?php
+
+use Doctrine\DBAL\Migrations\AbstractMigration;
+use Doctrine\DBAL\Schema\Schema;
+use LaravelDoctrine\Migrations\Schema\Table;
+use LaravelDoctrine\Migrations\Schema\Builder;
+
+class $CLASS$ extends AbstractMigration
+{
+    /**
+     * Run the migrations.
+     *
+     * @param Schema $schema
+     *  The database schema.
+     *
+     * @return void
+     */
+    public function up(Schema $schema)
+    {
+
+        (new Builder($schema))->create('$TABLE$', function(Table $table) {
+            $table->increments('id');
+            $FIELDS$
+            $table->timestamps();
+        });
+
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @param Schema $schema
+     *  The database schema.
+     *
+     * @return void
+     */
+    public function down(Schema $schema)
+    {
+        (new Builder($schema))->drop('$TABLE$');
+    }
+
+}

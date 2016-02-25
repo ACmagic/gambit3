@@ -23,13 +23,15 @@ return [
     'managers'                  => [
         'default' => [
             'dev'        => env('APP_DEBUG'),
-            'meta'       => env('DOCTRINE_METADATA', 'annotations'),
+            'meta'       => 'fluent',
             'connection' => env('DB_CONNECTION', 'mysql'),
             'namespaces' => [
-                'App'
+                // Significant performance boost (minimal scanning)
+                'Modules\Core\Entities',
             ],
             'paths'      => [
-                base_path('app')
+                // Significant performance boost (minimal scanning)
+                base_path('modules/Core/Mappings')
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -73,9 +75,16 @@ return [
             | http://symfony.com/doc/current/cookbook/doctrine/dbal.html#registering-custom-mapping-types-in-the-schematool
             |--------------------------------------------------------------------------
             */
-            'mapping_types'              => [
+            'mapping_types' => [
                 //'enum' => 'string'
-            ]
+            ],
+            /*
+             * Fluent mappings.
+             */
+            'mappings'=> [
+                Modules\Core\Mappings\UserMapping::class,
+                Modules\Core\Mappings\SiteMapping::class,
+            ],
         ]
     ],
     /*
@@ -110,26 +119,52 @@ return [
     |--------------------------------------------------------------------------
     */
     'custom_types'              => [
-        'json' => LaravelDoctrine\ORM\Types\Json::class
+        'json' => LaravelDoctrine\ORM\Types\Json::class,
+        'carbondate'       => DoctrineExtensions\Types\CarbonDateType::class,
+        'carbondatetime'   => DoctrineExtensions\Types\CarbonDateTimeType::class,
+        'carbondatetimetz' => DoctrineExtensions\Types\CarbonDateTimeTzType::class,
+        'carbontime'       => DoctrineExtensions\Types\CarbonTimeType::class,
     ],
     /*
     |--------------------------------------------------------------------------
     | DQL custom datetime functions
     |--------------------------------------------------------------------------
     */
-    'custom_datetime_functions' => [],
+    'custom_datetime_functions' => [
+        'DATEADD'  => DoctrineExtensions\Query\Mysql\DateAdd::class,
+        'DATEDIFF' => DoctrineExtensions\Query\Mysql\DateDiff::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | DQL custom numeric functions
     |--------------------------------------------------------------------------
     */
-    'custom_numeric_functions'  => [],
+    'custom_numeric_functions'  => [
+        'ACOS'    => DoctrineExtensions\Query\Mysql\Acos::class,
+        'ASIN'    => DoctrineExtensions\Query\Mysql\Asin::class,
+        'ATAN'    => DoctrineExtensions\Query\Mysql\Atan::class,
+        'ATAN2'   => DoctrineExtensions\Query\Mysql\Atan2::class,
+        'COS'     => DoctrineExtensions\Query\Mysql\Cos::class,
+        'COT'     => DoctrineExtensions\Query\Mysql\Cot::class,
+        'DEGREES' => DoctrineExtensions\Query\Mysql\Degrees::class,
+        'RADIANS' => DoctrineExtensions\Query\Mysql\Radians::class,
+        'SIN'     => DoctrineExtensions\Query\Mysql\Sin::class,
+        'TAN'     => DoctrineExtensions\Query\Mysql\Tan::class
+    ],
     /*
     |--------------------------------------------------------------------------
     | DQL custom string functions
     |--------------------------------------------------------------------------
     */
-    'custom_string_functions'   => [],
+    'custom_string_functions'   => [
+        'CHAR_LENGTH' => DoctrineExtensions\Query\Mysql\CharLength::class,
+        'CONCAT_WS'   => DoctrineExtensions\Query\Mysql\ConcatWs::class,
+        'FIELD'       => DoctrineExtensions\Query\Mysql\Field::class,
+        'FIND_IN_SET' => DoctrineExtensions\Query\Mysql\FindInSet::class,
+        'REPLACE'     => DoctrineExtensions\Query\Mysql\Replace::class,
+        'SOUNDEX'     => DoctrineExtensions\Query\Mysql\Soundex::class,
+        'STR_TO_DATE' => DoctrineExtensions\Query\Mysql\StrToDate::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Enable query logging with laravel file logging,
@@ -170,6 +205,6 @@ return [
     |
     */
     'gedmo'                     => [
-        'all_mappings' => false
+        'all_mappings' => true,
     ]
 ];

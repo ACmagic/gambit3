@@ -23,8 +23,8 @@ return [
     */
 
     'stubs' => [
-        'enabled' => false,
-        'path' => base_path().'/vendor/pingpong/modules/src/Pingpong/Modules/Commands/stubs',
+        'enabled' => true,
+        'path' => base_path().'/resources/pingpong/generators/stubs',
         'files' => [
             'start' => 'start.php',
             'routes' => 'Http/routes.php',
