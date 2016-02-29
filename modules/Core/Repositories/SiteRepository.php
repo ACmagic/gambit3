@@ -3,5 +3,6 @@
 interface SiteRepository {
 
     public function findById($id);
+    public function findAll();
 
 }

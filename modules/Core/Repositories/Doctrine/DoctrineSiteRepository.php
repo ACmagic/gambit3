@@ -15,4 +15,8 @@ class DoctrineSiteRepository implements SiteRepository {
         return $this->genericRepository->find($id);
     }
 
+    public function findAll() {
+        return $this->genericRepository->findAll();
+    }
+
 }

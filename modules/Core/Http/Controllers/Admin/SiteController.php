@@ -25,12 +25,11 @@ class SiteController extends Controller
 
     }
 
-    public function getList() {
+    public function getIndex() {
 
-        $site = $this->siteRepository->findById(1);
-        $site->getCreator()->getEmail();
+        //$sites = $this->siteRepository->findAll();
 
-        return view('core::admin.site.list',['site'=>$site]);
+        return view('core::admin.site.index');
 
     }
 

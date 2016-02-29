@@ -2,10 +2,35 @@
 <html>
 <head>
     <title>Admin Layout Default</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 </head>
 <body>
+
+    <div>Gambit Admin</div>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a href="{{ url('admin/home') }}">Home</a></li>
+            <li><a href="{{ url('admin/catalog') }}">Catalog</a></li>
+            <li><a href="{{ url('admin/events') }}">Events</a></li>
+            <li><a href="{{ url('admin/customers') }}">Customers</a></li>
+            <li><a href="{{ url('admin/sales') }}">Sales</a></li>
+            <li><a href="{{ url('admin/sites') }}">Sites</a></li>
+            <li><a href="{{ url('admin/stores') }}">Stores</a></li>
+            <li><a href="{{ url('admin/users') }}">Users</a></li>
+        </ul>
+    </nav>
+
+    <ol class="breadcrumb">
+        <li><a href="#">Admin</a></li>
+        <li><a href="#" class="active">Sites</a></li>
+    </ol>
+
     <div id="page-content">
         {% block content %}{% endblock %}
     </div>
+
 </body>
 </html>

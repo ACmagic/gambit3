@@ -8,6 +8,7 @@ use Modules\Core\Repositories\Doctrine\DoctrineUserRepository;
 use Modules\Core\Repositories\Doctrine\DoctrineSiteRepository;
 use Modules\Core\Entities\User as UserEntity;
 use Modules\Core\Entities\Site as SiteEntity;
+use Modules\Core\Http\ViewComposers\Admin\Site\DataGridComposer as SiteDataGridComposer;
 
 class CoreServiceProvider extends ServiceProvider {
 
@@ -85,6 +86,9 @@ class CoreServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom(array_merge(array_map(function ($path) {
 			return $path . '/modules/core';
 		}, \Config::get('view.paths')), [$sourcePath]), 'core');
+
+		// View composers
+		view()->composer('core::admin.site.datagrid',SiteDataGridComposer::class);
 	}
 
 	/**
