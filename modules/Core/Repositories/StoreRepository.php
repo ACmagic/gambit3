@@ -1,6 +1,6 @@
 <?php namespace Modules\Core\Repositories;
 
-interface UserRepository {
+interface StoreRepository {
 
     public function findById($id);
     public function findAll();

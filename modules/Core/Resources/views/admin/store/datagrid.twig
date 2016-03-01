@@ -1,0 +1,24 @@
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Site</th>
+        <th>Creator</th>
+        <th>Created</th>
+        <th>Updated</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for store in stores %}
+        <tr>
+            <td>{{ store.id }}</td>
+            <td>{{ store.site.id }}</td>
+            <td>{{ store.creator.email }}</td>
+            <td>{{ store.updatedAt }}</td>
+            <td>{{ store.createdAt }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ debug(stores) }}

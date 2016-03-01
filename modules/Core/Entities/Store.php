@@ -1,16 +1,24 @@
 <?php namespace Modules\Core\Entities;
 
-class Site {
+class Store {
 
     protected $id;
+    protected $site;
     protected $creator;
     protected $createdAt;
     protected $updatedAt;
-    //protected $stores;
 
     public function getId() {
-    return $this->id;
-}
+        return $this->id;
+    }
+
+    public function setSite(Site $site) {
+        $this->site = $site;
+    }
+
+    public function getSite() {
+        return $this->site;
+    }
 
     public function setCreator(User $creator) {
         $this->creator = $creator;

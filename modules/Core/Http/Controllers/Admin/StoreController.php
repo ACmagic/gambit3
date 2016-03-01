@@ -3,25 +3,25 @@
 namespace Modules\Core\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Modules\Core\Repositories\UserRepository;
+use Modules\Core\Repositories\StoreRepository;
 
-class UserController extends Controller
+class StoreController extends Controller
 {
 
-    protected $userRepository;
+    protected $storeRepository;
 
     /**
      * Create a new authentication controller instance.
      *
-     * @param UserRepository $userRepository
-     *   The user repository.
+     * @param StoreRepository $storeRepository
+     *   The store repository.
      *
      * @return void
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(StoreRepository $storeRepository)
     {
         //$this->middleware('guest', ['except' => 'logout']);
-        $this->userRepository = $userRepository;
+        $this->storeRepository = $storeRepository;
 
         // middleware to require login
 
@@ -31,7 +31,7 @@ class UserController extends Controller
 
         //$user = $this->em->find('Modules\Core\Entities\User',1);
 
-        return view('core::admin.user.index');
+        return view('core::admin.store.index');
 
     }
 

@@ -4,11 +4,16 @@ use Illuminate\Support\ServiceProvider;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Core\Repositories\UserRepository;
 use Modules\Core\Repositories\SiteRepository;
+use Modules\Core\Repositories\StoreRepository;
 use Modules\Core\Repositories\Doctrine\DoctrineUserRepository;
 use Modules\Core\Repositories\Doctrine\DoctrineSiteRepository;
+use Modules\Core\Repositories\Doctrine\DoctrineStoreRepository;
 use Modules\Core\Entities\User as UserEntity;
 use Modules\Core\Entities\Site as SiteEntity;
+use Modules\Core\Entities\Store as StoreEntity;
 use Modules\Core\Http\ViewComposers\Admin\Site\DataGridComposer as SiteDataGridComposer;
+use Modules\Core\Http\ViewComposers\Admin\User\DataGridComposer as UserDataGridComposer;
+use Modules\Core\Http\ViewComposers\Admin\Store\DataGridComposer as StoreDataGridComposer;
 
 class CoreServiceProvider extends ServiceProvider {
 
@@ -51,6 +56,12 @@ class CoreServiceProvider extends ServiceProvider {
 			);
 		});
 
+		$this->app->bind(StoreRepository::class,function() {
+			return new DoctrineStoreRepository(
+				EntityManager::getRepository(StoreEntity::class)
+			);
+		});
+
 	}
 
 	/**
@@ -89,6 +100,8 @@ class CoreServiceProvider extends ServiceProvider {
 
 		// View composers
 		view()->composer('core::admin.site.datagrid',SiteDataGridComposer::class);
+		view()->composer('core::admin.user.datagrid',UserDataGridComposer::class);
+		view()->composer('core::admin.store.datagrid',StoreDataGridComposer::class);
 	}
 
 	/**

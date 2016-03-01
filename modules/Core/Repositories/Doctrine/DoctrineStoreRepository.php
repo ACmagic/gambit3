@@ -1,9 +1,9 @@
 <?php namespace Modules\Core\Repositories\Doctrine;
 
-use Modules\Core\Repositories\UserRepository;
+use Modules\Core\Repositories\StoreRepository;
 use Doctrine\Common\Persistence\ObjectRepository;
 
-class DoctrineUserRepository implements UserRepository {
+class DoctrineStoreRepository implements StoreRepository {
 
     protected $genericRepository;
 

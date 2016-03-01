@@ -84,6 +84,7 @@ return [
             'mappings'=> [
                 Modules\Core\Mappings\UserMapping::class,
                 Modules\Core\Mappings\SiteMapping::class,
+                Modules\Core\Mappings\StoreMapping::class,
             ],
         ]
     ],
