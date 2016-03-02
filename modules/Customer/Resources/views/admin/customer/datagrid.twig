@@ -1,0 +1,22 @@
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Site</th>
+            <th>Email</th>
+            <th>Created</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for customer in customers %}
+        <tr>
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.pool.site.id }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.updatedAt }}</td>
+            <td>{{ customer.createdAt }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
