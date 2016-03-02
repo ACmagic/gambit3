@@ -28,10 +28,12 @@ return [
             'namespaces' => [
                 // Significant performance boost (minimal scanning)
                 'Modules\Core\Entities',
+                'Modules\Customer\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
-                base_path('modules/Core/Mappings')
+                base_path('modules/Core/Mappings'),
+                base_path('modules/Customer/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -82,9 +84,14 @@ return [
              * Fluent mappings.
              */
             'mappings'=> [
+                // Core
                 Modules\Core\Mappings\UserMapping::class,
                 Modules\Core\Mappings\SiteMapping::class,
                 Modules\Core\Mappings\StoreMapping::class,
+
+                // Customer
+                Modules\Customer\Mappings\CustomerMapping::class,
+                Modules\Customer\Mappings\CustomerPoolMapping::class,
             ],
         ]
     ],
