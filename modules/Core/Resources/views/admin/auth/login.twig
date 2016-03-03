@@ -1,0 +1,27 @@
+{% extends "core::layouts.admin.login" %}
+
+{% block content %}
+
+    {{ form_open({'url': '/admin/login','method': 'POST'}) }}
+
+    <div>
+        Email
+        <input type="email" name="email" value="{{ form_old('email') }}">
+    </div>
+
+    <div>
+        Password
+        <input type="password" name="password" id="password">
+    </div>
+
+    <div>
+        <input type="checkbox" name="remember"> Remember Me
+    </div>
+
+    <div>
+        <button type="submit">Login</button>
+    </div>
+
+    {{ form_close() }}
+
+{% endblock %}
