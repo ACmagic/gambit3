@@ -15,7 +15,7 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => ['web','auth.customer']], function () {
 
 	Route::get('logout','Modules\Customer\Http\Controllers\Frontend\CustomerController@getLogout');
-	Route::get('user/dashboard','Modules\Customer\Http\Controllers\Frontend\CustomerController@getIndex');
+	Route::get('profile','Modules\Customer\Http\Controllers\Frontend\CustomerController@getIndex');
 
 });
 

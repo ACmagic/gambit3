@@ -12,7 +12,7 @@ class CustomerController extends AbstractBaseController
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     // Location to redirect to after successful login.
-    protected $redirectTo = '/user/dashboard';
+    protected $redirectTo = '/profile';
 
     // Set view used for login action.
     protected $loginView = 'customer::frontend.customer.login';
