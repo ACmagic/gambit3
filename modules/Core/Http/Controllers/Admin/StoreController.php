@@ -2,10 +2,9 @@
 
 namespace Modules\Core\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Modules\Core\Repositories\StoreRepository;
 
-class StoreController extends Controller
+class StoreController extends AbstractBaseController
 {
 
     protected $storeRepository;

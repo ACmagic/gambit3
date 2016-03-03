@@ -1,8 +1,9 @@
 <?php namespace Modules\Core\Entities;
 
 use LaravelDoctrine\ORM\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class User {
+class User implements AuthenticatableContract {
 
     use Authenticatable;
 

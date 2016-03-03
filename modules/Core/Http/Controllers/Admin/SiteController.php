@@ -2,10 +2,9 @@
 
 namespace Modules\Core\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Modules\Core\Repositories\SiteRepository;
 
-class SiteController extends Controller
+class SiteController extends AbstractBaseController
 {
 
     protected $siteRepository;

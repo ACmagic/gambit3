@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'customers',
         'passwords' => 'users',
     ],
 
@@ -36,15 +36,19 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+
+        // The frontend website.
+        'customers'=> [
+            'driver'=> 'session',
+            'provider'=> 'customers',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-        ],
+        // The admin.
+        'users'=> [
+            'driver'=> 'session',
+            'provider'=> 'users',
+        ]
+
     ],
 
     /*
@@ -65,15 +69,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'doctrine',
-            'model' => Modules\Core\Entities\User::class,
+
+        // Store front customers.
+        'customers'=> [
+            'driver'=> 'doctrine',
+            'model'=> Modules\Customer\Entities\Customer::class
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        // Admin users.
+        'users'=> [
+            'driver'=> 'doctrine',
+            'model'=> Modules\Core\Entities\User::class,
+        ],
+
     ],
 
     /*

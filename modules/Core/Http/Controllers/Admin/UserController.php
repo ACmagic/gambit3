@@ -2,10 +2,9 @@
 
 namespace Modules\Core\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Modules\Core\Repositories\UserRepository;
 
-class UserController extends Controller
+class UserController extends AbstractBaseController
 {
 
     protected $userRepository;
