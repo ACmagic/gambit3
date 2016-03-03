@@ -7,6 +7,20 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-	Route::get('/admin/customers','Modules\Customer\Http\Controllers\Admin\CustomerController@getIndex');
+	Route::get('login','Modules\Customer\Http\Controllers\Frontend\CustomerController@getLogin');
+	Route::post('login','Modules\Customer\Http\Controllers\Frontend\CustomerController@postLogin');
+
+});
+
+Route::group(['middleware' => ['web','auth.customer']], function () {
+
+	Route::get('logout','Modules\Customer\Http\Controllers\Frontend\CustomerController@getLogout');
+	Route::get('user/dashboard','Modules\Customer\Http\Controllers\Frontend\CustomerController@getIndex');
+
+});
+
+Route::group(['middleware' => ['web','auth.admin']], function () {
+
+	Route::get('admin/customers','Modules\Customer\Http\Controllers\Admin\CustomerController@getIndex');
 
 });

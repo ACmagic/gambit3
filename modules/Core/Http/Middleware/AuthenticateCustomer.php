@@ -21,7 +21,7 @@ class AuthenticateCustomer
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('customer/login');
+                return redirect()->guest('login');
             }
         }
 
