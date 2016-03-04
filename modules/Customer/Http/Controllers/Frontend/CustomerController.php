@@ -5,6 +5,7 @@ namespace Modules\Customer\Http\Controllers\Frontend;
 use Modules\Core\Http\Controllers\Frontend\AbstractBaseController;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Modules\Core\Facades\Store;
 
 class CustomerController extends AbstractBaseController
 {
@@ -24,6 +25,8 @@ class CustomerController extends AbstractBaseController
     protected $guard = 'customers';
 
     public function getIndex() {
+
+        echo Store::getStoreId();
 
         return view('customer::frontend.customer.index');
 

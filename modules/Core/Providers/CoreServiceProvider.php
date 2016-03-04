@@ -2,6 +2,12 @@
 
 use Illuminate\Support\ServiceProvider;
 use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Core\Context\ContextManager;
+use Modules\Core\Context\ContextResolver;
+use Modules\Core\Contracts\Context\Site as SiteContract;
+use Modules\Core\Contracts\Context\Store as StoreContract;
+use Modules\Core\Context\Resolver\SiteResolver;
+use Modules\Core\Context\Resolver\StoreResolver;
 use Modules\Core\Repositories\UserRepository;
 use Modules\Core\Repositories\SiteRepository;
 use Modules\Core\Repositories\StoreRepository;
@@ -42,7 +48,29 @@ class CoreServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{		
+	{
+
+		$this->app->singleton('context.resolver',function($app) {
+			$resolver = new ContextResolver();
+
+			// @todo: Needs to extendable
+			$resolver->register(new SiteResolver($app[SiteRepository::class]));
+			$resolver->register(new StoreResolver($app[StoreRepository::class]));
+
+			return $resolver;
+		});
+
+		$this->app->singleton('context.manager',function($app) {
+			return new ContextManager($app['context.resolver']);
+		});
+
+		$this->app->bind(StoreContract::class,function($app) {
+			return $app['context.manager']->getActiveContext('store');
+		});
+
+		$this->app->bind(SiteContract::class,function($app) {
+			return $app['context.manager']->getActiveContext('site');
+		});
 
 		$this->app->bind(UserRepository::class,function() {
 			return new DoctrineUserRepository(
