@@ -19,4 +19,18 @@ class DoctrineSiteRepository implements SiteRepository {
         return $this->genericRepository->findAll();
     }
 
+    public function findByStoreId($storeId) {
+
+        $qb = $this->genericRepository->createQueryBuilder('s');
+        $qb->join('s.stores','st')
+            ->where('st.id = :storeId')
+            ->setParameter('storeId',$storeId);
+
+        $query = $qb->getQuery();
+        $site = $query->getOneOrNullResult();
+
+        return $site;
+
+    }
+
 }

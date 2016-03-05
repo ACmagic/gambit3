@@ -22,7 +22,7 @@ class StoreMapping extends EntityMapping {
         $builder->table('stores');
         $builder->increments('id');
         $builder->manyToOne(User::class,'creator');
-        $builder->manyToOne(Site::class,'site');
+        $builder->manyToOne(Site::class,'site')->inversedBy('stores');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
     }

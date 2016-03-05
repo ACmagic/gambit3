@@ -26,7 +26,7 @@ class CustomerController extends AbstractBaseController
 
     public function getIndex() {
 
-        echo Store::getStoreId();
+        //echo Store::getStoreId();
 
         return view('customer::frontend.customer.index');
 

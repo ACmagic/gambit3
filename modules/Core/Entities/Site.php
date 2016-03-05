@@ -1,12 +1,18 @@
 <?php namespace Modules\Core\Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Site {
 
     protected $id;
     protected $creator;
     protected $createdAt;
     protected $updatedAt;
-    //protected $stores;
+    protected $stores;
+
+    public function __construct() {
+        $this->stores = new ArrayCollection();
+    }
 
     public function getId() {
     return $this->id;

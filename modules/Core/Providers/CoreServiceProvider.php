@@ -51,12 +51,8 @@ class CoreServiceProvider extends ServiceProvider {
 	{
 
 		$this->app->singleton('context.resolver',function($app) {
-			$resolver = new ContextResolver();
-
-			// @todo: Needs to extendable
-			$resolver->register(new SiteResolver($app[SiteRepository::class]));
-			$resolver->register(new StoreResolver($app[StoreRepository::class]));
-
+			$resolvers = $app->tagged('context_resolver');
+			$resolver = new ContextResolver($resolvers);
 			return $resolver;
 		});
 
@@ -71,6 +67,10 @@ class CoreServiceProvider extends ServiceProvider {
 		$this->app->bind(SiteContract::class,function($app) {
 			return $app['context.manager']->getActiveContext('site');
 		});
+
+		$this->app->singleton(SiteResolver::class);
+		$this->app->singleton(StoreResolver::class);
+		$this->app->tag([SiteResolver::class, StoreResolver::class], 'context_resolver');
 
 		$this->app->bind(UserRepository::class,function() {
 			return new DoctrineUserRepository(

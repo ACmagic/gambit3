@@ -20,4 +20,8 @@ class StoreContext implements Context, StoreContract {
         return $this->store->getId();
     }
 
+    public function getCustomerPoolId() {
+        return 1;
+    }
+
 }

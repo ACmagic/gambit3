@@ -72,7 +72,7 @@ return [
 
         // Store front customers.
         'customers'=> [
-            'driver'=> 'doctrine',
+            'driver'=> 'customers',
             'model'=> Modules\Customer\Entities\Customer::class
         ],
 

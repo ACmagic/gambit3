@@ -1,10 +1,17 @@
 <?php namespace Modules\Customer\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use InvalidArgumentException;
+use Modules\Customer\Auth\CustomersProvider;
+use Modules\Customer\Contracts\Context\CustomerPool as CustomerPoolContract;
 use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Customer\Context\Resolver\CustomerPoolResolver;
 use Modules\Customer\Repositories\CustomerRepository;
+use Modules\Customer\Repositories\CustomerPoolRepository;
 use Modules\Customer\Repositories\Doctrine\DoctrineCustomerRepository;
+use Modules\Customer\Repositories\Doctrine\DoctrineCustomerPoolRepository;
 use Modules\Customer\Entities\Customer as CustomerEntity;
+use Modules\Customer\Entities\CustomerPool as CustomerPoolEntity;
 use Modules\Customer\Http\ViewComposers\Admin\Customer\DataGridComposer as CustomerDataGridComposer;
 
 class CustomerServiceProvider extends ServiceProvider {
@@ -23,6 +30,7 @@ class CustomerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		$this->extendAuthManager();
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
@@ -36,9 +44,22 @@ class CustomerServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
+		$this->app->bind(CustomerPoolContract::class,function($app) {
+			return $app['context.manager']->getActiveContext('customer_pool');
+		});
+
+		$this->app->singleton(CustomerPoolResolver::class);
+		$this->app->tag([CustomerPoolResolver::class], 'context_resolver');
+
 		$this->app->bind(CustomerRepository::class,function() {
 			return new DoctrineCustomerRepository(
 				EntityManager::getRepository(CustomerEntity::class)
+			);
+		});
+
+		$this->app->bind(CustomerPoolRepository::class,function() {
+			return new DoctrineCustomerPoolRepository(
+				EntityManager::getRepository(CustomerPoolEntity::class)
 			);
 		});
 
@@ -107,6 +128,29 @@ class CustomerServiceProvider extends ServiceProvider {
 	public function provides()
 	{
 		return array();
+	}
+
+	/**
+	 * Extend the auth manager
+	 */
+	protected function extendAuthManager()
+	{
+		$this->app->make('auth')->provider('customers', function ($app, $config) {
+
+			$entity = $config['model'];
+
+			$em = $app['registry']->getManagerForClass($entity);
+
+			if (!$em) {
+				throw new InvalidArgumentException("No EntityManager is set-up for {$entity}");
+			}
+
+			return new CustomersProvider(
+				$app['hash'],
+				$em,
+				$entity
+			);
+		});
 	}
 
 }

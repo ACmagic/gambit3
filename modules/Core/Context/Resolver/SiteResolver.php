@@ -3,6 +3,7 @@
 use Modules\Core\Context\Resolver;
 use Modules\Core\Context\Type\SiteContext;
 use Modules\Core\Repositories\SiteRepository;
+use Modules\Core\Facades\Store;
 
 class SiteResolver implements Resolver {
 
@@ -22,7 +23,8 @@ class SiteResolver implements Resolver {
 
     public function resolve() {
 
-        $site = $this->siteRepository->findById(1);
+        $storeId = Store::getStoreId();
+        $site = $this->siteRepository->findByStoreId($storeId);
         $context = new SiteContext($site);
 
         return $context;
