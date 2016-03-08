@@ -5,6 +5,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Site {
 
     protected $id;
+    protected $machineName;
     protected $creator;
     protected $createdAt;
     protected $updatedAt;

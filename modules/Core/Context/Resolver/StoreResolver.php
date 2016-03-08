@@ -22,7 +22,8 @@ class StoreResolver implements Resolver {
 
     public function resolve() {
 
-        $store = $this->storeRepository->findById(1);
+        $storeKey = env('APP_STORE');
+        $store = $this->storeRepository->findByMachineName($storeKey);
         $context = new StoreContext($store);
 
         return $context;

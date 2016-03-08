@@ -21,6 +21,7 @@ class StoreMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('stores');
         $builder->increments('id');
+        $builder->string('machineName')->length(128)->default('')->unique();
         $builder->manyToOne(User::class,'creator');
         $builder->manyToOne(Site::class,'site')->inversedBy('stores');
         $builder->timestamp('createdAt');

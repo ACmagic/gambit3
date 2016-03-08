@@ -4,6 +4,7 @@ class Store {
 
     protected $id;
     protected $site;
+    protected $machineName;
     protected $creator;
     protected $createdAt;
     protected $updatedAt;

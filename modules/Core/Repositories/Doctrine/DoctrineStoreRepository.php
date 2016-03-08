@@ -19,4 +19,8 @@ class DoctrineStoreRepository implements StoreRepository {
         return $this->genericRepository->findAll();
     }
 
+    public function findByMachineName($machineName) {
+        return $this->genericRepository->findOneByMachineName($machineName);
+    }
+
 }

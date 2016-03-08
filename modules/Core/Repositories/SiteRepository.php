@@ -5,5 +5,6 @@ interface SiteRepository {
     public function findById($id);
     public function findAll();
     public function findByStoreId($storeId);
+    public function findByMachineName($machineName);
 
 }

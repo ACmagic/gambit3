@@ -19,6 +19,10 @@ class DoctrineSiteRepository implements SiteRepository {
         return $this->genericRepository->findAll();
     }
 
+    public function findByMachineName($machineName) {
+        return $this->genericRepository->findOneByMachineName($machineName);
+    }
+
     public function findByStoreId($storeId) {
 
         $qb = $this->genericRepository->createQueryBuilder('s');

@@ -21,6 +21,7 @@ class SiteMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('sites');
         $builder->increments('id');
+        $builder->string('machineName')->length(128)->default('')->unique();
         $builder->manyToOne(User::class,'creator');
         $builder->hasMany(Store::class,'stores')->mappedBy('site');
         $builder->timestamp('createdAt');
