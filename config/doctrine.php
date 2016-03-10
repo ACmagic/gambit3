@@ -99,6 +99,7 @@ return [
                 Modules\Catalog\Mappings\SideMapping::class,
                 Modules\Catalog\Mappings\LineMapping::class,
                 Modules\Catalog\Mappings\AdvertisedLineMapping::class,
+                Modules\Catalog\Mappings\AcceptedLineMapping::class,
             ],
         ]
     ],

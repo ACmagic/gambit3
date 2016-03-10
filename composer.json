@@ -9,7 +9,7 @@
         "laravel/framework": "5.2.*",
         "laravel-doctrine/orm": "1.1.*",
         "pingpong/modules": "~2.1",
-        "laravel-doctrine/fluent": "^1.0",
+        "laravel-doctrine/fluent": "dev-extensions-support",
         "laravel-doctrine/migrations": "1.0.*",
         "laravel-doctrine/extensions": "1.0.*",
         "gedmo/doctrine-extensions": "^2.4",

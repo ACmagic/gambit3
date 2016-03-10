@@ -5,14 +5,18 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Catalog\Entities\Side as SideEntity;
 use Modules\Catalog\Entities\Line as LineEntity;
 use Modules\Catalog\Entities\AdvertisedLine as AdvertisedLineEntity;
+use Modules\Catalog\Entities\AcceptedLine as AcceptedLineEntity;
 use Modules\Catalog\Repositories\SideRepository;
 use Modules\Catalog\Repositories\LineRepository;
 use Modules\Catalog\Repositories\AdvertisedLineRepository;
+use Modules\Catalog\Repositories\AcceptedLineRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineSideRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineLineRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineAdvertisedLineRepository;
+use Modules\Catalog\Repositories\Doctrine\DoctrineAcceptedLineRepository;
 use Modules\Catalog\Http\ViewComposers\Admin\Line\DataGridComposer as LineDataGridComposer;
 use Modules\Catalog\Http\ViewComposers\Admin\AdvertisedLine\DataGridComposer as AdvertisedLineDataGridComposer;
+use Modules\Catalog\Http\ViewComposers\Admin\AcceptedLine\DataGridComposer as AcceptedLineDataGridComposer;
 
 class CatalogServiceProvider extends ServiceProvider {
 
@@ -61,6 +65,12 @@ class CatalogServiceProvider extends ServiceProvider {
 			);
 		});
 
+		$this->app->bind(AcceptedLineRepository::class,function() {
+			return new DoctrineAcceptedLineRepository(
+				EntityManager::getRepository(AcceptedLineEntity::class)
+			);
+		});
+
 	}
 
 	/**
@@ -100,6 +110,7 @@ class CatalogServiceProvider extends ServiceProvider {
 		// View composers
 		view()->composer('catalog::admin.line.datagrid',LineDataGridComposer::class);
 		view()->composer('catalog::admin.advertised_line.datagrid',AdvertisedLineDataGridComposer::class);
+		view()->composer('catalog::admin.accepted_line.datagrid',AcceptedLineDataGridComposer::class);
 	}
 
 	/**

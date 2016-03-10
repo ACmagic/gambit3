@@ -1,0 +1,24 @@
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Line</th>
+        <th>Advertised Line</th>
+        <th>Customer</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for acceptedLine in acceptedLines %}
+        <tr>
+            <td>{{ acceptedLine.id }}</td>
+            <td>{{ acceptedLine.advertisedLine.line.id }}</td>
+            <td>{{ acceptedLine.advertisedLine.id }}</td>
+            <td>{{ acceptedLine.customer.email }}</td>
+            <td>{{ acceptedLine.amount }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ debug(acceptedLines) }}
