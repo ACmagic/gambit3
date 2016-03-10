@@ -1,11 +1,10 @@
-<?php namespace Modules\Core\Entities;
+<?php namespace Modules\Catalog\Entities;
 
-class Store {
+class Side {
 
     protected $id;
-    protected $site;
     protected $machineName;
-    protected $creator;
+    protected $humanName;
     protected $createdAt;
     protected $updatedAt;
 
@@ -17,20 +16,8 @@ class Store {
         return $this->machineName;
     }
 
-    public function setSite(Site $site) {
-        $this->site = $site;
-    }
-
-    public function getSite() {
-        return $this->site;
-    }
-
-    public function setCreator(User $creator) {
-        $this->creator = $creator;
-    }
-
-    public function getCreator() {
-        return $this->creator;
+    public function getHumanName() {
+        return $this->humanName;
     }
 
     public function getCreatedAt() {

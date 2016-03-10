@@ -1,0 +1,34 @@
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Site</th>
+        <th>Store</th>
+        <th>Side</th>
+        <th>Odds</th>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Predictions</th>
+        <th>Available</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in lines %}
+        <tr>
+            <td>{{ line.id }}</td>
+            <td>{{ line.store.site.machineName }}</td>
+            <td>{{ line.store.machineName }}</td>
+            <td>{{ line.side.humanName }}</td>
+            <td>{{ line.odds }}</td>
+            <td>20</td>
+            <td>50</td>
+            <td>1</td>
+            <td>5</td>
+            <td>OPEN</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ debug(lines) }}

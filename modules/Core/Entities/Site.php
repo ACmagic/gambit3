@@ -16,8 +16,12 @@ class Site {
     }
 
     public function getId() {
-    return $this->id;
-}
+        return $this->id;
+    }
+
+    public function getMachineName() {
+        return $this->machineName;
+    }
 
     public function setCreator(User $creator) {
         $this->creator = $creator;

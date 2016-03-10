@@ -29,11 +29,13 @@ return [
                 // Significant performance boost (minimal scanning)
                 'Modules\Core\Entities',
                 'Modules\Customer\Entities',
+                'Modules\Catalog\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
                 base_path('modules/Core/Mappings'),
                 base_path('modules/Customer/Mappings'),
+                base_path('modules/Catalog/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -92,6 +94,10 @@ return [
                 // Customer
                 Modules\Customer\Mappings\CustomerMapping::class,
                 Modules\Customer\Mappings\CustomerPoolMapping::class,
+
+                // Catalog
+                Modules\Catalog\Mappings\SideMapping::class,
+                Modules\Catalog\Mappings\LineMapping::class,
             ],
         ]
     ],
