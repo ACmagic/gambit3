@@ -1,6 +1,7 @@
 <?php namespace Modules\Catalog\Entities;
 
 use Modules\Core\Entities\Store;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Line {
 
@@ -10,6 +11,11 @@ class Line {
     protected $odds;
     protected $createdAt;
     protected $updatedAt;
+    protected $advertisedLines;
+
+    public function __construct() {
+        $this->advertisedLines = new ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;

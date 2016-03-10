@@ -1,0 +1,26 @@
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Line</th>
+        <th>Customer</th>
+        <th>Inventory</th>
+        <th>Amount</th>
+        <th>Amount Max</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for advertisedLine in advertisedLines %}
+        <tr>
+            <td>{{ advertisedLine.id }}</td>
+            <td>{{ advertisedLine.line.id }}</td>
+            <td>{{ advertisedLine.customer.email }}</td>
+            <td>{{ advertisedLine.inventory }}</td>
+            <td>{{ advertisedLine.amount }}</td>
+            <td>{{ advertisedLine.amountMax }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ debug(advertisedLines) }}

@@ -98,6 +98,7 @@ return [
                 // Catalog
                 Modules\Catalog\Mappings\SideMapping::class,
                 Modules\Catalog\Mappings\LineMapping::class,
+                Modules\Catalog\Mappings\AdvertisedLineMapping::class,
             ],
         ]
     ],
