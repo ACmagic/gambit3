@@ -30,12 +30,14 @@ return [
                 'Modules\Core\Entities',
                 'Modules\Customer\Entities',
                 'Modules\Catalog\Entities',
+                'Modules\Event\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
                 base_path('modules/Core/Mappings'),
                 base_path('modules/Customer/Mappings'),
                 base_path('modules/Catalog/Mappings'),
+                base_path('modules/Event/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -100,6 +102,9 @@ return [
                 Modules\Catalog\Mappings\LineMapping::class,
                 Modules\Catalog\Mappings\AdvertisedLineMapping::class,
                 Modules\Catalog\Mappings\AcceptedLineMapping::class,
+
+                // Event
+                Modules\Event\Mappings\CategoryMapping::class,
             ],
         ]
     ],
@@ -120,7 +125,7 @@ return [
         //LaravelDoctrine\Extensions\SoftDeletes\SoftDeleteableExtension::class,
         //LaravelDoctrine\Extensions\Sluggable\SluggableExtension::class,
         //LaravelDoctrine\Extensions\Sortable\SortableExtension::class,
-        //LaravelDoctrine\Extensions\Tree\TreeExtension::class,
+        LaravelDoctrine\Extensions\Tree\TreeExtension::class,
         //LaravelDoctrine\Extensions\Loggable\LoggableExtension::class,
         //LaravelDoctrine\Extensions\Blameable\BlameableExtension::class,
         //LaravelDoctrine\Extensions\IpTraceable\IpTraceableExtension::class,

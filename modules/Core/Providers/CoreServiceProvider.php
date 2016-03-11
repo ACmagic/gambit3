@@ -4,6 +4,8 @@ use Illuminate\Support\ServiceProvider;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Core\Context\ContextManager;
 use Modules\Core\Context\ContextResolver;
+use Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain;
+use LaravelDoctrine\Fluent\Extensions\GedmoExtensions;
 use Modules\Core\Contracts\Context\Site as SiteContract;
 use Modules\Core\Contracts\Context\Store as StoreContract;
 use Modules\Core\Context\Resolver\SiteResolver;
@@ -49,6 +51,9 @@ class CoreServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+
+		//$chain = new MappingDriverChain();
+		//GedmoExtensions::registerAll($chain);
 
 		$this->app->singleton('context.resolver',function($app) {
 			$resolvers = $app->tagged('context_resolver');
