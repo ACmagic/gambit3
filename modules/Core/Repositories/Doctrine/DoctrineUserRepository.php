@@ -19,4 +19,11 @@ class DoctrineUserRepository implements UserRepository {
         return $this->genericRepository->findAll();
     }
 
+    public function createQueryBuilderForAdminDataGrid() {
+
+        $qb = $this->genericRepository->createQueryBuilder('u');
+        return $qb;
+
+    }
+
 }
