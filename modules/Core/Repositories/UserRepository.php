@@ -4,5 +4,6 @@ interface UserRepository {
 
     public function findById($id);
     public function findAll();
+    public function createQueryBuilderForAdminDataGrid();
 
 }

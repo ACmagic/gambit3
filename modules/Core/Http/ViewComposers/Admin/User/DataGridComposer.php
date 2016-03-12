@@ -29,6 +29,7 @@ class DataGridComposer {
         $grid->addText('id','ID');
         $grid->addText('email','Email');
         $grid->addDate('createdAt','Created');
+        $grid->addDate('updatedAt','Updated');
 
         $view->with('grid',$grid);
 

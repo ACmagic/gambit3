@@ -6,6 +6,5 @@ interface SiteRepository {
     public function findAll();
     public function findByStoreId($storeId);
     public function findByMachineName($machineName);
-    public function createQueryBuilderForAdminDataGrid();
 
 }
