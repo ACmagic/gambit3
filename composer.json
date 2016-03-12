@@ -15,7 +15,17 @@
         "gedmo/doctrine-extensions": "^2.4",
         "beberlei/DoctrineExtensions": "^1.0",
         "rcrowe/twigbridge": "^0.9.1",
-        "barryvdh/laravel-debugbar": "^2.2"
+        "barryvdh/laravel-debugbar": "^2.2",
+        "mesour/datagrid": "3.0.*@beta",
+        "mesour/sources": "3.0.*@beta",
+        "mesour/components": "3.0.*@beta",
+        "mesour/table": "3.0.*@beta",
+        "mesour/icon": "3.0.*@beta",
+        "mesour/button": "3.0.*@beta",
+        "mesour/pager": "3.0.*@beta",
+        "mesour/dropdown": "3.0.*@beta",
+        "mesour/selection": "3.0.*@beta",
+        "mesour/filter": "3.0.*@beta"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
