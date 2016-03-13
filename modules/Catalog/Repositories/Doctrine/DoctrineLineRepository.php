@@ -19,4 +19,15 @@ class DoctrineLineRepository implements LineRepository {
         return $this->genericRepository->findAll();
     }
 
+    public function createQueryBuilderForAdminDataGrid() {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+        $qb->select('l','s');
+        $qb
+            ->join('l.store','s');
+
+        return $qb;
+
+    }
+
 }
