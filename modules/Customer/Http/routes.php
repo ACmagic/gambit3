@@ -22,5 +22,6 @@ Route::group(['middleware' => ['web','auth.customer']], function () {
 Route::group(['middleware' => ['web','auth.admin']], function () {
 
 	Route::get('admin/customers','Modules\Customer\Http\Controllers\Admin\CustomerController@getIndex');
+	Route::post('admin/customers','Modules\Customer\Http\Controllers\Admin\CustomerController@getIndex');
 
 });

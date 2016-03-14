@@ -23,6 +23,9 @@ class DataGridComposer {
 
         $grid = new DataGrid('customers',$this->uiApp);
         $grid->setSource($source);
+        $grid->enablePager(1);
+        $grid->enableFilter(true);
+
         $grid->addText('id','ID');
         $grid->addText('site','Site')->setFiltering(false)->setOrdering(false)->setCallback(function($col,$customer) {
             return $customer->getPool()->getSite()->getMachineName();

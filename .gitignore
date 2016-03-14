@@ -3,5 +3,8 @@
 /public/storage
 Homestead.yaml
 Homestead.json
+bower_components/*
+node_modules/*
+public/dist/*
 .env
 .idea/*
