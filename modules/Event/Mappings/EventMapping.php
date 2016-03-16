@@ -4,8 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use Modules\Core\Entities\User;
 use Modules\Event\Entities\Event;
 use LaravelDoctrine\Fluent\Fluent;
-
-use Modules\Football\Entities\FootballGame;
+use Modules\Sports\Entities\Game as SportsGame;
 
 class EventMapping extends EntityMapping {
 
@@ -32,7 +31,7 @@ class EventMapping extends EntityMapping {
         $builder->joinedTableInheritance()
             ->column('type')
             ->map(Event::class,Event::class)
-            ->map(FootballGame::class,FootballGame::class);
+            ->map(SportsGame::class,SportsGame::class);
     }
 
 }

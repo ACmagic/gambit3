@@ -1,8 +1,8 @@
-<?php namespace Modules\Football\Providers;
+<?php namespace Modules\Sports\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class FootballServiceProvider extends ServiceProvider {
+class SportsServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -41,10 +41,10 @@ class FootballServiceProvider extends ServiceProvider {
 	protected function registerConfig()
 	{
 		$this->publishes([
-		    __DIR__.'/../Config/config.php' => config_path('football.php'),
+		    __DIR__.'/../Config/config.php' => config_path('sports.php'),
 		]);
 		$this->mergeConfigFrom(
-		    __DIR__.'/../Config/config.php', 'football'
+		    __DIR__.'/../Config/config.php', 'sports'
 		);
 	}
 
@@ -55,7 +55,7 @@ class FootballServiceProvider extends ServiceProvider {
 	 */
 	public function registerViews()
 	{
-		$viewPath = base_path('resources/views/modules/football');
+		$viewPath = base_path('resources/views/modules/sports');
 
 		$sourcePath = __DIR__.'/../Resources/views';
 
@@ -64,8 +64,8 @@ class FootballServiceProvider extends ServiceProvider {
 		]);
 
 		$this->loadViewsFrom(array_merge(array_map(function ($path) {
-			return $path . '/modules/football';
-		}, \Config::get('view.paths')), [$sourcePath]), 'football');
+			return $path . '/modules/sports';
+		}, \Config::get('view.paths')), [$sourcePath]), 'sports');
 	}
 
 	/**
@@ -75,12 +75,12 @@ class FootballServiceProvider extends ServiceProvider {
 	 */
 	public function registerTranslations()
 	{
-		$langPath = base_path('resources/lang/modules/football');
+		$langPath = base_path('resources/lang/modules/sports');
 
 		if (is_dir($langPath)) {
-			$this->loadTranslationsFrom($langPath, 'football');
+			$this->loadTranslationsFrom($langPath, 'sports');
 		} else {
-			$this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'football');
+			$this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'sports');
 		}
 	}
 

@@ -1,12 +1,12 @@
 {
-    "name": "Football",
-    "alias": "football",
+    "name": "Sports",
+    "alias": "Sports",
     "description": "",
     "keywords": [],
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\Football\\Providers\\FootballServiceProvider"
+        "Modules\\Sports\\Providers\\SportsServiceProvider"
     ],
     "aliases":{},
     "files": [

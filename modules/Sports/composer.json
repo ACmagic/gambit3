@@ -1,5 +1,5 @@
 {
-	"name": "oddz/football",
+	"name": "oddz/sports",
 	"description": "",
 	"authors": [
 		{
@@ -9,7 +9,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"Modules\\Football\\": ""
+			"Modules\\Sports\\": ""
 		}
 	}
 }

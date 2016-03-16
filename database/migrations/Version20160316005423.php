@@ -15,7 +15,7 @@ class Version20160316005423 extends AbstractMigration
     public function up(Schema $schema)
     {
 
-        (new Builder($schema))->create('football_games', function(Table $table) {
+        (new Builder($schema))->create('sports_games', function(Table $table) {
 
             $table->unsignedBigInteger('id');
             $table->foreign('events','id','id',['onDelete'=>'CASCADE']);
@@ -30,6 +30,6 @@ class Version20160316005423 extends AbstractMigration
      */
     public function down(Schema $schema)
     {
-        (new Builder($schema))->drop('football_games');
+        (new Builder($schema))->drop('sports_games');
     }
 }
