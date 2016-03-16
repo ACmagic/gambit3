@@ -3,14 +3,7 @@
 <head>
     <title>Admin Layout Default</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link href="http://grid.mesour.com/css/mesour.grid.css" rel="stylesheet">
+    <link href="/dist/css/gambit.css" rel="stylesheet">
 
 </head>
 <body>
@@ -27,7 +20,14 @@
                     <li><a href="{{ url('admin/credits') }}">Credits</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url('admin/events') }}">Events</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Events <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url('admin/events/football') }}">Football</a></li>
+                    <li><a href="{{ url('admin/events/basketball') }}">Basketball</a></li>
+                    <li><a href="{{ url('admin/events/hockey') }}">Hockey</a></li>
+                    <li><a href="{{ url('admin/events/soccer') }}">Soccer</a></li>
+                </ul>
+            </li>
             <li><a href="{{ url('admin/customers') }}">Customers</a></li>
             <li><a href="{{ url('admin/sales') }}">Sales</a></li>
             <li><a href="{{ url('admin/sites') }}">Sites</a></li>
@@ -49,7 +49,7 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script type="text/javascript" src="/dist/gambit.js"></script>
+    <script type="text/javascript" src="/dist/js/gambit.js"></script>
 
 </body>
 </html>

@@ -31,6 +31,7 @@ return [
                 'Modules\Customer\Entities',
                 'Modules\Catalog\Entities',
                 'Modules\Event\Entities',
+                'Modules\Football\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
@@ -38,6 +39,7 @@ return [
                 base_path('modules/Customer/Mappings'),
                 base_path('modules/Catalog/Mappings'),
                 base_path('modules/Event/Mappings'),
+                base_path('modules/Football/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -105,6 +107,10 @@ return [
 
                 // Event
                 Modules\Event\Mappings\CategoryMapping::class,
+                Modules\Event\Mappings\EventMapping::class,
+
+                // Football
+                Modules\Football\Mappings\FootballGameMapping::class
             ],
         ]
     ],

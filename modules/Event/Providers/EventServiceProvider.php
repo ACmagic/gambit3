@@ -3,8 +3,11 @@
 use Illuminate\Support\ServiceProvider;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Event\Entities\Category as CategoryEntity;
+use Modules\Event\Entities\Event as EventEntity;
 use Modules\Event\Repositories\CategoryRepository;
+use Modules\Event\Repositories\EventRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineCategoryRepository;
+use Modules\Event\Repositories\Doctrine\DoctrineEventRepository;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -38,6 +41,12 @@ class EventServiceProvider extends ServiceProvider {
 		$this->app->bind(CategoryRepository::class,function() {
 			return new DoctrineCategoryRepository(
 				EntityManager::getRepository(CategoryEntity::class)
+			);
+		});
+
+		$this->app->bind(EventRepository::class,function() {
+			return new DoctrineEventRepository(
+				EntityManager::getRepository(EventEntity::class)
 			);
 		});
 
