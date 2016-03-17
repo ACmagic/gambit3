@@ -4,5 +4,6 @@ interface EventRepository {
 
     public function findById($id);
     public function findAll();
+    public function findAllByType($type);
 
 }

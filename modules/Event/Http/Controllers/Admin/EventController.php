@@ -5,6 +5,7 @@ namespace Modules\Event\Http\Controllers\Admin;
 use Modules\Core\Http\Controllers\Admin\AbstractBaseController;
 use Modules\Event\Repositories\EventRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Modules\Football\Entities\NFLGame;
 
 class EventController extends AbstractBaseController
 {
@@ -30,7 +31,7 @@ class EventController extends AbstractBaseController
 
     public function getIndex() {
 
-        $events = $this->eventRepository->findAll();
+        $events = $this->eventRepository->findAllByType(NFLGame::class);
 
         return view('event::admin.event.index',['events'=>$events]);
 

@@ -19,4 +19,16 @@ class DoctrineEventRepository implements EventRepository {
         return $this->genericRepository->findAll();
     }
 
+    public function findAllByType($type) {
+
+        $qb = $this->genericRepository->createQueryBuilder('e')
+            ->where('e INSTANCE OF '.$type);
+
+        $query = $qb->getQuery();
+        $events = $query->getResult();
+
+        return $events;
+
+    }
+
 }
