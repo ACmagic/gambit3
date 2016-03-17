@@ -29,6 +29,7 @@ class CompetitorMapping extends EntityMapping {
 
         $builder->joinedTableInheritance()
             ->column('type')
+            ->map(Competitor::class,Competitor::class)
             ->map(SportsTeam::class,SportsTeam::class)
             ->map(SportsPlayer::class,SportsPlayer::class);
     }
