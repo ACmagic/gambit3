@@ -6,6 +6,7 @@ use Modules\Event\Entities\Competitor;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sports\Entities\Player as SportsPlayer;
 use Modules\Sports\Entities\Team as SportsTeam;
+use Modules\Football\Entities\NFLTeam as NFLFootballTeam;
 
 class CompetitorMapping extends EntityMapping {
 
@@ -31,7 +32,8 @@ class CompetitorMapping extends EntityMapping {
             ->column('type')
             ->map(Competitor::class,Competitor::class)
             ->map(SportsTeam::class,SportsTeam::class)
-            ->map(SportsPlayer::class,SportsPlayer::class);
+            ->map(SportsPlayer::class,SportsPlayer::class)
+            ->map(NFLFootballTeam::class,NFLFootballTeam::class);
     }
 
 }

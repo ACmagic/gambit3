@@ -1,0 +1,15 @@
+{
+    "name": "Football",
+    "alias": "football",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Football\\Providers\\FootballServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

@@ -114,6 +114,10 @@ return [
                 Modules\Sports\Mappings\GameMapping::class,
                 Modules\Sports\Mappings\TeamMapping::class,
                 Modules\Sports\Mappings\PlayerMapping::class,
+
+                // Football
+                Modules\Football\Mappings\NFLGameMapping::class,
+                Modules\Football\Mappings\NFLTeamMapping::class,
             ],
         ]
     ],
