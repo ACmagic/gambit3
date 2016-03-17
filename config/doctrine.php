@@ -108,9 +108,12 @@ return [
                 // Event
                 Modules\Event\Mappings\CategoryMapping::class,
                 Modules\Event\Mappings\EventMapping::class,
+                Modules\Event\Mappings\CompetitorMapping::class,
 
                 // Sports
-                Modules\Sports\Mappings\GameMapping::class
+                Modules\Sports\Mappings\GameMapping::class,
+                Modules\Sports\Mappings\TeamMapping::class,
+                Modules\Sports\Mappings\PlayerMapping::class,
             ],
         ]
     ],

@@ -7,7 +7,6 @@ class Player extends Competitor {
     protected $firstName;
     protected $lastName;
     protected $middleName;
-    protected $team;
 
     public function getFirstName() {
         return $this->firstName;
@@ -19,14 +18,6 @@ class Player extends Competitor {
 
     public function getMiddleName() {
         return $this->middleName;
-    }
-
-    public function setTeam() {
-
-    }
-
-    public function getTeam() {
-        return $this->team;
     }
 
 }

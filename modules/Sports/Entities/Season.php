@@ -1,6 +1,6 @@
 <?php namespace Modules\Sports\Entities;
 
-class Roster {
+class Season {
 
     protected $id;
 
