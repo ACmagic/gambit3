@@ -30,16 +30,20 @@ return [
                 'Modules\Core\Entities',
                 'Modules\Customer\Entities',
                 'Modules\Catalog\Entities',
+                'Modules\Prediction\Entities',
                 'Modules\Event\Entities',
                 'Modules\Sports\Entities',
+                'Modules\Football\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
                 base_path('modules/Core/Mappings'),
                 base_path('modules/Customer/Mappings'),
                 base_path('modules/Catalog/Mappings'),
+                base_path('modules/Prediction/Mappings'),
                 base_path('modules/Event/Mappings'),
                 base_path('modules/Sports/Mappings'),
+                base_path('modules/Football/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -104,6 +108,9 @@ return [
                 Modules\Catalog\Mappings\LineMapping::class,
                 Modules\Catalog\Mappings\AdvertisedLineMapping::class,
                 Modules\Catalog\Mappings\AcceptedLineMapping::class,
+
+                // Prediction
+                Modules\Prediction\Mappings\PredictionMapping::class,
 
                 // Event
                 Modules\Event\Mappings\CategoryMapping::class,

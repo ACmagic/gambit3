@@ -12,9 +12,11 @@ class Line {
     protected $createdAt;
     protected $updatedAt;
     protected $advertisedLines;
+    protected $predictions;
 
     public function __construct() {
         $this->advertisedLines = new ArrayCollection();
+        $this->predictions = new ArrayCollection();
     }
 
     public function getId() {
