@@ -32,6 +32,7 @@ return [
                 'Modules\Catalog\Entities',
                 'Modules\Prediction\Entities',
                 'Modules\Event\Entities',
+                'Modules\Vegas\Entities',
                 'Modules\Sports\Entities',
                 'Modules\Football\Entities',
             ],
@@ -42,6 +43,7 @@ return [
                 base_path('modules/Catalog/Mappings'),
                 base_path('modules/Prediction/Mappings'),
                 base_path('modules/Event/Mappings'),
+                base_path('modules/Vegas/Mappings'),
                 base_path('modules/Sports/Mappings'),
                 base_path('modules/Football/Mappings'),
             ],
@@ -116,6 +118,10 @@ return [
                 Modules\Event\Mappings\CategoryMapping::class,
                 Modules\Event\Mappings\EventMapping::class,
                 Modules\Event\Mappings\CompetitorMapping::class,
+
+                // Vegas
+                Modules\Vegas\Mappings\MoneyLineMapping::class,
+                Modules\Vegas\Mappings\PointSpreadMapping::class,
 
                 // Sports
                 Modules\Sports\Mappings\GameMapping::class,

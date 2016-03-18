@@ -1,0 +1,15 @@
+{
+	"name": "oddz/vegas",
+	"description": "",
+	"authors": [
+		{
+			"name": "Todd Zmijewski",
+			"email": "sme.s.key@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Modules\\Vegas\\": ""
+		}
+	}
+}
