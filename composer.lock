@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c8b6cc4e4a34f0bf959cde2b0be25268",
-    "content-hash": "29842da146eacfb672338f6eaa71a5bc",
+    "hash": "a3837f57334b6e3afa31e69bb9ffca69",
+    "content-hash": "47f32797ac7035bb1f4da534a2d73704",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -63,16 +63,16 @@
         },
         {
             "name": "beberlei/DoctrineExtensions",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/DoctrineExtensions.git",
-                "reference": "43bb11c1634c99f4b0e34be15b779daf0453b59d"
+                "reference": "5e4eeb632b18da7a848b9b470ff1e688200c0d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/DoctrineExtensions/zipball/43bb11c1634c99f4b0e34be15b779daf0453b59d",
-                "reference": "43bb11c1634c99f4b0e34be15b779daf0453b59d",
+                "url": "https://api.github.com/repos/beberlei/DoctrineExtensions/zipball/5e4eeb632b18da7a848b9b470ff1e688200c0d4e",
+                "reference": "5e4eeb632b18da7a848b9b470ff1e688200c0d4e",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +121,7 @@
                 "doctrine",
                 "orm"
             ],
-            "time": "2016-03-07 11:36:05"
+            "time": "2016-03-12 14:13:55"
         },
         {
             "name": "behat/transliterator",
@@ -775,16 +775,16 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "v1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "abc571dadd45df42f19baac7a0a1a371216dd93d"
+                "reference": "0d0ff5da10c5d30846da32060bd9e357abf70a05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/abc571dadd45df42f19baac7a0a1a371216dd93d",
-                "reference": "abc571dadd45df42f19baac7a0a1a371216dd93d",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/0d0ff5da10c5d30846da32060bd9e357abf70a05",
+                "reference": "0d0ff5da10c5d30846da32060bd9e357abf70a05",
                 "shasum": ""
             },
             "require": {
@@ -844,7 +844,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2016-02-23 15:28:39"
+            "time": "2016-03-14 12:29:11"
         },
         {
             "name": "doctrine/orm",
@@ -1519,16 +1519,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.22",
+            "version": "v5.2.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "aec1b7cb9ec0bac0107361a3730cac9b6f945ef4"
+                "reference": "87c090845f135ca94eba903f1c8462e60e3a6e36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/aec1b7cb9ec0bac0107361a3730cac9b6f945ef4",
-                "reference": "aec1b7cb9ec0bac0107361a3730cac9b6f945ef4",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/87c090845f135ca94eba903f1c8462e60e3a6e36",
+                "reference": "87c090845f135ca94eba903f1c8462e60e3a6e36",
                 "shasum": ""
             },
             "require": {
@@ -1643,7 +1643,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-02-27 22:09:19"
+            "time": "2016-03-14 14:22:33"
         },
         {
             "name": "laravelcollective/html",
@@ -1701,16 +1701,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "635ee279a522233a567984756bf9da1db243d9bf"
+                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/635ee279a522233a567984756bf9da1db243d9bf",
-                "reference": "635ee279a522233a567984756bf9da1db243d9bf",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
+                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
                 "shasum": ""
             },
             "require": {
@@ -1780,7 +1780,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-03-12 19:04:33"
+            "time": "2016-03-14 21:54:11"
         },
         {
             "name": "maximebf/debugbar",
@@ -1894,16 +1894,16 @@
         },
         {
             "name": "mesour/components",
-            "version": "3.0.1-beta",
+            "version": "3.0.2-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mesour/components.git",
-                "reference": "0e689cd19ffa14309a664ab37317827565b604d5"
+                "reference": "95c1b865164e799f1f377bf2d111ce25fdaad2e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mesour/components/zipball/0e689cd19ffa14309a664ab37317827565b604d5",
-                "reference": "0e689cd19ffa14309a664ab37317827565b604d5",
+                "url": "https://api.github.com/repos/mesour/components/zipball/95c1b865164e799f1f377bf2d111ce25fdaad2e0",
+                "reference": "95c1b865164e799f1f377bf2d111ce25fdaad2e0",
                 "shasum": ""
             },
             "require": {
@@ -1941,7 +1941,7 @@
             "keywords": [
                 "components"
             ],
-            "time": "2016-03-06 00:04:31"
+            "time": "2016-03-13 16:21:30"
         },
         {
             "name": "mesour/datagrid",
@@ -1953,7 +1953,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mesour/DataGrid/zipball/f2fce2f45695c4548cac157af13218a3900c128c",
+                "url": "https://api.github.com/repos/mesour/DataGrid/zipball/104ef286874b4095b41b2a15a68ae8722c5f1fcd",
                 "reference": "f2fce2f45695c4548cac157af13218a3900c128c",
                 "shasum": ""
             },
@@ -2060,16 +2060,16 @@
         },
         {
             "name": "mesour/filter",
-            "version": "3.0.1-beta",
+            "version": "3.0.2-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mesour/filter.git",
-                "reference": "d5d04c12d48e105380481bdb9151b965006d6c60"
+                "reference": "94ed115b194f13e3469c55bcb8809b098507853a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mesour/filter/zipball/d5d04c12d48e105380481bdb9151b965006d6c60",
-                "reference": "d5d04c12d48e105380481bdb9151b965006d6c60",
+                "url": "https://api.github.com/repos/mesour/filter/zipball/94ed115b194f13e3469c55bcb8809b098507853a",
+                "reference": "94ed115b194f13e3469c55bcb8809b098507853a",
                 "shasum": ""
             },
             "require": {
@@ -2080,7 +2080,7 @@
             },
             "require-dev": {
                 "doctrine/orm": "^2.5",
-                "mesour/array-manager": "dev-master",
+                "mesour/array-manager": "3.0.*@beta",
                 "nette/database": "~2.3",
                 "nette/tester": "^1.6",
                 "tracy/tracy": "~2.3.0"
@@ -2109,7 +2109,7 @@
                 "component",
                 "filter"
             ],
-            "time": "2016-03-05 23:10:09"
+            "time": "2016-03-13 17:10:49"
         },
         {
             "name": "mesour/icon",
@@ -2157,6 +2157,52 @@
                 "icon"
             ],
             "time": "2016-03-01 12:57:44"
+        },
+        {
+            "name": "mesour/laravel-bridges",
+            "version": "v3.0.1-beta",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mesour/laravel-bridges.git",
+                "reference": "54eafe6a6f77196efcf37c817823cd32ed93d49e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mesour/laravel-bridges/zipball/54eafe6a6f77196efcf37c817823cd32ed93d49e",
+                "reference": "54eafe6a6f77196efcf37c817823cd32ed93d49e",
+                "shasum": ""
+            },
+            "require": {
+                "mesour/components": "3.0.*@beta",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matouš Němec",
+                    "homepage": "http://mesour.com"
+                }
+            ],
+            "description": "Mesour Laravel Bridges.",
+            "homepage": "http://components.mesour.com/version3/bridges/laravel/",
+            "keywords": [
+                "components",
+                "laravel",
+                "laravel bridges",
+                "mesour"
+            ],
+            "time": "2016-03-13 18:38:34"
         },
         {
             "name": "mesour/pager",
@@ -2361,16 +2407,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.0",
+            "version": "1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc"
+                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
+                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
                 "shasum": ""
             },
             "require": {
@@ -2435,7 +2481,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-03-01 18:00:40"
+            "time": "2016-03-13 16:08:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -2699,16 +2745,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
                 "shasum": ""
             },
             "require": {
@@ -2743,7 +2789,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-18 20:34:03"
         },
         {
             "name": "pingpong/generators",
@@ -4796,16 +4842,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.23",
+            "version": "4.8.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483"
+                "reference": "a1066c562c52900a142a0e2bbf0582994671385e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6e351261f9cd33daf205a131a1ba61c6d33bd483",
-                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a1066c562c52900a142a0e2bbf0582994671385e",
+                "reference": "a1066c562c52900a142a0e2bbf0582994671385e",
                 "shasum": ""
             },
             "require": {
@@ -4864,7 +4910,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-11 14:56:33"
+            "time": "2016-03-14 06:16:08"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5416,7 +5462,8 @@
         "mesour/pager": 10,
         "mesour/dropdown": 10,
         "mesour/selection": 10,
-        "mesour/filter": 10
+        "mesour/filter": 10,
+        "mesour/laravel-bridges": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -3,16 +3,15 @@
 use Illuminate\View\View;
 use Modules\Catalog\Repositories\LineRepository;
 use Mesour\DataGrid\Sources\DoctrineGridSource;
+use Mesour\Bridges\Laravel\ApplicationManager;
 use Mesour\UI\DataGrid;
-use Mesour\Components\Application\IApplication;
-use Modules\Core\Entities\Store as StoreEntity;
 
 class DataGridComposer {
 
     protected $lineRepository;
     protected $uiApp;
 
-    public function __construct(LineRepository $lineRepository,IApplication $uiApp) {
+    public function __construct(LineRepository $lineRepository,ApplicationManager $uiApp) {
 
         $this->lineRepository = $lineRepository;
         $this->uiApp = $uiApp;
@@ -26,7 +25,7 @@ class DataGridComposer {
         $source->setPrimaryKey('id');
         //$source->setReference('store',StoreEntity::class, 'machineName');
 
-        $grid = new DataGrid('lines',$this->uiApp);
+        $grid = new DataGrid('lines',$this->uiApp->getApplication());
         $grid->setSource($source);
         $grid->addText('id','ID');
 

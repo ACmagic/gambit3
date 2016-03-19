@@ -2,7 +2,7 @@
 
 use Illuminate\View\View;
 use Mesour\UI\DataGrid;
-use Mesour\Components\Application\IApplication;
+use Mesour\Bridges\Laravel\ApplicationManager;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DataGridComposer {
@@ -10,7 +10,7 @@ class DataGridComposer {
     protected $em;
     protected $uiApp;
 
-    public function __construct(EntityManagerInterface $em,IApplication $uiApp) {
+    public function __construct(EntityManagerInterface $em,ApplicationManager $uiApp) {
 
         $this->em = $em;
         $this->uiApp = $uiApp;
@@ -21,7 +21,7 @@ class DataGridComposer {
 
         $source = new DataGridSource($this->em);
 
-        $grid = new DataGrid('customers',$this->uiApp);
+        $grid = new DataGrid('customers',$this->uiApp->getApplication());
         $grid->setSource($source);
         $grid->enablePager(1);
         $grid->enableFilter(true);

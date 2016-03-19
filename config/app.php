@@ -184,6 +184,9 @@ return [
         // Twig bridge
         TwigBridge\ServiceProvider::class,
 
+        // Mesour application service provider,
+        Mesour\Bridges\Laravel\ApplicationServiceProvider::class,
+
         // Debugbar
         Barryvdh\Debugbar\ServiceProvider::class,
 

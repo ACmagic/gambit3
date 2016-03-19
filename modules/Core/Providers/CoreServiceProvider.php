@@ -53,12 +53,12 @@ class CoreServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
-		$this->app->singleton(IApplication::class,function() {
+		/*$this->app->singleton(IApplication::class,function() {
 			$theApp = new UiApplication();
 			$theApp->setRequest($_REQUEST);
 			return $theApp;
 		});
-		$this->app->alias(IApplication::class,'uiapp');
+		$this->app->alias(IApplication::class,'uiapp');*/
 
 		$this->app->singleton('context.resolver',function($app) {
 			$resolvers = $app->tagged('context_resolver');
