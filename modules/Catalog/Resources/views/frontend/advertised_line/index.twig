@@ -1,0 +1,34 @@
+{% extends "core::layouts.frontend.default" %}
+
+{% block content %}
+
+    <h1>Advertise Line</h1>
+
+    <form>
+
+        <fieldset>
+
+            <div>
+                <label for="">Pick</label>
+                <ul>
+                    <li>
+                        <input type="radio" name="team">
+                        <label for="">Team 1</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="team">
+                        <label for="">Team 2</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <label for="">Spread</label>
+                <input type="text">
+            </div>
+
+        </fieldset>
+
+    </form>
+
+{% endblock %}
