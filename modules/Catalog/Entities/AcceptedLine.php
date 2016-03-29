@@ -4,23 +4,15 @@ use Modules\Customer\Entities\Customer;
 
 class AcceptedLine {
 
+    use AcceptedLineTrait;
+
     protected $id;
-    protected $advertisedLine;
     protected $customer;
-    protected $amount;
     protected $createdAt;
     protected $updatedAt;
 
     public function getId() {
         return $this->id;
-    }
-
-    public function getAdvertisedLine() {
-        return $this->advertisedLine;
-    }
-
-    public function setAdvertisedLine(AdvertisedLine $advertisedLine) {
-        $this->advertisedLine = $advertisedLine;
     }
 
     public function getCustomer() {
@@ -29,10 +21,6 @@ class AcceptedLine {
 
     public function setCustomer(Customer $customer) {
         $this->customer = $customer;
-    }
-
-    public function getAmount() {
-        return $this->amount;
     }
 
     public function getCreatedAt() {

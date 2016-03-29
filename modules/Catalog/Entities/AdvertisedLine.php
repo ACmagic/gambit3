@@ -4,12 +4,11 @@ use Modules\Customer\Entities\Customer;
 
 class AdvertisedLine {
 
+    use AdvertisedLineTrait;
+
     protected $id;
     protected $line;
     protected $customer;
-    protected $inventory;
-    protected $amount;
-    protected $amountMax;
     protected $createdAt;
     protected $updatedAt;
 
@@ -31,18 +30,6 @@ class AdvertisedLine {
 
     public function setCustomer(Customer $customer) {
         $this->customer = $customer;
-    }
-
-    public function getInventory() {
-        return $this->inventory;
-    }
-
-    public function getAmount() {
-        return $this->amount;
-    }
-
-    public function getAmountMax() {
-        return $this->amountMax;
     }
 
     public function getCreatedAt() {

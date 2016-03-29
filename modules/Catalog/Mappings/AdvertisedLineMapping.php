@@ -8,6 +8,8 @@ use LaravelDoctrine\Fluent\Fluent;
 
 class AdvertisedLineMapping extends EntityMapping {
 
+    use AdvertisedLineMappingTrait;
+
     /**
      * @inheritdoc
      */
@@ -25,9 +27,7 @@ class AdvertisedLineMapping extends EntityMapping {
         $builder->belongsTo(Line::class,'line');
         $builder->belongsTo(Customer::class,'customer');
 
-        $builder->unsignedBigInteger('inventory')->default(1);
-        $builder->decimal('amount')->unsigned()->precision(16)->scale(4);
-        $builder->decimal('amountMax')->unsigned()->precision(16)->scale(4)->nullable();
+        $this->mapAdvertisedLine($builder);
 
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

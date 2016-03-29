@@ -1,3 +1,5 @@
 npm install xxx --save-dev --no-bin-links
 
 http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/
+
+bower install PACKAGE --save

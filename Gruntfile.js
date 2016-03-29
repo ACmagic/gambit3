@@ -2,12 +2,25 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        /*less: {
+            "admin-css": {
+                options: {
+                    strictMath: true,
+                    sourceMap: true,
+                    outputSourceFiles: true,
+                    sourceMapURL: '<%= pkg.name %>.css.map',
+                    sourceMapFilename: 'dist/css/admin-less.css.map'
+                },
+                src: 'bower_components/less/bootstrap.less',
+                dest: 'dist/css/<%= pkg.name %>.css'
+            }
+        },*/
         concat: {
             options: {
                 // define a string to put between each file in the concatenated output
                 separator: ''
             },
-            js: {
+            "admin-js": {
                 // the files to concatenate
                 src: [
                     'bower_components/jquery/dist/jquery.js',
@@ -16,9 +29,9 @@ module.exports = function(grunt) {
                     'modules/Core/Resources/js/main.js'
                 ],
                 // the location of the resulting JS file
-                dest: 'public/dist/js/<%= pkg.name %>.js'
+                dest: 'public/dist/js/admin.js'
             },
-            css: {
+            "admin-css": {
                 // the files to concatenate
                 src: [
                     'bower_components/bootstrap/dist/css/bootstrap.css',
@@ -26,7 +39,7 @@ module.exports = function(grunt) {
                     'modules/Core/Resources/css/mesour.grid.css'
                 ],
                 // the location of the resulting JS file
-                dest: 'public/dist/css/<%= pkg.name %>.css'
+                dest: 'public/dist/css/admin.css'
             }
         },
         copy: {
@@ -46,6 +59,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['concat:js','concat:css','copy:main']);
+    grunt.registerTask('default', ['concat:admin-js','concat:admin-css','copy:main']);
 
 };
