@@ -35,6 +35,7 @@ return [
                 'Modules\Vegas\Entities',
                 'Modules\Sports\Entities',
                 'Modules\Football\Entities',
+                'Modules\Sales\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
@@ -46,6 +47,7 @@ return [
                 base_path('modules/Vegas/Mappings'),
                 base_path('modules/Sports/Mappings'),
                 base_path('modules/Football/Mappings'),
+                base_path('modules/Sales/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -131,6 +133,15 @@ return [
                 // Football
                 Modules\Football\Mappings\NFLGameMapping::class,
                 Modules\Football\Mappings\NFLTeamMapping::class,
+
+                // Sales
+                Modules\Sales\Mappings\QuoteMapping::class,
+                Modules\Sales\Mappings\QuoteItemMapping::class,
+                Modules\Sales\Mappings\QuoteAdvertisedLineMapping::class,
+                Modules\Sales\Mappings\QuoteAcceptedLineMapping::class,
+                Modules\Sales\Mappings\QuotePredictionMapping::class,
+                Modules\Sales\Mappings\QuoteMoneyLineMapping::class,
+                Modules\Sales\Mappings\QuotePointSpreadMapping::class,
             ],
         ]
     ],

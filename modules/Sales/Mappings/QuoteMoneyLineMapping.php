@@ -1,10 +1,11 @@
-<?php namespace Modules\Vegas\Mappings;
+<?php namespace Modules\Sales\Mappings;
 
 use LaravelDoctrine\Fluent\EntityMapping;
-use Modules\Vegas\Entities\MoneyLine;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Sales\Entities\QuoteMoneyLine;
+use Modules\Vegas\Mappings\MoneyLineMappingTrait;
 
-class MoneyLineMapping extends EntityMapping {
+class QuoteMoneyLineMapping extends EntityMapping {
 
     use MoneyLineMappingTrait;
 
@@ -12,14 +13,14 @@ class MoneyLineMapping extends EntityMapping {
      * @inheritdoc
      */
     public function mapFor() {
-        return MoneyLine::class;
+        return QuoteMoneyLine::class;
     }
 
     /**
      * @inheritdoc
      */
     public function map(Fluent $builder) {
-        $builder->table('money_lines');
+        $builder->table('quote_money_lines');
         $this->mapMoneyLine($builder);
     }
 

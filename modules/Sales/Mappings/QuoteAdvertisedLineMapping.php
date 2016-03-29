@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\QuoteAdvertisedLine;
 use Modules\Catalog\Mappings\AdvertisedLineMappingTrait;
+use Modules\Sales\Entities\QuotePrediction;
 
 class QuoteAdvertisedLineMapping extends EntityMapping {
 
@@ -21,6 +22,7 @@ class QuoteAdvertisedLineMapping extends EntityMapping {
      */
     public function map(Fluent $builder) {
         $builder->table('quote_advertised_lines');
+        $builder->hasMany(QuotePrediction::class,'predictions')->mappedBy('advertisedLine');
         $this->mapAdvertisedLine($builder);
     }
 

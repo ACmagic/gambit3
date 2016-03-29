@@ -1,10 +1,11 @@
-<?php namespace Modules\Vegas\Mappings;
+<?php namespace Modules\Sales\Mappings;
 
 use LaravelDoctrine\Fluent\EntityMapping;
-use Modules\Vegas\Entities\PointSpread;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Sales\Entities\QuotePointSpread;
+use Modules\Vegas\Mappings\PointSpreadMappingTrait;
 
-class PointSpreadMapping extends EntityMapping {
+class QuotePointSpreadMapping extends EntityMapping {
 
     use PointSpreadMappingTrait;
 
@@ -12,14 +13,14 @@ class PointSpreadMapping extends EntityMapping {
      * @inheritdoc
      */
     public function mapFor() {
-        return PointSpread::class;
+        return QuotePointSpread::class;
     }
 
     /**
      * @inheritdoc
      */
     public function map(Fluent $builder) {
-        $builder->table('point_spreads');
+        $builder->table('quote_point_spreads');
         $this->mapPointSpread($builder);
     }
 
