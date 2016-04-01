@@ -3,6 +3,7 @@
 namespace Modules\Core\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Modules\Core\Console\Commands\SeedDatabase;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -14,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        SeedDatabase::class,
     ];
 
     /**

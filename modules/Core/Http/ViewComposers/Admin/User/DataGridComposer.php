@@ -1,30 +1,27 @@
 <?php namespace Modules\Core\Http\ViewComposers\Admin\User;
 
 use Illuminate\View\View;
-use Modules\Core\Repositories\UserRepository;
-use Mesour\DataGrid\Sources\DoctrineGridSource;
+use Doctrine\ORM\EntityManagerInterface;
 use Mesour\UI\DataGrid;
-use Mesour\Components\Application\IApplication;
+use Mesour\Bridges\Laravel\ApplicationManager;
 
 class DataGridComposer {
 
-    protected $userRepository;
+    protected $em;
     protected $uiApp;
 
-    public function __construct(UserRepository $userRepository,IApplication $uiApp) {
+    public function __construct(EntityManagerInterface $em,ApplicationManager $uiApp) {
 
-        $this->userRepository = $userRepository;
+        $this->em = $em;
         $this->uiApp = $uiApp;
 
     }
 
     public function compose(View $view) {
 
-        $qb = $this->userRepository->createQueryBuilderForAdminDataGrid();
-        $source = new DoctrineGridSource($qb);
-        $source->setPrimaryKey('id');
+        $source = new DataGridSource($this->em);
 
-        $grid = new DataGrid('users',$this->uiApp);
+        $grid = new DataGrid('users',$this->uiApp->getApplication());
         $grid->setSource($source);
         $grid->addText('id','ID');
         $grid->addText('email','Email');

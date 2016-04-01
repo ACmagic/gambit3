@@ -1,0 +1,28 @@
+{% extends "core::layouts.admin.default" %}
+
+{% block content %}
+
+    {{ form_open({'url': '/admin/user/create','method': 'POST'}) }}
+
+    <div>
+        Email
+        <input type="text" name="email" value="{{ form_old('email') }}">
+    </div>
+
+    <div>
+        Password
+        <input type="password" name="password">
+    </div>
+
+    <div>
+        Confirm Password
+        <input type="password" name="password_confirmation">
+    </div>
+
+    <div>
+        <button type="submit">Create</button>
+    </div>
+
+    {{ form_close() }}
+
+{% endblock %}

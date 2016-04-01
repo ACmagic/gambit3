@@ -1,0 +1,7 @@
+Modules\Core\Entities\Site:
+  site0:
+    machineName: test0
+  site1:
+    machineName: test1
+  site2:
+    machineName: test2

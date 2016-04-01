@@ -19,6 +19,8 @@ Route::group(['middleware' => ['web','auth.admin']], function () {
     Route::get('/admin/logout','Modules\Core\Http\Controllers\Admin\AuthController@getLogout');
     Route::get('/admin','Modules\Core\Http\Controllers\Admin\HomeController@getIndex');
     Route::get('/admin/users','Modules\Core\Http\Controllers\Admin\UserController@getIndex');
+    Route::get('/admin/user/create','Modules\Core\Http\Controllers\Admin\UserController@getRegister');
+    Route::post('/admin/user/create','Modules\Core\Http\Controllers\Admin\UserController@postRegister');
     Route::get('/admin/sites','Modules\Core\Http\Controllers\Admin\SiteController@getIndex');
     Route::get('/admin/stores','Modules\Core\Http\Controllers\Admin\StoreController@getIndex');
 
