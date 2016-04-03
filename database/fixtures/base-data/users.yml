@@ -1,16 +1,6 @@
 Modules\Core\Entities\User:
-  user0:
-    email: sme.s.key+gambit-test1@gmail.com
-    password: <bcrypt('-Password1')>
-    createdAt: <carbon_now()>
-    updatedAt: <carbon_now()>
-  user1:
-    email: sme.s.key+gambit-test2@gmail.com
-    password: <bcrypt('-Password1')>
-    createdAt: <carbon_now()>
-    updatedAt: <carbon_now()>
-  user2:
-    email: sme.s.key+gambit-test3@gmail.com
+  user{1..3}:
+    email (unique): <safeEmail()>
     password: <bcrypt('-Password1')>
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>

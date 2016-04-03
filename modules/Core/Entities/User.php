@@ -41,4 +41,17 @@ class User implements AuthenticatableContract {
         $this->updatedAt = $updatedAt;
     }
 
+    public function toArray() {
+
+        $data = [
+            'id'=> $this->getId(),
+            'email'=> $this->getEmail(),
+            'createdAt'=> $this->getCreatedAt(),
+            'updatedAt'=> $this->getUpdatedAt(),
+        ];
+
+        return $data;
+
+    }
+
 }

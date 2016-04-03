@@ -1,5 +1,7 @@
 <?php namespace Modules\Core\Entities;
 
+use Carbon\Carbon;
+
 class Store {
 
     protected $id;
@@ -15,6 +17,10 @@ class Store {
 
     public function getMachineName() {
         return $this->machineName;
+    }
+
+    public function setMachineName($machineName) {
+        $this->machineName = $machineName;
     }
 
     public function setSite(Site $site) {
@@ -37,8 +43,29 @@ class Store {
         return $this->createdAt;
     }
 
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
     public function getUpdatedAt() {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
+    }
+
+    public function toArray() {
+
+        $data = [
+            'id'=> $this->getId(),
+            'machineName'=> $this->getMachineName(),
+            'createdAt'=> $this->getCreatedAt(),
+            'updatedAt'=> $this->getUpdatedAt(),
+        ];
+
+        return $data;
+
     }
 
 }

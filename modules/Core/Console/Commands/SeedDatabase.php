@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Nelmio\Alice\Fixtures;
 use Modules\Core\Faker\Provider\Helpers;
 use Modules\Core\Faker\Provider\Carbon;
+use Modules\Core\Faker\Provider\Strings;
 use Faker\Generator;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -42,17 +43,22 @@ class SeedDatabase extends Command
      */
     public function handle() {
 
-        $file = database_path('fixtures/base-data/users.yml');
+        $files = [
+            database_path('fixtures/base-data/users.yml'),
+            database_path('fixtures/base-data/sites.yml'),
+            database_path('fixtures/base-data/stores.yml'),
+        ];
 
         $generator = new Generator();
         $providers = [
             new Helpers($generator),
             new Carbon($generator),
+            new Strings($generator),
         ];
 
-        $objects = Fixtures::load($file, $this->em,[
+        $objects = Fixtures::load($files, $this->em,[
             'providers'=> $providers
         ]);
-        
+
     }
 }

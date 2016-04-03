@@ -1,7 +1,16 @@
 Modules\Core\Entities\Site:
-  site0:
-    machineName: test0
   site1:
-    machineName: test1
+    machineName (unique): test1
+    creator: '@user1'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
   site2:
-    machineName: test2
+    machineName (unique): test2
+    creator: '@user2'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  site3:
+    machineName (unique): test3
+    creator: '@user3'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
