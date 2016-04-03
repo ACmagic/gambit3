@@ -1,0 +1,13 @@
+Modules\Customer\Entities\CustomerPool:
+  customerPool1:
+    site: '@site1'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  customerPool2:
+    site: '@site2'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  customerPool3:
+    site: '@site3'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

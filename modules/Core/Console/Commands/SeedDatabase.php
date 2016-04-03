@@ -47,6 +47,8 @@ class SeedDatabase extends Command
             database_path('fixtures/base-data/users.yml'),
             database_path('fixtures/base-data/sites.yml'),
             database_path('fixtures/base-data/stores.yml'),
+            database_path('fixtures/base-data/sides.yml'),
+            database_path('fixtures/base-data/customer_pool.yml'),
         ];
 
         $generator = new Generator();

@@ -1,0 +1,11 @@
+Modules\Catalog\Entities\Side:
+  side1:
+    machineName: seeker
+    humanName: Seeker
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  side2:
+    machineName: house
+    humanName: House
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

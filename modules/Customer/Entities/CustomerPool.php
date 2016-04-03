@@ -2,6 +2,7 @@
 
 use Modules\Core\Entities\Site;
 use Doctrine\Common\Collections\ArrayCollection;
+use Carbon\Carbon;
 
 class CustomerPool {
 
@@ -31,8 +32,16 @@ class CustomerPool {
         return $this->createdAt;
     }
 
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
     public function getUpdatedAt() {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
     }
 
 }

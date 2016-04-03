@@ -2,6 +2,7 @@
 
 use LaravelDoctrine\ORM\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Carbon\Carbon;
 
 class Customer implements AuthenticatableContract {
 
@@ -33,8 +34,16 @@ class Customer implements AuthenticatableContract {
         return $this->createdAt;
     }
 
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
     public function getUpdatedAt() {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
     }
 
 }
