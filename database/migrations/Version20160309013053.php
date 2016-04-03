@@ -15,7 +15,7 @@ class Version20160309013053 extends AbstractMigration
     public function up(Schema $schema)
     {
 
-        (new Builder($schema))->create('lines', function(Table $table) {
+        (new Builder($schema))->create('`lines`', function(Table $table) {
             $table->bigIncrements('id');
 
             $table->integer('store_id')->setUnsigned(true)->setNotnull(true);
@@ -39,7 +39,7 @@ class Version20160309013053 extends AbstractMigration
     public function down(Schema $schema)
     {
 
-        (new Builder($schema))->drop('lines');
+        (new Builder($schema))->drop('`lines`');
 
     }
 }

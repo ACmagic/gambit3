@@ -66,7 +66,9 @@ return [
             */
             'events'     => [
                 'listeners'   => [],
-                'subscribers' => []
+                'subscribers' => [
+                    Doctrine\DBAL\Events::onSchemaDropTable => Modules\Core\Subscribers\DoctrineSubscriber::class
+                ]
             ],
             'filters'    => [],
             /*
