@@ -1,0 +1,19 @@
+Modules\Customer\Entities\Customer:
+  customer{1..3}:
+    pool: '@customerPool1'
+    email (unique): <safeEmail()>
+    password: <bcrypt('-Password1')>
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  customer{4..7}:
+    pool: '@customerPool2'
+    email (unique): <safeEmail()>
+    password: <bcrypt('-Password1')>
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  customer{8..10}:
+    pool: '@customerPool3'
+    email (unique): <safeEmail()>
+    password: <bcrypt('-Password1')>
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

@@ -42,7 +42,7 @@ class Side {
         return $this->updatedAt;
     }
 
-    public function setUpdateddAt(Carbon $updatedAt) {
+    public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
     }
 

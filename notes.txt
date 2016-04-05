@@ -6,6 +6,13 @@ bower install PACKAGE --save
 
 ---------------------------------------------------
 
+Recipe: Tear down and up the db
+
+php artisan doctrine:migrations:refresh
+php artisan gambit:core:seed
+
+---------------------------------------------------
+
 seeker
 house
 
