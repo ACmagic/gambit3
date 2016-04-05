@@ -10,4 +10,8 @@ class NFLTeam extends Team {
         return $this->machineName;
     }
 
+    public function setMachineName($machineName) {
+        $this->machineName = $machineName;
+    }
+
 }

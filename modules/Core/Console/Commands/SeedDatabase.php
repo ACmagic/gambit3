@@ -45,10 +45,17 @@ class SeedDatabase extends Command
 
         $files = [
             database_path('fixtures/base-data/users.yml'),
+
+            // abstract templates (dependent on users)
+            database_path('fixtures/base-data/abstract_competitor.yml'),
+            database_path('fixtures/base-data/abstract_sports_team.yml'),
+
+            // Rest of the stuff.
             database_path('fixtures/base-data/sites.yml'),
             database_path('fixtures/base-data/stores.yml'),
             database_path('fixtures/base-data/sides.yml'),
             database_path('fixtures/base-data/customer_pool.yml'),
+            database_path('fixtures/base-data/nfl_football_teams.yml'),
         ];
 
         $generator = new Generator();

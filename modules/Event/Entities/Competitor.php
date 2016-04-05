@@ -1,6 +1,7 @@
 <?php namespace Modules\Event\Entities;
 
 use Modules\Core\Entities\User;
+use Carbon\Carbon;
 
 class Competitor {
 
@@ -25,8 +26,16 @@ class Competitor {
         return $this->createdAt;
     }
 
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
     public function getUpdatedAt() {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
     }
 
 }

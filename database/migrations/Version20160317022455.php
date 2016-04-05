@@ -19,7 +19,16 @@ class Version20160317022455 extends AbstractMigration
 
             $table->unsignedBigInteger('id');
             $table->string('machine_name',128)->setNotNull(true);
-            $table->foreign('sports_teams','id','id',['onDelete'=>'CASCADE']);
+
+            /**
+             * This can't be done because foreign key is assumed to map
+             * to root level parent. Thus, the only parent that is inserted
+             * before the child is the root level parent. The rest of the ordering
+             * is arbitrary in doctrine.
+             */
+            //$table->foreign('sports_teams','id','id',['onDelete'=>'CASCADE']);
+            $table->foreign('competitors','id','id',['onDelete'=>'CASCADE']);
+
             $table->primary('id');
             $table->unique('machine_name');
 

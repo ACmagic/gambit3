@@ -1,0 +1,5 @@
+Modules\Event\Entities\Competitor:
+  abstract_competitor (template):
+    creator: '@user1'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

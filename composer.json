@@ -28,7 +28,8 @@
         "mesour/filter": "3.0.*@beta",
         "mesour/laravel-bridges": "3.0.*@beta",
         "predis/predis": "^1.0",
-        "nelmio/alice": "^2.1"
+        "nelmio/alice": "^2.1",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

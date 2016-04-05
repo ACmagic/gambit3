@@ -1,0 +1,4 @@
+Modules\Sports\Entities\Team:
+  abstract_sports_team (template, extends abstract_competitor):
+    name: undefined
+

@@ -1,3 +1,5 @@
+include:
+    - abstract_sports_team.yml
 Modules\Football\Entities\NFLTeam:
     'nflTeam_bal (extends abstract_sports_team)':
         name: Ravens
