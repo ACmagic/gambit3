@@ -1,6 +1,10 @@
 <?php namespace Modules\Football\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Football\Entities\NFLTeam as NFLTeamEntity;
+use Modules\Football\Repositories\NFLTeamRepository;
+use Modules\Football\Repositories\Doctrine\DoctrineNFLTeamRepository;
 
 class FootballServiceProvider extends ServiceProvider {
 
@@ -29,8 +33,14 @@ class FootballServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{		
-		//
+	{
+
+		$this->app->bind(NFLTeamRepository::class,function() {
+			return new DoctrineNFLTeamRepository(
+				EntityManager::getRepository(NFLTeamEntity::class)
+			);
+		});
+
 	}
 
 	/**

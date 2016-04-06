@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Modules\Core\Console\Commands\SeedDatabase;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Modules\Football\Console\Commands\NFLTeamsFixtureCommand;
+use Modules\Football\Console\Commands\NFLGamesFixtureCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -19,7 +20,8 @@ class Kernel extends ConsoleKernel
         SeedDatabase::class,
 
         // Football
-        NFLTeamsFixtureCommand::class
+        NFLTeamsFixtureCommand::class,
+        NFLGamesFixtureCommand::class,
     ];
 
     /**

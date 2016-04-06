@@ -139,8 +139,8 @@ class NFLTeamsFixtureCommand extends Command
 
     protected function buildYamlArray() {
 
-        $this->yamlArray['include'] = array();
-        $this->yamlArray['include'][] = 'abstract_sports_team.yml';
+        //$this->yamlArray['include'] = array();
+        //$this->yamlArray['include'][] = 'abstract_sports_team.yml';
 
         //$this->yamlArray[Competitor::class] = [];
         //$this->yamlArray[Team::class] = [];

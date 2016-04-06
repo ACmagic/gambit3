@@ -1,6 +1,10 @@
 <?php namespace Modules\Sports\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Sports\Entities\Team as TeamEntity;
+use Modules\Sports\Repositories\TeamRepository;
+use Modules\Sports\Repositories\Doctrine\DoctrineTeamRepository;
 
 class SportsServiceProvider extends ServiceProvider {
 
@@ -29,8 +33,14 @@ class SportsServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{		
-		//
+	{
+
+		$this->app->bind(TeamRepository::class,function() {
+			return new DoctrineTeamRepository(
+				EntityManager::getRepository(TeamEntity::class)
+			);
+		});
+
 	}
 
 	/**

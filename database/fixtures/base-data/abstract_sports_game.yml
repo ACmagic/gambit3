@@ -1,0 +1,3 @@
+Modules\Sports\Entities\Game:
+  abstract_sports_game (template, extends abstract_event):
+

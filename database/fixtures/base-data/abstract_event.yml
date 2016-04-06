@@ -1,0 +1,6 @@
+Modules\Event\Entities\Event:
+  abstract_event (template):
+    creator: '@user1'
+    startsAt: <carbon_date(dateTimeThisDecade())>
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
