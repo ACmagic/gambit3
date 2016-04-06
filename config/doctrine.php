@@ -95,6 +95,8 @@ return [
             */
             'mapping_types' => [
                 //'enum' => 'string'
+                //'datetime'=> 'carbondatetime',
+                //'date'=> 'carbondate',
             ],
             /*
              * Fluent mappings.

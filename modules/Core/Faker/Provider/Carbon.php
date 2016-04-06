@@ -8,9 +8,9 @@ use Carbon\Carbon as ActualCarbon;
  */
 class Carbon extends Base {
 
-    public function carbon_date($date) {
+    public function carbon_parse($date) {
 
-        return ActualCarbon::createFromDate($date);
+        return ActualCarbon::parse($date);
 
     }
 

@@ -143,13 +143,13 @@ class NFLGamesFixtureCommand extends Command
                 return;
             }
 
-            if(!$awayTeam || !$awayTeam) {
+            if(!$awayTeam || !$homeTeam) {
                 $this->error('Unable to match football team '.$awayText.' or '.$homeText);
                 return;
             }
 
             $this->gamesData[] = [
-                'startsAt'=> "<carbon_date(".$this->currentDate->toDateString().")>",
+                'startsAt'=> '<carbon_parse("'.$this->currentDate->toDateTimeString().'")>',
                 'homeTeam'=> '@nflTeam_'.$homeTeam->getMachineName(),
                 'awayTeam'=> '@nflTeam_'.$awayTeam->getMachineName(),
                 'displayTitle'=> $awayTeam->getName().' @ '.$homeTeam->getName(),
