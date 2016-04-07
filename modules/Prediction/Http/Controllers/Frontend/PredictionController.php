@@ -11,7 +11,16 @@ class PredictionController extends AbstractBaseController {
         $predictable = PredictableManager::getPredictable($type,$id);
         $types = PredictionTypeManager::getTypes($predictable);
 
-        return view('prediction::frontend.prediction.new',['predictable'=>$predictable,'types'=>$types]);
+        return view('prediction::frontend.prediction.new',['predictable'=>$predictable,'types'=>$types,'predictableType'=>$type]);
+
+    }
+
+    public function getNewConfigure($type,$id,$predictionType) {
+
+        $theType = PredictionTypeManager::getType($predictionType);
+        $form = $theType->getFrontendForm([]);
+
+        return view('prediction::frontend.prediction.new.configure',['form'=>$form]);
 
     }
 

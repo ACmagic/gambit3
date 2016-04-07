@@ -8,8 +8,9 @@
     <h1>New Prediction</h1>
 
     <ul>
-        <li>Money Line</li>
-        <li>Point Spread</li>
+        {% for type in types %}
+            <li>{{ link_to_route('prediction.new.configure',type.getFrontendTitle(),{type: predictableType,id: predictable.id, predictionType: type.getName()}) }}</li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

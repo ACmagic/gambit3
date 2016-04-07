@@ -16,6 +16,10 @@ class PredictionTypeManager {
         $this->types[$type->getName()] = $type;
     }
 
+    public function getType($name) {
+        return $this->types[$name];
+    }
+
     public function getTypes(Predictable $predictable) {
 
         $compatible = [];

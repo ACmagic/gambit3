@@ -187,6 +187,9 @@ return [
         // Mesour application service provider,
         Mesour\Bridges\Laravel\ApplicationServiceProvider::class,
 
+        // Laravel Form Builder
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+
         // Debugbar
         Barryvdh\Debugbar\ServiceProvider::class,
 
@@ -248,6 +251,9 @@ return [
         'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
         'Registry'      => LaravelDoctrine\ORM\Facades\Registry::class,
         'Doctrine'      => LaravelDoctrine\ORM\Facades\Doctrine::class,
+
+        // Form builder
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
 
         /*
          * Aliases supplied by the Pingpong labs modules package.

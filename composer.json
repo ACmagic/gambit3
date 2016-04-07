@@ -29,7 +29,8 @@
         "mesour/laravel-bridges": "3.0.*@beta",
         "predis/predis": "^1.0",
         "nelmio/alice": "^2.1",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "kris/laravel-form-builder": "1.6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

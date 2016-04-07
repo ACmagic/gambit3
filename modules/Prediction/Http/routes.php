@@ -7,4 +7,9 @@ Route::group(['middleware' => ['web']], function () {
 		'as'=> 'prediction.new'
 	]);
 
+	Route::get('prediction/new/{type}/{id}/{predictionType}',[
+		'uses'=> 'Modules\Prediction\Http\Controllers\Frontend\PredictionController@getNewConfigure',
+		'as'=> 'prediction.new.configure'
+	]);
+
 });

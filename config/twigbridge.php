@@ -186,6 +186,7 @@ return [
             'elixir',
             'head',
             'last',
+            'form'=> ['is_safe'=> ['html']]
         ],
 
         /*
