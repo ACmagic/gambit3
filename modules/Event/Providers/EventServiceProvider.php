@@ -11,6 +11,7 @@ use Modules\Event\Repositories\CompetitorRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineCategoryRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineEventRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineCompetitorRepository;
+use Modules\Event\Prediction\Resolver\EventResolver as PredictionEventResolver;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -40,6 +41,10 @@ class EventServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+
+		// Register event as something that one can make a prediction one.
+		$this->app->singleton(PredictionEventResolver::class);
+		$this->app->tag([PredictionEventResolver::class], 'predictable_resolver');
 
 		$this->app->bind(CategoryRepository::class,function() {
 			return new DoctrineCategoryRepository(

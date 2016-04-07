@@ -6,6 +6,10 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Prediction\Entities\Prediction as PredictionEntity;
 use Modules\Prediction\Repositories\PredictionRepository;
 use Modules\Prediction\Repositories\Doctrine\DoctrinePredictionRepository;
+use Modules\Prediction\PredictionTypeManager;
+use Modules\Prediction\PredictableManager;
+use Modules\Prediction\Contracts\PredictableManager as IPredictableManager;
+use Modules\Prediction\Contracts\PredictionTypeManager as IPredictionTypeManager;
 
 class PredictionServiceProvider extends ServiceProvider {
 
@@ -35,6 +39,28 @@ class PredictionServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+
+		// Maintains prediction types.
+		$this->app->singleton('prediction.type.manager',function($app) {
+			$types = $app->tagged('prediction_type');
+			$manager = new PredictionTypeManager($types);
+			return $manager;
+		});
+
+		$this->app->bind(IPredictionTypeManager::class,function($app) {
+			return $app['prediction.type.manager'];
+		});
+
+		// Managers items that one can make a prediction one.
+		$this->app->singleton('predictable.manager',function($app) {
+			$types = $app->tagged('predictable_resolver');
+			$manager = new PredictableManager($types);
+			return $manager;
+		});
+
+		$this->app->bind(IPredictableManager::class,function($app) {
+			return $app['predictable.manager'];
+		});
 
 		$this->app->bind(PredictionRepository::class,function() {
 			return new DoctrinePredictionRepository(

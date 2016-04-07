@@ -1,6 +1,8 @@
 <?php namespace Modules\Vegas\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Vegas\Prediction\Type\MoneyLineType as MoneyLinePredictionType;
+use Modules\Vegas\Prediction\Type\PointSpreadType as PointSpreadPredictionType;
 
 class VegasServiceProvider extends ServiceProvider {
 
@@ -29,8 +31,13 @@ class VegasServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{		
-		//
+	{
+
+		// Register prediction types
+		$this->app->singleton(MoneyLinePredictionType::class);
+		$this->app->singleton(PointSpreadPredictionType::class);
+		$this->app->tag([MoneyLinePredictionType::class,PointSpreadPredictionType::class], 'prediction_type');
+
 	}
 
 	/**

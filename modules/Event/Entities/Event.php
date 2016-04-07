@@ -2,8 +2,9 @@
 
 use Modules\Core\Entities\User;
 use Carbon\Carbon;
+use Modules\Prediction\Predictable;
 
-class Event {
+class Event implements Predictable {
 
     protected $id;
     protected $creator;
