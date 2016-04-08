@@ -22,4 +22,9 @@ interface PredictionType {
      */
     public function getCompatibilityResolver();
 
+    /**
+     * Make prediction for adding to a sales quote.
+     */
+    public function makeQuotePredictionFromRequest();
+
 }

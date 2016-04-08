@@ -46,4 +46,21 @@ class PredictableManager implements IPredictableManager {
         return $predictable;
     }
 
+    /**
+     * Get resolver for the specified predictable.
+     *
+     * @param Predictable $predictable
+     *
+     * @return PredictableResolver
+     */
+    public function matchResolver(Predictable $predictable) {
+
+        foreach($this->resolvers as $resolver) {
+            if($resolver->owns($predictable)) {
+                return $resolver;
+            }
+        }
+
+    }
+
 }

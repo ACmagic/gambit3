@@ -30,4 +30,8 @@ class MoneyLineType implements PredictionType {
         return $form;
     }
 
+    public function makeQuotePredictionFromRequest() {
+
+    }
+
 }

@@ -2,6 +2,8 @@
 
 use Modules\Prediction\PredictableResolver;
 use Modules\Event\Repositories\EventRepository;
+use Modules\Prediction\Predictable;
+use Modules\Event\Entities\Event as EventEntity;
 
 class EventResolver implements PredictableResolver {
 
@@ -18,6 +20,14 @@ class EventResolver implements PredictableResolver {
     public function getById($id) {
         $event = $this->eventRepo->findById($id);
         return $event;
+    }
+
+    public function owns(Predictable $predictable) {
+        return $predictable instanceof EventEntity;
+    }
+
+    public function pluckId(Predictable $predictable) {
+        return $predictable->getId();
     }
 
 }

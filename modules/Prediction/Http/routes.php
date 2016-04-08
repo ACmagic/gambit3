@@ -12,4 +12,9 @@ Route::group(['middleware' => ['web']], function () {
 		'as'=> 'prediction.new.configure'
 	]);
 
+	Route::post('prediction/new',[
+		'uses'=> 'Modules\Prediction\Http\Controllers\Frontend\PredictionController@postNew',
+		'as'=> 'prediction.new'
+	]);
+
 });

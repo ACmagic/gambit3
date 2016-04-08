@@ -5,6 +5,9 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Sports\Entities\Team as TeamEntity;
 use Modules\Sports\Repositories\TeamRepository;
 use Modules\Sports\Repositories\Doctrine\DoctrineTeamRepository;
+use Modules\Sports\Entities\Game as GameEntity;
+use Modules\Sports\Repositories\GameRepository;
+use Modules\Sports\Repositories\Doctrine\DoctrineGameRepository;
 
 class SportsServiceProvider extends ServiceProvider {
 
@@ -38,6 +41,12 @@ class SportsServiceProvider extends ServiceProvider {
 		$this->app->bind(TeamRepository::class,function() {
 			return new DoctrineTeamRepository(
 				EntityManager::getRepository(TeamEntity::class)
+			);
+		});
+
+		$this->app->bind(GameRepository::class,function() {
+			return new DoctrineGameRepository(
+				EntityManager::getRepository(GameEntity::class)
 			);
 		});
 

@@ -25,4 +25,12 @@ trait PointSpreadTrait {
         return $this->game;
     }
 
+    public function setSpread($spread) {
+        $this->spread = $spread;
+    }
+
+    public function getSpread() {
+        return $this->spread;
+    }
+
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\ServiceProvider;
 use Modules\Vegas\Prediction\Type\MoneyLineType as MoneyLinePredictionType;
 use Modules\Vegas\Prediction\Type\PointSpreadType as PointSpreadPredictionType;
+use Modules\Sports\Repositories\GameRepository;
+use Modules\Sports\Repositories\TeamRepository;
 
 class VegasServiceProvider extends ServiceProvider {
 
@@ -35,7 +37,13 @@ class VegasServiceProvider extends ServiceProvider {
 
 		// Register prediction types
 		$this->app->singleton(MoneyLinePredictionType::class);
-		$this->app->singleton(PointSpreadPredictionType::class);
+
+		$this->app->singleton(PointSpreadPredictionType::class,function($app) {
+			$type = new PointSpreadPredictionType($app['laravel-form-builder']);
+			$type->injectGameRepo($app[GameRepository::class]);
+			$type->injectTeamRepo($app[TeamRepository::class]);
+			return $type;
+		});
 		$this->app->tag([MoneyLinePredictionType::class,PointSpreadPredictionType::class], 'prediction_type');
 
 	}
