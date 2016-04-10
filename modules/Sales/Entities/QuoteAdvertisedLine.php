@@ -13,4 +13,8 @@ class QuoteAdvertisedLine extends QuoteItem {
         $this->predictions = new ArrayCollection();
     }
 
+    public function addPrediction(QuotePrediction $prediction) {
+        $this->predictions[] = $prediction;
+    }
+
 }

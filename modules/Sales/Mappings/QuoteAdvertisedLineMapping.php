@@ -22,7 +22,7 @@ class QuoteAdvertisedLineMapping extends EntityMapping {
      */
     public function map(Fluent $builder) {
         $builder->table('quote_advertised_lines');
-        $builder->hasMany(QuotePrediction::class,'predictions')->mappedBy('advertisedLine');
+        $builder->hasMany(QuotePrediction::class,'predictions')->mappedBy('advertisedLine')->cascadePersist();
         $this->mapAdvertisedLine($builder);
     }
 

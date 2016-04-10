@@ -1,5 +1,7 @@
 <?php namespace Modules\Sales\Entities;
 
+use Carbon\Carbon;
+
 class QuoteItem {
 
     protected $id;
@@ -25,6 +27,14 @@ class QuoteItem {
 
     public function getUpdatedAt() {
         return $this->updatedAt;
+    }
+
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
     }
 
 }

@@ -8,6 +8,7 @@ use Modules\Sales\Entities\QuotePointSpread as QuotePointSpreadEntity;
 use Illuminate\Support\Facades\Request;
 use Modules\Sports\Repositories\TeamRepository;
 use Modules\Sports\Repositories\GameRepository;
+use Carbon\Carbon;
 
 class PointSpreadType implements PredictionType {
 
@@ -52,6 +53,8 @@ class PointSpreadType implements PredictionType {
         $team = $this->teamRepo->findById(Request::get('pick'));
         $spread = Request::get('spread');
 
+        $prediction->setUpdatedAt(Carbon::now());
+        $prediction->setCreatedAt(Carbon::now());
         $prediction->setGame($game);
         $prediction->setPick($team);
         $prediction->setSpread($spread);

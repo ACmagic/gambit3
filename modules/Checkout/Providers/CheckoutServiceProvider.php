@@ -1,12 +1,10 @@
-<?php namespace Modules\Sales\Providers;
+<?php namespace Modules\Checkout\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelDoctrine\ORM\Facades\EntityManager;
-use Modules\Sales\Entities\Quote as QuoteEntity;
-use Modules\Sales\Repositories\QuoteRepository;
-use Modules\Sales\Repositories\Doctrine\DoctrineQuoteRepository;
+use Modules\Checkout\Context\Resolver\CartResolver;
+use Modules\Checkout\Contracts\Context\Cart as CartContract;
 
-class SalesServiceProvider extends ServiceProvider {
+class CheckoutServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -35,11 +33,12 @@ class SalesServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
-		$this->app->bind(QuoteRepository::class,function() {
-			return new DoctrineQuoteRepository(
-				EntityManager::getRepository(QuoteEntity::class)
-			);
+		$this->app->bind(CartContract::class,function($app) {
+			return $app['context.manager']->getActiveContext('cart');
 		});
+
+		$this->app->singleton(CartResolver::class);
+		$this->app->tag([CartResolver::class], 'context_resolver');
 
 	}
 
@@ -51,10 +50,10 @@ class SalesServiceProvider extends ServiceProvider {
 	protected function registerConfig()
 	{
 		$this->publishes([
-		    __DIR__.'/../Config/config.php' => config_path('sales.php'),
+		    __DIR__.'/../Config/config.php' => config_path('checkout.php'),
 		]);
 		$this->mergeConfigFrom(
-		    __DIR__.'/../Config/config.php', 'sales'
+		    __DIR__.'/../Config/config.php', 'checkout'
 		);
 	}
 
@@ -65,7 +64,7 @@ class SalesServiceProvider extends ServiceProvider {
 	 */
 	public function registerViews()
 	{
-		$viewPath = base_path('resources/views/modules/sales');
+		$viewPath = base_path('resources/views/modules/checkout');
 
 		$sourcePath = __DIR__.'/../Resources/views';
 
@@ -74,8 +73,8 @@ class SalesServiceProvider extends ServiceProvider {
 		]);
 
 		$this->loadViewsFrom(array_merge(array_map(function ($path) {
-			return $path . '/modules/sales';
-		}, \Config::get('view.paths')), [$sourcePath]), 'sales');
+			return $path . '/modules/checkout';
+		}, \Config::get('view.paths')), [$sourcePath]), 'checkout');
 	}
 
 	/**
@@ -85,12 +84,12 @@ class SalesServiceProvider extends ServiceProvider {
 	 */
 	public function registerTranslations()
 	{
-		$langPath = base_path('resources/lang/modules/sales');
+		$langPath = base_path('resources/lang/modules/checkout');
 
 		if (is_dir($langPath)) {
-			$this->loadTranslationsFrom($langPath, 'sales');
+			$this->loadTranslationsFrom($langPath, 'checkout');
 		} else {
-			$this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'sales');
+			$this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'checkout');
 		}
 	}
 

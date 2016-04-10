@@ -30,7 +30,7 @@ class QuoteMapping extends EntityMapping {
         $builder->timestamp('updatedAt');
 
         // Quote Items
-        $builder->hasMany(QuoteItem::class,'items')->mappedBy('quote');
+        $builder->hasMany(QuoteItem::class,'items')->mappedBy('quote')->cascadePersist();
     }
 
 }

@@ -4,6 +4,7 @@ use Modules\Core\Http\Controllers\Frontend\AbstractBaseController;
 use Modules\Prediction\Facades\PredictableManager;
 use Modules\Prediction\Facades\PredictionTypeManager;
 use Illuminate\Http\Request;
+use Modules\Checkout\Facades\Cart;
 
 class PredictionController extends AbstractBaseController {
 
@@ -27,7 +28,7 @@ class PredictionController extends AbstractBaseController {
             'predictable_resolver'=> $resolver,
             'prediction_type'=> $theType,
             'method'=> 'POST',
-            'route'=> 'prediction.new',
+            'route'=> 'prediction.add',
         ];
         $form = $theType->getFrontendForm($args);
 
@@ -58,11 +59,10 @@ class PredictionController extends AbstractBaseController {
 
         try {
             $prediction = $theType->makeQuotePredictionFromRequest();
+            Cart::addPrediction($prediction);
         } catch(\Exception $e) {
-            // @todo
+            $x = 'y';
         }
-        
-        //Cart::addPrediction($prediction);
 
     }
 
