@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "603021083600a7c6df54f29a6f01ba7f",
-    "content-hash": "419d5d1a9e9879390b2b2a3f30382261",
+    "hash": "ba24863c2f22f75d6bd80d079bcd4a40",
+    "content-hash": "404a69bac93a870bddbc17801f2dae9f",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1251,16 +1251,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/31382fef2889136415751badebbd1cb022a4ed72",
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72",
                 "shasum": ""
             },
             "require": {
@@ -1305,7 +1305,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-02-18 21:54:00"
+            "time": "2016-04-13 19:56:01"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1611,16 +1611,16 @@
         },
         {
             "name": "laravel-doctrine/fluent",
-            "version": "dev-extensions-support",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-doctrine/fluent.git",
-                "reference": "e1ac66638333736678b09edd1f04582921ddff66"
+                "reference": "feb647193c4775aed9cd27875ed8129e7cda0669"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-doctrine/fluent/zipball/5004a59837eb295d253656692118bf6b7695f0ea",
-                "reference": "e1ac66638333736678b09edd1f04582921ddff66",
+                "url": "https://api.github.com/repos/laravel-doctrine/fluent/zipball/feb647193c4775aed9cd27875ed8129e7cda0669",
+                "reference": "feb647193c4775aed9cd27875ed8129e7cda0669",
                 "shasum": ""
             },
             "require": {
@@ -1668,20 +1668,20 @@
                 "mappings",
                 "orm"
             ],
-            "time": "2016-03-31 23:25:29"
+            "time": "2016-04-07 20:34:15"
         },
         {
             "name": "laravel-doctrine/migrations",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-doctrine/migrations.git",
-                "reference": "0e2c0d80faefc2c98dbfedc3cdd44ed7a0d1849d"
+                "reference": "24aa4e0eae31ae577c0573ecea03992e62690249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-doctrine/migrations/zipball/0e2c0d80faefc2c98dbfedc3cdd44ed7a0d1849d",
-                "reference": "0e2c0d80faefc2c98dbfedc3cdd44ed7a0d1849d",
+                "url": "https://api.github.com/repos/laravel-doctrine/migrations/zipball/24aa4e0eae31ae577c0573ecea03992e62690249",
+                "reference": "24aa4e0eae31ae577c0573ecea03992e62690249",
                 "shasum": ""
             },
             "require": {
@@ -1721,20 +1721,20 @@
                 "migrations",
                 "orm"
             ],
-            "time": "2016-01-02 22:10:46"
+            "time": "2016-04-06 15:21:41"
         },
         {
             "name": "laravel-doctrine/orm",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-doctrine/orm.git",
-                "reference": "dc90fb5f1a93759739a8ee5209e68781613dd22b"
+                "reference": "ef45fe92d6ad32c432a4b8e5cc61ac4cac9ad00f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-doctrine/orm/zipball/dc90fb5f1a93759739a8ee5209e68781613dd22b",
-                "reference": "dc90fb5f1a93759739a8ee5209e68781613dd22b",
+                "url": "https://api.github.com/repos/laravel-doctrine/orm/zipball/ef45fe92d6ad32c432a4b8e5cc61ac4cac9ad00f",
+                "reference": "ef45fe92d6ad32c432a4b8e5cc61ac4cac9ad00f",
                 "shasum": ""
             },
             "require": {
@@ -1761,7 +1761,7 @@
                 "fzaninotto/faker": "Required to use the entity factory builder (~1.4).",
                 "laravel-doctrine/acl": "to integrate Doctrine roles & permissions with Laravel's Authorization system (~1.0)",
                 "laravel-doctrine/extensions": "to add Behavioral and Query/Type Extensions for Laravel Doctrine (~1.0)",
-                "laravel-doctrine/fluent": "Fluent mapping driver (alternative to xml, yaml, ... (~1.0).",
+                "laravel-doctrine/fluent": "Fluent mapping driver (alternative to xml, yaml, ... (~1.1).",
                 "laravel-doctrine/migrations": "to add support for migrations in Laravel Doctrine (~1.0)",
                 "yajra/laravel-oci8": "Support for Laravel native queue and session database drivers in Oracle (~2.0)."
             },
@@ -1792,20 +1792,20 @@
                 "laravel",
                 "orm"
             ],
-            "time": "2016-02-28 11:43:27"
+            "time": "2016-04-07 21:15:41"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.27",
+            "version": "v5.2.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ccda783ffa253ed27dd1d4b41dbbc95e76e48a2a"
+                "reference": "e3d644eb131f18c5f3d28ff7bc678bc797091f20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ccda783ffa253ed27dd1d4b41dbbc95e76e48a2a",
-                "reference": "ccda783ffa253ed27dd1d4b41dbbc95e76e48a2a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e3d644eb131f18c5f3d28ff7bc678bc797091f20",
+                "reference": "e3d644eb131f18c5f3d28ff7bc678bc797091f20",
                 "shasum": ""
             },
             "require": {
@@ -1920,7 +1920,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-29 13:32:58"
+            "time": "2016-04-03 01:43:55"
         },
         {
             "name": "laravelcollective/html",
@@ -2692,16 +2692,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.1",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
-                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -2716,13 +2716,13 @@
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "raven/raven": "^0.13",
                 "ruflin/elastica": ">=0.90 <3.0",
-                "swiftmailer/swiftmailer": "~5.3",
-                "videlalvaro/php-amqplib": "~2.4"
+                "swiftmailer/swiftmailer": "~5.3"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -2731,11 +2731,11 @@
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-                "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
@@ -2766,7 +2766,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-03-13 16:08:35"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -2919,16 +2919,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v2.3.7",
+            "version": "v2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "6f1ed73088c28a24acc9657ca14b3418a270e24b"
+                "reference": "34ca4cd67bb768199aae2879eb8ad0ab016f2d8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/6f1ed73088c28a24acc9657ca14b3418a270e24b",
-                "reference": "6f1ed73088c28a24acc9657ca14b3418a270e24b",
+                "url": "https://api.github.com/repos/nette/utils/zipball/34ca4cd67bb768199aae2879eb8ad0ab016f2d8a",
+                "reference": "34ca4cd67bb768199aae2879eb8ad0ab016f2d8a",
                 "shasum": ""
             },
             "require": {
@@ -2970,7 +2970,7 @@
             ],
             "description": "Nette Utility Classes",
             "homepage": "https://nette.org",
-            "time": "2015-11-30 00:11:35"
+            "time": "2016-03-18 17:36:54"
         },
         {
             "name": "nikic/php-parser",
@@ -5843,7 +5843,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "laravel-doctrine/fluent": 20,
         "mesour/datagrid": 10,
         "mesour/sources": 10,
         "mesour/components": 10,

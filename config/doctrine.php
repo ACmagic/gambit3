@@ -143,6 +143,7 @@ return [
                 Modules\Sales\Mappings\QuoteItemMapping::class,
                 Modules\Sales\Mappings\QuoteAdvertisedLineMapping::class,
                 Modules\Sales\Mappings\QuoteAcceptedLineMapping::class,
+                Modules\Sales\Mappings\QuoteCreditMapping::class,
                 Modules\Sales\Mappings\QuotePredictionMapping::class,
                 Modules\Sales\Mappings\QuoteMoneyLineMapping::class,
                 Modules\Sales\Mappings\QuotePointSpreadMapping::class,
