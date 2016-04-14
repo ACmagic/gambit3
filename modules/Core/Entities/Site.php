@@ -8,12 +8,14 @@ class Site {
     protected $id;
     protected $machineName;
     protected $creator;
+    protected $accounts;
     protected $createdAt;
     protected $updatedAt;
     protected $stores;
 
     public function __construct() {
         $this->stores = new ArrayCollection();
+        $this->accounts = new ArrayCollection();
     }
 
     public function getId() {

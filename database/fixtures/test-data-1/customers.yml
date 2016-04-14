@@ -3,17 +3,20 @@ Modules\Customer\Entities\Customer:
     pool: '@customerPool1'
     email (unique): <safeEmail()>
     password: <bcrypt('-Password1')>
+    accounts: ['@customer_account_internal<current()>','@customer_account_external<current()>']
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
   customer{4..7}:
     pool: '@customerPool2'
     email (unique): <safeEmail()>
     password: <bcrypt('-Password1')>
+    accounts: ['@customer_account_internal<current()>','@customer_account_external<current()>']
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
   customer{8..10}:
     pool: '@customerPool3'
     email (unique): <safeEmail()>
     password: <bcrypt('-Password1')>
+    accounts: ['@customer_account_internal<current()>','@customer_account_external<current()>']
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>

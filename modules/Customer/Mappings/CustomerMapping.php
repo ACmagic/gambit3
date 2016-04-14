@@ -3,6 +3,7 @@
 use LaravelDoctrine\Fluent\EntityMapping;
 use Modules\Customer\Entities\Customer;
 use Modules\Customer\Entities\CustomerPool;
+use Modules\Accounting\Entities\Account;
 use LaravelDoctrine\Fluent\Fluent;
 
 class CustomerMapping extends EntityMapping {
@@ -23,6 +24,7 @@ class CustomerMapping extends EntityMapping {
         $builder->string('email');
         $builder->string('password')->length(60);
         $builder->manyToOne(CustomerPool::class,'pool');
+        $builder->manyToMany(Account::class,'accounts')->joinTable('customer_accounts');
         $builder->rememberToken('rememberToken');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

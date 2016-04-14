@@ -2,6 +2,7 @@
 
 use LaravelDoctrine\ORM\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Doctrine\Common\Collections\ArrayCollection;
 use Carbon\Carbon;
 
 class Customer implements AuthenticatableContract {
@@ -11,8 +12,13 @@ class Customer implements AuthenticatableContract {
     protected $id;
     protected $email;
     protected $pool;
+    protected $accounts;
     protected $createdAt;
     protected $updatedAt;
+
+    public function __construct() {
+        $this->accounts = new ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;

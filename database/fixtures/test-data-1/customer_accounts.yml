@@ -1,0 +1,9 @@
+Modules\Accounting\Entities\Account:
+  customer_account_internal{1..10}:
+    type: '@accountType_internal'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  customer_account_external{1..10}:
+    type: '@accountType_external'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

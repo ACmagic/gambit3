@@ -6,6 +6,7 @@ use Modules\Sales\Entities\QuoteItem;
 use Modules\Sales\Entities\Quote;
 use Modules\Sales\Entities\QuoteAdvertisedLine;
 use Modules\Sales\Entities\QuoteAcceptedLine;
+use Modules\Sales\Entities\QuoteCredit;
 
 class QuoteItemMapping extends EntityMapping {
 
@@ -31,7 +32,8 @@ class QuoteItemMapping extends EntityMapping {
             ->column('type')
             ->map(QuoteItem::class,QuoteItem::class)
             ->map(QuoteAdvertisedLine::class,QuoteAdvertisedLine::class)
-            ->map(QuoteAcceptedLine::class,QuoteAcceptedLine::class);
+            ->map(QuoteAcceptedLine::class,QuoteAcceptedLine::class)
+            ->map(QuoteCredit::class,QuoteCredit::class);
     }
 
 }

@@ -1,0 +1,16 @@
+Modules\Accounting\Entities\AccountType:
+  accountType_cashbook:
+    machineName (unique): cashbook
+    humanName: Cashbook
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  accountType_internal:
+    machineName (unique): internal
+    humanName: Internal
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  accountType_external:
+    machineName (unique): external
+    humanName: External
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

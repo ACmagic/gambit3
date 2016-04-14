@@ -29,6 +29,7 @@ return [
                 // Significant performance boost (minimal scanning)
                 'Modules\Core\Entities',
                 'Modules\Customer\Entities',
+                'Modules\Accounting\Entities',
                 'Modules\Catalog\Entities',
                 'Modules\Prediction\Entities',
                 'Modules\Event\Entities',
@@ -41,6 +42,7 @@ return [
                 // Significant performance boost (minimal scanning)
                 base_path('modules/Core/Mappings'),
                 base_path('modules/Customer/Mappings'),
+                base_path('modules/Accounting/Mappings'),
                 base_path('modules/Catalog/Mappings'),
                 base_path('modules/Prediction/Mappings'),
                 base_path('modules/Event/Mappings'),
@@ -110,6 +112,10 @@ return [
                 // Customer
                 Modules\Customer\Mappings\CustomerMapping::class,
                 Modules\Customer\Mappings\CustomerPoolMapping::class,
+
+                // Accounting
+                Modules\Accounting\Mappings\AccountTypeMapping::class,
+                Modules\Accounting\Mappings\AccountMapping::class,
 
                 // Catalog
                 Modules\Catalog\Mappings\SideMapping::class,

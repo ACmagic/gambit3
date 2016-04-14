@@ -5,6 +5,7 @@ use Modules\Core\Entities\Site;
 use Modules\Core\Entities\User;
 use Modules\Core\Entities\Store;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Accounting\Entities\Account;
 
 class SiteMapping extends EntityMapping {
 
@@ -24,6 +25,7 @@ class SiteMapping extends EntityMapping {
         $builder->string('machineName')->length(128)->default('')->unique();
         $builder->manyToOne(User::class,'creator');
         $builder->hasMany(Store::class,'stores')->mappedBy('site');
+        $builder->manyToMany(Account::class,'accounts')->joinTable('site_accounts');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
     }

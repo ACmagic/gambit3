@@ -2,15 +2,18 @@ Modules\Core\Entities\Site:
   site1:
     machineName (unique): test1
     creator: '@user1'
+    accounts: ['@account_cashbook1']
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
   site2:
     machineName (unique): test2
     creator: '@user2'
+    accounts: ['@account_cashbook2']
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
   site3:
     machineName (unique): test3
     creator: '@user3'
+    accounts: ['@account_cashbook3']
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
