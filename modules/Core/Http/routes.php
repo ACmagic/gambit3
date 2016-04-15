@@ -22,6 +22,7 @@ Route::group(['middleware' => ['web','auth.admin']], function () {
     Route::get('/admin/user/create','Modules\Core\Http\Controllers\Admin\UserController@getRegister');
     Route::post('/admin/user/create','Modules\Core\Http\Controllers\Admin\UserController@postRegister');
     Route::get('/admin/sites','Modules\Core\Http\Controllers\Admin\SiteController@getIndex');
+    Route::post('/admin/sites','Modules\Core\Http\Controllers\Admin\SiteController@getIndex');
     Route::get('/admin/stores','Modules\Core\Http\Controllers\Admin\StoreController@getIndex');
 
 });

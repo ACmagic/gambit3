@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
                     'bower_components/bootstrap/dist/js/bootstrap.js',
-                    'modules/Core/Resources/js/mesour.grid.js',
+                    'vendor/mesour/datagrid/public/mesour.grid.min.js',
                     'modules/Core/Resources/js/main.js'
                 ],
                 // the location of the resulting JS file
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                 src: [
                     'bower_components/bootstrap/dist/css/bootstrap.css',
                     'bower_components/font-awesome/css/font-awesome.css',
-                    'modules/Core/Resources/css/mesour.grid.css'
+                    'vendor/mesour/datagrid/public/mesour.grid.min.css'
                 ],
                 // the location of the resulting JS file
                 dest: 'public/dist/css/admin.css'

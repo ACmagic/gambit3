@@ -4,7 +4,6 @@
     <title>Admin Layout Default</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="/dist/css/admin.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -50,6 +49,11 @@
     </div>
 
     <script type="text/javascript" src="/dist/js/admin.js"></script>
+    <script type="text/javascript">
+        var mesour = !mesour ? {} : mesour;
+        mesour.parameters = !mesour.parameters ? [] : mesour.parameters;
+        mesour.parameters.push(["set", "_token", "{{ csrf_token() }}"]);
+    </script>
 
 </body>
 </html>

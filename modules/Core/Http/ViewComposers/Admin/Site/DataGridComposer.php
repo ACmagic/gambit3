@@ -7,19 +7,17 @@ use Mesour\UI\DataGrid;
 
 class DataGridComposer {
 
-    protected $em;
     protected $uiApp;
 
-    public function __construct(EntityManagerInterface $em,ApplicationManager $uiApp) {
+    public function __construct(ApplicationManager $uiApp) {
 
-        $this->em = $em;
         $this->uiApp = $uiApp;
 
     }
 
     public function compose(View $view) {
 
-        $source = new DataGridSource($this->em);
+        $source = new DataGridSource();
 
         $grid = new DataGrid('sites',$this->uiApp->getApplication());
         $grid->setSource($source);
@@ -30,7 +28,7 @@ class DataGridComposer {
         $grid->addText('machineName','Machine Name');
 
         $grid->addText('creator','Creator')->setFiltering(false)->setOrdering(false)->setCallback(function($col,$site) {
-            return $site->getCreator()->getEmail();
+            return $site['creator']['email'];
         });
 
         $grid->addDate('createdAt','Created');
