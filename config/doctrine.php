@@ -156,6 +156,15 @@ return [
                 Modules\Sales\Mappings\QuotePredictionMapping::class,
                 Modules\Sales\Mappings\QuoteMoneyLineMapping::class,
                 Modules\Sales\Mappings\QuotePointSpreadMapping::class,
+
+                Modules\Sales\Mappings\SaleMapping::class,
+                Modules\Sales\Mappings\SaleItemMapping::class,
+                Modules\Sales\Mappings\SaleAdvertisedLineMapping::class,
+                Modules\Sales\Mappings\SaleAcceptedLineMapping::class,
+                Modules\Sales\Mappings\SaleCreditMapping::class,
+                Modules\Sales\Mappings\SalePredictionMapping::class,
+                Modules\Sales\Mappings\SaleMoneyLineMapping::class,
+                Modules\Sales\Mappings\SalePointSpreadMapping::class,
             ],
         ]
     ],
