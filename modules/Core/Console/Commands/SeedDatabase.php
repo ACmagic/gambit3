@@ -54,6 +54,8 @@ class SeedDatabase extends Command
 
             // Rest of the stuff.
             database_path('fixtures/base-data/account_types.yml'),
+            database_path('fixtures/base-data/asset_types.yml'),
+            database_path('fixtures/base-data/posting_events.yml'),
             database_path('fixtures/base-data/site_accounts.yml'),
 
             database_path('fixtures/base-data/sites.yml'),

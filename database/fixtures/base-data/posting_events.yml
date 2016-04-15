@@ -1,0 +1,16 @@
+Modules\Accounting\Entities\PostingEvent:
+  postingEvent_withdrawal:
+    machineName (unique): withdrawal
+    humanName: Withdrawal
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  postingEvent_deposit:
+    machineName (unique): deposit
+    humanName: Deposit
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  postingEvent_transfer:
+    machineName (unique): transfer
+    humanName: Transfer
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

@@ -1,0 +1,11 @@
+Modules\Accounting\Entities\AssetType:
+  assetType_dollar:
+    machineName (unique): usd
+    humanName: US Dollar
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  assetType_credit:
+    machineName (unique): credit
+    humanName: Credit
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

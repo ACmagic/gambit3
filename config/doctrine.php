@@ -115,7 +115,10 @@ return [
 
                 // Accounting
                 Modules\Accounting\Mappings\AccountTypeMapping::class,
+                Modules\Accounting\Mappings\AssetTypeMapping::class,
+                Modules\Accounting\Mappings\PostingEventMapping::class,
                 Modules\Accounting\Mappings\AccountMapping::class,
+                Modules\Accounting\Mappings\PostingMapping::class,
 
                 // Catalog
                 Modules\Catalog\Mappings\SideMapping::class,
