@@ -4,6 +4,7 @@ use LaravelDoctrine\ORM\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Doctrine\Common\Collections\ArrayCollection;
 use Carbon\Carbon;
+use Modules\Accounting\Entities\Account as AccountEntity;
 
 class Customer implements AuthenticatableContract {
 
@@ -30,6 +31,10 @@ class Customer implements AuthenticatableContract {
 
     public function getPool() {
         return $this->pool;
+    }
+
+    public function addAccount(AccountEntity $account) {
+        $this->accounts[] = $account;
     }
 
     public function getInternalAccount() {

@@ -1,13 +1,16 @@
 Modules\Accounting\Entities\Account:
   account_cashbook1:
     type: '@accountType_cashbook'
+    balance: 0.0000,
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
   account_cashbook2:
     type: '@accountType_cashbook'
+    balance: 0.0000,
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>
   account_cashbook3:
     type: '@accountType_cashbook'
+    balance: 0.0000,
     createdAt: <carbon_now()>
     updatedAt: <carbon_now()>

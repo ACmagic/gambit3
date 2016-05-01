@@ -63,7 +63,7 @@ class SeedDatabase extends Command
             database_path('fixtures/base-data/sides.yml'),
             database_path('fixtures/base-data/customer_pool.yml'),
 
-            database_path('fixtures/test-data-1/customer_accounts.yml'),
+            //database_path('fixtures/test-data-1/customer_accounts.yml'),
             database_path('fixtures/test-data-1/customers.yml'),
 
             database_path('fixtures/base-data/nfl_football_teams.yml'),

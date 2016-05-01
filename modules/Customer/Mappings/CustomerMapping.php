@@ -24,7 +24,7 @@ class CustomerMapping extends EntityMapping {
         $builder->string('email');
         $builder->string('password')->length(60);
         $builder->manyToOne(CustomerPool::class,'pool');
-        $builder->manyToMany(Account::class,'accounts')->joinTable('customer_accounts');
+        $builder->manyToMany(Account::class,'accounts')->joinTable('customer_accounts')->cascadePersist();
         $builder->rememberToken('rememberToken');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

@@ -6,6 +6,7 @@ class Account {
 
     protected $id;
     protected $type;
+    protected $balance;
     protected $createdAt;
     protected $updatedAt;
 
@@ -19,6 +20,14 @@ class Account {
 
     public function getType() {
         return $this->type;
+    }
+
+    public function setBalance($balance) {
+        $this->balance = $balance;
+    }
+
+    public function getBalance() {
+        return $this->balance;
     }
 
     public function setUpdatedAt(Carbon $updatedAt) {

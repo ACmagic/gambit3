@@ -1,6 +1,10 @@
 <?php namespace Modules\Accounting\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Accounting\Entities\AccountType as AccountTypeEntity;
+use Modules\Accounting\Repositories\AccountTypeRepository;
+use Modules\Accounting\Repositories\Doctrine\DoctrineAccountTypeRepository;
 
 class AccountingServiceProvider extends ServiceProvider {
 
@@ -29,8 +33,14 @@ class AccountingServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{		
-		//
+	{
+
+		$this->app->bind(AccountTypeRepository::class,function() {
+			return new DoctrineAccountTypeRepository(
+				EntityManager::getRepository(AccountTypeEntity::class)
+			);
+		});
+
 	}
 
 	/**

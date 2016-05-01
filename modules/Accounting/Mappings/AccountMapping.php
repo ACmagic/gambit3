@@ -20,6 +20,7 @@ class AccountMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('accounts');
         $builder->bigIncrements('id');
+        $builder->decimal('balance')->precision(19)->scale(4);
         $builder->belongsTo(AccountType::class,'type');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

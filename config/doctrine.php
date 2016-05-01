@@ -69,7 +69,14 @@ return [
             'events'     => [
                 'listeners'   => [],
                 'subscribers' => [
-                    Doctrine\DBAL\Events::onSchemaDropTable => Modules\Core\Subscribers\DoctrineSubscriber::class
+                    /*Doctrine\DBAL\Events::onSchemaDropTable => Modules\Core\Subscribers\DoctrineSubscriber::class*/
+
+                    // Core
+                    Modules\Core\Subscribers\DoctrineSubscriber::class,
+
+                    // Accounting
+                    Modules\Accounting\Subscribers\DoctrineSubscriber::class,
+
                 ]
             ],
             'filters'    => [],
