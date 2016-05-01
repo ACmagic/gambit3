@@ -20,7 +20,8 @@ class DoctrineQuoteRepository implements QuoteRepository {
     }
 
     public function findBySessionIdAndSiteId($sessionId,$siteId) {
-        return $this->genericRepository->findOneBy(['sessionId'=> $sessionId,'site'=>$siteId]);
+        // Only finds the quote that is a cart.
+        return $this->genericRepository->findOneBy(['sessionId'=> $sessionId,'site'=>$siteId,'isCart'=>1]);
     }
 
 }

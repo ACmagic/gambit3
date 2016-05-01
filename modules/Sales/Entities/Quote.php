@@ -9,6 +9,7 @@ class Quote {
 
     protected $id;
     protected $sessionId;
+    protected $isCart;
     protected $site;
     protected $customer;
     protected $items;
@@ -29,6 +30,14 @@ class Quote {
 
     public function setSessionId($sessionId) {
         $this->sessionId = $sessionId;
+    }
+
+    public function getIsCart() {
+        return $this->isCart;
+    }
+
+    public function setIsCart($isCart) {
+        $this->isCart = $isCart;
     }
 
     public function setSite(Site $site) {
@@ -82,6 +91,23 @@ class Quote {
         }
 
         return $target;
+
+    }
+
+    /**
+     * Calculate the total cost of items.
+     *
+     * @return double
+     */
+    public function calculateTotalCost() {
+
+        $total = 0;
+
+        foreach($this->items as $item) {
+            $total = bcadd($total,$item->calculateCost(),4);
+        }
+
+        return $total;
 
     }
 

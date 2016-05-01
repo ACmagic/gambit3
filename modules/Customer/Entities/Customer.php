@@ -32,8 +32,20 @@ class Customer implements AuthenticatableContract {
         return $this->pool;
     }
 
+    public function getInternalAccount() {
+
+    }
+
+    public function getExternalAccount() {
+
+    }
+
     public function getEmail() {
         return $this->email;
+    }
+
+    public function setEmail($email) {
+        $this->email = $email;
     }
 
     public function getCreatedAt() {

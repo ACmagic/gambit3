@@ -3,6 +3,7 @@
 use Modules\Core\Context\Context;
 use Modules\Customer\Contracts\Context\CustomerPool as CustomerPoolContract;
 use Modules\Customer\Entities\CustomerPool as CustomerPoolEntity;
+use Modules\Customer\Entities\Customer as CustomerEntity;
 
 class CustomerPoolContext implements Context, CustomerPoolContract {
 
@@ -18,6 +19,10 @@ class CustomerPoolContext implements Context, CustomerPoolContract {
 
     public function getCustomerPoolId() {
         return $this->customerPool->getId();
+    }
+
+    public function associateCustomer(CustomerEntity $customer){
+        $customer->setPool($this->customerPool);
     }
 
 }

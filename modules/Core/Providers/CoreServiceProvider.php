@@ -7,6 +7,7 @@ use Modules\Core\Context\ContextResolver;
 use Mesour\Components\Application\IApplication;
 use Mesour\UI\Application as UiApplication;
 use Mesour\Components\Application\Request as UiRequest;
+use Payum\Core\PayumBuilder;
 use Modules\Core\Contracts\Context\Site as SiteContract;
 use Modules\Core\Contracts\Context\Store as StoreContract;
 use Modules\Core\Context\Resolver\SiteResolver;
@@ -98,6 +99,33 @@ class CoreServiceProvider extends ServiceProvider {
 			return new DoctrineStoreRepository(
 				EntityManager::getRepository(StoreEntity::class)
 			);
+		});
+
+		// Payum
+		$this->app->resolving('payum.builder', function(PayumBuilder $payumBuilder) {
+
+			$payumBuilder
+				// this method registers filesystem storages, consider to change them to something more
+				// sophisticated, like eloquent storage
+				->addDefaultStorages()
+
+				// @todo: Hard code for now.
+				->addGateway('paypal_ec', [
+					'factory' => 'paypal_express_checkout',
+					'username' => 'sme.s.key-facilitator_api1.gmail.com',
+					'password' => '1368053213',
+					'signature' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31Am72MgoxdyL7fUjtAGEW1dNhV1Nc',
+					'sandbox' => true
+				]);
+				/*->addGateway('paypal_pc', [
+					'factory' => 'paypal_pro_checkout',
+        			'username' => 'sme.s.key-facilitator_api1.gmail.com',
+        			'password' => '1368053213',
+					'partner' => 'REPLACE IT',
+        			'vendor' => 'REPLACE IT',
+        			'sandbox' => true
+				]);*/
+
 		});
 
 	}

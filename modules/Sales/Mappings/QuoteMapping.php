@@ -24,6 +24,7 @@ class QuoteMapping extends EntityMapping {
         $builder->table('quotes');
         $builder->bigIncrements('id');
         $builder->string('sessionId');
+        $builder->boolean('isCart')->nullable();
         $builder->belongsTo(Site::class,'site');
         $builder->belongsTo(Customer::class,'customer')->nullable();
         $builder->timestamp('createdAt');

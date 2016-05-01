@@ -12,4 +12,8 @@ class QuoteCredit extends QuoteItem {
         return $this->amount;
     }
 
+    public function calculateCost() {
+        return $this->amount;
+    }
+
 }

@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 
-class QuoteItem {
+abstract class QuoteItem {
 
     protected $id;
     protected $quote;
@@ -36,5 +36,12 @@ class QuoteItem {
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
     }
+
+    /**
+     * Calculate the cost of this line item.
+     *
+     * @return double
+     */
+    abstract public function calculateCost();
 
 }

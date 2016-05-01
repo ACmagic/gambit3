@@ -51,6 +51,7 @@ class CartResolver implements Resolver {
     protected function makeQuote() {
         
         $quote = new QuoteEntity();
+        $quote->setIsCart(1);
         $quote->setCreatedAt(Carbon::now());
         $quote->setUpdatedAt(Carbon::now());
 

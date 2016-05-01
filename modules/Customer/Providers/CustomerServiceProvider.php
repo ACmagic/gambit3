@@ -4,8 +4,10 @@ use Illuminate\Support\ServiceProvider;
 use InvalidArgumentException;
 use Modules\Customer\Auth\CustomersProvider;
 use Modules\Customer\Contracts\Context\CustomerPool as CustomerPoolContract;
+use Modules\Customer\Contracts\Context\Customer as CustomerContract;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Customer\Context\Resolver\CustomerPoolResolver;
+use Modules\Customer\Context\Resolver\CustomerResolver;
 use Modules\Customer\Repositories\CustomerRepository;
 use Modules\Customer\Repositories\CustomerPoolRepository;
 use Modules\Customer\Repositories\Doctrine\DoctrineCustomerRepository;
@@ -47,9 +49,15 @@ class CustomerServiceProvider extends ServiceProvider {
 		$this->app->bind(CustomerPoolContract::class,function($app) {
 			return $app['context.manager']->getActiveContext('customer_pool');
 		});
-
 		$this->app->singleton(CustomerPoolResolver::class);
-		$this->app->tag([CustomerPoolResolver::class], 'context_resolver');
+
+		$this->app->bind(CustomerContract::class,function($app) {
+			return $app['context.manager']->getActiveContext('customer');
+		});
+		$this->app->singleton(CustomerResolver::class);
+
+		// Tag resolvers.
+		$this->app->tag([CustomerPoolResolver::class,CustomerResolver::class], 'context_resolver');
 
 		$this->app->bind(CustomerRepository::class,function() {
 			return new DoctrineCustomerRepository(
