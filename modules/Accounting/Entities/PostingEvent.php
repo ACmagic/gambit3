@@ -3,6 +3,12 @@
 use Carbon\Carbon;
 
 class PostingEvent {
+    
+    const
+
+        EVENT_WITHDRAWAL = 'withdrawal',
+        EVENT_TRANSFER = 'transfer',
+        EVENT_DEPOSIT = 'deposit';
 
     protected $id;
     protected $machineName;

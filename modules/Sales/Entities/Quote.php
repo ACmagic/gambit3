@@ -111,4 +111,28 @@ class Quote {
 
     }
 
+    /**
+     * Convert quote to a sale.
+     *
+     * @return Sale
+     */
+    public function toSale() {
+
+        $sale = new Sale();
+        $sale->setCreatedAt(Carbon::now());
+        $sale->setUpdatedAt(Carbon::now());
+
+        foreach($this->items as $item) {
+
+            $saleItem = $item->toSaleItem();
+            $saleItem->setSale($sale);
+
+            $sale->addItem($saleItem);
+
+        }
+
+        return $sale;
+
+    }
+
 }

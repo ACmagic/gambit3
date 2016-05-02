@@ -40,6 +40,14 @@ class Posting {
         return $this->assetType;
     }
 
+    public function setAmount($amount) {
+       $this->amount = $amount;
+    }
+
+    public function getAmount() {
+        return $this->amount;
+    }
+
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
     }

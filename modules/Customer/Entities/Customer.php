@@ -5,6 +5,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Doctrine\Common\Collections\ArrayCollection;
 use Carbon\Carbon;
 use Modules\Accounting\Entities\Account as AccountEntity;
+use Modules\Accounting\Entities\AccountType as AccountTypeEntity;
 
 class Customer implements AuthenticatableContract {
 
@@ -39,9 +40,21 @@ class Customer implements AuthenticatableContract {
 
     public function getInternalAccount() {
 
+        foreach($this->accounts as $account) {
+            if($account->getType()->getMachineName() === AccountTypeEntity::TYPE_INTERNAL) {
+                return $account;
+            }
+        }
+        
     }
 
     public function getExternalAccount() {
+
+        foreach($this->accounts as $account) {
+            if($account->getType()->getMachineName() === AccountTypeEntity::TYPE_EXTERNAL) {
+                return $account;
+            }
+        }
 
     }
 

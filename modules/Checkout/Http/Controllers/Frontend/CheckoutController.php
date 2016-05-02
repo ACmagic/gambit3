@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Payum\Core\Request\GetHumanStatus;
 use Illuminate\Session\SessionManager;
 use Modules\Customer\Facades\Customer as CustomerFacade;
+use Modules\Core\Facades\Store as StoreFacade;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
@@ -19,6 +20,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Support\Facades\Validator;
 use Modules\Customer\Facades\CustomerPool as CustomerPoolFacade;
 use Modules\Sales\Repositories\QuoteRepository;
+use Modules\Customer\Repositories\CustomerRepository;
+use Modules\Core\Repositories\StoreRepository;
 
 class CheckoutController extends AbstractBaseController {
 
@@ -52,13 +55,21 @@ class CheckoutController extends AbstractBaseController {
     // The quote repo.
     protected $quoteRepo;
 
+    // The customer repo.
+    protected $customerRepo;
+
+    // The store repo.
+    protected $storeRepo;
+
     // Customer pool repository.
 
-    public function __construct(SessionManager $session,EntityManagerInterface $em,QuoteRepository $quoteRepo) {
+    public function __construct(SessionManager $session,EntityManagerInterface $em,QuoteRepository $quoteRepo,CustomerRepository $customerRepo,StoreRepository $storeRepo) {
 
         $this->session = $session;
         $this->em = $em;
         $this->quoteRepo = $quoteRepo;
+        $this->customerRepo = $customerRepo;
+        $this->storeRepo = $storeRepo;
 
     }
 
@@ -163,10 +174,34 @@ class CheckoutController extends AbstractBaseController {
 
         $gateway->execute($status = new GetHumanStatus($token));
 
-        return response()->json(array(
+        /*
+         * @todo: For now just create the sale here.
+         */
+        if ($status->isCaptured()) {
+
+            // @todo: Ingo coming back from paypal needs to include the quote ID.
+            $quoteId = $this->session->get('checkout.quoteId');
+            $quote = $this->quoteRepo->findById($quoteId);
+
+            $customerId = CustomerFacade::getCustomerId();
+            $storeId = StoreFacade::getStoreId();
+
+            $customer = $this->customerRepo->findById($customerId);
+            $store = $this->storeRepo->findById($storeId);
+
+            $sale = $quote->toSale();
+            $sale->setCustomer($customer);
+            $sale->setStore($store);
+            
+            $this->em->persist($sale);
+            $this->em->flush();
+
+        }
+
+        /*return response()->json(array(
             'status' => $status->getValue(),
             'details' => iterator_to_array($status->getFirstModel())
-        ));
+        ));*/
     }
 
     public function getLogin() {

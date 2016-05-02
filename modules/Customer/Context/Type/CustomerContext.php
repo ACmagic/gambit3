@@ -20,4 +20,8 @@ class CustomerContext implements Context, CustomerContract {
         return $this->customer !== null;
     }
 
+    public function getCustomerId() {
+        return $this->customer->getAuthIdentifier();
+    }
+
 }

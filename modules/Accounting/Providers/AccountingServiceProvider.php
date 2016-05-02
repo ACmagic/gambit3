@@ -5,6 +5,12 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Accounting\Entities\AccountType as AccountTypeEntity;
 use Modules\Accounting\Repositories\AccountTypeRepository;
 use Modules\Accounting\Repositories\Doctrine\DoctrineAccountTypeRepository;
+use Modules\Accounting\Entities\PostingEvent as PostingEventEntity;
+use Modules\Accounting\Repositories\PostingEventRepository;
+use Modules\Accounting\Repositories\Doctrine\DoctrinePostingEventRepository;
+use Modules\Accounting\Entities\AssetType as AssetTypeEntity;
+use Modules\Accounting\Repositories\AssetTypeRepository;
+use Modules\Accounting\Repositories\Doctrine\DoctrineAssetTypeRepository;
 
 class AccountingServiceProvider extends ServiceProvider {
 
@@ -38,6 +44,18 @@ class AccountingServiceProvider extends ServiceProvider {
 		$this->app->bind(AccountTypeRepository::class,function() {
 			return new DoctrineAccountTypeRepository(
 				EntityManager::getRepository(AccountTypeEntity::class)
+			);
+		});
+
+		$this->app->bind(PostingEventRepository::class,function() {
+			return new DoctrinePostingEventRepository(
+				EntityManager::getRepository(PostingEventEntity::class)
+			);
+		});
+
+		$this->app->bind(AssetTypeRepository::class,function() {
+			return new DoctrineAssetTypeRepository(
+				EntityManager::getRepository(AssetTypeEntity::class)
 			);
 		});
 

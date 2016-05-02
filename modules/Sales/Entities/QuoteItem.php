@@ -44,4 +44,11 @@ abstract class QuoteItem {
      */
     abstract public function calculateCost();
 
+    /**
+     * Convert to a sale item.
+     *
+     * @return SaleItem
+     */
+    abstract public function toSaleItem();
+
 }

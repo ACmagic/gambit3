@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 
-class QuotePrediction {
+abstract class QuotePrediction {
 
     protected $id;
     protected $advertisedLine;
@@ -36,5 +36,12 @@ class QuotePrediction {
     public function getUpdatedAt() {
         return $this->updatedAt;
     }
+
+    /**
+     * Convert to sale prediction.
+     *
+     * @return SalePrediction
+     */
+    abstract public function toSalePrediction();
 
 }

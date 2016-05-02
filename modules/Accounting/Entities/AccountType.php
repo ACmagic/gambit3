@@ -4,6 +4,12 @@ use Carbon\Carbon;
 
 class AccountType {
 
+    const
+
+        TYPE_INTERNAL = 'internal',
+        TYPE_EXTERNAL = 'external',
+        TYPE_CASHBOOK = 'cashbook';
+
     protected $id;
     protected $machineName;
     protected $humanName;

@@ -13,4 +13,15 @@ class QuoteAcceptedLine extends QuoteItem {
 
     }
 
+    public function toSaleItem() {
+
+        $item = new SaleAcceptedLine();
+        $item->setCreatedAt(Carbon::now());
+        $item->setUpdatedAt(Carbon::now());
+        $item->setAdvertisedLine($this->advertisedLine);
+
+        return $item;
+
+    }
+
 }

@@ -3,5 +3,6 @@
 interface Customer {
 
     public function isLoggedIn();
+    public function getCustomerId();
 
 }

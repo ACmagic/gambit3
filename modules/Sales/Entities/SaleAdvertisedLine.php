@@ -17,4 +17,10 @@ class SaleAdvertisedLine extends SaleItem {
         $this->predictions[] = $prediction;
     }
 
+    public function calculateCost() {
+
+        // @todo: Calculate the cost based on amount/amount_max and inventory.
+
+    }
+
 }

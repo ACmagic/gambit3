@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 
-class SaleItem {
+abstract class SaleItem {
 
     protected $id;
     protected $sale;
@@ -36,5 +36,12 @@ class SaleItem {
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
     }
+
+    /**
+     * Calculate the cost of this line item.
+     *
+     * @return double
+     */
+    abstract public function calculateCost();
 
 }

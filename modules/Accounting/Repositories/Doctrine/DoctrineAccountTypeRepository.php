@@ -2,6 +2,7 @@
 
 use Modules\Accounting\Repositories\AccountTypeRepository;
 use Doctrine\Common\Persistence\ObjectRepository;
+use Modules\Accounting\Entities\AccountType as AccountTypeEntity;
 
 class DoctrineAccountTypeRepository implements AccountTypeRepository {
 
@@ -20,11 +21,11 @@ class DoctrineAccountTypeRepository implements AccountTypeRepository {
     }
 
     public function findExternalType() {
-        return $this->genericRepository->findOneByMachineName(AccountTypeRepository::TYPE_EXTERNAL);
+        return $this->genericRepository->findOneByMachineName(AccountTypeEntity::TYPE_EXTERNAL);
     }
 
     public function findInternalType() {
-        return $this->genericRepository->findOneByMachineName(AccountTypeRepository::TYPE_INTERNAL);
+        return $this->genericRepository->findOneByMachineName(AccountTypeEntity::TYPE_INTERNAL);
     }
 
 }

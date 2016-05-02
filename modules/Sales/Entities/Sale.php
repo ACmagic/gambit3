@@ -3,6 +3,7 @@
 use Modules\Core\Entities\Store;
 use Modules\Customer\Entities\Customer;
 use Doctrine\Common\Collections\ArrayCollection;
+use Modules\Accounting\Entities\Posting as PostingEntity;
 use Carbon\Carbon;
 
 class Sale {
@@ -10,12 +11,14 @@ class Sale {
     protected $id;
     protected $store;
     protected $customer;
+    protected $transactions;
     protected $items;
     protected $createdAt;
     protected $updatedAt;
 
     public function __construct() {
         $this->items = new ArrayCollection();
+        $this->transactions = new ArrayCollection();
     }
 
     public function getId() {
@@ -56,6 +59,33 @@ class Sale {
 
     public function addItem(SaleItem $item) {
         $this->items[] = $item;
+    }
+
+    /**
+     * Add new sales transaction.
+     *
+     * @param PostingEntity $posting
+     *   The account posting.
+     */
+    public function addTransaction(PostingEntity $posting) {
+        $this->transactions[] = $posting;
+    }
+
+    /**
+     * Calculate the total cost of items.
+     *
+     * @return double
+     */
+    public function calculateTotalCost() {
+
+        $total = 0;
+
+        foreach($this->items as $item) {
+            $total = bcadd($total,$item->calculateCost(),4);
+        }
+
+        return $total;
+
     }
 
 }

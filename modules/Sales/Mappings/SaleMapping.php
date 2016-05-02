@@ -6,6 +6,7 @@ use Modules\Sales\Entities\Sale;
 use Modules\Core\Entities\Store;
 use Modules\Customer\Entities\Customer;
 use Modules\Sales\Entities\SaleItem;
+use Modules\Accounting\Entities\Posting as PostingEntity;
 
 class SaleMapping extends EntityMapping {
 
@@ -25,6 +26,7 @@ class SaleMapping extends EntityMapping {
         $builder->bigIncrements('id');
         $builder->belongsTo(Store::class,'store');
         $builder->belongsTo(Customer::class,'customer');
+        $builder->manyToMany(PostingEntity::class,'transactions')->joinTable('sale_transactions')->cascadePersist();
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
 

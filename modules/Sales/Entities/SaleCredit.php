@@ -12,4 +12,8 @@ class SaleCredit extends SaleItem {
         return $this->amount;
     }
 
+    public function calculateCost() {
+        return $this->amount;
+    }
+
 }

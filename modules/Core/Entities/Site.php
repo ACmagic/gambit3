@@ -2,6 +2,8 @@
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Carbon\Carbon;
+use Modules\Accounting\Entities\AccountType;
+use Modules\Accounting\Entities\Account as AccountEntity;
 
 class Site {
 
@@ -54,16 +56,18 @@ class Site {
         $this->updatedAt = $updatedAt;
     }
 
-    public function toArray() {
+    /**
+     * Get the cashbook account.
+     *
+     * @return AccountEntity
+     */
+    public function getCashBook() {
 
-        $data = [
-            'id'=> $this->getId(),
-            'machineName'=> $this->getMachineName(),
-            'createdAt'=> $this->getCreatedAt(),
-            'updatedAt'=> $this->getUpdatedAt(),
-        ];
-
-        return $data;
+        foreach($this->accounts as $account) {
+            if($account->getType()->getMachineName() === AccountType::TYPE_CASHBOOK) {
+                return $account;
+            }
+        }
 
     }
 

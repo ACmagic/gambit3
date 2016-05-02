@@ -4,6 +4,11 @@ use Carbon\Carbon;
 
 class AssetType {
 
+    const
+
+        TYPE_USD = 'usd',
+        TYPE_CREDIT = 'credit';
+
     protected $id;
     protected $machineName;
     protected $humanName;
