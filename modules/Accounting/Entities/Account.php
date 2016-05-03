@@ -1,14 +1,20 @@
 <?php namespace Modules\Accounting\Entities;
 
 use Carbon\Carbon;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Account {
 
     protected $id;
     protected $type;
     protected $balance;
+    protected $postings;
     protected $createdAt;
     protected $updatedAt;
+
+    public function __construct() {
+        $this->postings = new ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;

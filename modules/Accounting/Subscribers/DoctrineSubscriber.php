@@ -9,6 +9,7 @@ use Modules\Sales\Entities\Sale as SaleEntity;
 use Modules\Accounting\Repositories\AccountTypeRepository;
 use Modules\Accounting\Repositories\PostingEventRepository;
 use Modules\Accounting\Repositories\AssetTypeRepository;
+use Modules\Accounting\Repositories\AccountRepository;
 use Carbon\Carbon;
 use Modules\Accounting\Entities\Posting as PostingEntity;
 
@@ -19,7 +20,8 @@ class DoctrineSubscriber implements EventSubscriber {
     public function getSubscribedEvents() {
 
         return [
-            Events::prePersist
+            Events::prePersist,
+            Events::postPersist,
         ];
 
     }
@@ -40,6 +42,22 @@ class DoctrineSubscriber implements EventSubscriber {
             // @todo: Determine the property which will keep track of the state -- triggers account transfer.
         } else if($entity instanceof SaleEntity && !$entity->getId()) {
             $this->executeSaleTransfer($event);
+        }
+
+    }
+
+    /**
+     * Add accounts for new customers.
+     *
+     * @param LifecycleEventArgs $event
+     */
+    public function postPersist(LifecycleEventArgs $event) {
+
+        $em = $event->getObjectManager();
+        $entity = $event->getObject();
+
+        if($entity instanceof PostingEntity) {
+            $this->recalculateAccountBalance($event);
         }
 
     }
@@ -160,6 +178,27 @@ class DoctrineSubscriber implements EventSubscriber {
             $em->getClassMetadata(get_class($customer)),
             $customer
         );*/
+
+    }
+
+    /**
+     * Recalculate the balance of the associated account.
+     *
+     * @param LifecycleEventArgs $event
+     */
+    protected function recalculateAccountBalance(LifecycleEventArgs $event) {
+
+        $em = $event->getObjectManager();
+        $posting = $event->getObject();
+
+        $accountRepo = app(AccountRepository::class);
+        $account = $posting->getAccount();
+        
+        $balance = $accountRepo->calculateAccountBalance($account);
+        $account->setBalance($balance);
+
+        $em->persist($account);
+        $em->flush();
 
     }
 

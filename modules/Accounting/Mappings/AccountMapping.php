@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Accounting\Entities\Account;
 use Modules\Accounting\Entities\AccountType;
+use Modules\Accounting\Entities\Posting;
 
 class AccountMapping extends EntityMapping {
 
@@ -22,6 +23,7 @@ class AccountMapping extends EntityMapping {
         $builder->bigIncrements('id');
         $builder->decimal('balance')->precision(19)->scale(4);
         $builder->belongsTo(AccountType::class,'type');
+        $builder->hasMany(Posting::class,'postings')->mappedBy('account')->fetchExtraLazy();
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
     }

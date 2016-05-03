@@ -11,6 +11,9 @@ use Modules\Accounting\Repositories\Doctrine\DoctrinePostingEventRepository;
 use Modules\Accounting\Entities\AssetType as AssetTypeEntity;
 use Modules\Accounting\Repositories\AssetTypeRepository;
 use Modules\Accounting\Repositories\Doctrine\DoctrineAssetTypeRepository;
+use Modules\Accounting\Entities\Account as AccountEntity;
+use Modules\Accounting\Repositories\AccountRepository;
+use Modules\Accounting\Repositories\Doctrine\DoctrineAccountRepository;
 
 class AccountingServiceProvider extends ServiceProvider {
 
@@ -56,6 +59,12 @@ class AccountingServiceProvider extends ServiceProvider {
 		$this->app->bind(AssetTypeRepository::class,function() {
 			return new DoctrineAssetTypeRepository(
 				EntityManager::getRepository(AssetTypeEntity::class)
+			);
+		});
+
+		$this->app->bind(AccountRepository::class,function() {
+			return new DoctrineAccountRepository(
+				EntityManager::getRepository(AccountEntity::class)
 			);
 		});
 
