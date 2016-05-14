@@ -24,4 +24,8 @@ class QuoteAcceptedLine extends QuoteItem {
 
     }
 
+    public function isPayableViaCredits() {
+        return true;
+    }
+
 }

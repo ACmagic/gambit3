@@ -3,6 +3,7 @@
 use Modules\Core\Entities\Site;
 use Modules\Customer\Entities\Customer;
 use Doctrine\Common\Collections\ArrayCollection;
+use Modules\Sales\Entities\QuoteAdvertisedLine;
 use Carbon\Carbon;
 
 class Quote {
@@ -72,6 +73,29 @@ class Quote {
         $this->updatedAt = $updatedAt;
     }
 
+    public function getItems() {
+        return $this->items;
+    }
+
+    /**
+     * Get only the advertised lines in the quote.
+     *
+     * @return ArrayCollection
+     */
+    public function getAdvertisedLineItems() {
+
+        $items = new ArrayCollection();
+
+        foreach($this->items as $item) {
+            if($item instanceof QuoteAdvertisedLine) {
+                $items[] = $item;
+            }
+        }
+
+        return $items;
+
+    }
+
     public function addItem(QuoteItem $item) {
         $this->items[] = $item;
     }
@@ -132,6 +156,22 @@ class Quote {
         }
 
         return $sale;
+
+    }
+
+    /**
+     * Quick and dirty to determine whether the quote can be paid for
+     * via credits.
+     */
+    public function isPayableViaCredits() {
+
+        foreach($this->items as $item) {
+            if(!$item->isPayableViaCredits()) {
+                return false;
+            }
+        }
+
+        return true;
 
     }
 

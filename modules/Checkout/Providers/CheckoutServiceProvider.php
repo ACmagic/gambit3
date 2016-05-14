@@ -3,6 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 use Modules\Checkout\Context\Resolver\CartResolver;
 use Modules\Checkout\Contracts\Context\Cart as CartContract;
+use Modules\Checkout\Subscribers\AuthSubscriber;
 
 class CheckoutServiceProvider extends ServiceProvider {
 
@@ -23,6 +24,7 @@ class CheckoutServiceProvider extends ServiceProvider {
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
+
 	}
 
 	/**
@@ -39,6 +41,8 @@ class CheckoutServiceProvider extends ServiceProvider {
 
 		$this->app->singleton(CartResolver::class);
 		$this->app->tag([CartResolver::class], 'context_resolver');
+
+		$this->app['events']->subscribe(AuthSubscriber::class);
 
 	}
 

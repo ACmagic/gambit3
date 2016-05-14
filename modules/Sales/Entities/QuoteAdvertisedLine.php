@@ -15,13 +15,25 @@ class QuoteAdvertisedLine extends QuoteItem {
         $this->predictions = new ArrayCollection();
     }
 
+    public function getPredictions() {
+        return $this->predictions;
+    }
+
     public function addPrediction(QuotePrediction $prediction) {
         $this->predictions[] = $prediction;
     }
 
     public function calculateCost() {
 
-        // @todo: Calculate the cost based on amount/amount_max and inventory.
+        $base = $this->amount;
+
+        if($this->amountMax) {
+            $base = $this->amountMax;
+        }
+
+        // @todo: Add odds calculation
+        return bcmul($base,$this->inventory,4);
+
 
     }
 
@@ -39,12 +51,16 @@ class QuoteAdvertisedLine extends QuoteItem {
 
             $salePrediction = $prediction->toSalePrediction();
             $salePrediction->setAdvertisedLine($item);
-            $item->addPrediction($item);
+            $item->addPrediction($salePrediction);
 
         }
 
         return $item;
 
+    }
+
+    public function isPayableViaCredits() {
+        return true;
     }
 
 }

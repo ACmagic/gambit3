@@ -60,6 +60,7 @@ class PredictionController extends AbstractBaseController {
         try {
             $prediction = $theType->makeQuotePredictionFromRequest();
             Cart::addPrediction($prediction);
+            return redirect()->route('slip');
         } catch(\Exception $e) {
             $x = 'y';
         }

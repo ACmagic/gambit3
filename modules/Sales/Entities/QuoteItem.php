@@ -51,4 +51,11 @@ abstract class QuoteItem {
      */
     abstract public function toSaleItem();
 
+    /**
+     * Determine whether item can be paid for via credits.
+     *
+     * @return bool
+     */
+    abstract public function isPayableViaCredits();
+
 }

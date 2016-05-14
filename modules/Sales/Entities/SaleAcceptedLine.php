@@ -13,4 +13,8 @@ class SaleAcceptedLine extends SaleItem {
 
     }
 
+    public function isPayableViaCredits() {
+        return true;
+    }
+
 }

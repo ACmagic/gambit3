@@ -1,6 +1,7 @@
 <?php namespace Modules\Checkout\Forms;
 
 use Kris\LaravelFormBuilder\Form as BaseForm;
+use Modules\Sales\Entities\Quote as QuoteEntity;
 
 class CheckoutForm extends BaseForm {
 
@@ -20,6 +21,10 @@ class CheckoutForm extends BaseForm {
 
             case 'register':
                 $this->buildRegister();
+                break;
+
+            case 'credits':
+                $this->buildCredits();
                 break;
 
             default:
@@ -103,6 +108,14 @@ class CheckoutForm extends BaseForm {
 
         $this->add('submit','submit',[
             'label'=> 'Register',
+        ]);
+
+    }
+
+    protected function buildCredits() {
+
+        $this->add('submit','submit',[
+            'label'=> 'Purchase Credits',
         ]);
 
     }

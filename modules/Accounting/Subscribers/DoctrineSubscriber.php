@@ -37,11 +37,18 @@ class DoctrineSubscriber implements EventSubscriber {
         $entity = $event->getObject();
 
         if($entity instanceof CustomerEntity && !$entity->getId()) {
+
             $this->addDefaultCustomerAccounts($event);
 
             // @todo: Determine the property which will keep track of the state -- triggers account transfer.
         } else if($entity instanceof SaleEntity && !$entity->getId()) {
-            $this->executeSaleTransfer($event);
+
+            if($entity->isPayableViaCredits()) {
+                $this->executeSaleTransfer2($event);
+            } else {
+                $this->executeSaleTransfer($event);
+            }
+
         }
 
     }
@@ -73,10 +80,6 @@ class DoctrineSubscriber implements EventSubscriber {
         $sale = $event->getObject();
         
         $cost = $sale->calculateTotalCost();
-
-        /*
-         * @todo: For now just assume all are credit purchases.
-         */
 
         $postingEventRepo = app(PostingEventRepository::class);
         $assetTypeRepo = app(AssetTypeRepository::class);
@@ -130,6 +133,51 @@ class DoctrineSubscriber implements EventSubscriber {
         $sale->addTransaction($posting2);
         $sale->addTransaction($posting3);
         $sale->addTransaction($posting4);
+
+    }
+
+    /**
+     * Transfer funds between accounts for the specified sale.
+     *
+     * @param LifecycleEventArgs $event
+     */
+    protected function executeSaleTransfer2($event) {
+
+        $em = $event->getObjectManager();
+        $sale = $event->getObject();
+
+        $cost = $sale->calculateTotalCost();
+
+        $postingEventRepo = app(PostingEventRepository::class);
+        $assetTypeRepo = app(AssetTypeRepository::class);
+
+        $cashbook = $sale->getStore()->getSite()->getCashBook();
+        $customerInternalAccount = $sale->getCustomer()->getInternalAccount();
+
+        $transfer = $postingEventRepo->findTransferEvent();
+
+        $credit = $assetTypeRepo->findCreditAssetType();
+
+        // Debit customer account.
+        $posting = new PostingEntity();
+        $posting->setAccount($customerInternalAccount);
+        $posting->setEvent($transfer);
+        $posting->setAssetType($credit);
+        $posting->setAmount(bcmul($cost,-1,4));
+        $posting->setCreatedAt(Carbon::now());
+        $posting->setUpdatedAt(Carbon::now());
+
+        $posting2 = new PostingEntity();
+        $posting2->setAccount($cashbook);
+        $posting2->setEvent($transfer);
+        $posting2->setAssetType($credit);
+        $posting2->setAmount($cost);
+        $posting2->setCreatedAt(Carbon::now());
+        $posting2->setUpdatedAt(Carbon::now());
+
+        // Associate transactions with the sale.
+        $sale->addTransaction($posting);
+        $sale->addTransaction($posting2);
 
     }
 

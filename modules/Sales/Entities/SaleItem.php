@@ -44,4 +44,11 @@ abstract class SaleItem {
      */
     abstract public function calculateCost();
 
+    /**
+     * Determine whether item can be paid for via credits.
+     *
+     * @return bool
+     */
+    abstract public function isPayableViaCredits();
+
 }

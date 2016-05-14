@@ -16,4 +16,8 @@ class SaleCredit extends SaleItem {
         return $this->amount;
     }
 
+    public function isPayableViaCredits() {
+        return false;
+    }
+
 }

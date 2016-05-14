@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Carbon\Carbon;
 use Modules\Accounting\Entities\Account as AccountEntity;
 use Modules\Accounting\Entities\AccountType as AccountTypeEntity;
+use Modules\Sales\Entities\Quote as QuoteEntity;
 
 class Customer implements AuthenticatableContract {
 
@@ -38,6 +39,11 @@ class Customer implements AuthenticatableContract {
         $this->accounts[] = $account;
     }
 
+    /**
+     * Get customer internal account.
+     *
+     * @return AccountEntity
+     */
     public function getInternalAccount() {
 
         foreach($this->accounts as $account) {
@@ -48,6 +54,11 @@ class Customer implements AuthenticatableContract {
         
     }
 
+    /**
+     * Get customer external account.
+     *
+     * @return AccountEntity
+     */
     public function getExternalAccount() {
 
         foreach($this->accounts as $account) {
@@ -80,6 +91,29 @@ class Customer implements AuthenticatableContract {
 
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * Determine whether passed quote is currently affordable by customer.
+     *
+     * @param QuoteEntity $quote
+     *   The quote entity.
+     *
+     * @return bool
+     */
+    public function isAffordable(QuoteEntity $quote) {
+
+        // @todo: For now just use total cost.
+        $finalCost = $quote->calculateTotalCost();
+
+        // Get internal account for customer.
+        $internalAccount = $this->getInternalAccount();
+
+        // Get the balance.
+        $balance = $internalAccount->getBalance();
+
+        return bccomp($finalCost,$balance,2) < 1;
+
     }
 
 }

@@ -88,4 +88,20 @@ class Sale {
 
     }
 
+    /**
+     * Quick and dirty to determine whether the sale can be paid for
+     * via credits.
+     */
+    public function isPayableViaCredits() {
+
+        foreach($this->items as $item) {
+            if(!$item->isPayableViaCredits()) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
 }

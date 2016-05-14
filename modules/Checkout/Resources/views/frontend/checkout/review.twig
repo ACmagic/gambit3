@@ -1,0 +1,31 @@
+{% extends "core::layouts.frontend.default" %}
+
+{% block content %}
+
+    <h1>Review</h1>
+
+    <div>
+        {{ link_to_route('checkout.complete','Submit') }}
+    </div>
+
+    <ol>
+        {% for item in quote.advertisedLineItems %}
+            <li>Line
+
+                <p>Inventory: {{ item.inventory }}</p>
+                <p>Min Wager: {{ item.amount }}</p>
+                <p>Max Wager: {{ item.amountMax }}</p>
+
+                <ul>
+                    {% for prediction in item.predictions %}
+                        <li>
+                            <p>{{ prediction.game.displayTitle }}</p>
+                            <p>{{ prediction.pick.name }} +{{ prediction.spread }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

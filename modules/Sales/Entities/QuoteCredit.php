@@ -29,4 +29,8 @@ class QuoteCredit extends QuoteItem {
 
     }
 
+    public function isPayableViaCredits() {
+        return false;
+    }
+
 }

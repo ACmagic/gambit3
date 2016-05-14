@@ -19,8 +19,19 @@ class SaleAdvertisedLine extends SaleItem {
 
     public function calculateCost() {
 
-        // @todo: Calculate the cost based on amount/amount_max and inventory.
+        $base = $this->amount;
 
+        if($this->amountMax) {
+            $base = $this->amountMax;
+        }
+
+        // @todo: Add odds calculation
+        return bcmul($base,$this->inventory,4);
+
+    }
+
+    public function isPayableViaCredits() {
+        return true;
     }
 
 }

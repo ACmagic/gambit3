@@ -1,6 +1,8 @@
 <?php namespace Modules\Credits\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Payum\Core\PayumBuilder;
+use Modules\Credits\Payum\Credit\CreditGatewayFactory;
 
 class CreditsServiceProvider extends ServiceProvider {
 
@@ -29,8 +31,23 @@ class CreditsServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{		
-		//
+	{
+
+		// Change of heart with this.
+		/*$this->app->resolving('payum.builder', function(PayumBuilder $payumBuilder) {
+
+			$payumBuilder
+				// Register custom factory for gambit gateway.
+				->addGatewayFactory('gambit_credit', function($config, $coreGateway) {
+    				return new CreditGatewayFactory($config, $coreGateway);
+				})
+				// Make gambit credit gateway available.
+				->addGateway('gambit_credit', [
+					'factory' => 'gambit_credit',
+				]);
+
+		});*/
+
 	}
 
 	/**
