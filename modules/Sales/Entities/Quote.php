@@ -11,11 +11,14 @@ class Quote {
     protected $id;
     protected $sessionId;
     protected $isCart;
+    protected $isExpired;
     protected $site;
+    protected $sale;
     protected $customer;
     protected $items;
     protected $createdAt;
     protected $updatedAt;
+    protected $expiredAt;
 
     public function __construct() {
         $this->items = new ArrayCollection();
@@ -41,12 +44,28 @@ class Quote {
         $this->isCart = $isCart;
     }
 
+    public function getIsExpired() {
+        return $this->isExpired;
+    }
+
+    public function setIsExpired($isExpired) {
+        $this->isExpired = $isExpired;
+    }
+
     public function setSite(Site $site) {
         $this->site = $site;
     }
 
     public function getSite() {
         return $this->site;
+    }
+
+    public function setSale(Sale $sale) {
+        $this->sale = $sale;
+    }
+
+    public function getSale() {
+        return $this->sale;
     }
 
     public function getCustomer() {
@@ -71,6 +90,14 @@ class Quote {
 
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getExpiredAt() {
+        return $this->expiredAt;
+    }
+
+    public function setExpiredAt(Carbon $expiredAt) {
+        $this->expiredAt = $expiredAt;
     }
 
     public function getItems() {

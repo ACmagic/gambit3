@@ -7,6 +7,12 @@
 
 <div>Gambit Storefront</div>
 
+{% if auth_check() %}
+    <div>
+        <p>Balance: {{ auth_user().getInternalAccount().balance }}</p>
+    </div>
+{% endif %}
+
 <div id="page-content">
     {% block content %}{% endblock %}
 </div>

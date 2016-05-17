@@ -19,9 +19,9 @@ class DoctrineQuoteRepository implements QuoteRepository {
         return $this->genericRepository->findAll();
     }
 
-    public function findBySessionIdAndSiteId($sessionId,$siteId) {
+    public function findActiveSessionCart($sessionId,$siteId) {
         // Only finds the quote that is a cart.
-        return $this->genericRepository->findOneBy(['sessionId'=> $sessionId,'site'=>$siteId,'isCart'=>1]);
+        return $this->genericRepository->findOneBy(['sessionId'=> $sessionId,'site'=>$siteId,'isCart'=>1,'isExpired'=>0]);
     }
 
 }

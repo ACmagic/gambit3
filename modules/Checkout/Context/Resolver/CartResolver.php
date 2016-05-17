@@ -7,20 +7,30 @@ use Modules\Sales\Repositories\QuoteRepository;
 use Illuminate\Session\SessionManager;
 use Modules\Core\Facades\Site;
 use Modules\Core\Repositories\SiteRepository;
+use Modules\Customer\Repositories\CustomerRepository;
 use Carbon\Carbon;
 use Doctrine\ORM\EntityManagerInterface;
+use Modules\Customer\Facades\Customer as CustomerFacade;
 
 class CartResolver implements Resolver {
 
     protected $quoteRepository;
     protected $sessionMgr;
     protected $siteRepo;
+    protected $customerRepo;
     protected $em;
 
-    public function __construct(QuoteRepository $quoteRepository,SessionManager $sessionMgr,SiteRepository $siteRepo,EntityManagerInterface $em) {
+    public function __construct(
+        QuoteRepository $quoteRepository,
+        SessionManager $sessionMgr,
+        SiteRepository $siteRepo,
+        EntityManagerInterface $em,
+        CustomerRepository $customerRepo
+    ) {
         $this->quoteRepository = $quoteRepository;
         $this->sessionMgr = $sessionMgr;
         $this->siteRepo = $siteRepo;
+        $this->customerRepo = $customerRepo;
         $this->em = $em;
     }
 
@@ -38,7 +48,7 @@ class CartResolver implements Resolver {
         $sessionId = $session->getId();
         $siteId = Site::getSiteId();
 
-        $quote = $this->quoteRepository->findBySessionIdAndSiteId($sessionId,$siteId);
+        $quote = $this->quoteRepository->findActiveSessionCart($sessionId,$siteId);
         if(!$quote) {
             $quote = $this->makeQuote();
         }
@@ -52,6 +62,7 @@ class CartResolver implements Resolver {
         
         $quote = new QuoteEntity();
         $quote->setIsCart(1);
+        $quote->setIsExpired(0);
         $quote->setCreatedAt(Carbon::now());
         $quote->setUpdatedAt(Carbon::now());
 
@@ -59,6 +70,11 @@ class CartResolver implements Resolver {
         $site = $this->siteRepo->findById($siteId);
 
         $quote->setSite($site);
+
+        if(CustomerFacade::isLoggedIn()) {
+            $customer = $this->customerRepo->findById(CustomerFacade::getCustomerId());
+            $quote->setCustomer($customer);
+        }
 
         $session = $this->sessionMgr->driver();
         $sessionId = $session->getId();

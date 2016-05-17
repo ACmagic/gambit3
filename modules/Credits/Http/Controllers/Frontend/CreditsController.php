@@ -60,7 +60,9 @@ class CreditsController extends AbstractBaseController {
         $quote = new QuoteEntity();
         $quote->setCreatedAt(Carbon::now());
         $quote->setUpdatedAt(Carbon::now());
+        $quote->setExpiredAt(Carbon::now());
         $quote->setSite($site);
+        $quote->setIsExpired(1);
         $quote->setSessionId($this->session->driver()->getId());
 
         $item = new QuoteCreditEntity();

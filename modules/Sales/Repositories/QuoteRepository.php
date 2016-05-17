@@ -4,6 +4,6 @@ interface QuoteRepository {
 
     public function findById($id);
     public function findAll();
-    public function findBySessionIdAndSiteId($sessionId,$siteId);
+    public function findActiveSessionCart($sessionId,$siteId);
 
 }

@@ -110,6 +110,8 @@ class CheckoutController extends AbstractBaseController {
             return redirect()->route('checkout.credits');
         }
 
+        // @todo: Quote validation
+
         $storeId = StoreFacade::getStoreId();
         $store = $this->storeRepo->findById($storeId);
 
@@ -117,7 +119,15 @@ class CheckoutController extends AbstractBaseController {
         $sale->setCustomer($customer);
         $sale->setStore($store);
 
+        // Update the quote with the sale info and expire.
+        $quote->setSale($sale);
+        $quote->setIsExpired(true);
+        $quote->setIsCart(null);
+        $quote->setExpiredAt(Carbon::now());
+
         $this->em->persist($sale);
+        $this->em->persist($quote);
+
         $this->em->flush();
 
     }
@@ -229,6 +239,10 @@ class CheckoutController extends AbstractBaseController {
                 $this->session->forget('checkout.quoteId');
                 $this->session->forget('checkout.cartId');
                 return redirect()->route('checkout.review');
+
+            } else {
+
+                //return redirect()->route('checkout.');
 
             }
 
@@ -349,7 +363,9 @@ class CheckoutController extends AbstractBaseController {
         $newQuote = new QuoteEntity();
         $newQuote->setCreatedAt(Carbon::now());
         $newQuote->setUpdatedAt(Carbon::now());
+        $newQuote->setExpiredAt(Carbon::now());
         $newQuote->setSite($site);
+        $newQuote->setIsExpired(1);
         $newQuote->setCustomer($customer);
         $newQuote->setSessionId($this->session->driver()->getId());
 
