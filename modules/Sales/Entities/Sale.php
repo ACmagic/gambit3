@@ -61,6 +61,10 @@ class Sale {
         $this->items[] = $item;
     }
 
+    public function getItems() {
+        return $this->items;
+    }
+
     /**
      * Add new sales transaction.
      *
@@ -101,6 +105,23 @@ class Sale {
         }
 
         return true;
+
+    }
+
+    /**
+     * Detect sale with an advertised line.
+     *
+     * @return bool
+     */
+    public function hasAdvertisedLine() {
+
+        foreach($this->items as $item) {
+            if($item instanceof SaleAdvertisedLine) {
+                return true;
+            }
+        }
+
+        return false;
 
     }
 

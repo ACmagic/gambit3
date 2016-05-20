@@ -11,6 +11,17 @@ Recipe: Tear down and up the db
 php artisan doctrine:migrations:refresh
 php artisan gambit:core:seed
 
+--------------------------------------------------
+
+command line xdebug
+
+export PHP_IDE_CONFIG="serverName=local.kyle"
+export XDEBUG_CONFIG="idekey=PHPStorm"
+
+---------------------------------------------------
+
+redis
+
 ---------------------------------------------------
 
 seeker

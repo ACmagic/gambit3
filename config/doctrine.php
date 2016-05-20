@@ -77,6 +77,9 @@ return [
                     // Accounting
                     Modules\Accounting\Subscribers\DoctrineSubscriber::class,
 
+                    // Catalog
+                    Modules\Catalog\Subscribers\DoctrineSubscriber::class,
+
                 ]
             ],
             'filters'    => [],

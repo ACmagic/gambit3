@@ -28,7 +28,13 @@
                 </ul>
             </li>
             <li><a href="{{ url('admin/customers') }}">Customers</a></li>
-            <li><a href="{{ url('admin/sales') }}">Sales</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Sales <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url('admin/sales/advertised-lines') }}">Advertised Lines</a></li>
+                    <li><a href="{{ url('admin/sales/accepted-lines') }}">Accepted Lines</a></li>
+                    <li><a href="{{ url('admin/sales/credits') }}">Credits</a></li>
+                </ul>
+            </li>
             <li><a href="{{ url('admin/sites') }}">Sites</a></li>
             <li><a href="{{ url('admin/stores') }}">Stores</a></li>
             <li><a href="{{ url('admin/users') }}">Users</a></li>
