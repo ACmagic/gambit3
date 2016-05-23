@@ -11,7 +11,9 @@ class Sale {
     protected $id;
     protected $store;
     protected $customer;
+    protected $state;
     protected $transactions;
+    protected $transitions;
     protected $items;
     protected $createdAt;
     protected $updatedAt;
@@ -19,6 +21,7 @@ class Sale {
     public function __construct() {
         $this->items = new ArrayCollection();
         $this->transactions = new ArrayCollection();
+        $this->transitions = new ArrayCollection();
     }
 
     public function getId() {
@@ -41,6 +44,14 @@ class Sale {
         $this->customer = $customer;
     }
 
+    public function getState() {
+        return $this->state;
+    }
+
+    public function setState(SaleWorkflowState $state) {
+        $this->state = $state;
+    }
+
     public function getCreatedAt() {
         return $this->createdAt;
     }
@@ -59,6 +70,10 @@ class Sale {
 
     public function addItem(SaleItem $item) {
         $this->items[] = $item;
+    }
+
+    public function addTransition(SaleWorkflowTransition $transition) {
+        $this->transitions[] = $transition;
     }
 
     public function getItems() {

@@ -5,6 +5,15 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Sales\Entities\Quote as QuoteEntity;
 use Modules\Sales\Repositories\QuoteRepository;
 use Modules\Sales\Repositories\Doctrine\DoctrineQuoteRepository;
+use Modules\Sales\Entities\SaleItem as SaleItemEntity;
+use Modules\Sales\Repositories\SaleItemRepository;
+use Modules\Sales\Repositories\Doctrine\DoctrineSaleItemRepository;
+use Modules\Sales\Entities\SaleAdvertisedLine as SaleAdvertisedLineEntity;
+use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
+use Modules\Sales\Repositories\Doctrine\DoctrineSaleAdvertisedLineRepository;
+use Modules\Sales\Entities\SaleWorkflowState as SaleWorkflowStateEntity;
+use Modules\Sales\Repositories\SaleWorkflowStateRepository;
+use Modules\Sales\Repositories\Doctrine\DoctrineSaleWorkflowStateRepository;
 
 class SalesServiceProvider extends ServiceProvider {
 
@@ -38,6 +47,24 @@ class SalesServiceProvider extends ServiceProvider {
 		$this->app->bind(QuoteRepository::class,function() {
 			return new DoctrineQuoteRepository(
 				EntityManager::getRepository(QuoteEntity::class)
+			);
+		});
+
+		$this->app->bind(SaleWorkflowStateRepository::class,function() {
+			return new DoctrineSaleWorkflowStateRepository(
+				EntityManager::getRepository(SaleWorkflowStateEntity::class)
+			);
+		});
+
+		$this->app->bind(SaleItemRepository::class,function() {
+			return new DoctrineSaleItemRepository(
+				EntityManager::getRepository(SaleItemEntity::class)
+			);
+		});
+
+		$this->app->bind(SaleAdvertisedLineRepository::class,function() {
+			return new DoctrineSaleAdvertisedLineRepository(
+				EntityManager::getRepository(SaleAdvertisedLineEntity::class)
 			);
 		});
 

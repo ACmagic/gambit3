@@ -37,6 +37,7 @@ return [
                 'Modules\Sports\Entities',
                 'Modules\Football\Entities',
                 'Modules\Sales\Entities',
+                'Modules\Workflow\Entities',
             ],
             'paths'      => [
                 // Significant performance boost (minimal scanning)
@@ -50,6 +51,7 @@ return [
                 base_path('modules/Sports/Mappings'),
                 base_path('modules/Football/Mappings'),
                 base_path('modules/Sales/Mappings'),
+                base_path('modules/Workflow/Mappings'),
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
@@ -79,6 +81,9 @@ return [
 
                     // Catalog
                     Modules\Catalog\Subscribers\DoctrineSubscriber::class,
+
+                    // Sales
+                    Modules\Sales\Subscribers\DoctrineSubscriber::class,
 
                 ]
             ],
@@ -175,6 +180,16 @@ return [
                 Modules\Sales\Mappings\SalePredictionMapping::class,
                 Modules\Sales\Mappings\SaleMoneyLineMapping::class,
                 Modules\Sales\Mappings\SalePointSpreadMapping::class,
+
+                Modules\Sales\Mappings\SaleWorkflowMapping::class,
+                Modules\Sales\Mappings\SaleWorkflowStateMapping::class,
+                Modules\Sales\Mappings\SaleWorkflowTransitionMapping::class,
+
+                // Workflow
+                Modules\Workflow\Mappings\WorkflowMapping::class,
+                Modules\Workflow\Mappings\StateMapping::class,
+                Modules\Workflow\Mappings\TransitionMapping::class,
+
             ],
         ]
     ],

@@ -5,15 +5,17 @@ use Doctrine\ORM\Events;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Modules\Sales\Entities\Sale as SaleEntity;
 use Modules\Sales\Entities\SaleAdvertisedLine;
+use Modules\Sales\Entities\SaleWorkflowTransition;
 use Carbon\Carbon;
 use Modules\Catalog\Jobs\FulfillAdvertisedLine;
+use Modules\Sales\Repositories\SaleWorkflowStateRepository;
 
 class DoctrineSubscriber implements EventSubscriber {
 
     public function getSubscribedEvents() {
 
         return [
-            Events::prePersist,
+            Events::postPersist,
         ];
 
     }
@@ -23,17 +25,23 @@ class DoctrineSubscriber implements EventSubscriber {
      *
      * @param LifecycleEventArgs $event
      */
-    public function prePersist(LifecycleEventArgs $event) {
+    public function postPersist(LifecycleEventArgs $event) {
 
         $em = $event->getObjectManager();
         $entity = $event->getObject();
 
         /**
-         * @todo: This should occur after the sale gets created, right?
+         * @todo: Limit this to a single fulfillment.
          */
-        if($entity instanceof SaleEntity && !$entity->getId()) {
+        if($entity instanceof SaleWorkflowTransition && $entity->getSale()->hasAdvertisedLine()) {
 
-            if($entity->hasAdvertisedLine()) {
+            $saleWorkflowStateRepo = app(SaleWorkflowStateRepository::class);
+
+            $state = $entity->getAfterState();
+            $paidState = $saleWorkflowStateRepo->findPaidState();
+
+
+            if($state->getId() === $paidState->getId()) {
                 $this->scheduleAdvertisedLineFulfillment($event);
             }
 
@@ -50,16 +58,14 @@ class DoctrineSubscriber implements EventSubscriber {
 
         $em = $event->getObjectManager();
         $entity = $event->getObject();
-        
-        foreach($entity->getItems() as $item) {
-            
+
+        $sale = $entity->getSale();
+
+        foreach($sale->getItems() as $item) {
             if($item instanceof SaleAdvertisedLine) {
-                
-                $job = (new FulfillAdvertisedLine())->delay(30);
+                $job = (new FulfillAdvertisedLine($item->getId()))->delay(10);
                 dispatch($job);
-                
             }
-            
         }
 
     }

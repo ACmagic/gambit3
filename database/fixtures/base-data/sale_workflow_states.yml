@@ -1,0 +1,17 @@
+Modules\Sales\Entities\SaleWorkflowState:
+    'sale_workflow_state_submitted (extends abstract_workflow_state)':
+      workflow: '@sale_workflow_default'
+      machineName: 'submitted'
+      humanName: 'Submitted'
+    'sale_workflow_state_paid (extends abstract_workflow_state)':
+      workflow: '@sale_workflow_default'
+      machineName: 'paid'
+      humanName: 'Paid'
+    'sale_workflow_state_processing (extends abstract_workflow_state)':
+      workflow: '@sale_workflow_default'
+      machineName: 'processing'
+      humanName: 'Processing'
+    'sale_workflow_state_processed (extends abstract_workflow_state)':
+      workflow: '@sale_workflow_default'
+      machineName: 'processed'
+      humanName: 'Processed'

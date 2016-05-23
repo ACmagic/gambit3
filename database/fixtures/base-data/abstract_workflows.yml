@@ -1,0 +1,4 @@
+Modules\Workflow\Entities\Workflow:
+  abstract_workflow (template):
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

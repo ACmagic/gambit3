@@ -1,0 +1,4 @@
+Modules\Sales\Entities\SaleWorkflow:
+    'sale_workflow_default (extends abstract_workflow)':
+      machineName: 'sale_default'
+      humanName: 'Sale Default'
