@@ -4,6 +4,11 @@ use Carbon\Carbon;
 
 class Side {
 
+    const
+
+        SIDE_HOUSE = 'house',
+        SIDE_SEEKER = 'seeker';
+
     protected $id;
     protected $machineName;
     protected $humanName;

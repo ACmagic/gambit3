@@ -2,9 +2,38 @@
 
 trait AdvertisedLineTrait {
 
+    protected $side;
+
+    protected $odds;
     protected $inventory;
     protected $amount;
     protected $amountMax;
+
+    /**
+     * Set the side.
+     *
+     * @param Side
+     */
+    public function setSide(Side $side) {
+        $this->side = $side;
+    }
+
+    /**
+     * Get the side.
+     *
+     * @return Side
+     */
+    public function getSide() {
+        return $this->side;
+    }
+
+    public function setOdds($odds) {
+        $this->odds = $odds;
+    }
+
+    public function getOdds() {
+        return $this->odds;
+    }
 
     public function getInventory() {
         return $this->inventory;

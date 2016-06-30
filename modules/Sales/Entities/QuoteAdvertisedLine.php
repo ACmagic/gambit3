@@ -43,6 +43,8 @@ class QuoteAdvertisedLine extends QuoteItem {
         $item = new SaleAdvertisedLine();
         $item->setCreatedAt(Carbon::now());
         $item->setUpdatedAt(Carbon::now());
+        $item->setSide($this->side);
+        $item->setOdds($this->odds);
         $item->setAmount($this->amount);
         $item->setAmountMax($this->amountMax);
         $item->setInventory($this->inventory);

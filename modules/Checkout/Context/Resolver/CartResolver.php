@@ -11,26 +11,30 @@ use Modules\Customer\Repositories\CustomerRepository;
 use Carbon\Carbon;
 use Doctrine\ORM\EntityManagerInterface;
 use Modules\Customer\Facades\Customer as CustomerFacade;
+use Modules\Catalog\Repositories\SideRepository;
 
 class CartResolver implements Resolver {
 
+    protected $em;
     protected $quoteRepository;
     protected $sessionMgr;
     protected $siteRepo;
     protected $customerRepo;
-    protected $em;
+    protected $sideRepo;
 
     public function __construct(
         QuoteRepository $quoteRepository,
         SessionManager $sessionMgr,
         SiteRepository $siteRepo,
         EntityManagerInterface $em,
-        CustomerRepository $customerRepo
+        CustomerRepository $customerRepo,
+        SideRepository $sideRepo
     ) {
         $this->quoteRepository = $quoteRepository;
         $this->sessionMgr = $sessionMgr;
         $this->siteRepo = $siteRepo;
         $this->customerRepo = $customerRepo;
+        $this->sideRepo = $sideRepo;
         $this->em = $em;
     }
 
@@ -53,7 +57,12 @@ class CartResolver implements Resolver {
             $quote = $this->makeQuote();
         }
         
-        $context = new Cart($quote,$this->em);
+        $context = new Cart(
+            $quote,
+            $this->em,
+            $this->sideRepo
+        );
+
         return $context;
 
     }

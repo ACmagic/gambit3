@@ -6,6 +6,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Modules\Catalog\Repositories\LineRepository;
 use Modules\Catalog\Entities\AdvertisedLine;
 use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
+use Modules\Sales\Repositories\SaleWorkflowStateRepository;
+use LaravelDoctrine\ORM\Facades\EntityManager;
 
 class FulfillAdvertisedLine implements ShouldQueue {
 
@@ -23,13 +25,25 @@ class FulfillAdvertisedLine implements ShouldQueue {
      *
      * @param SaleAdvertisedLineRepository $advertisedLineRepo
      *   The sale advertised line repository.
+     *
+     * @param SaleWorkflowStateRepository $saleWorkflowStateRepo
+     *   The sale workflow state repo.
      */
     public function handle(
-        SaleAdvertisedLineRepository $advertisedLineRepo
+        SaleAdvertisedLineRepository $advertisedLineRepo,
+        SaleWorkflowStateRepository $saleWorkflowStateRepo
     )
     {
 
         $saleAdvertisedLine = $advertisedLineRepo->findById($this->advertisedLineSaleId);
+        $processingState = $saleWorkflowStateRepo->findProcessingState();
+
+        $sale = $saleAdvertisedLine->getSale();
+
+        $sale->setState($processingState);
+
+        EntityManager::persist($sale);
+        EntityManager::flush();
 
         echo 'Fulfill Advertised Line Sale '.$saleAdvertisedLine->getId().'!';
 
@@ -39,6 +53,7 @@ class FulfillAdvertisedLine implements ShouldQueue {
         $newLine = $saleAdvertisedLine->toLine();
 
         // Find match
+        // First match the line with same number of predictions.
         $existingLine = $lineRepo->matchOpenLine($newLine);
 
         // Get the sales customer.

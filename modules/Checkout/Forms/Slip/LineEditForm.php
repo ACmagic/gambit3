@@ -2,12 +2,38 @@
 
 use Kris\LaravelFormBuilder\Form as BaseForm;
 use Modules\Sales\Entities\QuoteAdvertisedLine;
+use Modules\Catalog\Repositories\SideRepository;
 
 class LineEditForm extends BaseForm {
 
     protected $advertisedLine;
 
+    protected $sideRepo;
+
+    public function __construct(SideRepository $sideRepo) {
+        $this->sideRepo = $sideRepo;
+    }
+
     public function buildForm() {
+
+        $sideChoices = [];
+        $sides = $this->sideRepo->findAll();
+        foreach($sides as $side) {
+            $sideChoices[$side->getId()] = $side->getHumanName();
+        }
+
+        $this->add('side','choice',[
+            'label'=> 'Side:',
+            'choices'=> $sideChoices,
+            'default_value'=> $this->advertisedLine->getSide()->getId(),
+            'rules'=> 'required|min:1',
+        ]);
+
+        $this->add('odds','text',[
+            'label'=> 'Odds:',
+            'default_value'=> $this->advertisedLine->getOdds(),
+            'rules'=> 'required|min:1|numeric',
+        ]);
 
         $this->add('amount','text',[
             'label'=> 'Wager Min:',

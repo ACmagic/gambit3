@@ -2,6 +2,7 @@
 
 use Modules\Catalog\Entities\AdvertisedLineTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Modules\Catalog\Entities\Line as LineEntity;
 
 class SaleAdvertisedLine extends SaleItem {
 
@@ -32,6 +33,17 @@ class SaleAdvertisedLine extends SaleItem {
 
     public function isPayableViaCredits() {
         return true;
+    }
+
+    /**
+     * Convert this to a line.
+     *
+     * @return LineEntity
+     */
+    public function toLine() {
+
+        $line = new LineEntity();
+
     }
 
 }

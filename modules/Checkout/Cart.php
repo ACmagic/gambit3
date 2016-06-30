@@ -7,15 +7,23 @@ use Modules\Sales\Entities\QuotePrediction as QuotePredictionEntity;
 use Modules\Sales\Entities\QuoteAdvertisedLine as QuoteAdvertisedLineEntity;
 use Carbon\Carbon;
 use Doctrine\ORM\EntityManagerInterface;
+use Modules\Catalog\Repositories\SideRepository;
 
 class Cart implements Context, CartContract {
 
     protected $quote;
     protected $em;
+    
+    protected $sideRepo;
 
-    public function __construct(QuoteEntity $quote,EntityManagerInterface $em) {
+    public function __construct(
+        QuoteEntity $quote,
+        EntityManagerInterface $em,
+        SideRepository $sideRepo
+    ) {
         $this->quote = $quote;
         $this->em = $em;
+        $this->sideRepo = $sideRepo;
     }
 
     public function getName() {
@@ -46,8 +54,13 @@ class Cart implements Context, CartContract {
 
     protected function makeAdvertisedLineItem() {
 
+        // Default side
+        $house = $this->sideRepo->getHouse();
+
         $item = new QuoteAdvertisedLineEntity();
+        $item->setSide($house);
         $item->setQuote($this->quote);
+        $item->setOdds(0);
         $item->setInventory(0);
         $item->setAmount(0.00);
         $item->setCreatedAt(Carbon::now());

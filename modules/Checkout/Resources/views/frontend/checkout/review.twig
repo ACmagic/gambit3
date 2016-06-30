@@ -12,9 +12,11 @@
         {% for item in quote.advertisedLineItems %}
             <li>Line
 
-                <p>Inventory: {{ item.inventory }}</p>
+                <p>Side: {{ item.side.humanName }}</p>
+                <p>Odds: {{ item.odds }}</p>
                 <p>Min Wager: {{ item.amount }}</p>
                 <p>Max Wager: {{ item.amountMax }}</p>
+                <p>Inventory: {{ item.inventory }}</p>
 
                 <ul>
                     {% for prediction in item.predictions %}

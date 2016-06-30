@@ -7,15 +7,23 @@ use Kris\LaravelFormBuilder\Facades\FormBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Session\SessionManager;
 use Modules\Customer\Facades\Customer as CustomerFacade;
+use Modules\Catalog\Repositories\SideRepository;
 
 class SlipController extends AbstractBaseController {
 
     protected $em;
     protected $session;
 
-    public function __construct(SessionManager $session,EntityManagerInterface $em) {
+    protected $sideRepo;
+
+    public function __construct(
+        SessionManager $session,
+        EntityManagerInterface $em,
+        SideRepository $sideRepo
+    ) {
         $this->em = $em;
         $this->session = $session;
+        $this->sideRepo = $sideRepo;
     }
 
     public function getIndex() {
@@ -75,6 +83,10 @@ class SlipController extends AbstractBaseController {
 
         $data = $form->getRequest()->all();
 
+        $side = $this->sideRepo->findById($data['side']);
+
+        $advertisedLine->setSide($side);
+        $advertisedLine->setOdds($data['odds']);
         $advertisedLine->setAmount($data['amount']);
         $advertisedLine->setInventory($data['inventory']);
 

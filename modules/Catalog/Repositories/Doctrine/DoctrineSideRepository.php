@@ -2,6 +2,7 @@
 
 use Modules\Catalog\Repositories\SideRepository;
 use Doctrine\Common\Persistence\ObjectRepository;
+use Modules\Catalog\Entities\Side as SideEntity;
 
 class DoctrineSideRepository implements SideRepository {
 
@@ -17,6 +18,14 @@ class DoctrineSideRepository implements SideRepository {
 
     public function findAll() {
         return $this->genericRepository->findAll();
+    }
+
+    public function getSeeker() {
+        return $this->genericRepository->findOneByMachineName(SideEntity::SIDE_SEEKER);
+    }
+
+    public function getHouse() {
+        return $this->genericRepository->findOneByMachineName(SideEntity::SIDE_HOUSE);
     }
 
 }

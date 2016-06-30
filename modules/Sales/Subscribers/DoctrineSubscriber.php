@@ -2,6 +2,7 @@
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Events;
+use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Modules\Sales\Entities\Sale as SaleEntity;
 use Modules\Sales\Entities\SaleWorkflowTransition;
@@ -13,7 +14,7 @@ class DoctrineSubscriber implements EventSubscriber {
 
         return [
             Events::prePersist,
-            Events::preUpdate,
+            Events::onFlush,
         ];
 
     }
@@ -48,18 +49,40 @@ class DoctrineSubscriber implements EventSubscriber {
     /**
      * Handle preUpdate events on sale entities.
      *
-     * @param LifecycleEventArgs $event
+     * @param OnFlushEventArgs $event
      */
-    public function preUpdate(LifecycleEventArgs $event) {
+    public function onFlush(OnFlushEventArgs $event) {
 
-        $em = $event->getObjectManager();
-        $entity = $event->getObject();
+        $em = $event->getEntityManager();
+        $uow = $em->getUnitOfWork();
 
-        if($entity instanceof SaleEntity) {
+        foreach($uow->getScheduledEntityUpdates() as $entity) {
 
-            $originalData = $em->getUnitOfWork()->getOriginalEntityData($entity);
-            $x = 'y';
+            if($entity instanceof SaleEntity) {
 
+                $changeSet = $uow->getEntityChangeSet($entity);
+
+                // Add state change/transition record.
+                if(isset($changeSet['state'][1]) && $changeSet['state'][0]->getId() != $changeSet['state'][1]->getId()) {
+
+                    $beforeState = $changeSet['state'][0];
+                    $afterState = $changeSet['state'][1];
+
+                    $transition = new SaleWorkflowTransition();
+                    $transition->setSale($entity);
+                    $transition->setBeforeState($beforeState);
+                    $transition->setAfterState($afterState);
+                    $transition->setCreatedAt(Carbon::now());
+                    $transition->setUpdatedAt(Carbon::now());
+
+                    $uow->persist($transition);
+
+                    $meta = $em->getClassMetadata(get_class($transition));
+                    $uow->computeChangeSet($meta, $transition);
+
+                }
+
+            }
         }
 
     }
