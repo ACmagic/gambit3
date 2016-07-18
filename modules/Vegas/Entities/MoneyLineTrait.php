@@ -12,7 +12,7 @@ trait MoneyLineTrait {
         $this->pick = $pick;
     }
 
-    public function getPick() {
+    public function getPick() :Team {
         return $this->pick;
     }
 
@@ -20,8 +20,20 @@ trait MoneyLineTrait {
         $this->game = $game;
     }
 
-    public function getGame() {
+    public function getGame() : Game {
         return $this->game;
+    }
+
+    public function jsonSerialize() {
+
+        $json = [];
+
+        $json['type'] = get_class($this);
+        $json['game_id'] = $this->getGame()->getId();
+        $json['pick_id'] = $this->getPick()->getId();
+
+        return $json;
+
     }
 
 }

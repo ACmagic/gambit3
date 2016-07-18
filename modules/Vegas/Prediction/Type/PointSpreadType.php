@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Request;
 use Modules\Sports\Repositories\TeamRepository;
 use Modules\Sports\Repositories\GameRepository;
 use Carbon\Carbon;
+use Modules\Prediction\Entities\Prediction as PredictionEntity;
+use Modules\Vegas\Entities\PointSpread as PointSpreadEntity;
+use Doctrine\ORM\QueryBuilder;
 
 class PointSpreadType implements PredictionType {
 
@@ -60,6 +63,55 @@ class PointSpreadType implements PredictionType {
         $prediction->setSpread($spread);
 
         return $prediction;
+
+    }
+
+    /**
+     * Determine whether this type owns the specified prediction entity.
+     *
+     * @param PredictionEntity $prediction
+     *   The prediction entity.
+     *
+     * @return bool
+     */
+    public function owns(PredictionEntity $prediction) : bool {
+        return $prediction instanceof PointSpreadEntity;
+    }
+
+    /**
+     * Include the prediction with the line.
+     *
+     * @param QueryBuilder $qb
+     *   The query builder.
+     *
+     * @param PredictionEntity $prediction
+     *   The prediction entity.
+     *
+     * @param int $cursor
+     *   The prediction cursor to generate unique aliases and placeholders.
+     */
+    public function requirePredictionWithLine(QueryBuilder $qb,PredictionEntity $prediction,int $cursor=0) {
+
+        $game = $prediction->getGame();
+        $pick = $prediction->getPick();
+        $spread = $prediction->getSpread();
+
+        $extraJoinConditions = 'l = ';
+        $extraJoinConditions.= 'p'.$cursor.'.game = :game'.$cursor;
+        $extraJoinConditions.= ' AND p'.$cursor.'.pick = :pick'.$cursor;
+        $extraJoinConditions.= ' AND p'.$cursor.'.spread = :spread'.$cursor;
+
+        $qb->innerJoin(get_class($prediction),'p'.$cursor,'WITH',$extraJoinConditions);
+        //$qb->join(get_class($prediction),'ps'.$cursor,'WITH',$extraJoinConditions);
+        //$qb->where('p'.$cursor.' INSTANCE OF '.get_class($prediction));
+
+        /*$qb->where('point_spreads@[p'.$cursor.'].game = :game'.$cursor);
+        $qb->where('point_spreads@[p'.$cursor.'].pick = :pick'.$cursor);
+        $qb->where('point_spreads@[p'.$cursor.'].spread = :spread'.$cursor);*/
+
+        $qb->setParameter('game'.$cursor,$game);
+        $qb->setParameter('pick'.$cursor,$pick);
+        $qb->setParameter('spread'.$cursor,$spread);
 
     }
     

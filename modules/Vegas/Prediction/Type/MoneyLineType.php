@@ -4,6 +4,9 @@ use Modules\Prediction\PredictionType;
 use Modules\Vegas\Prediction\Compatibility\MoneyLineResolver;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Modules\Vegas\Prediction\Forms\MoneyLineForm;
+use Modules\Prediction\Entities\Prediction as PredictionEntity;
+use Modules\Vegas\Entities\MoneyLine as MoneyLineEntity;
+use Doctrine\ORM\QueryBuilder;
 
 class MoneyLineType implements PredictionType {
 
@@ -31,6 +34,34 @@ class MoneyLineType implements PredictionType {
     }
 
     public function makeQuotePredictionFromRequest() {
+
+    }
+
+    /**
+     * Determine whether this type owns the specified prediction entity.
+     *
+     * @param PredictionEntity $prediction
+     *   The prediction entity.
+     *
+     * @return bool
+     */
+    public function owns(PredictionEntity $prediction) : bool {
+        return $prediction instanceof MoneyLineEntity;
+    }
+
+    /**
+     * Include the prediction with the line.
+     *
+     * @param QueryBuilder $qb
+     *   The query builder.
+     *
+     * @param PredictionEntity $prediction
+     *   The prediction entity.
+     *
+     * @param int $cursor
+     *   The prediction cursor to generate unique aliases and placeholders.
+     */
+    public function requirePredictionWithLine(QueryBuilder $qb,PredictionEntity $prediction,int $cursor=0) {
 
     }
 

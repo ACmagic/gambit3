@@ -25,11 +25,17 @@ class LineMapping extends EntityMapping {
         $builder->bigIncrements('id');
         $builder->belongsTo(Store::class,'store');
         $builder->belongsTo(Side::class,'side');
-        $builder->hasMany(AdvertisedLine::class,'advertisedLines')->mappedBy('line')->fetchExtraLazy();
-        $builder->hasMany(Prediction::class,'predictions')->mappedBy('line')->fetchExtraLazy();
+        $builder->hasMany(AdvertisedLine::class,'advertisedLines')->mappedBy('line')->fetchExtraLazy()->cascadePersist();
+        $builder->hasMany(Prediction::class,'predictions')->mappedBy('line')->fetchExtraLazy()->cascadePersist();
         $builder->integer('odds')->default(0);
+        $builder->jsonArray('predictionsCache');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
+
+        $builder->events()->prePersist('doRebuildPredictionsCache');
+        $builder->events()->preUpdate('doRebuildPredictionsCache');
+
+
     }
 
 }

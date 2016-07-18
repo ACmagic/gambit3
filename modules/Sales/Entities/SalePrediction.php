@@ -1,8 +1,9 @@
 <?php namespace Modules\Sales\Entities;
 
 use Carbon\Carbon;
+use Modules\Prediction\Entities\Prediction;
 
-class SalePrediction {
+abstract class SalePrediction implements \JsonSerializable {
 
     protected $id;
     protected $advertisedLine;
@@ -36,5 +37,8 @@ class SalePrediction {
     public function getUpdatedAt() {
         return $this->updatedAt;
     }
+
+    abstract public function toStandardPrediction() : Prediction;
+    abstract public function jsonSerialize();
 
 }

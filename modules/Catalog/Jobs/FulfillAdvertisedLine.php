@@ -1,9 +1,9 @@
 <?php namespace Modules\Catalog\Jobs;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Modules\Catalog\Repositories\LineRepository;
 use Modules\Catalog\Entities\AdvertisedLine;
 use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
@@ -39,49 +39,37 @@ class FulfillAdvertisedLine implements ShouldQueue {
         $processingState = $saleWorkflowStateRepo->findProcessingState();
 
         $sale = $saleAdvertisedLine->getSale();
-
         $sale->setState($processingState);
 
         EntityManager::persist($sale);
         EntityManager::flush();
 
-        echo 'Fulfill Advertised Line Sale '.$saleAdvertisedLine->getId().'!';
-
-        return;
-
-        // Convert sale advertised line to line.
+        // Cast sale advertised line to new line.
         $newLine = $saleAdvertisedLine->toLine();
 
-        // Find match
-        // First match the line with same number of predictions.
-        $existingLine = $lineRepo->matchOpenLine($newLine);
-
-        // Get the sales customer.
+        // Insert the advertised line
         $customer = $saleAdvertisedLine->getSale()->getCustomer();
+        $side = $saleAdvertisedLine->getSide();
         $inventory = $saleAdvertisedLine->getInventory();
         $amount = $saleAdvertisedLine->getAmount();
         $amountMax = $saleAdvertisedLine->getAmountMax();
+        $odds = $saleAdvertisedLine->getOdds();
 
-        // Now make the advertised line.
         $advertisedLine = new AdvertisedLine();
+        $advertisedLine->setCreatedAt(Carbon::now());
+        $advertisedLine->setUpdatedAt(Carbon::now());
         $advertisedLine->setCustomer($customer);
+        $advertisedLine->setSide($side);
         $advertisedLine->setInventory($inventory);
         $advertisedLine->setAmount($amount);
         $advertisedLine->setAmountMax($amountMax);
+        $advertisedLine->setOdds($odds);
 
-        // When no existing line exists make the line.
-        if(!$existingLine) {
-            $advertisedLine->setLine($newLine);
-            $em->persist($newLine);
-        } else {
-            $advertisedLine->setLine($existingLine);
-        }
+        $advertisedLine->setLine($newLine);
+        $newLine->addAdvertisedLine($advertisedLine);
 
-        // Add advertised line to unit of work.
-        $em->persist($advertisedLine);
-
-        // Flush it
-        $em->flush();
+        EntityManager::persist($newLine);
+        EntityManager::flush();
 
     }
 

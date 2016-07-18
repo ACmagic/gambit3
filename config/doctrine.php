@@ -1,5 +1,7 @@
 <?php
 
+use Syslogic\DoctrineJsonFunctions\Query\AST\Functions\Mysql as SyslogicFuncs;
+
 return [
 
     /*
@@ -270,6 +272,11 @@ return [
         'REPLACE'     => DoctrineExtensions\Query\Mysql\Replace::class,
         'SOUNDEX'     => DoctrineExtensions\Query\Mysql\Soundex::class,
         'STR_TO_DATE' => DoctrineExtensions\Query\Mysql\StrToDate::class,
+
+        // JSON
+        'JSON_CONTAINS'=> SyslogicFuncs\JsonContains::class,
+        'JSON_PATH'=> SyslogicFuncs\JsonContainsPath::class,
+
     ],
     /*
     |--------------------------------------------------------------------------

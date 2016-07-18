@@ -4,6 +4,27 @@ http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/
 
 bower install PACKAGE --save
 
+-------------------------------------------------
+
+json matching notes
+
+select  * from sale_advertised_lines WHERE JSON_CONTAINS(predictions_cache,'{"type":"Modules\\\\Sales\\\\Entities\\\\SalePointSpread","spread": 4,"game_id": 10,"pick_id": 240}','$[0]','$[1]','$[2]','$[3]');
+select * from sale_advertised_lines;
+
+--------------------------------------------------
+
+MySQL >= 5.7.8
+
+Project requires MySQL w/ JSON support.
+
+Must install PHP manually since no way to this in puphpet exists yet. Puphpet
+gives you a very old version of 5.7 that does not include json support.
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-14-04
+
+-- doctrine/dbal was forked to add json support for mysql versions >= 5.7.8. Hopefully
+doctrine master will add support in the future.
+
 ---------------------------------------------------
 
 Recipe: Tear down and up the db

@@ -24,6 +24,9 @@ class AdvertisedLineMapping extends EntityMapping {
         $builder->table('advertised_lines');
         $builder->bigIncrements('id');
 
+        // @todo: Was this a mistake
+        //$builder->manyToMany(Account::class,'accounts')->joinTable('customer_accounts')->cascadePersist();
+
         $builder->belongsTo(Line::class,'line');
         $builder->belongsTo(Customer::class,'customer');
 

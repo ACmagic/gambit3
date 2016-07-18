@@ -1,5 +1,7 @@
 <?php namespace Modules\Prediction;
 
+use Modules\Prediction\Entities\Prediction as PredictionEntity;
+
 class PredictionTypeManager {
 
     protected $types = [];
@@ -35,6 +37,26 @@ class PredictionTypeManager {
         }
 
         return $compatible;
+
+    }
+
+    /**
+     * Match prediction type by prediction entity instance.
+     *
+     * @param PredictionEntity $prediction
+     *   The prediction entity
+     *
+     * @return PredictionType
+     */
+    public function getTypeByEntity(PredictionEntity $prediction) : PredictionType {
+
+        foreach($this->types as $type) {
+
+            if($type->owns($prediction)) {
+                return $type;
+            }
+
+        }
 
     }
 

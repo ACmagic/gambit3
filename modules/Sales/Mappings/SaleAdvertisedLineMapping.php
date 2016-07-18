@@ -23,7 +23,12 @@ class SaleAdvertisedLineMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('sale_advertised_lines');
         $builder->hasMany(SalePrediction::class,'predictions')->mappedBy('advertisedLine')->cascadePersist();
+        $builder->jsonArray('predictionsCache');
+        
         $this->mapAdvertisedLine($builder);
+
+        $builder->events()->prePersist('doRebuildPredictionsCache');
+        $builder->events()->preUpdate('doRebuildPredictionsCache');
     }
 
 }

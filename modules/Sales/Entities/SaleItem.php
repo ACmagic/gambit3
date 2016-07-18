@@ -17,7 +17,7 @@ abstract class SaleItem {
         $this->sale = $sale;
     }
 
-    public function getSale() {
+    public function getSale() : Sale {
         return $this->sale;
     }
 

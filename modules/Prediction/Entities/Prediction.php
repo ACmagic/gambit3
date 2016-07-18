@@ -1,15 +1,16 @@
 <?php namespace Modules\Prediction\Entities;
 
+use Carbon\Carbon;
 use Modules\Catalog\Entities\Line;
 
-class Prediction {
+abstract class Prediction implements \JsonSerializable {
 
     protected $id;
     protected $line;
     protected $createdAt;
     protected $updatedAt;
 
-    public function getId() {
+    public function getId() : int {
         return $this->id;
     }
 
@@ -17,16 +18,26 @@ class Prediction {
         $this->line = $line;
     }
 
-    public function getLine() {
+    public function getLine() : Line {
         return $this->line;
     }
 
-    public function getCreatedAt() {
+    public function getCreatedAt() : Carbon {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt() {
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
+    public function getUpdatedAt() : Carbon {
         return $this->updatedAt;
     }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
+    }
+
+    abstract public function jsonSerialize();
 
 }

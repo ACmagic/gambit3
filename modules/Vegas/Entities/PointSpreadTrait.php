@@ -13,7 +13,7 @@ trait PointSpreadTrait {
         $this->pick = $pick;
     }
 
-    public function getPick() {
+    public function getPick() : Team {
         return $this->pick;
     }
 
@@ -21,7 +21,7 @@ trait PointSpreadTrait {
         $this->game = $game;
     }
 
-    public function getGame() {
+    public function getGame() : Game {
         return $this->game;
     }
 
@@ -31,6 +31,19 @@ trait PointSpreadTrait {
 
     public function getSpread() {
         return $this->spread;
+    }
+
+    public function jsonSerialize() {
+
+        $json = [];
+
+        $json['type'] = get_class($this);
+        $json['game_id'] = $this->getGame()->getId();
+        $json['pick_id'] = $this->getPick()->getId();
+        $json['spread'] = $this->getSpread();
+
+        return $json;
+
     }
 
 }

@@ -1,5 +1,6 @@
 <?php namespace Modules\Catalog\Entities;
 
+use Carbon\Carbon;
 use Modules\Customer\Entities\Customer;
 
 class AdvertisedLine {
@@ -32,12 +33,20 @@ class AdvertisedLine {
         $this->customer = $customer;
     }
 
-    public function getCreatedAt() {
+    public function getCreatedAt() : Carbon {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt() {
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
+    public function getUpdatedAt() : Carbon {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
     }
 
 }
