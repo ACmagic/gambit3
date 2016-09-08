@@ -11,6 +11,23 @@ json matching notes
 select  * from sale_advertised_lines WHERE JSON_CONTAINS(predictions_cache,'{"type":"Modules\\\\Sales\\\\Entities\\\\SalePointSpread","spread": 4,"game_id": 10,"pick_id": 240}','$[0]','$[1]','$[2]','$[3]');
 select * from sale_advertised_lines;
 
+The trick: >= 5.7.9
+
+select  * from sale_advertised_lines WHERE JSON_CONTAINS(predictions_cache->'$[*]','{"type":"Modules\\\\Sales\\\\Entities\\\\SalePointSpread","spread": 10,"game_id": 5,"pick_id":28}');
+
+The syslogic JSON_* functions don't support the -> syntax... errors out. Figure out a wrok around or need to fork and add to library. I prefer not to fork.
+
+select  * from sale_advertised_lines WHERE JSON_CONTAINS(predictions_cache,'{"type": "Modules\\\\Sales\\\\Entities\\\\SalePointSpread", "spread": 5, "game_id": 1, "pick_id": 11}','$[*]');
+
+
+Try to slightly change what it looks like...
+
+select  * from sale_advertised_lines WHERE JSON_CONTAINS(predictions_cache->'$[*]','{"type": "Modules\\Sales\\Entities\\SalePointSpread", "spread": 5, "game_id": 1, "pick_id": 11}');
+
+Using json contains path
+
+select  * from sale_advertised_lines WHERE JSON_CONTAINS_PATH('{"type": "Modules\\\\Sales\\\\Entities\\\\SalePointSpread", "spread": 5, "game_id": 1, "pick_id": 11}','one','@predictions_cache[0]');
+
 --------------------------------------------------
 
 MySQL >= 5.7.8
@@ -42,6 +59,10 @@ export XDEBUG_CONFIG="idekey=PHPStorm"
 ---------------------------------------------------
 
 redis
+
+Command to start redis server:
+
+redis-server
 
 ---------------------------------------------------
 

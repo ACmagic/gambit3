@@ -8,6 +8,7 @@ use Modules\Catalog\Entities\AdvertisedLine;
 use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
 use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Catalog\Exceptions\DuplicateLineException;
 
 class FulfillAdvertisedLine implements ShouldQueue {
 
@@ -68,8 +69,24 @@ class FulfillAdvertisedLine implements ShouldQueue {
         $advertisedLine->setLine($newLine);
         $newLine->addAdvertisedLine($advertisedLine);
 
-        EntityManager::persist($newLine);
-        EntityManager::flush();
+        try {
+
+            EntityManager::persist($newLine);
+            EntityManager::flush();
+
+        } catch(DuplicateLineException $e) {
+
+            /*
+             * When the line already exists reassign to the matched line and
+             * just persist the advertised line instead.
+             */
+            $matchedLine = $e->getMatchedLine();
+            $advertisedLine->setLine($matchedLine);
+
+            EntityManager::persist($advertisedLine);
+            EntityManager::flush();
+
+        }
 
     }
 

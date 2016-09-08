@@ -265,17 +265,17 @@ return [
     |--------------------------------------------------------------------------
     */
     'custom_string_functions'   => [
-        'CHAR_LENGTH' => DoctrineExtensions\Query\Mysql\CharLength::class,
-        'CONCAT_WS'   => DoctrineExtensions\Query\Mysql\ConcatWs::class,
-        'FIELD'       => DoctrineExtensions\Query\Mysql\Field::class,
-        'FIND_IN_SET' => DoctrineExtensions\Query\Mysql\FindInSet::class,
-        'REPLACE'     => DoctrineExtensions\Query\Mysql\Replace::class,
-        'SOUNDEX'     => DoctrineExtensions\Query\Mysql\Soundex::class,
-        'STR_TO_DATE' => DoctrineExtensions\Query\Mysql\StrToDate::class,
+        'CHAR_LENGTH'                                       => DoctrineExtensions\Query\Mysql\CharLength::class,
+        'CONCAT_WS'                                         => DoctrineExtensions\Query\Mysql\ConcatWs::class,
+        'FIELD'                                             => DoctrineExtensions\Query\Mysql\Field::class,
+        'FIND_IN_SET'                                       => DoctrineExtensions\Query\Mysql\FindInSet::class,
+        'REPLACE'                                           => DoctrineExtensions\Query\Mysql\Replace::class,
+        'SOUNDEX'                                           => DoctrineExtensions\Query\Mysql\Soundex::class,
+        'STR_TO_DATE'                                       => DoctrineExtensions\Query\Mysql\StrToDate::class,
 
-        // JSON
-        'JSON_CONTAINS'=> SyslogicFuncs\JsonContains::class,
-        'JSON_PATH'=> SyslogicFuncs\JsonContainsPath::class,
+        // MySQL Native JSON Functions
+        SyslogicFuncs\JsonContains::FUNCTION_NAME           => SyslogicFuncs\JsonContains::class,
+        SyslogicFuncs\JsonContainsPath::FUNCTION_NAME       => SyslogicFuncs\JsonContainsPath::class,
 
     ],
     /*

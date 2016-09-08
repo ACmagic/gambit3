@@ -9,6 +9,9 @@ use Modules\Sales\Entities\SaleWorkflowTransition;
 use Carbon\Carbon;
 use Modules\Catalog\Jobs\FulfillAdvertisedLine;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
+use Modules\Catalog\Entities\Line as LineEntity;
+use Modules\Catalog\Repositories\LineRepository;
+use Modules\Catalog\Exceptions\DuplicateLineException;
 
 class DoctrineSubscriber implements EventSubscriber {
 
@@ -16,12 +19,13 @@ class DoctrineSubscriber implements EventSubscriber {
 
         return [
             Events::postPersist,
+            Events::prePersist
         ];
 
     }
 
     /**
-     * Hanlde catalog entity post persist events.
+     * Handle catalog entity post persist events.
      *
      * @param LifecycleEventArgs $event
      */
@@ -43,6 +47,34 @@ class DoctrineSubscriber implements EventSubscriber {
 
             if($state->getId() === $paidState->getId()) {
                 $this->scheduleAdvertisedLineFulfillment($event);
+            }
+
+        }
+
+    }
+
+    /**
+     * Handle catalog entity prePersist events.
+     *
+     * @throws \Exception
+     *
+     * @param LifecycleEventArgs $event
+     */
+    public function prePersist(LifecycleEventArgs $event) {
+
+        $entity = $event->getObject();
+
+        if($entity instanceof LineEntity) {
+
+            $lineRepository = app(LineRepository::class);
+            $line = $lineRepository->matchOpenLine($entity);
+
+            // Restricts "same" line from being created more than once.
+            if($line !== NULL) {
+                $exception = new DuplicateLineException();
+                $exception->setMatchedLine($line);
+                $exception->setNewLine($entity);
+                throw $exception;
             }
 
         }
