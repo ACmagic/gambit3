@@ -271,6 +271,9 @@ return [
         // Debugbar logging
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
+        // Internal application specific aliases
+        'PredictionTypeManager'=> Modules\Prediction\Facades\PredictionTypeManager::class
+
     ],
 
 ];

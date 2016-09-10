@@ -3,6 +3,8 @@
 use Kris\LaravelFormBuilder\Form;
 use Modules\Prediction\Entities\Prediction as PredictionEntity;
 use Doctrine\ORM\QueryBuilder;
+use Illuminate\Contracts\View\View as ViewContract;
+use Modules\Prediction\Contracts\Entities\Prediction as PredictionContract;
 
 interface PredictionType {
 
@@ -20,6 +22,20 @@ interface PredictionType {
     public function getFrontendForm($args);
 
     /**
+     * Render prediction for inline display.
+     *
+     * @return string
+     */
+    public function getInlineViewName() : string;
+
+    /**
+     * Get the name of the inverse entity class.
+     *
+     * @return string
+     */
+    public function getInverseEntityClassName() : string;
+
+    /**
      * @return CompatibilityResolver
      */
     public function getCompatibilityResolver();
@@ -32,12 +48,12 @@ interface PredictionType {
     /**
      * Determine whether this type owns the specified prediction entity.
      *
-     * @param PredictionEntity $prediction
+     * @param PredictionContract $prediction
      *   The prediction entity.
      *
      * @return bool
      */
-    public function owns(PredictionEntity $prediction) : bool;
+    public function owns(PredictionContract $prediction) : bool;
 
     /**
      * Include the prediction with the line.

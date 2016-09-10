@@ -22,9 +22,12 @@ class PredictionMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('predictions');
         $builder->increments('id');
+        $builder->string('inverseType')->length(128);
         $builder->belongsTo(Line::class,'line');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
+
+        $builder->events()->prePersist('populateInverseType');
 
         $builder->joinedTableInheritance()
             ->column('type')

@@ -12,15 +12,25 @@ use Carbon\Carbon;
 use Modules\Prediction\Entities\Prediction as PredictionEntity;
 use Modules\Vegas\Entities\PointSpread as PointSpreadEntity;
 use Doctrine\ORM\QueryBuilder;
+use Illuminate\Contracts\View\View as ViewContract;
+use Illuminate\Contracts\View\Factory as ViewFactoryContract;
+use Modules\Prediction\Contracts\Entities\Prediction as PredictionContract;
+use Modules\Vegas\Contracts\Entities\PointSpread as PointSpreadContract;
+use Modules\Vegas\Entities\InversePointSpread;
 
 class PointSpreadType implements PredictionType {
 
+    protected $viewFactory;
     protected $formBuilder;
     protected $teamRepo;
     protected $gameRepo;
 
-    public function __construct(FormBuilder $formBuilder) {
+    public function __construct(
+        FormBuilder $formBuilder,
+        ViewFactoryContract $viewFactory
+    ) {
         $this->formBuilder = $formBuilder;
+        $this->viewFactory = $viewFactory;
     }
 
     public function injectGameRepo(GameRepository $gameRepo) {
@@ -47,6 +57,19 @@ class PointSpreadType implements PredictionType {
         $form = $this->formBuilder->create(PointSpreadForm::class,$args);
         return $form;
     }
+
+    public function getInlineViewName() : string {
+        return 'vegas::prediction.point-spread.inline';
+    }
+
+    /**
+     * Get the name of the inverse entity class.
+     *
+     * @return string
+     */
+    public function getInverseEntityClassName() : string {
+        return InversePointSpread::class;
+    }
     
     public function makeQuotePredictionFromRequest() {
 
@@ -69,13 +92,13 @@ class PointSpreadType implements PredictionType {
     /**
      * Determine whether this type owns the specified prediction entity.
      *
-     * @param PredictionEntity $prediction
+     * @param PredictionContract $prediction
      *   The prediction entity.
      *
      * @return bool
      */
-    public function owns(PredictionEntity $prediction) : bool {
-        return $prediction instanceof PointSpreadEntity;
+    public function owns(PredictionContract $prediction) : bool {
+        return $prediction instanceof PointSpreadContract;
     }
 
     /**

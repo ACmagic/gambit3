@@ -4,14 +4,17 @@ use Illuminate\Support\ServiceProvider;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Catalog\Entities\Side as SideEntity;
 use Modules\Catalog\Entities\Line as LineEntity;
+use Modules\Catalog\Entities\InverseLine as InverseLineEntity;
 use Modules\Catalog\Entities\AdvertisedLine as AdvertisedLineEntity;
 use Modules\Catalog\Entities\AcceptedLine as AcceptedLineEntity;
 use Modules\Catalog\Repositories\SideRepository;
 use Modules\Catalog\Repositories\LineRepository;
+use Modules\Catalog\Repositories\InverseLineRepository;
 use Modules\Catalog\Repositories\AdvertisedLineRepository;
 use Modules\Catalog\Repositories\AcceptedLineRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineSideRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineLineRepository;
+use Modules\Catalog\Repositories\Doctrine\DoctrineInverseLineRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineAdvertisedLineRepository;
 use Modules\Catalog\Repositories\Doctrine\DoctrineAcceptedLineRepository;
 use Modules\Catalog\Http\ViewComposers\Admin\Line\DataGridComposer as LineDataGridComposer;
@@ -60,6 +63,13 @@ class CatalogServiceProvider extends ServiceProvider {
 				$app[IPredictionTypeManager::class]
 			);
 		});
+
+        $this->app->bind(InverseLineRepository::class,function($app) {
+            return new DoctrineInverseLineRepository(
+                EntityManager::getRepository(InverseLineEntity::class),
+                $app[IPredictionTypeManager::class]
+            );
+        });
 
 		$this->app->bind(AdvertisedLineRepository::class,function() {
 			return new DoctrineAdvertisedLineRepository(

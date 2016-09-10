@@ -51,7 +51,7 @@ return [
             // An absolute path where to store the compiled templates, or false to disable caching. If null
             // then the cache file path is used.
             // default: cache file storage path
-            'cache' => null,
+            'cache' => (bool) env('TWIG_CACHE', NULL),
 
             // When developing with Twig, it's useful to recompile the template
             // whenever the source code changes. If you don't provide a value
@@ -152,6 +152,9 @@ return [
             /*'Form'=> [
                 'is_safe'=> ['open','old','close']
             ]*/
+            'PredictionTypeManager'=> [
+                'is_safe'=> ['getTypeByEntity']
+            ]
         ],
 
         /*
@@ -186,7 +189,8 @@ return [
             'elixir',
             'head',
             'last',
-            'form'=> ['is_safe'=> ['html']]
+            'form'=> ['is_safe'=> ['html']],
+            'view'=> ['is_safe'=> ['html']],
         ],
 
         /*

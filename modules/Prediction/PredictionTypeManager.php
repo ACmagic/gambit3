@@ -1,8 +1,9 @@
 <?php namespace Modules\Prediction;
 
-use Modules\Prediction\Entities\Prediction as PredictionEntity;
+use Modules\Prediction\Contracts\Entities\Prediction as PredictionContract;
+use Modules\Prediction\Contracts\PredictionTypeManager as PredictionTypeManagerContract;
 
-class PredictionTypeManager {
+class PredictionTypeManager implements PredictionTypeManagerContract {
 
     protected $types = [];
 
@@ -43,12 +44,12 @@ class PredictionTypeManager {
     /**
      * Match prediction type by prediction entity instance.
      *
-     * @param PredictionEntity $prediction
+     * @param PredictionContract $prediction
      *   The prediction entity
      *
      * @return PredictionType
      */
-    public function getTypeByEntity(PredictionEntity $prediction) : PredictionType {
+    public function getTypeByEntity(PredictionContract $prediction) : PredictionType {
 
         foreach($this->types as $type) {
 

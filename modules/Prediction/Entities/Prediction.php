@@ -1,43 +1,20 @@
 <?php namespace Modules\Prediction\Entities;
 
-use Carbon\Carbon;
-use Modules\Catalog\Entities\Line;
+use Modules\Prediction\Contracts\Entities\Prediction as PredictionContract;
+use Modules\Prediction\Facades\PredictionTypeManager;
 
-abstract class Prediction implements \JsonSerializable {
+abstract class Prediction implements \JsonSerializable, PredictionContract {
 
-    protected $id;
-    protected $line;
-    protected $createdAt;
-    protected $updatedAt;
+    use PredictionTrait;
 
-    public function getId() : int {
-        return $this->id;
+    /**
+     * Lifecycle callback to populate the inverse type.
+     *
+     * @return void
+     */
+    public function populateInverseType() {
+        $inverseType = PredictionTypeManager::getTypeByEntity($this)->getInverseEntityClassName();
+        $this->setInverseType($inverseType);
     }
-
-    public function setLine(Line $line) {
-        $this->line = $line;
-    }
-
-    public function getLine() : Line {
-        return $this->line;
-    }
-
-    public function getCreatedAt() : Carbon {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(Carbon $createdAt) {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getUpdatedAt() : Carbon {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(Carbon $updatedAt) {
-        $this->updatedAt = $updatedAt;
-    }
-
-    abstract public function jsonSerialize();
 
 }

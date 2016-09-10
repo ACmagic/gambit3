@@ -13,5 +13,6 @@ Route::group(['middleware' => ['web','auth.admin']], function () {
 Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/advertise-line/{event}','Modules\Catalog\Http\Controllers\Frontend\AdvertisedLineController@getIndex');
+    Route::get('/lines','Modules\Catalog\Http\Controllers\Frontend\LineController@getIndex');
 
 });

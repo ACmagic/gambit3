@@ -7,13 +7,23 @@ use Modules\Vegas\Prediction\Forms\MoneyLineForm;
 use Modules\Prediction\Entities\Prediction as PredictionEntity;
 use Modules\Vegas\Entities\MoneyLine as MoneyLineEntity;
 use Doctrine\ORM\QueryBuilder;
+use Illuminate\Contracts\View\View as ViewContract;
+use Illuminate\Contracts\View\Factory as ViewFactoryContract;
+use Modules\Prediction\Contracts\Entities\Prediction as PredictionContract;
+use Modules\Vegas\Contracts\Entities\MoneyLine as MoneyLineContract;
+use Modules\Vegas\Entities\InverseMoneyLine;
 
 class MoneyLineType implements PredictionType {
 
     protected $formBuilder;
+    protected $viewFactory;
 
-    public function __construct(FormBuilder $formBuilder) {
+    public function __construct(
+        FormBuilder $formBuilder,
+        ViewFactoryContract $viewFactory
+    ) {
         $this->formBuilder = $formBuilder;
+        $this->viewFactory = $viewFactory;
     }
 
     public function getName() {
@@ -28,9 +38,22 @@ class MoneyLineType implements PredictionType {
         return 'Money Line';
     }
 
+    public function getInlineViewName() : string {
+        return 'vegas::prediction.money-line.inline';
+    }
+
     public function getFrontendForm($args) {
         $form = $this->formBuilder->create(MoneyLineForm::class,$args);
         return $form;
+    }
+
+    /**
+     * Get the name of the inverse entity class.
+     *
+     * @return string
+     */
+    public function getInverseEntityClassName() : string {
+        return InverseMoneyLine::class;
     }
 
     public function makeQuotePredictionFromRequest() {
@@ -40,13 +63,13 @@ class MoneyLineType implements PredictionType {
     /**
      * Determine whether this type owns the specified prediction entity.
      *
-     * @param PredictionEntity $prediction
+     * @param PredictionContract $prediction
      *   The prediction entity.
      *
      * @return bool
      */
-    public function owns(PredictionEntity $prediction) : bool {
-        return $prediction instanceof MoneyLineEntity;
+    public function owns(PredictionContract $prediction) : bool {
+        return $prediction instanceof MoneyLineContract;
     }
 
     /**

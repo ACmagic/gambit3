@@ -10,6 +10,7 @@ use Modules\Prediction\PredictionTypeManager;
 use Modules\Prediction\PredictableManager;
 use Modules\Prediction\Contracts\PredictableManager as IPredictableManager;
 use Modules\Prediction\Contracts\PredictionTypeManager as IPredictionTypeManager;
+use Modules\Prediction\Http\ViewCreators\Prediction\InlineViewCreator;
 
 class PredictionServiceProvider extends ServiceProvider {
 
@@ -103,6 +104,9 @@ class PredictionServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom(array_merge(array_map(function ($path) {
 			return $path . '/modules/prediction';
 		}, \Config::get('view.paths')), [$sourcePath]), 'prediction');
+
+        view()->creator('prediction::prediction.inline',InlineViewCreator::class);
+
 	}
 
 	/**

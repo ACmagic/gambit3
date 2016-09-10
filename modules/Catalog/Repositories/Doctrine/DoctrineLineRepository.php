@@ -5,6 +5,7 @@ use Doctrine\Common\Persistence\ObjectRepository;
 use Modules\Catalog\Entities\Line as LineEntity;
 use Modules\Prediction\PredictionTypeManager;
 use Doctrine\ORM\Query\Expr\Func as DoctrineFunc;
+use Modules\Core\Facades\Store;
 
 class DoctrineLineRepository implements LineRepository {
 

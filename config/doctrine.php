@@ -140,11 +140,13 @@ return [
                 // Catalog
                 Modules\Catalog\Mappings\SideMapping::class,
                 Modules\Catalog\Mappings\LineMapping::class,
+                Modules\Catalog\Mappings\InverseLineMapping::class,
                 Modules\Catalog\Mappings\AdvertisedLineMapping::class,
                 Modules\Catalog\Mappings\AcceptedLineMapping::class,
 
                 // Prediction
                 Modules\Prediction\Mappings\PredictionMapping::class,
+                Modules\Prediction\Mappings\InversePredictionMapping::class,
 
                 // Event
                 Modules\Event\Mappings\CategoryMapping::class,
@@ -154,6 +156,8 @@ return [
                 // Vegas
                 Modules\Vegas\Mappings\MoneyLineMapping::class,
                 Modules\Vegas\Mappings\PointSpreadMapping::class,
+                Modules\Vegas\Mappings\InverseMoneyLineMapping::class,
+                Modules\Vegas\Mappings\InversePointSpreadMapping::class,
 
                 // Sports
                 Modules\Sports\Mappings\GameMapping::class,
