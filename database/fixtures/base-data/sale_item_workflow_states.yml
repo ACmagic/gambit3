@@ -1,0 +1,5 @@
+Modules\Sales\Entities\SaleItemWorkflowState:
+  'sale_item_workflow_state_paid (extends abstract_workflow_state)':
+      workflow: '@sale_item_workflow_default'
+      machineName: 'paid'
+      humanName: 'Paid'

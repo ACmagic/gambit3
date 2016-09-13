@@ -7,6 +7,8 @@ use Modules\Sales\Entities\Sale;
 use Modules\Sales\Entities\SaleAdvertisedLine;
 use Modules\Sales\Entities\SaleAcceptedLine;
 use Modules\Sales\Entities\SaleCredit;
+use Modules\Sales\Entities\SaleItemWorkflowState;
+use Modules\Sales\Entities\SaleItemWorkflowTransition;
 
 class SaleItemMapping extends EntityMapping {
 
@@ -25,8 +27,12 @@ class SaleItemMapping extends EntityMapping {
         $builder->table('sale_items');
         $builder->bigIncrements('id');
         $builder->belongsTo(Sale::class,'sale');
+        $builder->belongsTo(SaleItemWorkflowState::class,'state');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
+
+        // Transitions
+        $builder->hasMany(SaleItemWorkflowTransition::class,'transitions')->mappedBy('saleItem')->fetchExtraLazy()->cascadePersist();
 
         $builder->joinedTableInheritance()
             ->column('type')

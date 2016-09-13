@@ -5,7 +5,9 @@ use Doctrine\ORM\Events;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Modules\Sales\Entities\Sale as SaleEntity;
+use Modules\Sales\Entities\SaleItem as SaleItemEntity;
 use Modules\Sales\Entities\SaleWorkflowTransition;
+use Modules\Sales\Entities\SaleItemWorkflowTransition;
 use Carbon\Carbon;
 
 class DoctrineSubscriber implements EventSubscriber {
@@ -29,13 +31,19 @@ class DoctrineSubscriber implements EventSubscriber {
         $em = $event->getObjectManager();
         $entity = $event->getObject();
 
-        if($entity instanceof SaleEntity) {
+        if($entity instanceof SaleEntity || $entity instanceof SaleItemEntity) {
 
             // Automate creation of transition.
             $state = $entity->getState();
 
-            $transition = new SaleWorkflowTransition();
-            $transition->setSale($entity);
+            if($entity instanceof SaleEntity) {
+                $transition = new SaleWorkflowTransition();
+                $transition->setSale($entity);
+            } else {
+                $transition = new SaleItemWorkflowTransition();
+                $transition->setSaleItem($entity);
+            }
+
             $transition->setAfterState($state);
             $transition->setCreatedAt(Carbon::now());
             $transition->setUpdatedAt(Carbon::now());
@@ -47,7 +55,7 @@ class DoctrineSubscriber implements EventSubscriber {
     }
 
     /**
-     * Handle preUpdate events on sale entities.
+     * Handle preUpdate events on sale and sale item entities.
      *
      * @param OnFlushEventArgs $event
      */
@@ -58,7 +66,7 @@ class DoctrineSubscriber implements EventSubscriber {
 
         foreach($uow->getScheduledEntityUpdates() as $entity) {
 
-            if($entity instanceof SaleEntity) {
+            if($entity instanceof SaleEntity || $entity instanceof SaleItemEntity) {
 
                 $changeSet = $uow->getEntityChangeSet($entity);
 
@@ -68,8 +76,14 @@ class DoctrineSubscriber implements EventSubscriber {
                     $beforeState = $changeSet['state'][0];
                     $afterState = $changeSet['state'][1];
 
-                    $transition = new SaleWorkflowTransition();
-                    $transition->setSale($entity);
+                    if($entity instanceof SaleEntity) {
+                        $transition = new SaleWorkflowTransition();
+                        $transition->setSale($entity);
+                    } else {
+                        $transition = new SaleItemWorkflowTransition();
+                        $transition->setSaleItem($entity);
+                    }
+
                     $transition->setBeforeState($beforeState);
                     $transition->setAfterState($afterState);
                     $transition->setCreatedAt(Carbon::now());
@@ -83,6 +97,7 @@ class DoctrineSubscriber implements EventSubscriber {
                 }
 
             }
+
         }
 
     }

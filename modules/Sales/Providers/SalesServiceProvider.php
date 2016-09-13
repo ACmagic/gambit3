@@ -12,8 +12,11 @@ use Modules\Sales\Entities\SaleAdvertisedLine as SaleAdvertisedLineEntity;
 use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
 use Modules\Sales\Repositories\Doctrine\DoctrineSaleAdvertisedLineRepository;
 use Modules\Sales\Entities\SaleWorkflowState as SaleWorkflowStateEntity;
+use Modules\Sales\Entities\SaleItemWorkflowState as SaleItemWorkflowStateEntity;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
+use Modules\Sales\Repositories\SaleItemWorkflowStateRepository;
 use Modules\Sales\Repositories\Doctrine\DoctrineSaleWorkflowStateRepository;
+use Modules\Sales\Repositories\Doctrine\DoctrineSaleItemWorkflowStateRepository;
 
 class SalesServiceProvider extends ServiceProvider {
 
@@ -55,6 +58,12 @@ class SalesServiceProvider extends ServiceProvider {
 				EntityManager::getRepository(SaleWorkflowStateEntity::class)
 			);
 		});
+
+        $this->app->bind(SaleItemWorkflowStateRepository::class,function() {
+            return new DoctrineSaleItemWorkflowStateRepository(
+                EntityManager::getRepository(SaleItemWorkflowStateEntity::class)
+            );
+        });
 
 		$this->app->bind(SaleItemRepository::class,function() {
 			return new DoctrineSaleItemRepository(

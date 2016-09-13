@@ -191,6 +191,10 @@ return [
                 Modules\Sales\Mappings\SaleWorkflowStateMapping::class,
                 Modules\Sales\Mappings\SaleWorkflowTransitionMapping::class,
 
+                Modules\Sales\Mappings\SaleItemWorkflowMapping::class,
+                Modules\Sales\Mappings\SaleItemWorkflowStateMapping::class,
+                Modules\Sales\Mappings\SaleItemWorkflowTransitionMapping::class,
+
                 // Workflow
                 Modules\Workflow\Mappings\WorkflowMapping::class,
                 Modules\Workflow\Mappings\StateMapping::class,

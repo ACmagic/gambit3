@@ -5,6 +5,7 @@ use Modules\Workflow\Entities\Transition;
 use Modules\Workflow\Entities\State;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleWorkflowTransition;
+use Modules\Sales\Entities\SaleItemWorkflowTransition;
 
 class TransitionMapping extends EntityMapping {
 
@@ -29,7 +30,8 @@ class TransitionMapping extends EntityMapping {
         $builder->joinedTableInheritance()
             ->column('type')
             ->map(Transition::class,Transition::class)
-            ->map(SaleWorkflowTransition::class,SaleWorkflowTransition::class);
+            ->map(SaleWorkflowTransition::class,SaleWorkflowTransition::class)
+            ->map(SaleItemWorkflowTransition::class,SaleItemWorkflowTransition::class);
     }
 
 }

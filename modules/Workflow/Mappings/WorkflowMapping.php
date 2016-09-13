@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use Modules\Workflow\Entities\Workflow;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleWorkflow;
+use Modules\Sales\Entities\SaleItemWorkflow;
 
 class WorkflowMapping extends EntityMapping {
 
@@ -28,7 +29,8 @@ class WorkflowMapping extends EntityMapping {
         $builder->joinedTableInheritance()
             ->column('type')
             ->map(Workflow::class,Workflow::class)
-            ->map(SaleWorkflow::class,SaleWorkflow::class);
+            ->map(SaleWorkflow::class,SaleWorkflow::class)
+            ->map(SaleItemWorkflow::class,SaleItemWorkflow::class);
     }
 
 }

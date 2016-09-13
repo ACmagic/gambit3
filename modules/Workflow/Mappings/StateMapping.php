@@ -5,6 +5,7 @@ use Modules\Workflow\Entities\State as StateEntity;
 use Modules\Workflow\Entities\Workflow;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleWorkflowState;
+use Modules\Sales\Entities\SaleItemWorkflowState;
 
 class StateMapping extends EntityMapping {
 
@@ -30,7 +31,8 @@ class StateMapping extends EntityMapping {
         $builder->joinedTableInheritance()
             ->column('type')
             ->map(StateEntity::class,StateEntity::class)
-            ->map(SaleWorkflowState::class,SaleWorkflowState::class);
+            ->map(SaleWorkflowState::class,SaleWorkflowState::class)
+            ->map(SaleItemWorkflowState::class,SaleItemWorkflowState::class);
     }
 
 }

@@ -66,6 +66,8 @@ class SeedDatabase extends Command
             database_path('fixtures/base-data/customer_pool.yml'),
             database_path('fixtures/base-data/sale_workflows.yml'),
             database_path('fixtures/base-data/sale_workflow_states.yml'),
+            database_path('fixtures/base-data/sale_item_workflows.yml'),
+            database_path('fixtures/base-data/sale_item_workflow_states.yml'),
 
             //database_path('fixtures/test-data-1/customer_accounts.yml'),
             database_path('fixtures/test-data-1/customers.yml'),
