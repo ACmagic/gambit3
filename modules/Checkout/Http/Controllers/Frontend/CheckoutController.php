@@ -29,6 +29,7 @@ use Modules\Core\Repositories\SiteRepository;
 use Illuminate\Support\Facades\Auth;
 use Modules\Checkout\Facades\Cart as CartFacade;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
+use Modules\Sales\Repositories\SaleItemWorkflowStateRepository;
 
 class CheckoutController extends AbstractBaseController {
 
@@ -74,6 +75,11 @@ class CheckoutController extends AbstractBaseController {
     // Sale workflow state repo.
     protected $saleWorkflowRepo;
 
+    /**
+     * @var SaleItemWorkflowStateRepository
+     */
+    protected $saleItemWorkflowRepo;
+
     // Customer pool repository.
 
     public function __construct(
@@ -83,7 +89,8 @@ class CheckoutController extends AbstractBaseController {
         CustomerRepository $customerRepo,
         StoreRepository $storeRepo,
         SiteRepository $siteRepo,
-        SaleWorkflowStateRepository $saleWorkflowRepo
+        SaleWorkflowStateRepository $saleWorkflowRepo,
+        SaleItemWorkflowStateRepository $saleItemWorkflowRepo
     ) {
 
         $this->session = $session;
@@ -93,6 +100,7 @@ class CheckoutController extends AbstractBaseController {
         $this->storeRepo = $storeRepo;
         $this->siteRepo = $siteRepo;
         $this->saleWorkflowRepo = $saleWorkflowRepo;
+        $this->saleItemWorkflowRepo = $saleItemWorkflowRepo;
 
     }
     
@@ -118,6 +126,7 @@ class CheckoutController extends AbstractBaseController {
 
         // @todo: Quote validation
         $paidState = $this->saleWorkflowRepo->findPaidState();
+        $itemPaidState = $this->saleItemWorkflowRepo->findPaidState();
 
         $storeId = StoreFacade::getStoreId();
         $store = $this->storeRepo->findById($storeId);
@@ -126,6 +135,11 @@ class CheckoutController extends AbstractBaseController {
         $sale->setCustomer($customer);
         $sale->setStore($store);
         $sale->setState($paidState);
+
+        // Apply default item paid state to each item.
+        foreach($sale->getItems() as $item) {
+            $item->setState($itemPaidState);
+        }
 
         // Update the quote with the sale info and expire.
         $quote->setSale($sale);
@@ -235,10 +249,17 @@ class CheckoutController extends AbstractBaseController {
 
             $processingState = $this->saleWorkflowRepo->findProcessedState();
 
+            // @todo: What is the proper sale item state to be using?
+            $itemPaidState = $this->saleItemWorkflowRepo->findPaidState();
+
             $sale = $quote->toSale();
             $sale->setCustomer($customer);
             $sale->setStore($store);
             $sale->setState($processingState);
+
+            foreach($sale->getItems() as $item) {
+                $item->setState($itemPaidState);
+            }
             
             $this->em->persist($sale);
             $this->em->flush();
