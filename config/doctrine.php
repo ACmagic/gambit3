@@ -143,6 +143,9 @@ return [
                 Modules\Catalog\Mappings\InverseLineMapping::class,
                 Modules\Catalog\Mappings\AdvertisedLineMapping::class,
                 Modules\Catalog\Mappings\AcceptedLineMapping::class,
+                Modules\Catalog\Mappings\LineWorkflowMapping::class,
+                Modules\Catalog\Mappings\LineWorkflowStateMapping::class,
+                Modules\Catalog\Mappings\LineWorkflowTransitionMapping::class,
 
                 // Prediction
                 Modules\Prediction\Mappings\PredictionMapping::class,

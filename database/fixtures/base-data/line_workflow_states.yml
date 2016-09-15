@@ -1,0 +1,9 @@
+Modules\Catalog\Entities\LineWorkflowState:
+    'line_workflow_state_open (extends abstract_workflow_state)':
+      workflow: '@line_workflow_default'
+      machineName: 'open'
+      humanName: 'Open'
+    'line_workflow_state_closed (extends abstract_workflow_state)':
+      workflow: '@line_workflow_default'
+      machineName: 'closed'
+      humanName: 'Closed'

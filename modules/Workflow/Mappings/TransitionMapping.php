@@ -6,6 +6,7 @@ use Modules\Workflow\Entities\State;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleWorkflowTransition;
 use Modules\Sales\Entities\SaleItemWorkflowTransition;
+use Modules\Catalog\Entities\LineWorkflowTransition;
 
 class TransitionMapping extends EntityMapping {
 
@@ -31,7 +32,8 @@ class TransitionMapping extends EntityMapping {
             ->column('type')
             ->map(Transition::class,Transition::class)
             ->map(SaleWorkflowTransition::class,SaleWorkflowTransition::class)
-            ->map(SaleItemWorkflowTransition::class,SaleItemWorkflowTransition::class);
+            ->map(SaleItemWorkflowTransition::class,SaleItemWorkflowTransition::class)
+            ->map(LineWorkflowTransition::class,LineWorkflowTransition::class);
     }
 
 }

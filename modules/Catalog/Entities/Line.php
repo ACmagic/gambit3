@@ -10,6 +10,7 @@ class Line implements LineContract {
     public function __construct() {
         $this->advertisedLines = new ArrayCollection();
         $this->predictions = new ArrayCollection();
+        $this->transitions = new ArrayCollection();
     }
 
 }

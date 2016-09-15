@@ -4,18 +4,22 @@ use Modules\Catalog\Repositories\InverseLineRepository;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Modules\Prediction\PredictionTypeManager;
 use Modules\Core\Facades\Store;
+use Modules\Catalog\Repositories\LineWorkflowStateRepository;
 
 class DoctrineInverseLineRepository implements InverseLineRepository {
 
     protected $genericRepository;
     protected $predictionTypeManager;
+    protected $lineWorkflowStateRepo;
 
     public function __construct(
         ObjectRepository $genericRepository,
-        PredictionTypeManager $predictionTypeManager
+        PredictionTypeManager $predictionTypeManager,
+        LineWorkflowStateRepository $lineWorkflowStateRepo
     ) {
         $this->genericRepository = $genericRepository;
         $this->predictionTypeManager = $predictionTypeManager;
+        $this->lineWorkflowStateRepo = $lineWorkflowStateRepo;
     }
 
     public function findById($id) {
@@ -32,6 +36,7 @@ class DoctrineInverseLineRepository implements InverseLineRepository {
     public function findAllStoresOpenLines() : array {
 
         $storeId = Store::getStoreId();
+        $openState = $this->lineWorkflowStateRepo->findOpenState();
 
         $qb = $this->genericRepository->createQueryBuilder('l');
         $qb->select('l','s');
@@ -39,8 +44,10 @@ class DoctrineInverseLineRepository implements InverseLineRepository {
             ->innerJoin('l.side','s');
 
         $qb->where('l.store = :store');
+        $qb->andWhere('l.state = :state');
 
         $qb->setParameter('store',$storeId);
+        $qb->setParameter('state',$openState);
 
         $collection = $qb->getQuery()->getResult();
         return $collection;

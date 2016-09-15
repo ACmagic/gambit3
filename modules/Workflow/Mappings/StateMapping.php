@@ -6,6 +6,7 @@ use Modules\Workflow\Entities\Workflow;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleWorkflowState;
 use Modules\Sales\Entities\SaleItemWorkflowState;
+use Modules\Catalog\Entities\LineWorkflowState;
 
 class StateMapping extends EntityMapping {
 
@@ -32,7 +33,8 @@ class StateMapping extends EntityMapping {
             ->column('type')
             ->map(StateEntity::class,StateEntity::class)
             ->map(SaleWorkflowState::class,SaleWorkflowState::class)
-            ->map(SaleItemWorkflowState::class,SaleItemWorkflowState::class);
+            ->map(SaleItemWorkflowState::class,SaleItemWorkflowState::class)
+            ->map(LineWorkflowState::class,LineWorkflowState::class);
     }
 
 }

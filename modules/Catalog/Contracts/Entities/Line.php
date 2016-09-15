@@ -5,6 +5,8 @@ use Modules\Prediction\Entities\Prediction;
 use Carbon\Carbon;
 use Modules\Catalog\Entities\AdvertisedLine;
 use Modules\Catalog\Entities\Side;
+use Modules\Catalog\Entities\LineWorkflowState;
+use Modules\Catalog\Entities\LineWorkflowTransition;
 
 interface Line {
 
@@ -24,6 +26,9 @@ interface Line {
     public function setCreatedAt(Carbon $createdAt);
     public function getUpdatedAt() : Carbon;
     public function setUpdatedAt(Carbon $updatedAt);
+    public function getState() : LineWorkflowState;
+    public function setState(LineWorkflowState $state);
+    public function addTransition(LineWorkflowTransition $transition);
     public function doRebuildPredictionsCache();
 
 }

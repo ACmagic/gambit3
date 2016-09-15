@@ -9,6 +9,7 @@ use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Catalog\Exceptions\DuplicateLineException;
+use Modules\Catalog\Repositories\LineWorkflowStateRepository;
 
 class FulfillAdvertisedLine implements ShouldQueue {
 
@@ -29,15 +30,20 @@ class FulfillAdvertisedLine implements ShouldQueue {
      *
      * @param SaleWorkflowStateRepository $saleWorkflowStateRepo
      *   The sale workflow state repo.
+     *
+     * @param LineWorkflowStateRepository $lineWorkflowStateRepo
+     *   The line workflow state repository.
      */
     public function handle(
         SaleAdvertisedLineRepository $advertisedLineRepo,
-        SaleWorkflowStateRepository $saleWorkflowStateRepo
+        SaleWorkflowStateRepository $saleWorkflowStateRepo,
+        LineWorkflowStateRepository $lineWorkflowStateRepo
     )
     {
 
         $saleAdvertisedLine = $advertisedLineRepo->findById($this->advertisedLineSaleId);
         $processingState = $saleWorkflowStateRepo->findProcessingState();
+        $openState = $lineWorkflowStateRepo->findOpenState();
 
         $sale = $saleAdvertisedLine->getSale();
         $sale->setState($processingState);
@@ -68,6 +74,7 @@ class FulfillAdvertisedLine implements ShouldQueue {
 
         $advertisedLine->setLine($newLine);
         $newLine->addAdvertisedLine($advertisedLine);
+        $newLine->setState($openState);
 
         try {
 

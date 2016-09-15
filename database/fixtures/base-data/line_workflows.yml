@@ -1,0 +1,4 @@
+Modules\Catalog\Entities\LineWorkflow:
+    'line_workflow_default (extends abstract_workflow)':
+      machineName: 'line_default'
+      humanName: 'Line Default'

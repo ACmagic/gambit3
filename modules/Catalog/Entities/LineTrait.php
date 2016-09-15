@@ -15,6 +15,8 @@ trait LineTrait {
     protected $predictionsCache;
     protected $advertisedLines;
     protected $predictions;
+    protected $transitions;
+    protected $state;
 
     public function getId() {
         return $this->id;
@@ -78,6 +80,18 @@ trait LineTrait {
 
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getState() : LineWorkflowState {
+        return $this->state;
+    }
+
+    public function setState(LineWorkflowState $state) {
+        $this->state = $state;
+    }
+
+    public function addTransition(LineWorkflowTransition $transition) {
+        $this->transitions[] = $transition;
     }
 
     public function doRebuildPredictionsCache() {
