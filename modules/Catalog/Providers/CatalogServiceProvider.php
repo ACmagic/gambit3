@@ -24,6 +24,7 @@ use Modules\Catalog\Http\ViewComposers\Admin\Line\DataGridComposer as LineDataGr
 use Modules\Catalog\Http\ViewComposers\Admin\AdvertisedLine\DataGridComposer as AdvertisedLineDataGridComposer;
 use Modules\Catalog\Http\ViewComposers\Admin\AcceptedLine\DataGridComposer as AcceptedLineDataGridComposer;
 use Modules\Prediction\Contracts\PredictionTypeManager as IPredictionTypeManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class CatalogServiceProvider extends ServiceProvider {
 
@@ -62,6 +63,7 @@ class CatalogServiceProvider extends ServiceProvider {
 
 		$this->app->bind(LineRepository::class,function($app) {
 			return new DoctrineLineRepository(
+			    $app[EntityManagerInterface::class],
 				EntityManager::getRepository(LineEntity::class),
 				$app[IPredictionTypeManager::class]
 			);

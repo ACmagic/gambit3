@@ -8,16 +8,21 @@ use Doctrine\ORM\Query\Expr\Func as DoctrineFunc;
 use Modules\Core\Facades\Store;
 use Modules\Catalog\Entities\AdvertisedLine;
 use Modules\Catalog\Entities\AcceptedLine;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineLineRepository implements LineRepository {
 
+    protected $em;
     protected $genericRepository;
     protected $predictionTypeManager;
 
     public function __construct(
+        EntityManagerInterface $em,
         ObjectRepository $genericRepository,
         PredictionTypeManager $predictionTypeManager
     ) {
+        $this->em = $em;
         $this->genericRepository = $genericRepository;
         $this->predictionTypeManager = $predictionTypeManager;
     }
@@ -155,11 +160,15 @@ class DoctrineLineRepository implements LineRepository {
         $rollingAmountMax = $this->calculateRollingAmountMax($line);
 
         $realTimeInventory = $this->calculateRealTimeInventory($line);
+        $realTimeAmount = $this->calculateRealTimeAmount($line);
+        $realTimeAmountMax = $this->calculateRealTimeAmountMax($line);
 
         $line->setRollingInventory($rollingInventory);
         $line->setRollingAmount($rollingAmount);
         $line->setRollingAmountMax($rollingAmountMax);
         $line->setRealTimeInventory($realTimeInventory);
+        $line->setRealTimeAmount($realTimeAmount);
+        $line->setRealTimeAmountMax($realTimeAmountMax);
 
     }
 
@@ -222,7 +231,7 @@ class DoctrineLineRepository implements LineRepository {
         $qb->resetDQLParts();
 
         // @todo: I think this logic is correct.
-        $qb->select('SUM(a.inventory) - COALESCE(COUNT(al.id),0) as val')->from(AdvertisedLine::class,'a');
+        $qb->select('SUM(a.inventory) - COUNT(al.id) as val')->from(AdvertisedLine::class,'a');
         $qb->leftJoin('a.acceptedLines','al');
         $qb->where('a.line = :line');
         $qb->setParameter('line',$line);
@@ -236,13 +245,101 @@ class DoctrineLineRepository implements LineRepository {
 
     public function calculateRealTimeAmount(LineEntity $line) {
 
-        return 0;
+        /*
+         * One of the limitations of DQL is joining
+         * against sub-queries. Therefore, a native query
+         * must be used instead of DQL.
+         */
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('val', 'val', 'integer');
+
+        $sql = <<<'EOD'
+SELECT
+     COALESCE(MIN(ad.amount),0) val
+  FROM
+     advertised_lines ad
+ INNER
+  JOIN
+    (SELECT
+         ad.id advertised_line_id,
+         ad.inventory - COUNT(ac.id) realtime_inventory
+      FROM
+         advertised_lines ad
+      LEFT OUTER
+      JOIN
+         accepted_lines ac
+        ON
+          ad.id = ac.advertised_line_id
+     WHERE
+          ad.line_id = :lineId
+     GROUP
+        BY
+         ad.id
+    HAVING
+         realtime_inventory > 0) av
+   ON
+      ad.id = av.advertised_line_id
+EOD;
+
+        $query = $this->em->createNativeQuery($sql, $rsm);
+        $query->setParameter('lineId', $line->getId());
+
+        $value = $query->getSingleScalarResult();
+        if($value === NULL) {
+            $value = 0;
+        }
+
+        return $value;
 
     }
 
     public function calculateRealTimeAmountMax(LineEntity $line) {
 
-        return 0;
+        /*
+         * One of the limitations of DQL is joining
+         * against sub-queries. Therefore, a native query
+         * must be used instead of DQL.
+         */
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('val', 'val', 'integer');
+
+        $sql = <<<'EOD'
+SELECT
+     COALESCE(MAX(CASE WHEN ad.amount_max IS NOT NULL THEN ad.amount_max ELSE ad.amount END),0) val
+  FROM
+     advertised_lines ad
+ INNER
+  JOIN
+    (SELECT
+         ad.id advertised_line_id,
+         ad.inventory - COUNT(ac.id) realtime_inventory
+      FROM
+         advertised_lines ad
+      LEFT OUTER
+      JOIN
+         accepted_lines ac
+        ON
+          ad.id = ac.advertised_line_id
+     WHERE
+          ad.line_id = :lineId
+     GROUP
+        BY
+         ad.id
+    HAVING
+         realtime_inventory > 0) av
+   ON
+      ad.id = av.advertised_line_id
+EOD;
+
+        $query = $this->em->createNativeQuery($sql, $rsm);
+        $query->setParameter('lineId', $line->getId());
+
+        $value = $query->getSingleScalarResult();
+        if($value === NULL) {
+            $value = 0;
+        }
+
+        return $value;
 
     }
 

@@ -37,6 +37,66 @@ $line->setRollingAmountMin($z);
 EntityManager::persist($line); -- the event will need to happen post persist and update -- otherwise the values won't be available to recalculate.
 EntityManager::flush();
 
+
+SELECT
+     COALESCE(MIN(ad.amount),0)
+  FROM
+     advertised_lines ad
+ INNER
+  JOIN
+    (SELECT
+         ad.id advertised_line_id,
+         ad.inventory - COUNT(ac.id) realtime_inventory
+      FROM
+         advertised_lines ad
+      LEFT OUTER
+      JOIN
+         accepted_lines ac
+        ON
+          ad.id = ac.advertised_line_id
+     GROUP
+        BY
+         ad.id
+    HAVING
+         realtime_inventory > 0) av
+   ON
+      ad.id = av.advertised_line_id
+
+
+      SELECT ad.id advertised_line_id, ad.inventory - COUNT(ac.id) realtime_inventory FROM Modules\Catalog\Entities\AdvertisedLine ad LEFT JOIN ad.acceptedLines ac WHERE ad.line = :line GROUP BY ad.id HAVING realtime_inventory > 0
+
+
+
+
+SELECT COALESCE(MIN(ad.amount),0) as val FROM Modules\Catalog\Entities\AdvertisedLine ad INNER JOIN SELECT ad.id advertised_line_id,ad.inventory - COUNT(ac.id) realtime_inventory FROM Modules\Catalog\Entities\AdvertisedLine ad LEFT JOIN ad.acceptedLines ac WHERE ad.line = :line GROUP BY ad.id HAVING realtime_inventory > 0 av ON ad.id = av.advertised_line_id
+
+
+SELECT
+     COALESCE(MIN(ad.amount),0) val
+  FROM
+     advertised_lines ad
+ INNER
+  JOIN
+    (SELECT
+         ad.id advertised_line_id,
+         ad.inventory - COUNT(ac.id) realtime_inventory
+      FROM
+         advertised_lines ad
+      LEFT OUTER
+      JOIN
+         accepted_lines ac
+        ON
+          ad.id = ac.advertised_line_id
+     WHERE
+          ad.id = :lineId
+     GROUP
+        BY
+         ad.id
+    HAVING
+         realtime_inventory > 0) av
+   ON
+      ad.id = av.advertised_line_id
+
 -------------------------------------------------
 
 json matching notes
