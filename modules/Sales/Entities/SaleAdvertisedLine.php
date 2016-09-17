@@ -66,6 +66,14 @@ class SaleAdvertisedLine extends SaleItem {
         $line->setCreatedAt(Carbon::now());
         $line->setUpdatedAt(Carbon::now());
 
+        // 0 out cached aggregated values.
+        $line->setRollingInventory(0);
+        $line->setRollingAmount(0);
+        $line->setRollingAmountMax(0);
+        $line->setRealTimeInventory(0);
+        $line->setRealTimeAmount(0);
+        $line->setRealTimeAmountMax(0);
+
         foreach($this->predictions as $prediction) {
 
             $newPrediction = $prediction->toStandardPrediction();

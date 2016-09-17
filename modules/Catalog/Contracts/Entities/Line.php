@@ -31,4 +31,18 @@ interface Line {
     public function addTransition(LineWorkflowTransition $transition);
     public function doRebuildPredictionsCache();
 
+    // Cached aggregate calculations
+    public function getRollingInventory() : int;
+    public function setRollingInventory(int $rollingInventory);
+    public function getRollingAmount();
+    public function setRollingAmount($rollingAmount);
+    public function getRollingAmountMax();
+    public function setRollingAmountMax($rollingAmountMax);
+    public function getRealTimeInventory() : int;
+    public function setRealTimeInventory(int $realTimeInventory);
+    public function getRealTimeAmount();
+    public function setRealTimeAmount($realTimeAmount);
+    public function getRealTimeAmountMax();
+    public function setRealTimeAmountMax($realTimeAmountMax);
+
 }

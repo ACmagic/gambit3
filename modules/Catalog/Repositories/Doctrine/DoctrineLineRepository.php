@@ -6,6 +6,8 @@ use Modules\Catalog\Entities\Line as LineEntity;
 use Modules\Prediction\PredictionTypeManager;
 use Doctrine\ORM\Query\Expr\Func as DoctrineFunc;
 use Modules\Core\Facades\Store;
+use Modules\Catalog\Entities\AdvertisedLine;
+use Modules\Catalog\Entities\AcceptedLine;
 
 class DoctrineLineRepository implements LineRepository {
 
@@ -135,6 +137,112 @@ class DoctrineLineRepository implements LineRepository {
         $matchedLine = $query->getOneOrNullResult();
 
         return $matchedLine;
+
+    }
+
+    /**
+     * Recompute lines calculated/aggregate values.
+     *
+     * @param LineEntity $line
+     *   The line entity.
+     *
+     * @return void
+     */
+    public function recomputeCalculatedValues(LineEntity $line) {
+
+        $rollingInventory = $this->calculateRollingInventory($line);
+        $rollingAmount = $this->calculateRollingAmount($line);
+        $rollingAmountMax = $this->calculateRollingAmountMax($line);
+
+        $realTimeInventory = $this->calculateRealTimeInventory($line);
+
+        $line->setRollingInventory($rollingInventory);
+        $line->setRollingAmount($rollingAmount);
+        $line->setRollingAmountMax($rollingAmountMax);
+        $line->setRealTimeInventory($realTimeInventory);
+
+    }
+
+    /*
+     * ----------------------------------------------------------------------------------------------
+     * Methods to calculate the cached aggregated values.
+     * ----------------------------------------------------------------------------------------------
+     */
+    public function calculateRollingInventory(LineEntity $line) : int {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+        $qb->resetDQLParts();
+
+        $qb->select('SUM(a.inventory) as val')->from(AdvertisedLine::class,'a');
+        $qb->where('a.line = :line');
+        $qb->setParameter('line',$line);
+
+        $query = $qb->getQuery();
+        $value = $query->getSingleScalarResult();
+
+        return $value;
+
+    }
+
+    public function calculateRollingAmount(LineEntity $line) {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+        $qb->resetDQLParts();
+
+        $qb->select('MIN(a.amount) as val')->from(AdvertisedLine::class,'a');
+        $qb->where('a.line = :line');
+        $qb->setParameter('line',$line);
+
+        $query = $qb->getQuery();
+        $value = $query->getSingleScalarResult();
+
+        return $value;
+
+    }
+
+    public function calculateRollingAmountMax(LineEntity $line) {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+        $qb->resetDQLParts();
+
+        $qb->select('MAX(CASE WHEN a.amountMax IS NOT NULL THEN a.amountMax ELSE a.amount END) as val')->from(AdvertisedLine::class,'a');
+        $qb->where('a.line = :line');
+        $qb->setParameter('line',$line);
+
+        $query = $qb->getQuery();
+        $value = $query->getSingleScalarResult();
+
+        return $value;
+
+    }
+
+    public function calculateRealTimeInventory(LineEntity $line) : int {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+        $qb->resetDQLParts();
+
+        // @todo: I think this logic is correct.
+        $qb->select('SUM(a.inventory) - COALESCE(COUNT(al.id),0) as val')->from(AdvertisedLine::class,'a');
+        $qb->leftJoin('a.acceptedLines','al');
+        $qb->where('a.line = :line');
+        $qb->setParameter('line',$line);
+
+        $query = $qb->getQuery();
+        $value = $query->getSingleScalarResult();
+
+        return $value;
+
+    }
+
+    public function calculateRealTimeAmount(LineEntity $line) {
+
+        return 0;
+
+    }
+
+    public function calculateRealTimeAmountMax(LineEntity $line) {
+
+        return 0;
 
     }
 

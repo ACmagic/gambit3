@@ -18,6 +18,14 @@ trait LineTrait {
     protected $transitions;
     protected $state;
 
+    // Cached aggregate calculations
+    protected $rollingInventory;
+    protected $rollingAmount;
+    protected $rollingAmountMax;
+    protected $realTimeInventory;
+    protected $realTimeAmount;
+    protected $realTimeAmountMax;
+
     public function getId() {
         return $this->id;
     }
@@ -102,6 +110,60 @@ trait LineTrait {
             $this->predictionsCache[] = $prediction;
         }
 
+    }
+
+    /*
+     * -------------------------------------------------------------------------------------------
+     * Cached aggregated calculations
+     * -------------------------------------------------------------------------------------------
+     */
+
+    public function getRollingInventory() : int {
+        return $this->rollingInventory;
+    }
+
+    public function setRollingInventory(int $rollingInventory) {
+        $this->rollingInventory = $rollingInventory;
+    }
+
+    public function getRollingAmount() {
+        return $this->rollingAmount;
+    }
+
+    public function setRollingAmount($rollingAmount) {
+        $this->rollingAmount = $rollingAmount;
+    }
+
+    public function getRollingAmountMax() {
+        return $this->rollingAmountMax;
+    }
+
+    public function setRollingAmountMax($rollingAmountMax) {
+        $this->rollingAmountMax = $rollingAmountMax;
+    }
+
+    public function getRealTimeInventory() : int {
+        return $this->realTimeInventory;
+    }
+
+    public function setRealTimeInventory(int $realTimeInventory) {
+        $this->realTimeInventory = $realTimeInventory;
+    }
+
+    public function getRealTimeAmount() {
+        return $this->realTimeAmount;
+    }
+
+    public function setRealTimeAmount($realTimeAmount) {
+        $this->realTimeAmount = $realTimeAmount;
+    }
+
+    public function getRealTimeAmountMax() {
+        return $this->realTimeAmountMax;
+    }
+
+    public function setRealTimeAmountMax($realTimeAmountMax) {
+        $this->realTimeAmountMax = $realTimeAmountMax;
     }
 
 }

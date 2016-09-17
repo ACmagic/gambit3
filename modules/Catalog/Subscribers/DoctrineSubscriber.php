@@ -14,6 +14,8 @@ use Modules\Catalog\Repositories\LineRepository;
 use Modules\Catalog\Exceptions\DuplicateLineException;
 use Modules\Catalog\Entities\LineWorkflowTransition;
 use Doctrine\ORM\Event\OnFlushEventArgs;
+use Modules\Catalog\Entities\AdvertisedLine as AdvertisedLineEntity;
+use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineSubscriber implements EventSubscriber {
 
@@ -23,6 +25,7 @@ class DoctrineSubscriber implements EventSubscriber {
             Events::postPersist,
             Events::prePersist,
             Events::onFlush,
+            Events::postUpdate
         ];
 
     }
@@ -51,6 +54,15 @@ class DoctrineSubscriber implements EventSubscriber {
             if($state->getId() === $paidState->getId()) {
                 $this->scheduleAdvertisedLineFulfillment($event);
             }
+
+        } else if($entity instanceof AdvertisedLineEntity) {
+
+            $lineRepo = app(LineRepository::class);
+            $line = $entity->getLine();
+            $lineRepo->recomputeCalculatedValues($line);
+
+            $em->persist($line);
+            $em->flush();
 
         }
 
@@ -93,6 +105,10 @@ class DoctrineSubscriber implements EventSubscriber {
             $entity->addTransition($transition);
 
         }
+
+    }
+
+    public function postUpdate() {
 
     }
 

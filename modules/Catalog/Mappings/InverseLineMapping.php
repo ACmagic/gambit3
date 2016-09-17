@@ -35,6 +35,14 @@ class InverseLineMapping extends EntityMapping {
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
 
+        // Cached aggregate values
+        $builder->unsignedBigInteger('rollingInventory')->default(0);
+        $builder->decimal('rollingAmount')->unsigned()->precision(16)->scale(4)->default(0);
+        $builder->decimal('rollingAmountMax')->unsigned()->precision(16)->scale(4)->nullable();
+        $builder->unsignedBigInteger('realTimeInventory')->name('realtime_inventory')->default(0);
+        $builder->decimal('realTimeAmount')->name('realtime_amount')->unsigned()->precision(16)->scale(4)->default(0);
+        $builder->decimal('realTimeAmountMax')->name('realtime_amount_max')->unsigned()->precision(16)->scale(4)->nullable();
+
         // Transitions
         $builder->hasMany(LineWorkflowTransition::class,'transitions')->mappedBy('line')->fetchExtraLazy()->cascadePersist();
 

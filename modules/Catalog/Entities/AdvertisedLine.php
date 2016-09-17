@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Modules\Customer\Entities\Customer;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class AdvertisedLine {
 
@@ -12,6 +13,10 @@ class AdvertisedLine {
     protected $customer;
     protected $createdAt;
     protected $updatedAt;
+
+    public function __construct() {
+        $this->acceptedLines = new ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;

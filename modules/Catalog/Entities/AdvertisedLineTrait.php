@@ -9,6 +9,8 @@ trait AdvertisedLineTrait {
     protected $amount;
     protected $amountMax;
 
+    protected $acceptedLines;
+
     /**
      * Set the side.
      *
@@ -57,6 +59,10 @@ trait AdvertisedLineTrait {
 
     public function setAmountMax($amountMax) {
         $this->amountMax = $amountMax;
+    }
+
+    public function getAcceptedLines() {
+        return $this->acceptedLines;
     }
 
 }

@@ -5,6 +5,7 @@ use Modules\Customer\Entities\Customer;
 use Modules\Catalog\Entities\Line;
 use Modules\Catalog\Entities\AdvertisedLine;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Catalog\Entities\AcceptedLine;
 
 class AdvertisedLineMapping extends EntityMapping {
 
@@ -23,6 +24,8 @@ class AdvertisedLineMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('advertised_lines');
         $builder->bigIncrements('id');
+
+        $builder->hasMany(AcceptedLine::class,'acceptedLines')->mappedBy('advertisedLine')->fetchExtraLazy();
 
         // @todo: Was this a mistake
         //$builder->manyToMany(Account::class,'accounts')->joinTable('customer_accounts')->cascadePersist();

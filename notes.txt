@@ -6,6 +6,39 @@ bower install PACKAGE --save
 
 -------------------------------------------------
 
+Add to lines
+
+rolling_inventory = aggregated all time inventory
+rolling_amount_min = Max bid amount
+rolling_amount_max = Minimum bid amount
+
+realtime_inventory = Number actually available at this time.
+realtime_amount_min
+realtime_amount_max
+
+These will both be calculated within listeners and adjusted when an advertised line or accepted line is persisted or updated.
+This will make all the displays much more optimized vs. attempting to create joins to calculate all these values which
+can become incredibly slow and none scalable.
+
+$lineRepository->calculateRollingInventory($line);  SELECT SUM(inventory) FROM advertised_lines WHERE line_id = :lineId
+$lineRepository->calculateRollingAmountMin($line);  SELECT MIN(amount_min) FROM advertised_lines WHERE line_id = :lineId
+$lineRepository>calculateRollingAmountMax($line);   SELECT MAX(amount_max) FROM advertised_lines WHERE line_id = :lineId
+
+$lineRepository->calculateRealTimeInventory($line); SELECT SUM(al.inventory) - SUM(acl.id) FROM advertised_lines left join accepted_lines WHERE al.line_id = :lineId group by al.line_id
+$lineRepostpry->calculateRealTimeAmountMax($line); SELECT MIN(CASE WHEN COUNT(acl.id) <> al.inventory THAN al.amount_min ELSE NULL END) FROM advertised_lines left join accepted_lines WHERE al.line_id = lineId group by al.line_id
+$lineRepository->calculateRealTimeAmountMin($line);
+
+$line->setRollingInventory($x);
+$line->setRollingAmountMax($y);
+$line->setRollingAmountMin($z);
+
+...
+
+EntityManager::persist($line); -- the event will need to happen post persist and update -- otherwise the values won't be available to recalculate.
+EntityManager::flush();
+
+-------------------------------------------------
+
 json matching notes
 
 select  * from sale_advertised_lines WHERE JSON_CONTAINS(predictions_cache,'{"type":"Modules\\\\Sales\\\\Entities\\\\SalePointSpread","spread": 4,"game_id": 10,"pick_id": 240}','$[0]','$[1]','$[2]','$[3]');
