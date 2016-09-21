@@ -231,7 +231,7 @@ class DoctrineLineRepository implements LineRepository {
         $qb->resetDQLParts();
 
         // @todo: I think this logic is correct.
-        $qb->select('SUM(a.inventory) - COUNT(al.id) as val')->from(AdvertisedLine::class,'a');
+        $qb->select('SUM(a.inventory) - SUM(COALESCE(al.quantity),0) as val')->from(AdvertisedLine::class,'a');
         $qb->leftJoin('a.acceptedLines','al');
         $qb->where('a.line = :line');
         $qb->setParameter('line',$line);
@@ -262,7 +262,7 @@ SELECT
   JOIN
     (SELECT
          ad.id advertised_line_id,
-         ad.inventory - COUNT(ac.id) realtime_inventory
+         ad.inventory - SUM(COALESCE(ac.quantity,0)) realtime_inventory
       FROM
          advertised_lines ad
       LEFT OUTER
@@ -312,7 +312,7 @@ SELECT
   JOIN
     (SELECT
          ad.id advertised_line_id,
-         ad.inventory - COUNT(ac.id) realtime_inventory
+         ad.inventory - SUM(COALESCE(ac.quantity,0) realtime_inventory
       FROM
          advertised_lines ad
       LEFT OUTER

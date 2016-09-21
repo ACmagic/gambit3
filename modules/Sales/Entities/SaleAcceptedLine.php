@@ -8,8 +8,10 @@ class SaleAcceptedLine extends SaleItem {
 
     public function calculateCost() {
 
-        // @todo: I think this also needs to take into consideration the side and odds of the associated advertised line.
-        return $this->amount;
+        // @todo: Take into considerations side and odds.
+        $cost = bcmul($this->amount,$this->quantity,4);
+
+        return $cost;
 
     }
 

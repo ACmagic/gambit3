@@ -1,5 +1,6 @@
 <?php namespace Modules\Sales\Entities;
 
+use Carbon\Carbon;
 use Modules\Catalog\Entities\AcceptedLineTrait;
 
 class QuoteAcceptedLine extends QuoteItem {
@@ -8,8 +9,10 @@ class QuoteAcceptedLine extends QuoteItem {
 
     public function calculateCost() {
 
-        // @todo: I think this also needs to take into consideration the side and odds of the associated advertised line.
-        return $this->amount;
+        // @todo: Take into considerations side and odds.
+        $cost = bcmul($this->amount,$this->quantity,4);
+
+        return $cost;
 
     }
 
@@ -18,6 +21,8 @@ class QuoteAcceptedLine extends QuoteItem {
         $item = new SaleAcceptedLine();
         $item->setCreatedAt(Carbon::now());
         $item->setUpdatedAt(Carbon::now());
+        $item->setAmount($this->amount);
+        $item->setQuantity($this->quantity);
         $item->setAdvertisedLine($this->advertisedLine);
 
         return $item;

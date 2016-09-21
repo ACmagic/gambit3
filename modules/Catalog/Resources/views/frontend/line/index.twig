@@ -12,7 +12,7 @@
                     <td>{{ line.id }}</td>
                     <td>{{ line.side.humanName }}</td>
                     <td>{{ line.odds > 0 ? '+' ~ line.odds : line.odds }}</td>
-                    <td>{{ link_to('#','Accept Line') }}</td>
+                    <td>{{ link_to_route('line.accept','Accept Line',{lineId: line.id}) }}</td>
                 </tr>
                 <tr>
                     <td colspan="3">

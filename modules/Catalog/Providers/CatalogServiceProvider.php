@@ -84,8 +84,9 @@ class CatalogServiceProvider extends ServiceProvider {
             );
         });
 
-		$this->app->bind(AdvertisedLineRepository::class,function() {
+		$this->app->bind(AdvertisedLineRepository::class,function($app) {
 			return new DoctrineAdvertisedLineRepository(
+                $app[EntityManagerInterface::class],
 				EntityManager::getRepository(AdvertisedLineEntity::class)
 			);
 		});
