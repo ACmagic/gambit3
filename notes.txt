@@ -190,3 +190,9 @@ cart/add/prediction  []
 
 
 cart/add/line []
+
+----------------------------------------------------------
+
+ISSUES:
+
+Allowed to purchase more lines than available.

@@ -97,7 +97,7 @@ class LineController extends AbstractBaseController
 
         //$sites = $this->siteRepository->findAll();
 
-        $lines = $this->inverseLineRepository->findAllStoresOpenLines();
+        $lines = $this->inverseLineRepository->findAllStoresAvailableOpenLines();
 
         return view('catalog::frontend.line.index',['lines'=>$lines]);
 

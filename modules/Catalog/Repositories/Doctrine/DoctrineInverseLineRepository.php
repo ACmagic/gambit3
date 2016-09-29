@@ -33,7 +33,7 @@ class DoctrineInverseLineRepository implements InverseLineRepository {
     /**
      * Find all the open lines in store.
      */
-    public function findAllStoresOpenLines() : array {
+    public function findAllStoresAvailableOpenLines() : array {
 
         $storeId = Store::getStoreId();
         $openState = $this->lineWorkflowStateRepo->findOpenState();
@@ -45,6 +45,7 @@ class DoctrineInverseLineRepository implements InverseLineRepository {
 
         $qb->where('l.store = :store');
         $qb->andWhere('l.state = :state');
+        $qb->andWhere('l.realTimeInventory > 0');
 
         $qb->setParameter('store',$storeId);
         $qb->setParameter('state',$openState);

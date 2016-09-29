@@ -12,16 +12,33 @@ class AcceptLineForm extends BaseForm {
 
     public function buildForm() {
 
+        $amount = bcadd($this->line->getRealTimeAmount(),0,0);
+        $amountMax = bcadd($this->line->getRealTimeAmountMax(),0,0);
+
+        if(bccomp($this->line->getRealTimeAmount(),$this->line->getRealTimeAmountMax(),4) === 0) {
+            $amountVal = 'size:'.$amount;
+        } else {
+            $amountVal = 'between:'.$amount.','.$amountMax;
+        }
+
+        if($this->line->getRealTimeInventory() == 1) {
+            $quantityVal = 'size:1';
+        } else {
+            $quantityVal = 'between:1,'.$this->line->getRealTimeInventory();
+        }
+
         $this->add('amount','text',[
             'label'=> 'Amount:',
-            'default_value'=> $this->line->getRealTimeAmount(),
-            'rules'=> 'required|numeric|min:'.$this->line->getRealTimeAmount().'|max:'.$this->line->getRealTimeAmountMax(),
+            'type'=> 'number',
+            'default_value'=> $amount,
+            'rules'=> 'required|integer|'.$amountVal,
         ]);
 
         $this->add('quantity','text',[
             'label'=> 'Quantity:',
+            'type'=> 'number',
             'default_value'=> 1,
-            'rules'=> 'required|numeric|min:1',
+            'rules'=> 'required|integer|'.$quantityVal,
         ]);
 
         $this->add('submit','submit',[
