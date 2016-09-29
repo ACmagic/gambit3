@@ -6,7 +6,7 @@ trait AcceptedLineTrait {
     protected $amount;
     protected $quantity;
 
-    public function getAdvertisedLine() {
+    public function getAdvertisedLine() : AdvertisedLine {
         return $this->advertisedLine;
     }
 

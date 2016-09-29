@@ -140,4 +140,21 @@ class Sale {
 
     }
 
+    /**
+     * Detect sale with an accepted line.
+     *
+     * @return bool
+     */
+    public function hasAcceptedLine() {
+
+        foreach($this->items as $item) {
+            if($item instanceof SaleAcceptedLine) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

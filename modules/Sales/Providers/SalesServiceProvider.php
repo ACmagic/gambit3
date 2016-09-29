@@ -9,8 +9,11 @@ use Modules\Sales\Entities\SaleItem as SaleItemEntity;
 use Modules\Sales\Repositories\SaleItemRepository;
 use Modules\Sales\Repositories\Doctrine\DoctrineSaleItemRepository;
 use Modules\Sales\Entities\SaleAdvertisedLine as SaleAdvertisedLineEntity;
+use Modules\Sales\Entities\SaleAcceptedLine as SaleAcceptedLineEntity;
 use Modules\Sales\Repositories\SaleAdvertisedLineRepository;
+use Modules\Sales\Repositories\SaleAcceptedLineRepository;
 use Modules\Sales\Repositories\Doctrine\DoctrineSaleAdvertisedLineRepository;
+use Modules\Sales\Repositories\Doctrine\DoctrineSaleAcceptedLineRepository;
 use Modules\Sales\Entities\SaleWorkflowState as SaleWorkflowStateEntity;
 use Modules\Sales\Entities\SaleItemWorkflowState as SaleItemWorkflowStateEntity;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
@@ -76,6 +79,12 @@ class SalesServiceProvider extends ServiceProvider {
 				EntityManager::getRepository(SaleAdvertisedLineEntity::class)
 			);
 		});
+
+        $this->app->bind(SaleAcceptedLineRepository::class,function() {
+            return new DoctrineSaleAcceptedLineRepository(
+                EntityManager::getRepository(SaleAcceptedLineEntity::class)
+            );
+        });
 
 	}
 

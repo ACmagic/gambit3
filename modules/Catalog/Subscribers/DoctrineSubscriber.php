@@ -5,11 +5,14 @@ use Doctrine\ORM\Events;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Modules\Sales\Entities\Sale as SaleEntity;
 use Modules\Sales\Entities\SaleAdvertisedLine;
+use Modules\Sales\Entities\SaleAcceptedLine;
 use Modules\Sales\Entities\SaleWorkflowTransition;
 use Carbon\Carbon;
 use Modules\Catalog\Jobs\FulfillAdvertisedLine;
+use Modules\Catalog\Jobs\FulfillAcceptedLine;
 use Modules\Sales\Repositories\SaleWorkflowStateRepository;
 use Modules\Catalog\Entities\Line as LineEntity;
+use Modules\Catalog\Entities\AcceptedLine as AcceptedLineEntity;
 use Modules\Catalog\Repositories\LineRepository;
 use Modules\Catalog\Exceptions\DuplicateLineException;
 use Modules\Catalog\Entities\LineWorkflowTransition;
@@ -41,24 +44,43 @@ class DoctrineSubscriber implements EventSubscriber {
         $entity = $event->getObject();
 
         /**
-         * @todo: Limit this to a single fulfillment.
+         * @todo: Limit this to a single fulfillment. I think this is already
+         * handled because persist only fires for the first time the entity is persisted
+         * not on update.
          */
-        if($entity instanceof SaleWorkflowTransition && $entity->getSale()->hasAdvertisedLine()) {
+        if($entity instanceof SaleWorkflowTransition) {
 
             $saleWorkflowStateRepo = app(SaleWorkflowStateRepository::class);
 
             $state = $entity->getAfterState();
             $paidState = $saleWorkflowStateRepo->findPaidState();
 
-
             if($state->getId() === $paidState->getId()) {
-                $this->scheduleAdvertisedLineFulfillment($event);
+
+                if($entity->getSale()->hasAdvertisedLine()) {
+                    $this->scheduleAdvertisedLineFulfillment($event);
+                }
+
+                if($entity->getSale()->hasAcceptedLine()) {
+                    $this->scheduleAcceptedLineFulfillment($event);
+                }
+
             }
 
         } else if($entity instanceof AdvertisedLineEntity) {
 
             $lineRepo = app(LineRepository::class);
             $line = $entity->getLine();
+            $lineRepo->recomputeCalculatedValues($line);
+
+            $em->persist($line);
+            $em->flush();
+
+        } else if($entity instanceof AcceptedLineEntity) {
+
+            $lineRepo = app(LineRepository::class);
+            $advertisedLine = $entity->getAdvertisedLine();
+            $line = $advertisedLine->getLine();
             $lineRepo->recomputeCalculatedValues($line);
 
             $em->persist($line);
@@ -170,6 +192,27 @@ class DoctrineSubscriber implements EventSubscriber {
         foreach($sale->getItems() as $item) {
             if($item instanceof SaleAdvertisedLine) {
                 $job = (new FulfillAdvertisedLine($item->getId()))->delay(10);
+                dispatch($job);
+            }
+        }
+
+    }
+
+    /**
+     * Schedule the fulfillment of sales accepted lines.
+     *
+     * @param LifecycleEventArgs $event
+     */
+    protected function scheduleAcceptedLineFulfillment(LifecycleEventArgs $event) {
+
+        $em = $event->getObjectManager();
+        $entity = $event->getObject();
+
+        $sale = $entity->getSale();
+
+        foreach($sale->getItems() as $item) {
+            if($item instanceof SaleAcceptedLine) {
+                $job = (new FulfillAcceptedLine($item->getId()))->delay(10);
                 dispatch($job);
             }
         }

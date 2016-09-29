@@ -1,5 +1,6 @@
 <?php namespace Modules\Catalog\Entities;
 
+use Carbon\Carbon;
 use Modules\Customer\Entities\Customer;
 
 class AcceptedLine {
@@ -29,6 +30,14 @@ class AcceptedLine {
 
     public function getUpdatedAt() {
         return $this->updatedAt;
+    }
+
+    public function setCreatedAt(Carbon $createdAt) {
+        $this->createdAt = $createdAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt) {
+        $this->updatedAt = $updatedAt;
     }
 
 }
