@@ -19,4 +19,17 @@ interface Cart {
      */
     public function addPrediction(QuotePredictionEntity $prediction);
 
+    /**
+     * Replace current quote with specified quote.
+     *
+     * @param QuoteEntity $quote
+     *   The quote entity.
+     */
+    public function replaceQuote(QuoteEntity $quote);
+
+    /**
+     * Restore a replaced quote.
+     */
+    public function restoreQuote();
+
 }

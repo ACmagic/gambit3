@@ -152,6 +152,9 @@ class CheckoutController extends AbstractBaseController {
 
         $this->em->flush();
 
+        // When a previous quote exists restore it.
+        CartFacade::restoreQuote();
+
     }
 
     public function getGateway() {

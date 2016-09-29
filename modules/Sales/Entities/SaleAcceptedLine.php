@@ -1,10 +1,13 @@
 <?php namespace Modules\Sales\Entities;
 
 use Modules\Catalog\Entities\AcceptedLineTrait;
+use Modules\Catalog\Entities\AcceptedLine;
 
 class SaleAcceptedLine extends SaleItem {
 
     use AcceptedLineTrait;
+
+    protected $acceptedLine;
 
     public function calculateCost() {
 
@@ -17,6 +20,14 @@ class SaleAcceptedLine extends SaleItem {
 
     public function isPayableViaCredits() {
         return true;
+    }
+
+    public function getAcceptedLine() : AcceptedLine {
+        return $this->acceptedLine;
+    }
+
+    public function setAcceptedLine(AcceptedLine $acceptedLine) {
+        $this->acceptedLine = $acceptedLine;
     }
 
 }

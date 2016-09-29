@@ -3,7 +3,6 @@
 use Modules\Core\Entities\Site;
 use Modules\Customer\Entities\Customer;
 use Doctrine\Common\Collections\ArrayCollection;
-use Modules\Sales\Entities\QuoteAdvertisedLine;
 use Carbon\Carbon;
 
 class Quote {
@@ -96,7 +95,7 @@ class Quote {
         return $this->expiredAt;
     }
 
-    public function setExpiredAt(Carbon $expiredAt) {
+    public function setExpiredAt(Carbon $expiredAt=NULL) {
         $this->expiredAt = $expiredAt;
     }
 
@@ -115,6 +114,25 @@ class Quote {
 
         foreach($this->items as $item) {
             if($item instanceof QuoteAdvertisedLine) {
+                $items[] = $item;
+            }
+        }
+
+        return $items;
+
+    }
+
+    /**
+     * Get only the accepted lines in the quote.
+     *
+     * @return ArrayCollection
+     */
+    public function getAcceptedLineItems() {
+
+        $items = new ArrayCollection();
+
+        foreach($this->items as $item) {
+            if($item instanceof QuoteAcceptedLine) {
                 $items[] = $item;
             }
         }

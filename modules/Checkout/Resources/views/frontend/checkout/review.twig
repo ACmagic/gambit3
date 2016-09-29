@@ -30,4 +30,20 @@
         {% endfor %}
     </ol>
 
+    <ol>
+
+        {% for item in quote.acceptedLineItems %}
+
+                <li>Accepted Line
+
+                    <p>Line: {{ item.advertisedLine.id }}</p>
+                    <p>Amount: {{ item.amount }}</p>
+                    <p>Quantity: {{ item.quantity }}</p>
+
+                </li>
+
+        {% endfor  %}
+
+    </ol>
+
 {% endblock %}

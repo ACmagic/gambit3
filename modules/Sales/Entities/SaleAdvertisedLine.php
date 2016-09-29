@@ -4,6 +4,8 @@ use Carbon\Carbon;
 use Modules\Catalog\Entities\AdvertisedLineTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Modules\Catalog\Entities\Line as LineEntity;
+use Modules\Catalog\Entities\AdvertisedLine;
+use Doctrine\Common\Collections\Collection;
 
 class SaleAdvertisedLine extends SaleItem {
 
@@ -11,12 +13,14 @@ class SaleAdvertisedLine extends SaleItem {
 
     protected $predictionsCache;
     protected $predictions;
+    protected $advertisedLine;
 
     public function __construct() {
+        parent::__construct();
         $this->predictions = new ArrayCollection();
     }
 
-    public function getPredictions() : ArrayCollection {
+    public function getPredictions() : Collection {
         return $this->predictions;
     }
 
@@ -30,6 +34,14 @@ class SaleAdvertisedLine extends SaleItem {
 
     public function getPredictionsCache() : array {
         return $this->predictionsCache;
+    }
+
+    public function setAdvertisedLine(AdvertisedLine $advertisedLine) {
+        $this->advertisedLine = $advertisedLine;
+    }
+
+    public function getAdvertisedLine() : AdvertisedLine {
+        return $this->advertisedLine;
     }
 
     public function calculateCost() : string {

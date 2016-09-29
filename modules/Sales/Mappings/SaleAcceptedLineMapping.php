@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleAcceptedLine;
 use Modules\Catalog\Mappings\AcceptedLineMappingTrait;
+use Modules\Catalog\Entities\AcceptedLine;
 
 class SaleAcceptedLineMapping extends EntityMapping {
 
@@ -21,6 +22,7 @@ class SaleAcceptedLineMapping extends EntityMapping {
      */
     public function map(Fluent $builder) {
         $builder->table('sale_accepted_lines');
+        $builder->belongsTo(AcceptedLine::class,'acceptedLine')->nullable();
         $this->mapAcceptedLine($builder);
     }
 

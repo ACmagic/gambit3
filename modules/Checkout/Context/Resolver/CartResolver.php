@@ -58,9 +58,11 @@ class CartResolver implements Resolver {
         }
         
         $context = new Cart(
+            $this->sessionMgr,
             $quote,
             $this->em,
-            $this->sideRepo
+            $this->sideRepo,
+            $this->quoteRepository
         );
 
         return $context;

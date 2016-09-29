@@ -95,6 +95,12 @@ class FulfillAdvertisedLine implements ShouldQueue {
 
         }
 
+        // Update the sale.
+        $saleAdvertisedLine->setAdvertisedLine($advertisedLine);
+        EntityManager::persist($saleAdvertisedLine);
+        EntityManager::flush();
+
+
     }
 
 }

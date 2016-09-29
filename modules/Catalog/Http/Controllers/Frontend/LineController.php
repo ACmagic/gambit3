@@ -16,6 +16,7 @@ use Modules\Customer\Facades\Customer as CustomerFacade;
 use Modules\Sales\Entities\QuoteAcceptedLine;
 use Modules\Catalog\Repositories\AdvertisedLineRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Modules\Checkout\Facades\Cart as CartFacade;
 
 class LineController extends AbstractBaseController
 {
@@ -23,7 +24,7 @@ class LineController extends AbstractBaseController
     /**
      * @var SessionManager
      */
-    protected $sessionMgr;
+    protected $session;
 
     /**
      * @var EntityManagerInterface
@@ -53,7 +54,7 @@ class LineController extends AbstractBaseController
     /**
      * Create a new authentication controller instance.
      *
-     * @param SessionManager $sessionMgr
+     * @param SessionManager $session
      *   The session manager.
      *
      * @param EntityManagerInterface $em
@@ -72,7 +73,7 @@ class LineController extends AbstractBaseController
      *   The advertised line repository.
      */
     public function __construct(
-        SessionManager $sessionMgr,
+        SessionManager $session,
         EntityManagerInterface $em,
         SiteRepository $siteRepo,
         CustomerRepository $customerRepo,
@@ -81,7 +82,7 @@ class LineController extends AbstractBaseController
     )
     {
         //$this->middleware('guest', ['except' => 'logout']);
-        $this->sessionMgr = $sessionMgr;
+        $this->session = $session;
         $this->em = $em;
         $this->siteRepo = $siteRepo;
         $this->customerRepo = $customerRepo;
@@ -137,8 +138,8 @@ class LineController extends AbstractBaseController
         $advertisedLines = $this->advertisedLineRepo->matchAvailable($line,$data['amount'],$data['quantity']);
 
         $quote = new QuoteEntity();
-        $quote->setIsCart(0);
-        $quote->setIsExpired(0);
+        $quote->setIsExpired(1);
+        $quote->setExpiredAt(Carbon::now());
         $quote->setCreatedAt(Carbon::now());
         $quote->setUpdatedAt(Carbon::now());
 
@@ -152,7 +153,7 @@ class LineController extends AbstractBaseController
             $quote->setCustomer($customer);
         }
 
-        $session = $this->sessionMgr->driver();
+        $session = $this->session->driver();
         $sessionId = $session->getId();
 
         $quote->setSessionId($sessionId);
@@ -176,10 +177,9 @@ class LineController extends AbstractBaseController
 
         }
 
-        if(!$quote->getCustomer() || !$quote->getCustomer()->isAffordable($quote)) {
+        CartFacade::replaceQuote($quote);
 
-            $this->em->persist($quote);
-            $this->em->flush();
+        if(!$quote->getCustomer() || !$quote->getCustomer()->isAffordable($quote)) {
 
             if($quote->getCustomer()) {
                 return redirect()->route('checkout.credits');
