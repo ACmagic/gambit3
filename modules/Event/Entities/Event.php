@@ -3,6 +3,7 @@
 use Modules\Core\Entities\User;
 use Carbon\Carbon;
 use Modules\Prediction\Predictable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Event implements Predictable {
 
@@ -12,6 +13,12 @@ class Event implements Predictable {
     protected $startsAt;
     protected $createdAt;
     protected $updatedAt;
+
+    protected $categories;
+
+    public function __construct() {
+        $this->categories = new ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;

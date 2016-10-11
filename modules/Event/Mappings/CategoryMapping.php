@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use Modules\Event\Entities\Category;
 use Modules\Core\Entities\User;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Event\Entities\Event as EventEntity;
 
 class CategoryMapping extends EntityMapping {
 
@@ -34,6 +35,8 @@ class CategoryMapping extends EntityMapping {
         $builder->manyToOne(User::class,'creator');
         $builder->string('machineName')->length(128)->default('')->unique();
         $builder->string('humanName')->length(128)->default('')->unique();
+
+        $builder->manyToMany(EventEntity::class,'events')->joinTable('event_categories')->fetchExtraLazy()->cascadePersist();
 
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

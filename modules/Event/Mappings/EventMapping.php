@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use Modules\Core\Entities\User;
 use Modules\Event\Entities\Event;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Event\Entities\Category;
 use Modules\Sports\Entities\Game as SportsGame;
 use Modules\Football\Entities\NFLGame as NFLFootballGame;
 
@@ -28,6 +29,8 @@ class EventMapping extends EntityMapping {
         $builder->timestamp('startsAt');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
+
+        $builder->manyToMany(Category::class,'categories')->joinTable('event_categories')->fetchExtraLazy();
 
         $builder->joinedTableInheritance()
             ->column('type')

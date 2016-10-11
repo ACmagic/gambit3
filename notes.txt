@@ -144,6 +144,16 @@ php artisan gambit:core:seed
 
 --------------------------------------------------
 
+Recipe for migrations
+
+execute new migrations:
+php artisan doctrine:migrations:migrate
+
+generate new stub:
+php artisan doctrine:migrations:generate
+
+--------------------------------------------------
+
 command line xdebug
 
 export PHP_IDE_CONFIG="serverName=local.kyle"

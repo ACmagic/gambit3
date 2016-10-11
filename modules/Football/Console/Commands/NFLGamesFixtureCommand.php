@@ -171,6 +171,9 @@ class NFLGamesFixtureCommand extends Command
                 'homeTeam'=> $gameData['homeTeam'],
                 'awayTeam'=> $gameData['awayTeam'],
                 'displayTitle'=> $gameData['displayTitle'],
+
+                // These will all go into the nfl category.
+                'categories'=> ['@category_nfl'],
             ];
 
             $this->yamlArray[NFLGame::class]['nflGame_'.$gameData['year'].'_'.$index.' (extends abstract_sports_game)'] = $nflGame;

@@ -2,6 +2,7 @@
 
 use Modules\Core\Entities\User;
 use Carbon\Carbon;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Category {
 
@@ -17,6 +18,12 @@ class Category {
     protected $root;
     protected $parent;
     protected $children;
+
+    protected $events;
+
+    public function __construct() {
+        $this->events = new ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;

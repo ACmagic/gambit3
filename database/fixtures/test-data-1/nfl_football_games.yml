@@ -4,6 +4,7 @@ Modules\Football\Entities\NFLGame:
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Patriots'
+        categories: ['@category_nfl']
     'nflGame_2015_1 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_chi'
