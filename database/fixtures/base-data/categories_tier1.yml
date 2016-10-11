@@ -1,0 +1,7 @@
+Modules\Event\Entities\Category:
+  category_sports:
+    creator: '@user1'
+    machineName: sports
+    humanName: Sports
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>

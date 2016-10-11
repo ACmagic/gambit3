@@ -196,3 +196,4 @@ cart/add/line []
 ISSUES:
 
 Allowed to purchase more lines than available.
+Odds calculations need to be added and costs adjusted taking into consideration sides

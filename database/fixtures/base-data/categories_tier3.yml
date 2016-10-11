@@ -1,0 +1,29 @@
+Modules\Event\Entities\Category:
+  category_nfl:
+    creator: '@user1'
+    machineName: nfl
+    humanName: NFL
+    parent: '@category_football'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  category_nba:
+    creator: '@user1'
+    machineName: nba
+    humanName: NBA
+    parent: '@category_basketball'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  category_nhl:
+    creator: '@user1'
+    machineName: nhl
+    humanName: NHL
+    parent: '@category_hockey'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
+  category_mlb:
+    creator: '@user1'
+    machineName: mlb
+    humanName: MLB
+    parent: '@category_baseball'
+    createdAt: <carbon_now()>
+    updatedAt: <carbon_now()>
