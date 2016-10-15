@@ -8,14 +8,28 @@
         {
             "type": "vcs",
             "url": "https://github.com/oddz/dbal"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pingpong-labs/support"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/oddz/generators"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/oddz/modules"
         }
     ],
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=5.6.4",
         "doctrine/dbal": "dev-dev-json-support as 2.5",
-        "laravel/framework": "5.2.*",
-        "laravel-doctrine/orm": "1.1.*",
-        "pingpong/modules": "~2.1",
+        "laravel/framework": "5.3.*",
+        "laravel-doctrine/orm": "1.2.*",
+        "pingpong/support": "dev-master",
+        "pingpong/generators": "dev-dev-53-compatibility",
+        "pingpong/modules": "dev-dev-53-compatibility",
         "laravel-doctrine/fluent": "1.1.*",
         "laravel-doctrine/migrations": "1.0.*",
         "laravel-doctrine/extensions": "1.0.*",
