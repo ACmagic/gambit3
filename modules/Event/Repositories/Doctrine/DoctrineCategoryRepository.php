@@ -144,6 +144,10 @@ class DoctrineCategoryRepository implements CategoryRepository {
         return $this->genericRepository->childCount($node,$direct);
     }
 
+    public function findById($id) {
+        return $this->genericRepository->find($id);
+    }
+
     public function findByMachineName($machineName) {
         return $this->genericRepository->findOneByMachineName($machineName);
     }

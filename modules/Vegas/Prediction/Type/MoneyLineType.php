@@ -48,6 +48,15 @@ class MoneyLineType implements PredictionType {
     }
 
     /**
+     * Get the name of the entity class.
+     *
+     * @return string
+     */
+    public function getEntityClassName() : string {
+        return MoneyLineEntity::class;
+    }
+
+    /**
      * Get the name of the inverse entity class.
      *
      * @return string

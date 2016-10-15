@@ -63,6 +63,15 @@ class PointSpreadType implements PredictionType {
     }
 
     /**
+     * Get the name of the entity class.
+     *
+     * @return string
+     */
+    public function getEntityClassName() : string {
+        return PointSpreadEntity::class;
+    }
+
+    /**
      * Get the name of the inverse entity class.
      *
      * @return string

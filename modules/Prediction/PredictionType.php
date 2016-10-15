@@ -29,6 +29,13 @@ interface PredictionType {
     public function getInlineViewName() : string;
 
     /**
+     * Get the name of the entity class.
+     *
+     * @return string
+     */
+    public function getEntityClassName() : string;
+
+    /**
      * Get the name of the inverse entity class.
      *
      * @return string

@@ -31,4 +31,19 @@ class DoctrineEventRepository implements EventRepository {
 
     }
 
+    public function findEventsByCategory($categoryId) {
+
+        $qb = $this->genericRepository->createQueryBuilder('e');
+        $qb->innerJoin('e.categories','c');
+        $qb->where('c = :categoryId');
+
+        $qb->setParameter('categoryId',$categoryId);
+
+        $query = $qb->getQuery();
+        $events = $query->getResult();
+
+        return $events;
+
+    }
+
 }

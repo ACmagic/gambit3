@@ -207,3 +207,51 @@ ISSUES:
 
 Allowed to purchase more lines than available.
 Odds calculations need to be added and costs adjusted taking into consideration sides
+
+
+---------------------------------------------------------
+
+Catalog architecture
+
+Each category will have an implicit landing page. There will be a default
+landing page layout while also allowing complete overrides for specific cases.
+
+Ex.
+
+http://local.kyle/sports/football/nfl
+
+Would take you to the nfl landing page. Perhaps at the top there is a slider
+of the open events and/or common lines. Than at the bottom an aggregated
+views. Perhaps we make individual components/widgets that can be added to any
+page.
+
+We could create a url_alias table that would map a path like:
+
+/sports/football/nfl => a specific controller and inject the params, like the category ID. This
+might be the best way to support overriding specific paths.
+
+Would URL alias be global, store, or website specific?
+
+Would it be best to do:
+
+url_alias
+- globals -- apply to all stores
+
+url_alias_store
+-- overrides per store ??
+
+or is that making things to complex?
+
+-- Create an event that whenever a category is created the associated url_alias is created?
+
+For now a simple url_alias table will probably work.
+-----------------------
+id
+url ie. sports/football/nfl
+route:    ie. -- Full path to route --
+
+What about the dynamic/implicit routes like:
+
+sports/football/nfl/{event}/lines
+
+How do we handle those??

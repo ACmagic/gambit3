@@ -25,6 +25,7 @@ use Modules\Catalog\Http\ViewComposers\Admin\AdvertisedLine\DataGridComposer as 
 use Modules\Catalog\Http\ViewComposers\Admin\AcceptedLine\DataGridComposer as AcceptedLineDataGridComposer;
 use Modules\Prediction\Contracts\PredictionTypeManager as IPredictionTypeManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Modules\Prediction\Contracts\PredictableManager as IPredictableManager;
 
 class CatalogServiceProvider extends ServiceProvider {
 
@@ -80,7 +81,9 @@ class CatalogServiceProvider extends ServiceProvider {
             return new DoctrineInverseLineRepository(
                 EntityManager::getRepository(InverseLineEntity::class),
                 $app[IPredictionTypeManager::class],
-                $app[LineWorkflowStateRepository::class]
+                $app[LineWorkflowStateRepository::class],
+                $app[IPredictableManager::class],
+                $app[IPredictionTypeManager::class]
             );
         });
 

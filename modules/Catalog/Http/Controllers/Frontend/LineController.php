@@ -93,11 +93,11 @@ class LineController extends AbstractBaseController
 
     }
 
-    public function getIndex() {
+    public function getIndex($type,$id) {
 
         //$sites = $this->siteRepository->findAll();
 
-        $lines = $this->inverseLineRepository->findAllStoresAvailableOpenLines();
+        $lines = $this->inverseLineRepository->findAllAvailableWithPredictable($type,$id);
 
         return view('catalog::frontend.line.index',['lines'=>$lines]);
 

@@ -4,1273 +4,1790 @@ Modules\Football\Entities\NFLGame:
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Patriots'
+        categories:
+            - '@category_nfl'
     'nflGame_2015_1 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Bears'
+        categories:
+            - '@category_nfl'
     'nflGame_2015_2 (extends abstract_sports_game)':
+        startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
+        homeTeam: '@nflTeam_hou'
+        awayTeam: '@nflTeam_kc'
+        displayTitle: 'Chiefs @ Texans'
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_3 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Jets'
-    'nflGame_2015_3 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_4 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Bills'
-    'nflGame_2015_4 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_5 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Redskins'
-    'nflGame_2015_5 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_6 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Jaguars'
-    'nflGame_2015_6 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_7 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Rams'
-    'nflGame_2015_7 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_8 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Cardinals'
-    'nflGame_2015_8 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_9 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Chargers'
-    'nflGame_2015_9 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_10 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Buccaneers'
-    'nflGame_2015_10 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_11 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Raiders'
-    'nflGame_2015_11 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_12 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Broncos'
-    'nflGame_2015_12 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_13 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Cowboys'
-    'nflGame_2015_13 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_14 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-14 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Falcons'
-    'nflGame_2015_14 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_15 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-14 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ 49ers'
-    'nflGame_2015_15 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_16 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-17 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Chiefs'
-    'nflGame_2015_16 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_17 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Panthers'
-    'nflGame_2015_17 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_18 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Steelers'
-    'nflGame_2015_18 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_19 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Saints'
-    'nflGame_2015_19 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_20 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Vikings'
-    'nflGame_2015_20 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_21 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Bears'
-    'nflGame_2015_21 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_22 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Bills'
-    'nflGame_2015_22 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_23 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Bengals'
-    'nflGame_2015_23 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_24 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Browns'
-    'nflGame_2015_24 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_25 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Giants'
-    'nflGame_2015_25 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_26 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Redskins'
-    'nflGame_2015_26 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_27 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Jaguars'
-    'nflGame_2015_27 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_28 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Raiders'
-    'nflGame_2015_28 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_29 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Eagles'
-    'nflGame_2015_29 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_30 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Packers'
-    'nflGame_2015_30 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_31 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-21 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Colts'
-    'nflGame_2015_31 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_32 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-24 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Giants'
-    'nflGame_2015_32 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_33 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Cowboys'
-    'nflGame_2015_33 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_34 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Titans'
-    'nflGame_2015_34 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_35 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Browns'
-    'nflGame_2015_35 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_36 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Ravens'
-    'nflGame_2015_36 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_37 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Patriots'
-    'nflGame_2015_37 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_38 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Panthers'
-    'nflGame_2015_38 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_39 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Jets'
-    'nflGame_2015_39 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_40 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Texans'
-    'nflGame_2015_40 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_41 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Vikings'
-    'nflGame_2015_41 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_42 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Rams'
-    'nflGame_2015_42 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_43 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Cardinals'
-    'nflGame_2015_43 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_44 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Dolphins'
-    'nflGame_2015_44 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_45 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Seahawks'
-    'nflGame_2015_45 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_46 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Lions'
-    'nflGame_2015_46 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_47 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-28 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Packers'
-    'nflGame_2015_47 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_48 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-01 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Steelers'
-    'nflGame_2015_48 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_49 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Dolphins'
-    'nflGame_2015_49 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_50 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Colts'
-    'nflGame_2015_50 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_51 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Bills'
-    'nflGame_2015_51 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_52 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Buccaneers'
-    'nflGame_2015_52 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_53 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Redskins'
-    'nflGame_2015_53 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_54 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Bears'
-    'nflGame_2015_54 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_55 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Falcons'
-    'nflGame_2015_55 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_56 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Bengals'
-    'nflGame_2015_56 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_57 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Chargers'
-    'nflGame_2015_57 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_58 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ 49ers'
-    'nflGame_2015_58 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_59 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Cardinals'
-    'nflGame_2015_59 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_60 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Broncos'
-    'nflGame_2015_60 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_61 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Saints'
-    'nflGame_2015_61 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_62 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-05 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Seahawks'
-    'nflGame_2015_62 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_63 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-08 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Texans'
-    'nflGame_2015_63 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_64 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Chiefs'
-    'nflGame_2015_64 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_65 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Bengals'
-    'nflGame_2015_65 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_66 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Falcons'
-    'nflGame_2015_66 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_67 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Buccaneers'
-    'nflGame_2015_67 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_68 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Eagles'
-    'nflGame_2015_68 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_69 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Ravens'
-    'nflGame_2015_69 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_70 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Packers'
-    'nflGame_2015_70 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_71 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Titans'
-    'nflGame_2015_71 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_72 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Lions'
-    'nflGame_2015_72 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_73 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Cowboys'
-    'nflGame_2015_73 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_74 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Raiders'
-    'nflGame_2015_74 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_75 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Giants'
-    'nflGame_2015_75 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_76 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-12 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Chargers'
-    'nflGame_2015_76 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_77 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-15 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Saints'
-    'nflGame_2015_77 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_78 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Jets'
-    'nflGame_2015_78 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_79 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Steelers'
-    'nflGame_2015_79 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_80 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Vikings'
-    'nflGame_2015_80 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_81 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Bills'
-    'nflGame_2015_81 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_82 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Lions'
-    'nflGame_2015_82 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_83 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Browns'
-    'nflGame_2015_83 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_84 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Jaguars'
-    'nflGame_2015_84 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_85 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Titans'
-    'nflGame_2015_85 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_86 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Seahawks'
-    'nflGame_2015_86 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_87 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Packers'
-    'nflGame_2015_87 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_88 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ 49ers'
-    'nflGame_2015_88 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_89 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Colts'
-    'nflGame_2015_89 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_90 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-19 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Eagles'
-    'nflGame_2015_90 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_91 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-22 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ 49ers'
-    'nflGame_2015_91 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_92 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Jaguars'
-    'nflGame_2015_92 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_93 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Redskins'
-    'nflGame_2015_93 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_94 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Titans'
-    'nflGame_2015_94 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_95 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Colts'
-    'nflGame_2015_95 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_96 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Lions'
-    'nflGame_2015_96 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_97 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Chiefs'
-    'nflGame_2015_97 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_98 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Rams'
-    'nflGame_2015_98 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_99 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Dolphins'
-    'nflGame_2015_99 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_100 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Patriots'
-    'nflGame_2015_100 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_101 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Chargers'
-    'nflGame_2015_101 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_102 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Giants'
-    'nflGame_2015_102 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_103 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Panthers'
-    'nflGame_2015_103 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_104 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-26 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Cardinals'
-    'nflGame_2015_104 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_105 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-29 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Patriots'
-    'nflGame_2015_105 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_106 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Chiefs'
-    'nflGame_2015_106 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_107 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Falcons'
-    'nflGame_2015_107 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_108 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Browns'
-    'nflGame_2015_108 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_109 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Rams'
-    'nflGame_2015_109 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_110 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Saints'
-    'nflGame_2015_110 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_111 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Bears'
-    'nflGame_2015_111 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_112 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Ravens'
-    'nflGame_2015_112 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_113 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Steelers'
-    'nflGame_2015_113 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_114 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Texans'
-    'nflGame_2015_114 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_115 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Raiders'
-    'nflGame_2015_115 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_116 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Cowboys'
-    'nflGame_2015_116 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_117 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Broncos'
-    'nflGame_2015_117 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_118 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-02 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Panthers'
-    'nflGame_2015_118 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_119 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-05 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Bengals'
-    'nflGame_2015_119 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_120 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Panthers'
-    'nflGame_2015_120 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_121 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Patriots'
-    'nflGame_2015_121 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_122 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Saints'
-    'nflGame_2015_122 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_123 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Bills'
-    'nflGame_2015_123 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_124 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Vikings'
-    'nflGame_2015_124 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_125 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Jets'
-    'nflGame_2015_125 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_126 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Steelers'
-    'nflGame_2015_126 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_127 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Buccaneers'
-    'nflGame_2015_127 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_128 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ 49ers'
-    'nflGame_2015_128 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_129 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Colts'
-    'nflGame_2015_129 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_130 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Cowboys'
-    'nflGame_2015_130 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_131 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-09 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Chargers'
-    'nflGame_2015_131 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_132 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-12 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Jets'
-    'nflGame_2015_132 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_133 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Packers'
-    'nflGame_2015_133 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_134 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Buccaneers'
-    'nflGame_2015_134 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_135 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Titans'
-    'nflGame_2015_135 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_136 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Rams'
-    'nflGame_2015_136 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_137 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Redskins'
-    'nflGame_2015_137 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_138 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Eagles'
-    'nflGame_2015_138 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_139 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Steelers'
-    'nflGame_2015_139 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_140 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Ravens'
-    'nflGame_2015_140 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_141 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Raiders'
-    'nflGame_2015_141 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_142 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Giants'
-    'nflGame_2015_142 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_143 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Broncos'
-    'nflGame_2015_143 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_144 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Seahawks'
-    'nflGame_2015_144 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_145 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-16 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Bengals'
-    'nflGame_2015_145 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_146 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-19 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Jaguars'
-    'nflGame_2015_146 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_147 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Lions'
-    'nflGame_2015_147 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_148 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Falcons'
-    'nflGame_2015_148 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_149 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Ravens'
-    'nflGame_2015_149 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_150 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Eagles'
-    'nflGame_2015_150 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_151 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Bears'
-    'nflGame_2015_151 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_152 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Texans'
-    'nflGame_2015_152 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_153 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Panthers'
-    'nflGame_2015_153 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_154 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Dolphins'
-    'nflGame_2015_154 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_155 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Chargers'
-    'nflGame_2015_155 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_156 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Vikings'
-    'nflGame_2015_156 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_157 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Seahawks'
-    'nflGame_2015_157 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_158 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Cardinals'
-    'nflGame_2015_158 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_159 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-23 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Patriots'
-    'nflGame_2015_159 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_160 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-26 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Lions'
-    'nflGame_2015_160 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_161 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-26 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Cowboys'
-    'nflGame_2015_161 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_162 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-26 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Packers'
-    'nflGame_2015_162 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_163 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Texans'
-    'nflGame_2015_163 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_164 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Bengals'
-    'nflGame_2015_164 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_165 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Falcons'
-    'nflGame_2015_165 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_166 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Redskins'
-    'nflGame_2015_166 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_167 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Colts'
-    'nflGame_2015_167 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_168 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Chiefs'
-    'nflGame_2015_168 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_169 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Titans'
-    'nflGame_2015_169 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_170 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Jaguars'
-    'nflGame_2015_170 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_171 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Jets'
-    'nflGame_2015_171 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_172 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ 49ers'
-    'nflGame_2015_172 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_173 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Seahawks'
-    'nflGame_2015_173 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_174 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Broncos'
-    'nflGame_2015_174 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_175 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-30 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Browns'
-    'nflGame_2015_175 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_176 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-03 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Lions'
-    'nflGame_2015_176 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_177 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Giants'
-    'nflGame_2015_177 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_178 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Rams'
-    'nflGame_2015_178 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_179 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Buccaneers'
-    'nflGame_2015_179 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_180 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Vikings'
-    'nflGame_2015_180 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_181 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Bears'
-    'nflGame_2015_181 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_182 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Titans'
-    'nflGame_2015_182 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_183 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Bills'
-    'nflGame_2015_183 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_184 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Dolphins'
-    'nflGame_2015_184 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_185 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Browns'
-    'nflGame_2015_185 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_186 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Raiders'
-    'nflGame_2015_186 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_187 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Chargers'
-    'nflGame_2015_187 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_188 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Patriots'
-    'nflGame_2015_188 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_189 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Saints'
-    'nflGame_2015_189 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_190 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Steelers'
-    'nflGame_2015_190 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_191 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-07 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Redskins'
-    'nflGame_2015_191 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_192 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-10 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Cardinals'
-    'nflGame_2015_192 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_193 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Eagles'
-    'nflGame_2015_193 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_194 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Ravens'
-    'nflGame_2015_194 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_195 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Browns'
-    'nflGame_2015_195 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_196 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Rams'
-    'nflGame_2015_196 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_197 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Jets'
-    'nflGame_2015_197 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_198 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Bengals'
-    'nflGame_2015_198 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_199 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Jaguars'
-    'nflGame_2015_199 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_200 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Chiefs'
-    'nflGame_2015_200 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_201 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Bears'
-    'nflGame_2015_201 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_202 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Panthers'
-    'nflGame_2015_202 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_203 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Buccaneers'
-    'nflGame_2015_203 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_204 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Broncos'
-    'nflGame_2015_204 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_205 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Packers'
-    'nflGame_2015_205 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_206 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Texans'
-    'nflGame_2015_206 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_207 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-14 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Dolphins'
-    'nflGame_2015_207 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_208 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-17 00:00:00")>'
         homeTeam: '@nflTeam_la'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Rams'
-    'nflGame_2015_208 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_209 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-19 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Cowboys'
-    'nflGame_2015_209 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_210 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Giants'
-    'nflGame_2015_210 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_211 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_ne'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Patriots'
-    'nflGame_2015_211 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_212 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_was'
         awayTeam: '@nflTeam_buf'
         displayTitle: 'Bills @ Redskins'
-    'nflGame_2015_212 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_213 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_kc'
         displayTitle: 'Chiefs @ Ravens'
-    'nflGame_2015_213 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_214 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Colts'
-    'nflGame_2015_214 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_215 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_jac'
         awayTeam: '@nflTeam_atl'
         displayTitle: 'Falcons @ Jaguars'
-    'nflGame_2015_215 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_216 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Vikings'
-    'nflGame_2015_216 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_217 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Raiders'
-    'nflGame_2015_217 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_218 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Seahawks'
-    'nflGame_2015_218 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_219 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ 49ers'
-    'nflGame_2015_219 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_220 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_sd'
         awayTeam: '@nflTeam_mia'
         displayTitle: 'Dolphins @ Chargers'
-    'nflGame_2015_220 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_221 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_pit'
         awayTeam: '@nflTeam_den'
         displayTitle: 'Broncos @ Steelers'
-    'nflGame_2015_221 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_222 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_ari'
         displayTitle: 'Cardinals @ Eagles'
-    'nflGame_2015_222 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_223 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-21 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Saints'
-    'nflGame_2015_223 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_224 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-24 00:00:00")>'
         homeTeam: '@nflTeam_oak'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Raiders'
-    'nflGame_2015_224 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_225 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-26 00:00:00")>'
         homeTeam: '@nflTeam_phi'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Eagles'
-    'nflGame_2015_225 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_226 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_det'
         awayTeam: '@nflTeam_sf'
         displayTitle: '49ers @ Lions'
-    'nflGame_2015_226 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_227 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_bal'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Ravens'
-    'nflGame_2015_227 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_228 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_dal'
         displayTitle: 'Cowboys @ Bills'
-    'nflGame_2015_228 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_229 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_tb'
         awayTeam: '@nflTeam_chi'
         displayTitle: 'Bears @ Buccaneers'
-    'nflGame_2015_229 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_230 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_car'
         displayTitle: 'Panthers @ Falcons'
-    'nflGame_2015_230 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_231 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_ind'
         displayTitle: 'Colts @ Dolphins'
-    'nflGame_2015_231 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_232 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Jets'
-    'nflGame_2015_232 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_233 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_ten'
         awayTeam: '@nflTeam_hou'
         displayTitle: 'Texans @ Titans'
-    'nflGame_2015_233 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_234 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_cle'
         displayTitle: 'Browns @ Chiefs'
-    'nflGame_2015_234 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_235 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_no'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Saints'
-    'nflGame_2015_235 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_236 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_gb'
         displayTitle: 'Packers @ Cardinals'
-    'nflGame_2015_236 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_237 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_sea'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ Seahawks'
-    'nflGame_2015_237 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_238 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_min'
         awayTeam: '@nflTeam_nyg'
         displayTitle: 'Giants @ Vikings'
-    'nflGame_2015_238 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_239 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-28 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_cin'
         displayTitle: 'Bengals @ Broncos'
-    'nflGame_2015_239 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_240 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_buf'
         awayTeam: '@nflTeam_nyj'
         displayTitle: 'Jets @ Bills'
-    'nflGame_2015_240 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_241 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_mia'
         awayTeam: '@nflTeam_ne'
         displayTitle: 'Patriots @ Dolphins'
-    'nflGame_2015_241 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_242 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_atl'
         awayTeam: '@nflTeam_no'
         displayTitle: 'Saints @ Falcons'
-    'nflGame_2015_242 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_243 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_chi'
         awayTeam: '@nflTeam_det'
         displayTitle: 'Lions @ Bears'
-    'nflGame_2015_243 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_244 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
         awayTeam: '@nflTeam_phi'
         displayTitle: 'Eagles @ Giants'
-    'nflGame_2015_244 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_245 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_dal'
         awayTeam: '@nflTeam_was'
         displayTitle: 'Redskins @ Cowboys'
-    'nflGame_2015_245 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_246 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_ind'
         awayTeam: '@nflTeam_ten'
         displayTitle: 'Titans @ Colts'
-    'nflGame_2015_246 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_247 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_cin'
         awayTeam: '@nflTeam_bal'
         displayTitle: 'Ravens @ Bengals'
-    'nflGame_2015_247 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_248 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_cle'
         awayTeam: '@nflTeam_pit'
         displayTitle: 'Steelers @ Browns'
-    'nflGame_2015_248 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_249 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_hou'
         awayTeam: '@nflTeam_jac'
         displayTitle: 'Jaguars @ Texans'
-    'nflGame_2015_249 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_250 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_kc'
         awayTeam: '@nflTeam_oak'
         displayTitle: 'Raiders @ Chiefs'
-    'nflGame_2015_250 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_251 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_den'
         awayTeam: '@nflTeam_sd'
         displayTitle: 'Chargers @ Broncos'
-    'nflGame_2015_251 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_252 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_car'
         awayTeam: '@nflTeam_tb'
         displayTitle: 'Buccaneers @ Panthers'
-    'nflGame_2015_252 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_253 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_ari'
         awayTeam: '@nflTeam_sea'
         displayTitle: 'Seahawks @ Cardinals'
-    'nflGame_2015_253 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_254 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_sf'
         awayTeam: '@nflTeam_la'
         displayTitle: 'Rams @ 49ers'
-    'nflGame_2015_254 (extends abstract_sports_game)':
+        categories:
+            - '@category_nfl'
+    'nflGame_2015_255 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_gb'
         awayTeam: '@nflTeam_min'
         displayTitle: 'Vikings @ Packers'
+        categories:
+            - '@category_nfl'
