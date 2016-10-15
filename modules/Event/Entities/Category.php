@@ -41,6 +41,10 @@ class Category {
         return $this->root;
     }
 
+    public function getLvl() {
+        return $this->lvl;
+    }
+
     public function setParent(Category $parent=null) {
         $this->parent = $parent;
     }

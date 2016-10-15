@@ -152,4 +152,36 @@ class DoctrineCategoryRepository implements CategoryRepository {
         return $this->genericRepository->findOneByMachineName($machineName);
     }
 
+    public function findOneByHierarchicalPath($path) {
+
+        $pieces = array_reverse(explode('/',trim($path,'/')));
+        $level = count($pieces) - 1;
+
+        $bottom = array_shift($pieces);
+
+        $qb = $this->genericRepository->createQueryBuilder('c'.$level);
+        $qb->where('c'.$level.'.machineName = :c'.$level.'MachineName');
+        $qb->andWhere('c'.$level.'.lvl = :c'.$level.'Lvl');
+
+        $qb->setParameter('c'.$level.'MachineName',$bottom);
+        $qb->setParameter('c'.$level.'Lvl',$level);
+
+        $level--;
+
+        foreach($pieces as $piece) {
+
+            $qb->innerJoin('c'.($level+1).'.parent','c'.$level,'WITH','c'.$level.'.machineName = :c'.$level.'MachineName AND c'.$level.'.lvl = :c'.$level.'Lvl');
+            $qb->setParameter('c'.$level.'MachineName',$piece);
+            $qb->setParameter('c'.$level.'Lvl',$level);
+
+            $level--;
+        }
+
+        $query = $qb->getQuery();
+        $category = $query->getOneOrNullResult();
+
+        return $category;
+
+    }
+
 }

@@ -17,6 +17,7 @@ use Modules\Sales\Entities\QuoteAcceptedLine;
 use Modules\Catalog\Repositories\AdvertisedLineRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Modules\Checkout\Facades\Cart as CartFacade;
+use Modules\Event\Repositories\EventRepository;
 
 class LineController extends AbstractBaseController
 {
@@ -52,6 +53,11 @@ class LineController extends AbstractBaseController
     protected $inverseLineRepository;
 
     /**
+     * @var EventRepository
+     */
+    protected $eventRepository;
+
+    /**
      * Create a new authentication controller instance.
      *
      * @param SessionManager $session
@@ -71,6 +77,9 @@ class LineController extends AbstractBaseController
      *
      * @param InverseLineRepository $inverseLineRepository
      *   The advertised line repository.
+     *
+     * @param EventRepository $eventRepository
+     *   The event repository.
      */
     public function __construct(
         SessionManager $session,
@@ -78,7 +87,8 @@ class LineController extends AbstractBaseController
         SiteRepository $siteRepo,
         CustomerRepository $customerRepo,
         AdvertisedLineRepository $advertisedLineRepo,
-        InverseLineRepository $inverseLineRepository
+        InverseLineRepository $inverseLineRepository,
+        EventRepository $eventRepository
     )
     {
         //$this->middleware('guest', ['except' => 'logout']);
@@ -88,6 +98,7 @@ class LineController extends AbstractBaseController
         $this->customerRepo = $customerRepo;
         $this->advertisedLineRepo = $advertisedLineRepo;
         $this->inverseLineRepository = $inverseLineRepository;
+        $this->eventRepository = $eventRepository;
 
         // middleware to require login
 
@@ -97,9 +108,10 @@ class LineController extends AbstractBaseController
 
         //$sites = $this->siteRepository->findAll();
 
+        $event = $this->eventRepository->findById($id);
         $lines = $this->inverseLineRepository->findAllAvailableWithPredictable($type,$id);
 
-        return view('catalog::frontend.line.index',['lines'=>$lines]);
+        return view('catalog::frontend.line.index',['lines'=>$lines,'event'=>$event]);
 
     }
 

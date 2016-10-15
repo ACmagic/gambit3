@@ -26,6 +26,7 @@ use Modules\Catalog\Http\ViewComposers\Admin\AcceptedLine\DataGridComposer as Ac
 use Modules\Prediction\Contracts\PredictionTypeManager as IPredictionTypeManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Modules\Prediction\Contracts\PredictableManager as IPredictableManager;
+use Modules\Catalog\Subscribers\BootstrapSubscriber;
 
 class CatalogServiceProvider extends ServiceProvider {
 
@@ -99,6 +100,12 @@ class CatalogServiceProvider extends ServiceProvider {
 				EntityManager::getRepository(AcceptedLineEntity::class)
 			);
 		});
+
+        /*
+         * This must be done after all the providers have been booted so that
+         * all the dependencies are available.
+         */
+        $this->app['events']->subscribe(BootstrapSubscriber::class);
 
 	}
 

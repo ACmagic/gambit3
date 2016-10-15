@@ -6,5 +6,6 @@ interface CategoryRepository extends RepositoryInterface {
 
     public function findById($id);
     public function findByMachineName($machineName);
+    public function findOneByHierarchicalPath($path);
 
 }
