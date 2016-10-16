@@ -11,8 +11,9 @@ use Payum\Core\Request\GetHumanStatus;
 use Illuminate\Session\SessionManager;
 use Modules\Customer\Facades\Customer as CustomerFacade;
 use Modules\Core\Facades\Store as StoreFacade;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Modules\Customer\Entities\Customer as CustomerEntity;
@@ -33,14 +34,23 @@ use Modules\Sales\Repositories\SaleItemWorkflowStateRepository;
 
 class CheckoutController extends AbstractBaseController {
 
-    use AuthenticatesAndRegistersUsers {
-        getLogin as traitGetLogin;
-        postLogin as traitPostLogin;
-        getRegister as traitGetRegister;
-        postRegister as traitPostRegister;
+    /*use AuthenticatesUsers {
+        showLoginForm as traitGetLogin;
+        login as traitPostLogin;
     }
 
-    use ThrottlesLogins;
+    use RegistersUsers {
+        showRegistrationForm as traitGetRegister;
+        register as traitPostRegister;
+    }*/
+
+    use AuthenticatesUsers;
+    use RegistersUsers;
+
+    use RedirectsUsers {
+        RedirectsUsers::redirectPath insteadof AuthenticatesUsers;
+        RedirectsUsers::redirectPath insteadof RegistersUsers;
+    }
 
     // Location to redirect to after successful login.
     protected $redirectTo = 'checkout/gateway';
@@ -302,7 +312,7 @@ class CheckoutController extends AbstractBaseController {
             $view->with('form',$form);
         });
 
-        return $this->traitGetLogin();
+        return $this->showLoginForm();
 
     }
 
@@ -319,7 +329,7 @@ class CheckoutController extends AbstractBaseController {
             $view->with('form',$form);
         });
 
-        return $this->traitPostLogin($request);
+        return $this->login($request);
 
     }
 
@@ -336,7 +346,7 @@ class CheckoutController extends AbstractBaseController {
             $view->with('form',$form);
         });
 
-        return $this->traitGetRegister();
+        return $this->showRegistrationForm();
 
     }
 
@@ -353,7 +363,7 @@ class CheckoutController extends AbstractBaseController {
             $view->with('form',$form);
         });
 
-        return $this->traitPostRegister($request);
+        return $this->register($request);
 
     }
 
@@ -510,9 +520,9 @@ class CheckoutController extends AbstractBaseController {
         $quote = CartFacade::getQuote();
 
         // NEVER DO THIS BEFORE fetching the quote.
-        Auth::guard($this->getGuard())->login($this->create($request->all()));
+        $this->guard()->login($this->create($request->all()));
 
-        $customer = Auth::guard($this->getGuard())->user();
+        $customer = $this->guard()->user();
 
         // Check quote affordability.
         $affordable = $customer->isAffordable($quote);
@@ -523,6 +533,33 @@ class CheckoutController extends AbstractBaseController {
             return redirect($this->redirectPath());
         }
 
+    }
+
+    /**
+     * Get the guard to be used during registration.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard() {
+        return Auth::guard($this->guard);
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm() {
+        return view($this->loginView);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm() {
+        return view($this->registerView);
     }
 
 }

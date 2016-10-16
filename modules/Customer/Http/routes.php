@@ -7,14 +7,14 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-	Route::get('login','Modules\Customer\Http\Controllers\Frontend\CustomerController@getLogin');
-	Route::post('login','Modules\Customer\Http\Controllers\Frontend\CustomerController@postLogin');
+	Route::get('login','Modules\Customer\Http\Controllers\Frontend\CustomerController@showLoginForm');
+	Route::post('login','Modules\Customer\Http\Controllers\Frontend\CustomerController@login');
 
 });
 
 Route::group(['middleware' => ['web','auth.customer']], function () {
 
-	Route::get('logout','Modules\Customer\Http\Controllers\Frontend\CustomerController@getLogout');
+	Route::get('logout','Modules\Customer\Http\Controllers\Frontend\CustomerController@logout');
 	Route::get('profile','Modules\Customer\Http\Controllers\Frontend\CustomerController@getIndex');
 
 });
