@@ -7,6 +7,7 @@ use LaravelDoctrine\Fluent\Fluent;
 use Modules\Event\Entities\Category;
 use Modules\Sports\Entities\Game as SportsGame;
 use Modules\Football\Entities\NFLGame as NFLFootballGame;
+use Modules\Event\Entities\EventWorkflowState;
 
 class EventMapping extends EntityMapping {
 
@@ -26,6 +27,7 @@ class EventMapping extends EntityMapping {
         $builder->increments('id');
         $builder->string('displayTitle')->length(128);
         $builder->belongsTo(User::class,'creator');
+        $builder->belongsTo(EventWorkflowState::class,'state');
         $builder->timestamp('startsAt');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

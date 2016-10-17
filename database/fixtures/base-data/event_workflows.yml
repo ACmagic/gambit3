@@ -1,0 +1,4 @@
+Modules\Event\Entities\EventWorkflow:
+    'event_workflow_default (extends abstract_workflow)':
+      machineName: 'event_default'
+      humanName: 'Event Default'

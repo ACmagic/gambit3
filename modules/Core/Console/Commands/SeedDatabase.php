@@ -70,6 +70,8 @@ class SeedDatabase extends Command
             database_path('fixtures/base-data/sale_item_workflow_states.yml'),
             database_path('fixtures/base-data/line_workflows.yml'),
             database_path('fixtures/base-data/line_workflow_states.yml'),
+            database_path('fixtures/base-data/event_workflows.yml'),
+            database_path('fixtures/base-data/event_workflow_states.yml'),
 
             // categories hierarchy
             database_path('fixtures/base-data/categories_tier1.yml'),

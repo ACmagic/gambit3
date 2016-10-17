@@ -174,6 +174,9 @@ class NFLGamesFixtureCommand extends Command
 
                 // These will all go into the nfl category.
                 'categories'=> ['@category_nfl'],
+
+                // Default state to pending
+                'state'=> '@event_workflow_state_pending',
             ];
 
             $this->yamlArray[NFLGame::class]['nflGame_'.$gameData['year'].'_'.$index.' (extends abstract_sports_game)'] = $nflGame;

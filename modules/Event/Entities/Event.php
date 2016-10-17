@@ -9,6 +9,7 @@ class Event implements Predictable {
 
     protected $id;
     protected $creator;
+    protected $state;
     protected $displayTitle;
     protected $startsAt;
     protected $createdAt;
@@ -30,6 +31,14 @@ class Event implements Predictable {
 
     public function getCreator() {
         return $this->creator;
+    }
+
+    public function getState() {
+        return $this->state;
+    }
+
+    public function setState(EventWorkflowState $state) {
+        $this->state = $state;
     }
 
     public function getDisplayTitle() {

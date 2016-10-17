@@ -6,6 +6,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_1 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -13,6 +14,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_2 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -20,6 +22,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_3 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -27,6 +30,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_4 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -34,6 +38,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_5 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -41,6 +46,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_6 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -48,6 +54,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_7 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -55,6 +62,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_8 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -62,6 +70,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_9 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -69,6 +78,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_10 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -76,6 +86,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_11 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -83,6 +94,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_12 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -90,6 +102,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_13 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-13 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -97,6 +110,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_14 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-14 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -104,6 +118,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_15 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-14 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -111,6 +126,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_16 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-17 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -118,6 +134,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_17 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -125,6 +142,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_18 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -132,6 +150,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_19 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -139,6 +158,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_20 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -146,6 +166,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_21 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -153,6 +174,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_22 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -160,6 +182,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_23 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -167,6 +190,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_24 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -174,6 +198,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_25 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -181,6 +206,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_26 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -188,6 +214,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_27 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -195,6 +222,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_28 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -202,6 +230,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_29 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -209,6 +238,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_30 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-20 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -216,6 +246,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_31 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-21 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -223,6 +254,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_32 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-24 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -230,6 +262,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_33 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -237,6 +270,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_34 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -244,6 +278,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_35 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -251,6 +286,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_36 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -258,6 +294,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_37 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -265,6 +302,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_38 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -272,6 +310,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_39 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -279,6 +318,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_40 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -286,6 +326,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_41 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -293,6 +334,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_42 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -300,6 +342,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_43 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -307,6 +350,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_44 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -314,6 +358,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_45 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -321,6 +366,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_46 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-27 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -328,6 +374,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_47 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-09-28 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -335,6 +382,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_48 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-01 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -342,6 +390,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_49 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -349,6 +398,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_50 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -356,6 +406,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_51 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -363,6 +414,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_52 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -370,6 +422,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_53 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -377,6 +430,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_54 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -384,6 +438,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_55 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -391,6 +446,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_56 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -398,6 +454,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_57 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -405,6 +462,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_58 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -412,6 +470,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_59 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -419,6 +478,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_60 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -426,6 +486,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_61 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-04 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -433,6 +494,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_62 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-05 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -440,6 +502,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_63 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-08 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -447,6 +510,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_64 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -454,6 +518,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_65 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -461,6 +526,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_66 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -468,6 +534,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_67 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -475,6 +542,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_68 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -482,6 +550,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_69 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -489,6 +558,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_70 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -496,6 +566,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_71 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -503,6 +574,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_72 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -510,6 +582,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_73 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -517,6 +590,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_74 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -524,6 +598,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_75 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-11 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -531,6 +606,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_76 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-12 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -538,6 +614,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_77 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-15 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -545,6 +622,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_78 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -552,6 +630,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_79 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -559,6 +638,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_80 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -566,6 +646,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_81 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -573,6 +654,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_82 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -580,6 +662,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_83 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -587,6 +670,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_84 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -594,6 +678,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_85 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -601,6 +686,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_86 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -608,6 +694,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_87 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -615,6 +702,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_88 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -622,6 +710,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_89 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-18 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -629,6 +718,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_90 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-19 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -636,6 +726,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_91 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-22 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -643,6 +734,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_92 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -650,6 +742,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_93 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -657,6 +750,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_94 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -664,6 +758,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_95 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -671,6 +766,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_96 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -678,6 +774,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_97 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -685,6 +782,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_98 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -692,6 +790,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_99 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -699,6 +798,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_100 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -706,6 +806,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_101 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -713,6 +814,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_102 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -720,6 +822,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_103 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-25 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -727,6 +830,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_104 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-26 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -734,6 +838,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_105 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-10-29 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -741,6 +846,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_106 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -748,6 +854,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_107 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -755,6 +862,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_108 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -762,6 +870,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_109 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -769,6 +878,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_110 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -776,6 +886,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_111 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -783,6 +894,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_112 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -790,6 +902,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_113 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -797,6 +910,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_114 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -804,6 +918,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_115 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -811,6 +926,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_116 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -818,6 +934,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_117 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-01 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -825,6 +942,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_118 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-02 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -832,6 +950,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_119 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-05 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -839,6 +958,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_120 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -846,6 +966,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_121 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -853,6 +974,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_122 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -860,6 +982,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_123 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -867,6 +990,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_124 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -874,6 +998,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_125 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -881,6 +1006,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_126 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -888,6 +1014,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_127 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -895,6 +1022,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_128 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -902,6 +1030,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_129 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -909,6 +1038,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_130 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-08 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -916,6 +1046,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_131 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-09 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -923,6 +1054,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_132 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-12 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -930,6 +1062,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_133 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -937,6 +1070,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_134 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -944,6 +1078,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_135 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -951,6 +1086,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_136 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -958,6 +1094,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_137 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -965,6 +1102,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_138 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -972,6 +1110,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_139 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -979,6 +1118,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_140 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -986,6 +1126,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_141 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -993,6 +1134,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_142 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -1000,6 +1142,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_143 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -1007,6 +1150,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_144 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-15 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -1014,6 +1158,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_145 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-16 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -1021,6 +1166,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_146 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-19 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -1028,6 +1174,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_147 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -1035,6 +1182,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_148 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -1042,6 +1190,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_149 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -1049,6 +1198,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_150 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -1056,6 +1206,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_151 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -1063,6 +1214,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_152 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -1070,6 +1222,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_153 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -1077,6 +1230,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_154 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -1084,6 +1238,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_155 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -1091,6 +1246,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_156 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -1098,6 +1254,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_157 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -1105,6 +1262,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_158 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-22 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -1112,6 +1270,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_159 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-23 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -1119,6 +1278,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_160 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-26 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -1126,6 +1286,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_161 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-26 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -1133,6 +1294,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_162 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-26 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -1140,6 +1302,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_163 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -1147,6 +1310,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_164 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -1154,6 +1318,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_165 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -1161,6 +1326,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_166 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -1168,6 +1334,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_167 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -1175,6 +1342,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_168 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -1182,6 +1350,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_169 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -1189,6 +1358,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_170 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -1196,6 +1366,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_171 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -1203,6 +1374,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_172 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -1210,6 +1382,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_173 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -1217,6 +1390,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_174 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-29 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -1224,6 +1398,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_175 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-11-30 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -1231,6 +1406,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_176 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-03 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -1238,6 +1414,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_177 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -1245,6 +1422,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_178 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -1252,6 +1430,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_179 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -1259,6 +1438,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_180 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -1266,6 +1446,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_181 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -1273,6 +1454,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_182 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -1280,6 +1462,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_183 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -1287,6 +1470,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_184 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -1294,6 +1478,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_185 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -1301,6 +1486,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_186 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -1308,6 +1494,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_187 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -1315,6 +1502,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_188 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -1322,6 +1510,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_189 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -1329,6 +1518,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_190 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-06 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -1336,6 +1526,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_191 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-07 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -1343,6 +1534,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_192 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-10 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -1350,6 +1542,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_193 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -1357,6 +1550,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_194 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -1364,6 +1558,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_195 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -1371,6 +1566,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_196 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -1378,6 +1574,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_197 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -1385,6 +1582,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_198 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -1392,6 +1590,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_199 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -1399,6 +1598,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_200 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -1406,6 +1606,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_201 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -1413,6 +1614,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_202 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -1420,6 +1622,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_203 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -1427,6 +1630,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_204 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -1434,6 +1638,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_205 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -1441,6 +1646,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_206 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-13 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -1448,6 +1654,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_207 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-14 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -1455,6 +1662,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_208 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-17 00:00:00")>'
         homeTeam: '@nflTeam_la'
@@ -1462,6 +1670,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Rams'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_209 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-19 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -1469,6 +1678,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_210 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -1476,6 +1686,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_211 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_ne'
@@ -1483,6 +1694,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Patriots'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_212 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_was'
@@ -1490,6 +1702,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bills @ Redskins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_213 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -1497,6 +1710,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chiefs @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_214 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -1504,6 +1718,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_215 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_jac'
@@ -1511,6 +1726,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Falcons @ Jaguars'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_216 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -1518,6 +1734,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_217 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -1525,6 +1742,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_218 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -1532,6 +1750,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_219 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -1539,6 +1758,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_220 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_sd'
@@ -1546,6 +1766,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Dolphins @ Chargers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_221 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_pit'
@@ -1553,6 +1774,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Broncos @ Steelers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_222 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-20 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -1560,6 +1782,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cardinals @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_223 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-21 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -1567,6 +1790,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_224 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-24 00:00:00")>'
         homeTeam: '@nflTeam_oak'
@@ -1574,6 +1798,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Raiders'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_225 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-26 00:00:00")>'
         homeTeam: '@nflTeam_phi'
@@ -1581,6 +1806,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Eagles'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_226 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_det'
@@ -1588,6 +1814,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: '49ers @ Lions'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_227 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_bal'
@@ -1595,6 +1822,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Ravens'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_228 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -1602,6 +1830,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Cowboys @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_229 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_tb'
@@ -1609,6 +1838,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bears @ Buccaneers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_230 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -1616,6 +1846,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Panthers @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_231 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -1623,6 +1854,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Colts @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_232 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_nyj'
@@ -1630,6 +1862,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Jets'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_233 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_ten'
@@ -1637,6 +1870,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Texans @ Titans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_234 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -1644,6 +1878,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Browns @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_235 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_no'
@@ -1651,6 +1886,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Saints'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_236 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -1658,6 +1894,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Packers @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_237 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_sea'
@@ -1665,6 +1902,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ Seahawks'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_238 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-27 00:00:00")>'
         homeTeam: '@nflTeam_min'
@@ -1672,6 +1910,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Giants @ Vikings'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_239 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-12-28 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -1679,6 +1918,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Bengals @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_240 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_buf'
@@ -1686,6 +1926,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jets @ Bills'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_241 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_mia'
@@ -1693,6 +1934,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Patriots @ Dolphins'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_242 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_atl'
@@ -1700,6 +1942,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Saints @ Falcons'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_243 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_chi'
@@ -1707,6 +1950,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Lions @ Bears'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_244 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_nyg'
@@ -1714,6 +1958,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Eagles @ Giants'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_245 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_dal'
@@ -1721,6 +1966,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Redskins @ Cowboys'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_246 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_ind'
@@ -1728,6 +1974,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Titans @ Colts'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_247 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_cin'
@@ -1735,6 +1982,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Ravens @ Bengals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_248 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_cle'
@@ -1742,6 +1990,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Steelers @ Browns'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_249 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_hou'
@@ -1749,6 +1998,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Jaguars @ Texans'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_250 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_kc'
@@ -1756,6 +2006,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Raiders @ Chiefs'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_251 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_den'
@@ -1763,6 +2014,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Chargers @ Broncos'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_252 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_car'
@@ -1770,6 +2022,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Buccaneers @ Panthers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_253 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_ari'
@@ -1777,6 +2030,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Seahawks @ Cardinals'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_254 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_sf'
@@ -1784,6 +2038,7 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Rams @ 49ers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'
     'nflGame_2015_255 (extends abstract_sports_game)':
         startsAt: '<carbon_parse("2015-01-03 00:00:00")>'
         homeTeam: '@nflTeam_gb'
@@ -1791,3 +2046,4 @@ Modules\Football\Entities\NFLGame:
         displayTitle: 'Vikings @ Packers'
         categories:
             - '@category_nfl'
+        state: '@event_workflow_state_pending'

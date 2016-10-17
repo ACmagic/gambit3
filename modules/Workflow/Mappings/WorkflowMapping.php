@@ -6,6 +6,7 @@ use LaravelDoctrine\Fluent\Fluent;
 use Modules\Sales\Entities\SaleWorkflow;
 use Modules\Sales\Entities\SaleItemWorkflow;
 use Modules\Catalog\Entities\LineWorkflow;
+use Modules\Event\Entities\EventWorkflow;
 
 class WorkflowMapping extends EntityMapping {
 
@@ -32,7 +33,8 @@ class WorkflowMapping extends EntityMapping {
             ->map(Workflow::class,Workflow::class)
             ->map(SaleWorkflow::class,SaleWorkflow::class)
             ->map(SaleItemWorkflow::class,SaleItemWorkflow::class)
-            ->map(LineWorkflow::class,LineWorkflow::class);
+            ->map(LineWorkflow::class,LineWorkflow::class)
+            ->map(EventWorkflow::class,EventWorkflow::class);
     }
 
 }

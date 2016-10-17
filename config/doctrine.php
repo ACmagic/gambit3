@@ -155,6 +155,9 @@ return [
                 Modules\Event\Mappings\CategoryMapping::class,
                 Modules\Event\Mappings\EventMapping::class,
                 Modules\Event\Mappings\CompetitorMapping::class,
+                Modules\Event\Mappings\EventWorkflowMapping::class,
+                Modules\Event\Mappings\EventWorkflowStateMapping::class,
+                Modules\Event\Mappings\EventWorkflowTransitionMapping::class,
 
                 // Vegas
                 Modules\Vegas\Mappings\MoneyLineMapping::class,
