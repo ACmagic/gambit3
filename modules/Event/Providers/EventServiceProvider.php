@@ -5,12 +5,15 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Event\Entities\Category as CategoryEntity;
 use Modules\Event\Entities\Event as EventEntity;
 use Modules\Event\Entities\Competitor as CompetitorEntity;
+use Modules\Event\Entities\EventWorkflowState;
 use Modules\Event\Repositories\CategoryRepository;
 use Modules\Event\Repositories\EventRepository;
 use Modules\Event\Repositories\CompetitorRepository;
+use Modules\Event\Repositories\EventWorkflowStateRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineCategoryRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineEventRepository;
 use Modules\Event\Repositories\Doctrine\DoctrineCompetitorRepository;
+use Modules\Event\Repositories\Doctrine\DoctrineEventWorkflowStateRepository;
 use Modules\Event\Prediction\Resolver\EventResolver as PredictionEventResolver;
 
 class EventServiceProvider extends ServiceProvider {
@@ -63,6 +66,12 @@ class EventServiceProvider extends ServiceProvider {
 				EntityManager::getRepository(CompetitorEntity::class)
 			);
 		});
+
+        $this->app->bind(EventWorkflowStateRepository::class,function() {
+            return new DoctrineEventWorkflowStateRepository(
+                EntityManager::getRepository(EventWorkflowState::class)
+            );
+        });
 
 	}
 
