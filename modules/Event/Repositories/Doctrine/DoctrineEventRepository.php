@@ -2,6 +2,7 @@
 
 use Modules\Event\Repositories\EventRepository;
 use Doctrine\Common\Persistence\ObjectRepository;
+use Modules\Event\Entities\EventWorkflowState;
 
 class DoctrineEventRepository implements EventRepository {
 
@@ -31,12 +32,15 @@ class DoctrineEventRepository implements EventRepository {
 
     }
 
-    public function findEventsByCategory($categoryId) {
+    public function findOpenEventsByCategory($categoryId) {
 
         $qb = $this->genericRepository->createQueryBuilder('e');
+        $qb->innerJoin('e.state','s');
         $qb->innerJoin('e.categories','c');
-        $qb->where('c = :categoryId');
+        $qb->where('s.machineName = :openState');
+        $qb->andWhere('c = :categoryId');
 
+        $qb->setParameter('openState',EventWorkflowState::STATE_OPEN);
         $qb->setParameter('categoryId',$categoryId);
 
         $query = $qb->getQuery();

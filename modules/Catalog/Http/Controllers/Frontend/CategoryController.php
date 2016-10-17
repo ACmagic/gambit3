@@ -29,7 +29,7 @@ class CategoryController extends AbstractBaseController {
     public function getIndex($categoryId) {
 
         $category = $this->categoryRepository->findById($categoryId);
-        $events = $this->eventRepository->findEventsByCategory($categoryId);
+        $events = $this->eventRepository->findOpenEventsByCategory($categoryId);
 
         return view('catalog::frontend.category.index',['events'=>$events,'category'=>$category]);
 

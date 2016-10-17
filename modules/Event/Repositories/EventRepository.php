@@ -5,6 +5,6 @@ interface EventRepository {
     public function findById($id);
     public function findAll();
     public function findAllByType($type);
-    public function findEventsByCategory($categoryId);
+    public function findOpenEventsByCategory($categoryId);
 
 }
