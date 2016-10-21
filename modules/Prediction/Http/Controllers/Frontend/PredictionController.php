@@ -13,6 +13,10 @@ class PredictionController extends AbstractBaseController {
         $predictable = PredictableManager::getPredictable($type,$id);
         $types = PredictionTypeManager::getTypes($predictable);
 
+        if(!PredictableManager::isPredictionAllowed($predictable)) {
+            abort(403,'Betting not allowed for specified event.');
+        }
+
         return view('prediction::frontend.prediction.new',['predictable'=>$predictable,'types'=>$types,'predictableType'=>$type]);
 
     }
@@ -23,6 +27,10 @@ class PredictionController extends AbstractBaseController {
         $predictable = PredictableManager::getPredictable($type,$id);
         $resolver = PredictableManager::matchResolver($predictable);
 
+        if(!PredictableManager::isPredictionAllowed($predictable)) {
+            abort(403,'Betting not allowed for specified event.');
+        }
+
         $args = [
             'predictable'=> $predictable,
             'predictable_resolver'=> $resolver,
@@ -32,7 +40,7 @@ class PredictionController extends AbstractBaseController {
         ];
         $form = $theType->getFrontendForm($args);
 
-        return view('prediction::frontend.prediction.new.configure',['form'=>$form]);
+        return view('prediction::frontend.prediction.new.configure',['form'=>$form,'predictable'=>$predictable]);
 
     }
 
@@ -45,6 +53,10 @@ class PredictionController extends AbstractBaseController {
         $theType = PredictionTypeManager::getType($predictionType);
         $predictable = PredictableManager::getPredictable($type,$id);
         $resolver = PredictableManager::matchResolver($predictable);
+
+        if(!PredictableManager::isPredictionAllowed($predictable)) {
+            abort(403,'Betting not allowed for specified event.');
+        }
 
         $args = [
             'predictable'=> $predictable,

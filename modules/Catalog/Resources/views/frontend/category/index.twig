@@ -1,28 +1,47 @@
 {% extends "core::layouts.frontend.default" %}
 
+{% block navbarBrand %}
+    {{ category.humanName }} Games
+{% endblock  %}
+
+{% block breadcrumbs %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Sports</a></li>
+        <li class="breadcrumb-item"><a href="#">Football</a></li>
+        <li class="breadcrumb-item active">NFL</li>
+    </ol>
+
+{% endblock %}
+
 {% block content %}
 
-    <h1>{{ category.humanName }}</h1>
-
-    <table>
+    <table class="table table-condensed table-stripped">
         <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Starts At</th>
-            <td colspan="2">Actions</td>
-        </tr>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>Title</th>
+                <th>Starts At</th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
 
         {% for event in events %}
 
             <tr>
-                <td>{{ event.id }}</td>
+                <!-- <td>{{ event.id }}</td> -->
                 <td>{{ event.displayTitle }}</td>
                 <td>{{ event.startsAt }}</td>
-                <td>{{ link_to_route('lines','Lines',{type: 'event', id: event.id}) }}</td>
-                <td>{{ link_to_route('prediction.new','Add Prediction',{type: 'event',id: event.id}) }}</td>
+
+                <td>
+
+                    <div class="btn-group" role="group">
+                        {{ link_to_route('lines','View Lines',{type: 'event', id: event.id},{ class: 'btn btn-default' }) }}
+                        {{ link_to_route('prediction.new','Add Prediction',{type: 'event',id: event.id},{ class: 'btn btn-default' }) }}
+                    </div>
+                </td>
+
             </tr>
 
         {% endfor %}

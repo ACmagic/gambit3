@@ -1,9 +1,30 @@
 {% extends "core::layouts.frontend.default" %}
 
+{% block navbarBrand %}
+    {{ predictable.displayTitle }}
+{% endblock  %}
+
+{% block breadcrumbs %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Sports</a></li>
+        <li class="breadcrumb-item"><a href="#">Football</a></li>
+        <li class="breadcrumb-item active">NFL</li>
+    </ol>
+
+{% endblock %}
+
 {% block content %}
 
-    <p>Configure Prediction</p>
-
-    {{ form(form) }}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="text-uppercase">New Prediction</span>&nbsp;
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>&nbsp;
+            <strong class="text-uppercase">Configure Prediction</strong>
+        </div>
+        <div class="panel-body">
+            {{ form(form) }}
+        </div>
+    </div>
 
 {% endblock %}

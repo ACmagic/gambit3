@@ -1,41 +1,76 @@
 {% extends "core::layouts.frontend.default" %}
 
+{% block navbarBrand %}
+    Betting Slip
+{% endblock  %}
+
+{% block breadcrumbs %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Account</a></li>
+        <li class="breadcrumb-item"><a href="#">Betting Slip</a></li>
+    </ol>
+
+{% endblock %}
+
+{% block footer %}
+
+    {{ link_to_route('slip.checkout','Submit Slip',{},{ class: 'btn btn-primary pull-right' }) }}
+
+{% endblock %}
+
 {% block content %}
 
-    <h1>Slip</h1>
+    {% for item in quote.advertisedLineItems %}
+        <div class="panel panel-default">
 
-    <div>
-        {{ link_to_route('slip.checkout','Submit') }}
+            <div class="panel-heading">
+
+                <div class="pull-right">
+                    {{ link_to_route('slip.line_edit','Edit',{index: loop.index}) }}&nbsp;&nbsp;|&nbsp;
+                    <a href="#">Remove</a>
+                </div>
+
+                <span><strong>Side:</strong>&nbsp;{{ item.side.humanName }}</span>&nbsp;|&nbsp;
+                <span><strong>Odds:</strong>&nbsp;{{ item.odds }}</span>&nbsp;|&nbsp;
+                <span><strong>Min Wager:</strong>&nbsp;{{ item.amount }}</span>&nbsp;|&nbsp;
+                <span><strong>Max Wager:</strong>&nbsp;{{ item.amountMax|default('--') }}</span>&nbsp;|&nbsp;
+                <span><strong>Inventory:</strong>&nbsp;{{ item.inventory }}</span>
+
+            </div>
+
+            <div class="panel-body">
+
+                {% for prediction in item.predictions %}
+
+                    <div class="pull-right">
+                        <a href="#">Edit</a>&nbsp;&nbsp;|&nbsp;
+                        <a href="#">Remove</a>
+                    </div>
+
+                    <p>{{ prediction.game.displayTitle }}</p>
+
+                    <ul>
+                        <li>{{ prediction.pick.name }} +{{ prediction.spread }}</li>
+                    </ul>
+
+                    <hr>
+
+                {% endfor %}
+
+                <div>
+                    <strong>Cost:</strong>&nbsp;{{ item.calculateCost() }}
+                </div>
+
+            </div>
+
+        </div>
+    {% endfor %}
+
+    <hr>
+
+    <div class="well text-right">
+        <strong>Total Cost:</strong>&nbsp;{{ quote.calculateTotalCost() }}
     </div>
-
-    <ol>
-        {% for item in quote.advertisedLineItems %}
-            <li>Line
-
-                <p>Side: {{ item.side.humanName }}</p>
-                <p>Odds: {{ item.odds }}</p>
-                <p>Min Wager: {{ item.amount }}</p>
-                <p>Max Wager: {{ item.amountMax }}</p>
-                <p>Inventory: {{ item.inventory }}</p>
-
-                {{ link_to_route('slip.line_edit','Modify Line',{index: loop.index}) }}
-                <a href="#">Remove Line</a>
-
-                <ul>
-                    {% for prediction in item.predictions %}
-                        <li>
-                            <p>{{ prediction.game.displayTitle }}</p>
-                            <p>{{ prediction.pick.name }} +{{ prediction.spread }}</p>
-
-                            <a href="#">Alter Prediction</a>
-                            <a href="#">Remove Prediction</a>
-
-                        </li>
-                    {% endfor %}
-
-                </ul>
-            </li>
-        {% endfor %}
-    </ol>
 
 {% endblock %}

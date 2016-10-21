@@ -2,8 +2,15 @@
 
 {% block content %}
 
-    <h1>Payment Method</h1>
-
-    {{ form(form) }}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="text-uppercase">Add Credits</span>&nbsp;
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>&nbsp;
+            <strong class="text-uppercase">Payment Method</strong>
+        </div>
+        <div class="panel-body">
+            {{ form(form) }}
+        </div>
+    </div>
 
 {% endblock %}

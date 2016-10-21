@@ -16,6 +16,8 @@ class PointSpreadForm extends Form {
         $homeTeam = $this->game->getHomeTeam();
         $awayTeam = $this->game->getAwayTeam();
 
+        $this->setFormOption('class','form-horizontal');
+
         $picks = [
             $homeTeam->getId()=> $homeTeam->getName(),
             $awayTeam->getId()=> $awayTeam->getName(),
@@ -39,13 +41,17 @@ class PointSpreadForm extends Form {
                 'choices'=> $picks,
                 'label'=> 'Pick:',
                 'rules'=> 'required',
+                'label_attr'=> ['class'=> 'col-sm-2 control-label'],
             ])
             ->add('spread','text',[
                 'rules'=> 'required|integer',
                 'label'=> 'Spread:',
+                'label_attr'=> ['class'=> 'col-sm-2 control-label'],
             ])
             ->add('submit','submit',[
-                'label'=> 'Add',
+                'label'=> 'Add Prediction',
+                'attr'=> ['class'=> 'btn btn-primary' ],
+                'wrapper'=> ['class'=>'pull-right'],
             ]);
 
     }

@@ -1,16 +1,36 @@
 {% extends "core::layouts.frontend.default" %}
 
+{% block navbarBrand %}
+    {{ predictable.displayTitle }}
+{% endblock  %}
+
+{% block breadcrumbs %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Sports</a></li>
+        <li class="breadcrumb-item"><a href="#">Football</a></li>
+        <li class="breadcrumb-item active">NFL</li>
+    </ol>
+
+{% endblock %}
+
 {% block content %}
 
-    {{ debug(predictable) }}
-    {{ debug(types) }}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong class="text-uppercase">New Prediction</strong>&nbsp;
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>&nbsp;
+            <span class="text-uppercase">Configure Prediction</span>
+        </div>
+        <div class="panel-body">
 
-    <h1>New Prediction</h1>
+            <div class="list-group">
+                {% for type in types %}
+                    {{ link_to_route('prediction.new.configure',type.getFrontendTitle(),{type: predictableType,id: predictable.id, predictionType: type.getName()},{ class: 'list-group-item' }) }}
+                {% endfor %}
+            </div>
 
-    <ul>
-        {% for type in types %}
-            <li>{{ link_to_route('prediction.new.configure',type.getFrontendTitle(),{type: predictableType,id: predictable.id, predictionType: type.getName()}) }}</li>
-        {% endfor %}
-    </ul>
+        </div>
+    </div>
 
 {% endblock %}

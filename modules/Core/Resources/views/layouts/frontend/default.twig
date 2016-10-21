@@ -2,20 +2,65 @@
 <html>
 <head>
     <title>Store Layout Default</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- <link href="/dist/css/frontend.css" rel="stylesheet"> -->
 </head>
-<body>
+<body style="padding-top: 50px;">
 
-<div>Gambit Storefront</div>
-
-{% if auth_check() %}
-    <div>
-        <p>Balance: {{ auth_user().getInternalAccount().balance }}</p>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
     </div>
-{% endif %}
+    <div class="navbar-brand">{% block navbarBrand %}{% endblock %}</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sports <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url('sports/football/nfl') }}">NFL</a></li>
+                    <li><a href="{{ url('sports/basketball/nba') }}">NBA</a></li>
+                    <li><a href="{{ url('sports/hockey/nhl') }}">NHL</a></li>
+                    <li><a href="{{ url('sports/baseball/mlb') }}">MLB</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if auth_check() %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ auth_user().getEmail() }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="navbar-text">Balance: {{ auth_user().getInternalAccount().balance }}</li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Orders</a></li>
+                    </ul>
+                </li>
+            {% endif %}
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
 
-<div id="page-content">
-    {% block content %}{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+
+<div class="container">
+
+    <div id="page-content">
+        {% block content %}{% endblock %}
+    </div>
+
 </div>
 
+<footer class="footer">
+    {% block footer %}{% endblock %}
+</footer>
+
+<!-- <script type="text/javascript" src="/dist/js/frontend.js"></script> -->
 </body>
 </html>

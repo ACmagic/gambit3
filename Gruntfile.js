@@ -40,7 +40,26 @@ module.exports = function(grunt) {
                 ],
                 // the location of the resulting JS file
                 dest: 'public/dist/css/admin.css'
-            }
+            },
+            "frontend-css": {
+                // the files to concatenate
+                src: [
+                    'bower_components/bootstrap/dist/css/bootstrap.css',
+                    'bower_components/font-awesome/css/font-awesome.css',
+                    'modules/Core/Resources/css/layout/frontend/default.css'
+                ],
+                // the location of the resulting CSS files
+                dest: 'public/dist/css/frontend.css'
+            },
+            "frontend-js": {
+                // the files to concatenate
+                src: [
+                    'bower_components/jquery/dist/jquery.js',
+                    'bower_components/bootstrap/dist/js/bootstrap.js'
+                ],
+                // the location of the resulting JS file
+                dest: 'public/dist/js/frontend.js'
+            },
         },
         copy: {
             main: {
@@ -59,6 +78,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['concat:admin-js','concat:admin-css','copy:main']);
+    grunt.registerTask('default', ['concat:admin-js','concat:admin-css','concat:frontend-js','concat:frontend-css','copy:main']);
 
 };

@@ -2,10 +2,12 @@
 
 {% block content %}
 
-    <h1>Login</h1>
-
-    {{ form(form) }}
-
-    <p>or {{ link_to_route('checkout.register','register new account') }}</p>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><strong class="text-uppercase">Login</strong></div>
+        <div class="panel-body">
+            {{ form(form) }}
+            <p>or {{ link_to_route('checkout.register','register new account') }}</p>
+        </div>
+    </div>
 
 {% endblock %}

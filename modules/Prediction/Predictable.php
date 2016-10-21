@@ -2,4 +2,5 @@
 
 interface Predictable {
     public function getId();
+    public function isPredictionAllowed(): bool;
 }

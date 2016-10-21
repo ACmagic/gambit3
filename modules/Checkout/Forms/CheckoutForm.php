@@ -56,6 +56,8 @@ class CheckoutForm extends BaseForm {
 
     protected function buildStep2() {
 
+        $this->setFormOption('class','form-horizontal');
+
         $gateways = [
             'paypal_ec'=> 'Paypal Express Checkout',
         ];
@@ -65,49 +67,65 @@ class CheckoutForm extends BaseForm {
             'choices'=> $gateways,
             'label'=> 'Payment Method:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ])->add('submit','submit',[
             'label'=> 'Next',
+            'attr'=> ['class'=> 'btn btn-primary' ],
+            'wrapper'=> ['class'=>'pull-right'],
         ]);
 
     }
 
     protected function buildLogin() {
 
+        $this->setFormOption('class','form-horizontal');
+
         $this->add('email','text',[
             'label'=> 'Email:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('password','password',[
             'label'=> 'Password:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('submit','submit',[
             'label'=> 'Login',
+            'attr'=> ['class'=> 'btn btn-primary' ],
+            'wrapper'=> ['class'=>'pull-right'],
         ]);
 
     }
 
     protected function buildRegister() {
 
+        $this->setFormOption('class','form-horizontal');
+
         $this->add('email','text',[
             'label'=> 'Email:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('password','password',[
             'label'=> 'Password:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('password_confirmation','password',[
-            'label'=> 'Password:',
+            'label'=> 'Confirm Password:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('submit','submit',[
             'label'=> 'Register',
+            'attr'=> ['class'=> 'btn btn-primary' ],
+            'wrapper'=> ['class'=>'pull-right'],
         ]);
 
     }
@@ -116,6 +134,7 @@ class CheckoutForm extends BaseForm {
 
         $this->add('submit','submit',[
             'label'=> 'Purchase Credits',
+            'attr'=> ['class'=> 'btn btn-primary' ],
         ]);
 
     }

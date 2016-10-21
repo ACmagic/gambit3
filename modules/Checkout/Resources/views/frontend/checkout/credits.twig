@@ -2,10 +2,16 @@
 
 {% block content %}
 
-    <h1>Purchase Credits</h1>
-
-    <p>You do not have enough credits available.</p>
-
-    {{ form(form) }}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong class="text-uppercase">Add Credits</strong>&nbsp;
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>&nbsp;
+            <span class="text-uppercase">Payment Method</span>
+        </div>
+        <div class="panel-body">
+            <p>You do not have enough credits available.</p>
+            {{ form(form) }}
+        </div>
+    </div>
 
 {% endblock %}

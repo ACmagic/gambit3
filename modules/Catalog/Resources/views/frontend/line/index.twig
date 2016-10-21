@@ -1,35 +1,46 @@
 {% extends "core::layouts.frontend.default" %}
 
+{% block navbarBrand %}
+    {{ event.displayTitle }}
+{% endblock  %}
+
+{% block breadcrumbs %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Sports</a></li>
+        <li class="breadcrumb-item"><a href="#">Football</a></li>
+        <li class="breadcrumb-item active">NFL</li>
+    </ol>
+
+{% endblock %}
+
 {% block content %}
 
-    <h1>{{ event.displayTitle }}</h1>
-    <p>{{ event.startsAt }}</p>
+    {% for line in lines %}
 
-    <table width="100%">
-        <tbody>
+        <div class="panel panel-default">
+            <div class="panel-heading">
 
-            {% for line in lines %}
-                <tr>
-                    <td>{{ line.id }}</td>
-                    <td>{{ line.side.humanName }}</td>
-                    <td>{{ line.odds > 0 ? '+' ~ line.odds : line.odds }}</td>
-                    <td>{{ link_to_route('line.accept','Accept Line',{lineId: line.id}) }}</td>
-                </tr>
-                <tr>
-                    <td colspan="3">
+                <span>{{ line.odds > 0 ? '+' ~ line.odds : line.odds }}</span>&nbsp;
+                <span>{{ line.side.humanName }}</span>
 
-                        {% for prediction in line.predictions %}
+                <span class="pull-right">{{ link_to_route('line.accept','Accept Line',{lineId: line.id}) }}</span>
 
-                            {# PredictionTypeManager.getTypeByEntity(prediction).getInlineView(prediction) #}
-                            {{ view('prediction::prediction.inline',{prediction: prediction}) }}
+            </div>
+            <div class="panel-body">
 
-                        {% endfor %}
+                {% for prediction in line.predictions %}
 
-                    </td>
-                </tr>
-            {% endfor %}
+                    {# PredictionTypeManager.getTypeByEntity(prediction).getInlineView(prediction) #}
+                    {{ view('prediction::prediction.inline',{prediction: prediction}) }}
 
-        </tbody>
-    </table>
+                    {% if loop.last != 1 %}<hr>{% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+    {% endfor %}
 
 {% endblock %}

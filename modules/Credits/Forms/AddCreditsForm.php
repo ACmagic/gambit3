@@ -13,13 +13,18 @@ class AddCreditsForm extends BaseForm {
             500=> '500',
         ];
 
+        $this->setFormOption('class','form-horizontal');
+
         $this->add('amount','choice',[
             'expanded'=> true,
             'choices'=> $amounts,
             'label'=> 'Credits:',
             'rules'=> 'required',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ])->add('submit','submit',[
             'label'=> 'Next',
+            'attr'=> ['class'=> 'btn btn-primary' ],
+            'wrapper'=> ['class'=>'pull-right'],
         ]);
 
     }

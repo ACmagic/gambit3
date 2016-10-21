@@ -1,34 +1,57 @@
 {% extends "core::layouts.frontend.default" %}
 
+{% block breadcrumbs %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Checkout</a></li>
+        <li class="breadcrumb-item active"><a href="#">Review Order</a></li>
+    </ol>
+
+{% endblock %}
+
+{% block footer %}
+
+    {{ link_to_route('checkout.complete','Submit Order',{},{class: 'btn btn-primary pull-right'}) }}
+
+{% endblock %}
+
 {% block content %}
 
-    <h1>Review</h1>
+    {% for item in quote.advertisedLineItems %}
+        <div class="panel panel-default">
 
-    <div>
-        {{ link_to_route('checkout.complete','Submit') }}
-    </div>
+            <div class="panel-heading">
 
-    <ol>
-        {% for item in quote.advertisedLineItems %}
-            <li>Line
+                <span><strong>Side:</strong>&nbsp;{{ item.side.humanName }}</span>&nbsp;|&nbsp;
+                <span><strong>Odds:</strong>&nbsp;{{ item.odds }}</span>&nbsp;|&nbsp;
+                <span><strong>Min Wager:</strong>&nbsp;{{ item.amount }}</span>&nbsp;|&nbsp;
+                <span><strong>Max Wager:</strong>&nbsp;{{ item.amountMax|default('--') }}</span>&nbsp;|&nbsp;
+                <span><strong>Inventory:</strong>&nbsp;{{ item.inventory }}</span>
 
-                <p>Side: {{ item.side.humanName }}</p>
-                <p>Odds: {{ item.odds }}</p>
-                <p>Min Wager: {{ item.amount }}</p>
-                <p>Max Wager: {{ item.amountMax }}</p>
-                <p>Inventory: {{ item.inventory }}</p>
+            </div>
 
-                <ul>
-                    {% for prediction in item.predictions %}
-                        <li>
-                            <p>{{ prediction.game.displayTitle }}</p>
-                            <p>{{ prediction.pick.name }} +{{ prediction.spread }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ol>
+            <div class="panel-body">
+
+                {% for prediction in item.predictions %}
+
+                    <p>{{ prediction.game.displayTitle }}</p>
+
+                    <ul>
+                        <li>{{ prediction.pick.name }} +{{ prediction.spread }}</li>
+                    </ul>
+
+                    <hr>
+
+                {% endfor %}
+
+                <div>
+                    <strong>Cost:</strong>&nbsp;{{ item.calculateCost() }}
+                </div>
+
+            </div>
+
+        </div>
+    {% endfor %}
 
     <ol>
 
@@ -45,5 +68,9 @@
         {% endfor  %}
 
     </ol>
+
+    <div class="well text-right">
+        <strong>Total Cost:</strong>&nbsp;{{ quote.calculateTotalCost() }}
+    </div>
 
 {% endblock %}

@@ -4,6 +4,7 @@ use Modules\Core\Entities\User;
 use Carbon\Carbon;
 use Modules\Prediction\Predictable;
 use Doctrine\Common\Collections\ArrayCollection;
+use Modules\Event\Repositories\EventWorkflowStateRepository;
 
 class Event implements Predictable {
 
@@ -71,6 +72,10 @@ class Event implements Predictable {
 
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function isPredictionAllowed(): bool {
+        return $this->getState()->getMachineName() == EventWorkflowState::STATE_OPEN;
     }
 
 }

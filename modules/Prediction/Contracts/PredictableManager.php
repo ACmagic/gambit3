@@ -7,5 +7,6 @@ interface PredictableManager {
     public function getPredictable($name,$id);
     public function getResolver($name);
     public function matchResolver(Predictable $predictable);
+    public function isPredictionAllowed(Predictable $predictable) : bool;
 
 }

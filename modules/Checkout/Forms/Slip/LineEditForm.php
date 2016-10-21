@@ -16,6 +16,8 @@ class LineEditForm extends BaseForm {
 
     public function buildForm() {
 
+        $this->setFormOption('class','form-horizontal');
+
         $sideChoices = [];
         $sides = $this->sideRepo->findAll();
         foreach($sides as $side) {
@@ -24,37 +26,45 @@ class LineEditForm extends BaseForm {
 
         $this->add('side','choice',[
             'label'=> 'Side:',
+            'expanded'=> true,
             'choices'=> $sideChoices,
             'default_value'=> $this->advertisedLine->getSide()->getId(),
             'rules'=> 'required|min:1',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('odds','text',[
             'label'=> 'Odds:',
             'default_value'=> $this->advertisedLine->getOdds(),
             'rules'=> 'required|min:1|numeric',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('amount','text',[
             'label'=> 'Wager Min:',
             'default_value'=> $this->advertisedLine->getAmount(),
             'rules'=> 'required|min:1',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('amountMax','text',[
             'label'=> 'Wager Max:',
             'default_value'=> $this->advertisedLine->getAmountMax(),
             'rules'=> 'min:1',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('inventory','text',[
             'label'=> 'Inventory:',
             'default_value'=> $this->advertisedLine->getInventory(),
             'rules'=> 'required|numeric|min:1',
+            'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
         $this->add('submit','submit',[
-            'label'=> 'Save',
+            'label'=> 'Update Line',
+            'attr'=> ['class'=> 'btn btn-primary' ],
+            'wrapper'=> ['class'=>'pull-right'],
         ]);
 
     }

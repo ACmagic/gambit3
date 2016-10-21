@@ -63,4 +63,17 @@ class PredictableManager implements IPredictableManager {
 
     }
 
+    /**
+     * Determine whether a prediction can currently be made on
+     * the specified predictable.
+     *
+     * @param Predictable $predictable
+     *   The predictable entity.
+     *
+     * @return bool
+     */
+    public function isPredictionAllowed(Predictable $predictable) : bool {
+        return $predictable->isPredictionAllowed();
+    }
+
 }
