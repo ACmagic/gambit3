@@ -56,7 +56,8 @@
         "payum/payum-laravel-package": "^1.0",
         "payum/payum": "^1.3",
         "ocramius/proxy-manager": "~2.0.2",
-        "syslogic/doctrine-json-functions": "1.*@dev"
+        "syslogic/doctrine-json-functions": "1.*@dev",
+        "jms/serializer": "^1.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

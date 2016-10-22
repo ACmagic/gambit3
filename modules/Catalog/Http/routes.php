@@ -31,4 +31,6 @@ Route::group(['middleware' => ['web']], function () {
         'as'=> 'line.accept.post'
     ]);
 
+    Route::get('api/category/{categoryId}','Modules\Catalog\Http\Controllers\Api\CategoryController@getIndex');
+
 });
