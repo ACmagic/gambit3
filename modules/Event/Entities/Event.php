@@ -5,8 +5,11 @@ use Carbon\Carbon;
 use Modules\Prediction\Predictable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Modules\Event\Repositories\EventWorkflowStateRepository;
+use LaravelDoctrine\ORM\Serializers\Jsonable;
 
-class Event implements Predictable {
+class Event implements Predictable,\JsonSerializable {
+
+    use Jsonable;
 
     protected $id;
     protected $creator;

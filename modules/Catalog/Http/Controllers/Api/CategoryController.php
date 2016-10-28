@@ -32,11 +32,21 @@ class CategoryController extends AbstractBaseController {
         $category = $this->categoryRepository->findById($categoryId);
         $events = $this->eventRepository->findOpenEventsByCategory($categoryId);
 
+        $data = [];
+
+        foreach($events as $event) {
+
+            //$item = [];
+            //$item['id'] = $event->getId();
+
+            $data[] = $event;
+        }
+
         //return view('catalog::frontend.category.index',['events'=>$events,'category'=>$category]);
 
-        $serializer = SerializerBuilder::create()->build();
-        $jsonContent = $serializer->serialize($events, 'json');
-        echo response()->json($jsonContent); // or return it in a Response
+        //$serializer = SerializerBuilder::create()->build();
+        //$jsonContent = $serializer->serialize($events, 'json');
+        return response()->json($data); // or return it in a Response
 
     }
 
