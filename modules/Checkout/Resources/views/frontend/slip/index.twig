@@ -48,11 +48,7 @@
                         <a href="#">Remove</a>
                     </div>
 
-                    <p>{{ prediction.game.displayTitle }}</p>
-
-                    <ul>
-                        <li>{{ prediction.pick.name }} +{{ prediction.spread }}</li>
-                    </ul>
+                    {{ view('prediction::prediction.inline', {prediction: prediction.toSalePrediction().toStandardPrediction() }) }}
 
                     <hr>
 

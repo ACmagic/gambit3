@@ -36,7 +36,7 @@ class LineEditForm extends BaseForm {
         $this->add('odds','text',[
             'label'=> 'Odds:',
             'default_value'=> $this->advertisedLine->getOdds(),
-            'rules'=> 'required|min:1|numeric',
+            'rules'=> 'required|min:-500|max:500|numeric',
             'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 

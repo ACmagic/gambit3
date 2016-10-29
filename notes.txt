@@ -29,6 +29,13 @@ http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/
 
 bower install PACKAGE --save
 
+Install bower npm package
+Install grunt package
+install grunt-cli as -global package using -g flag
+
+Install the bower packages
+Run grunt to create distribution for asset files.
+
 -------------------------------------------------
 
 Sale / Quote rules
@@ -190,7 +197,7 @@ php artisan doctrine:migrations:generate
 
 command line xdebug
 
-export PHP_IDE_CONFIG="serverName=local.kyle"
+export PHP_IDE_CONFIG="serverName=local.gambit"
 export XDEBUG_CONFIG="idekey=PHPStorm"
 
 ---------------------------------------------------

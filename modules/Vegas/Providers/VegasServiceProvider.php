@@ -36,7 +36,12 @@ class VegasServiceProvider extends ServiceProvider {
 	{
 
 		// Register prediction types
-		$this->app->singleton(MoneyLinePredictionType::class);
+		$this->app->singleton(MoneyLinePredictionType::class,function($app) {
+            $type = new MoneyLinePredictionType($app['laravel-form-builder'],$app['view']);
+            $type->injectGameRepo($app[GameRepository::class]);
+            $type->injectTeamRepo($app[TeamRepository::class]);
+            return $type;
+        });
 
 		$this->app->singleton(PointSpreadPredictionType::class,function($app) {
 			$type = new PointSpreadPredictionType($app['laravel-form-builder'],$app['view']);

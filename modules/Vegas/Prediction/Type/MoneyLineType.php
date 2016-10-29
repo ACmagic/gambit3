@@ -12,11 +12,19 @@ use Illuminate\Contracts\View\Factory as ViewFactoryContract;
 use Modules\Prediction\Contracts\Entities\Prediction as PredictionContract;
 use Modules\Vegas\Contracts\Entities\MoneyLine as MoneyLineContract;
 use Modules\Vegas\Entities\InverseMoneyLine;
+use Modules\Sales\Entities\QuoteMoneyLine as QuoteMoneyLineEntity;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Request;
+use Modules\Sports\Repositories\TeamRepository;
+use Modules\Sports\Repositories\GameRepository;
 
 class MoneyLineType implements PredictionType {
 
     protected $formBuilder;
     protected $viewFactory;
+
+    protected $teamRepo;
+    protected $gameRepo;
 
     public function __construct(
         FormBuilder $formBuilder,
@@ -24,6 +32,14 @@ class MoneyLineType implements PredictionType {
     ) {
         $this->formBuilder = $formBuilder;
         $this->viewFactory = $viewFactory;
+    }
+
+    public function injectGameRepo(GameRepository $gameRepo) {
+        $this->gameRepo = $gameRepo;
+    }
+
+    public function injectTeamRepo(TeamRepository $teamRepo) {
+        $this->teamRepo = $teamRepo;
     }
 
     public function getName() {
@@ -67,6 +83,18 @@ class MoneyLineType implements PredictionType {
 
     public function makeQuotePredictionFromRequest() {
 
+        $prediction = new QuoteMoneyLineEntity();
+
+        $game = $this->gameRepo->findById(Request::get('predictable_id'));
+        $team = $this->teamRepo->findById(Request::get('pick'));
+
+        $prediction->setUpdatedAt(Carbon::now());
+        $prediction->setCreatedAt(Carbon::now());
+        $prediction->setGame($game);
+        $prediction->setPick($team);
+
+        return $prediction;
+
     }
 
     /**
@@ -94,6 +122,24 @@ class MoneyLineType implements PredictionType {
      *   The prediction cursor to generate unique aliases and placeholders.
      */
     public function requirePredictionWithLine(QueryBuilder $qb,PredictionEntity $prediction,int $cursor=0) {
+
+        $game = $prediction->getGame();
+        $pick = $prediction->getPick();
+
+        $extraJoinConditions = 'l = ';
+        $extraJoinConditions.= 'p'.$cursor.'.game = :game'.$cursor;
+        $extraJoinConditions.= ' AND p'.$cursor.'.pick = :pick'.$cursor;
+
+        $qb->innerJoin(get_class($prediction),'p'.$cursor,'WITH',$extraJoinConditions);
+        //$qb->join(get_class($prediction),'ps'.$cursor,'WITH',$extraJoinConditions);
+        //$qb->where('p'.$cursor.' INSTANCE OF '.get_class($prediction));
+
+        /*$qb->where('point_spreads@[p'.$cursor.'].game = :game'.$cursor);
+        $qb->where('point_spreads@[p'.$cursor.'].pick = :pick'.$cursor);
+        $qb->where('point_spreads@[p'.$cursor.'].spread = :spread'.$cursor);*/
+
+        $qb->setParameter('game'.$cursor,$game);
+        $qb->setParameter('pick'.$cursor,$pick);
 
     }
 

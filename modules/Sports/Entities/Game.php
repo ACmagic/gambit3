@@ -6,6 +6,10 @@ class Game extends EventEntity {
 
     protected $homeTeam;
     protected $awayTeam;
+
+    protected $homeTeamScore;
+    protected $awayTeamScore;
+
     protected $season;
 
     public function setHomeTeam(Team $team) {
@@ -26,6 +30,22 @@ class Game extends EventEntity {
 
     public function getHomeTeam() {
         return $this->homeTeam;
+    }
+
+    public function setHomeTeamScore(float $homeTeamScore) {
+        $this->homeTeamScore = $homeTeamScore;
+    }
+
+    public function getHomeTeamScore() {
+        return $this->homeTeamScore;
+    }
+
+    public function setAwayTeamScore(float $awayTeamScore) {
+        $this->awayTeamScore = $awayTeamScore;
+    }
+
+    public function getAwayTeamScore() {
+        return $this->awayTeamScore;
     }
 
     public function getSeason() {

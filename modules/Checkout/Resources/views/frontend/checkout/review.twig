@@ -34,13 +34,7 @@
 
                 {% for prediction in item.predictions %}
 
-                    <p>{{ prediction.game.displayTitle }}</p>
-
-                    <ul>
-                        <li>{{ prediction.pick.name }} +{{ prediction.spread }}</li>
-                    </ul>
-
-                    <hr>
+                    {{ view('prediction::prediction.inline', {prediction: prediction.toSalePrediction().toStandardPrediction() }) }}
 
                 {% endfor %}
 

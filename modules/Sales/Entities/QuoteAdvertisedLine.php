@@ -2,6 +2,7 @@
 
 use Modules\Catalog\Entities\AdvertisedLineTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Modules\Catalog\Entities\Side as SideEntity;
 
 use Carbon\Carbon;
 
@@ -31,7 +32,20 @@ class QuoteAdvertisedLine extends QuoteItem {
             $base = $this->amountMax;
         }
 
-        // @todo: Add odds calculation
+        if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE) {
+
+            if($this->odds == 0) {
+                $toWin = 0;
+            } else if($this->odds < 0) {
+                $toWin = bcdiv($base,bcmul($this->odds * -1,'.01',4),4);
+            } else {
+                $toWin = bcmul($base,bcmul($this->odds,'.01',4),4);
+            }
+
+            $base = bcadd($base,$toWin,4);
+
+        }
+
         return bcmul($base,$this->inventory,4);
 
 
