@@ -5,7 +5,7 @@ trait AdvertisedLineTrait {
     protected $side;
 
     protected $odds;
-    protected $inverseOdds;
+    //protected $inverseOdds;
 
     protected $inventory;
     protected $amount;
@@ -39,13 +39,13 @@ trait AdvertisedLineTrait {
         return $this->odds;
     }
 
-    public function setInverseOdds($inverseOdds) {
+    /*public function setInverseOdds($inverseOdds) {
         $this->inverseOdds = $inverseOdds;
-    }
+    }*/
 
-    public function getInverseOdds() {
+    /*public function getInverseOdds() {
         return $this->inverseOdds;
-    }
+    }*/
 
     public function getInventory() {
         return $this->inventory;

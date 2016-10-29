@@ -61,7 +61,7 @@ class FulfillAdvertisedLine implements ShouldQueue {
         $amount = $saleAdvertisedLine->getAmount();
         $amountMax = $saleAdvertisedLine->getAmountMax();
         $odds = $saleAdvertisedLine->getOdds();
-        $inverseOdds = $saleAdvertisedLine->getInverseOdds();
+        //$inverseOdds = $saleAdvertisedLine->getInverseOdds();
 
         $advertisedLine = new AdvertisedLine();
         $advertisedLine->setCreatedAt(Carbon::now());
@@ -72,7 +72,7 @@ class FulfillAdvertisedLine implements ShouldQueue {
         $advertisedLine->setAmount($amount);
         $advertisedLine->setAmountMax($amountMax);
         $advertisedLine->setOdds($odds);
-        $advertisedLine->setInverseOdds($inverseOdds);
+        //$advertisedLine->setInverseOdds($inverseOdds);
 
         $advertisedLine->setLine($newLine);
         $newLine->addAdvertisedLine($advertisedLine);

@@ -34,9 +34,8 @@ class InverseLineMapping extends EntityMapping {
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
 
-        // For inverse line the odds are reversed.
-        $builder->integer('odds')->name('inverse_odds')->default(0);
-        $builder->integer('inverseOdds')->name('odds')->default(0);
+        $builder->integer('odds')->default(0);
+        //$builder->integer('inverseOdds')->name('odds')->default(0);
 
         // Cached aggregate values
         $builder->unsignedBigInteger('rollingInventory')->default(0);

@@ -10,7 +10,7 @@ trait LineTrait {
     protected $store;
     protected $side;
     protected $odds;
-    protected $inverseOdds;
+    //protected $inverseOdds;
     protected $createdAt;
     protected $updatedAt;
     protected $predictionsCache;
@@ -67,13 +67,13 @@ trait LineTrait {
         $this->odds = $odds;
     }
 
-    public function getInverseOdds() {
+    /*public function getInverseOdds() {
         return $this->inverseOdds;
-    }
+    }*/
 
-    public function setInverseOdds($inverseOdds) {
+    /*public function setInverseOdds($inverseOdds) {
         $this->inverseOdds = $inverseOdds;
-    }
+    }*/
 
     public function getPredictionsCache() : array {
         return $this->predictionsCache;

@@ -60,7 +60,7 @@ class QuoteAdvertisedLine extends QuoteItem {
         $item->setUpdatedAt(Carbon::now());
         $item->setSide($this->side);
         $item->setOdds($this->odds);
-        $item->setInverseOdds($this->inverseOdds);
+        //$item->setInverseOdds($this->inverseOdds);
         $item->setAmount($this->amount);
         $item->setAmountMax($this->amountMax);
         $item->setInventory($this->inventory);

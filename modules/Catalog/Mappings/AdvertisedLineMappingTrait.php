@@ -11,7 +11,7 @@ trait AdvertisedLineMappingTrait {
         $builder->decimal('amount')->unsigned()->precision(16)->scale(4);
         $builder->decimal('amountMax')->unsigned()->precision(16)->scale(4)->nullable();
         $builder->integer('odds')->default(0);
-        $builder->integer('inverseOdds')->default(0);
+        //$builder->integer('inverseOdds')->default(0);
         $builder->belongsTo(Side::class,'side');
 
     }

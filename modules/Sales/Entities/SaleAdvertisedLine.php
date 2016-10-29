@@ -89,7 +89,7 @@ class SaleAdvertisedLine extends SaleItem {
         $line = new LineEntity();
         $line->setStore($store);
         $line->setOdds($this->getOdds());
-        $line->setInverseOdds($this->getInverseOdds());
+        //$line->setInverseOdds($this->getInverseOdds());
         $line->setSide($side);
         $line->setCreatedAt(Carbon::now());
         $line->setUpdatedAt(Carbon::now());

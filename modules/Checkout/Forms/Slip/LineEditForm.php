@@ -40,12 +40,12 @@ class LineEditForm extends BaseForm {
             'label_attr'=> ['class'=> 'col-sm-2 control-label'],
         ]);
 
-        $this->add('inverse_odds','text',[
+        /*$this->add('inverse_odds','text',[
             'label'=> 'Inverse Odds:',
             'default_value'=> $this->advertisedLine->getInverseOdds(),
             'rules'=> 'required|min:-500|max:500|numeric',
             'label_attr'=> ['class'=> 'col-sm-2 control-label'],
-        ]);
+        ]);*/
 
         $this->add('amount','text',[
             'label'=> 'Wager Min:',
