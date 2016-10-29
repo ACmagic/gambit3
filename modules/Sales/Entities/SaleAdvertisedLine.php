@@ -53,20 +53,15 @@ class SaleAdvertisedLine extends SaleItem {
             $base = $this->amountMax;
         }
 
-        // @todo: Calculation below for odds is wrong.
-        /*if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE) {
+        if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE && $this->odds != 0) {
 
-            if($this->odds == 0) {
-                $toWin = 0;
-            } else if($this->odds < 0) {
-                $toWin = bcdiv($base,bcmul($this->odds * -1,'.01',4),4);
+            if($this->odds < 0) {
+                $base = bcadd($base,bcdiv($base,bcmul($this->odds * -1,'.01',4),4),4);
             } else {
-                $toWin = bcmul($base,bcmul($this->odds,'.01',4),4);
+                $base = bcmul($base,bcmul($this->odds,'.01',4),4);
             }
 
-            $base = bcadd($base,$toWin,4);
-
-        }*/
+        }
 
         return bcmul($base,$this->inventory,4);
 

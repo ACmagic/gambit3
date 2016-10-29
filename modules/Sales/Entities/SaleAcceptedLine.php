@@ -2,6 +2,7 @@
 
 use Modules\Catalog\Entities\AcceptedLineTrait;
 use Modules\Catalog\Entities\AcceptedLine;
+use Modules\Catalog\Entities\Side as SideEntity;
 
 class SaleAcceptedLine extends SaleItem {
 
@@ -11,9 +12,22 @@ class SaleAcceptedLine extends SaleItem {
 
     public function calculateCost() {
 
-        // @todo: Take into considerations side and odds.
-        $cost = bcmul($this->amount,$this->quantity,4);
+        $base = $this->amount;
+        $advertisedLine = $this->getAdvertisedLine();
+        $side = $advertisedLine->getSide();
+        $odds = $advertisedLine->getOdds();
 
+        if($side->getMachineName() === SideEntity::SIDE_SEEKER && $odds != 0) {
+
+            if($odds < 0) {
+                $base = bcadd($base,bcdiv($base,bcmul($odds * -1,'.01',4),4),4);
+            } else {
+                $base = bcmul($base,bcmul($odds,'.01',4),4);
+            }
+
+        }
+
+        $cost = bcmul($base,$this->quantity,4);
         return $cost;
 
     }
