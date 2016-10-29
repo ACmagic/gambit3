@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 <?php if ($showLabel && $options['label'] !== false): ?>
-    <label <?= $options['labelAttrs'] ?>><?= $options['label'] ?></label>
+    <?= Form::customLabel($name, $options['label'], $options['label_attr']) ?>
 <?php endif; ?>
 
 <?php if ($showField): ?>

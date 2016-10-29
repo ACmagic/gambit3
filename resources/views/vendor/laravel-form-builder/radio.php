@@ -13,13 +13,13 @@
 
 <?php if ($showLabel && $options['label'] !== false): ?>
     <?php if ($options['is_child']): ?>
-        <label <?= $options['labelAttrs'] ?>>
+        <label>
             <?= Form::radio($name, $options['value'], $options['checked'], $options['attr']) ?>
             <?= $options['label'] ?>
             <?php include 'help_block.php' ?>
         </label>
     <?php else: ?>
-        <?= Form::label($name, $options['label'], $options['label_attr']) ?>
+        <?= Form::customLabel($name, $options['label'], $options['label_attr']) ?>
     <?php endif; ?>
 <?php endif; ?>
 

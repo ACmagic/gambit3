@@ -20,6 +20,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/oddz/modules"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/oddz/laravel-form-builder"
         }
     ],
     "require": {
@@ -51,7 +55,7 @@
         "predis/predis": "^1.0",
         "nelmio/alice": "^2.1",
         "guzzlehttp/guzzle": "~6.0",
-        "kris/laravel-form-builder": "1.6.*",
+        "kris/laravel-form-builder": "dev-dev-rest-integration",
         "php-http/guzzle6-adapter": "^1.0",
         "payum/payum-laravel-package": "^1.0",
         "payum/payum": "^1.3",
