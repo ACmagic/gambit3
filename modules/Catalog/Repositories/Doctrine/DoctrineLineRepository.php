@@ -64,6 +64,7 @@ class DoctrineLineRepository implements LineRepository {
         $store = $line->getStore();
         $side = $line->getSide();
         $odds = $line->getOdds();
+        $inverseOdds = $line->getInverseOdds();
 
         $predictionCount = $line->getPredictions()->count();
 
@@ -74,6 +75,7 @@ class DoctrineLineRepository implements LineRepository {
         $qb->where('l.store = :store');
         $qb->andWhere('l.side = :side');
         $qb->andWhere('l.odds = :odds');
+        $qb->andWhere('l.inverseOdds = :inverseOdds');
         $qb->addGroupBy('l.id');
 
         /*
@@ -120,6 +122,7 @@ class DoctrineLineRepository implements LineRepository {
         $qb->setParameter('store',$store);
         $qb->setParameter('side',$side);
         $qb->setParameter('odds',$odds);
+        $qb->setParameter('inverseOdds',$inverseOdds);
         $qb->setParameter('predictionCount',$predictionCount);
 
         /**

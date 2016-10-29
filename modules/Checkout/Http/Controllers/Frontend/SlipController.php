@@ -87,6 +87,7 @@ class SlipController extends AbstractBaseController {
 
         $advertisedLine->setSide($side);
         $advertisedLine->setOdds($data['odds']);
+        $advertisedLine->setInverseOdds($data['inverse_odds']);
         $advertisedLine->setAmount($data['amount']);
         $advertisedLine->setInventory($data['inventory']);
 

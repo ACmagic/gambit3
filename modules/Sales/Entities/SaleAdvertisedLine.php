@@ -53,7 +53,8 @@ class SaleAdvertisedLine extends SaleItem {
             $base = $this->amountMax;
         }
 
-        if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE) {
+        // @todo: Calculation below for odds is wrong.
+        /*if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE) {
 
             if($this->odds == 0) {
                 $toWin = 0;
@@ -65,7 +66,7 @@ class SaleAdvertisedLine extends SaleItem {
 
             $base = bcadd($base,$toWin,4);
 
-        }
+        }*/
 
         return bcmul($base,$this->inventory,4);
 
@@ -88,6 +89,7 @@ class SaleAdvertisedLine extends SaleItem {
         $line = new LineEntity();
         $line->setStore($store);
         $line->setOdds($this->getOdds());
+        $line->setInverseOdds($this->getInverseOdds());
         $line->setSide($side);
         $line->setCreatedAt(Carbon::now());
         $line->setUpdatedAt(Carbon::now());

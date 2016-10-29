@@ -19,7 +19,9 @@ interface Line {
     public function setSide(Side $side);
     public function getSide();
     public function getOdds();
+    public function getInverseOdds();
     public function setOdds($odds);
+    public function setInverseOdds($inverseOdds);
     public function getPredictionsCache() : array;
     public function setPredictionsCache(array $predictionsCache);
     public function getCreatedAt() : Carbon;

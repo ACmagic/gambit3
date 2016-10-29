@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Modules\Catalog\Entities\AcceptedLineTrait;
+use Modules\Catalog\Entities\Side as SideEntity;
 
 class QuoteAcceptedLine extends QuoteItem {
 
@@ -9,9 +10,27 @@ class QuoteAcceptedLine extends QuoteItem {
 
     public function calculateCost() {
 
-        // @todo: Take into considerations side and odds.
-        $cost = bcmul($this->amount,$this->quantity,4);
+        $base = $this->amount;
+        $advertisedLine = $this->getAdvertisedLine();
+        $side = $advertisedLine->getSide();
+        $odds = $advertisedLine->getOdds() * -1;
 
+        // @todo: Calculation below for odds is wrong.
+        /*if($side->getMachineName() === SideEntity::SIDE_SEEKER) {
+
+            if($odds == 0) {
+                $toWin = 0;
+            } else if($odds < 0) {
+                $toWin = bcdiv($base,bcmul($odds * -1,'.01',4),4);
+            } else {
+                $toWin = bcmul($base,bcmul($odds,'.01',4),4);
+            }
+
+            $base = bcadd($base,$toWin,4);
+
+        }*/
+
+        $cost = bcmul($base,$this->quantity,4);
         return $cost;
 
     }

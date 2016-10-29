@@ -28,10 +28,4 @@ class InverseLine implements LineContract {
 
     }
 
-    public function getOdds() {
-
-        return $this->odds * -1;
-
-    }
-
 }

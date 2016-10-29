@@ -31,6 +31,7 @@ class LineMapping extends EntityMapping {
         $builder->hasMany(AdvertisedLine::class,'advertisedLines')->mappedBy('line')->fetchExtraLazy()->cascadePersist();
         $builder->hasMany(Prediction::class,'predictions')->mappedBy('line')->fetchExtraLazy()->cascadePersist();
         $builder->integer('odds')->default(0);
+        $builder->integer('inverseOdds')->default(0);
         $builder->jsonArray('predictionsCache');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');

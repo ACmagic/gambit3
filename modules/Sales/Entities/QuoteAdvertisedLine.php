@@ -32,7 +32,8 @@ class QuoteAdvertisedLine extends QuoteItem {
             $base = $this->amountMax;
         }
 
-        if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE) {
+        // @todo: Calculation below for odds is wrong.
+        /*if($this->getSide()->getMachineName() === SideEntity::SIDE_HOUSE) {
 
             if($this->odds == 0) {
                 $toWin = 0;
@@ -44,7 +45,7 @@ class QuoteAdvertisedLine extends QuoteItem {
 
             $base = bcadd($base,$toWin,4);
 
-        }
+        }*/
 
         return bcmul($base,$this->inventory,4);
 
@@ -59,6 +60,7 @@ class QuoteAdvertisedLine extends QuoteItem {
         $item->setUpdatedAt(Carbon::now());
         $item->setSide($this->side);
         $item->setOdds($this->odds);
+        $item->setInverseOdds($this->inverseOdds);
         $item->setAmount($this->amount);
         $item->setAmountMax($this->amountMax);
         $item->setInventory($this->inventory);
