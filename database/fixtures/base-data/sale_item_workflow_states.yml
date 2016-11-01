@@ -3,3 +3,4 @@ Modules\Sales\Entities\SaleItemWorkflowState:
       workflow: '@sale_item_workflow_default'
       machineName: 'paid'
       humanName: 'Paid'
+      weight: 0

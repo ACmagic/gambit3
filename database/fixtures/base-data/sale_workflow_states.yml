@@ -3,15 +3,19 @@ Modules\Sales\Entities\SaleWorkflowState:
       workflow: '@sale_workflow_default'
       machineName: 'submitted'
       humanName: 'Submitted'
+      weight: 0
     'sale_workflow_state_paid (extends abstract_workflow_state)':
       workflow: '@sale_workflow_default'
       machineName: 'paid'
       humanName: 'Paid'
+      weight: 1
     'sale_workflow_state_processing (extends abstract_workflow_state)':
       workflow: '@sale_workflow_default'
       machineName: 'processing'
       humanName: 'Processing'
+      weight: 2
     'sale_workflow_state_processed (extends abstract_workflow_state)':
       workflow: '@sale_workflow_default'
       machineName: 'processed'
       humanName: 'Processed'
+      weight: 3

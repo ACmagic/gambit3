@@ -27,6 +27,7 @@ class LineMapping extends EntityMapping {
         $builder->bigIncrements('id');
         $builder->belongsTo(Store::class,'store');
         $builder->belongsTo(Side::class,'side');
+        $builder->belongsTo(Side::class,'winningSide')->nullable();
         $builder->belongsTo(LineWorkflowState::class,'state');
         $builder->hasMany(AdvertisedLine::class,'advertisedLines')->mappedBy('line')->fetchExtraLazy()->cascadePersist();
         $builder->hasMany(Prediction::class,'predictions')->mappedBy('line')->fetchExtraLazy()->cascadePersist();

@@ -10,12 +10,12 @@ class LineWorkflowState extends StateEntity {
         STATE_OPEN = 'open',
 
         // Line can no longer be accepted -> One or more events associated with predictions have began.
-        STATE_CLOSED = 'closed';
+        STATE_CLOSED = 'closed',
 
         // All predictions can be resolved.
-        //STATE_RESOLVED = 'resolved',
+        STATE_COMPLETE = 'complete',
 
         // Line has been paid out.
-        //STATE_PAIDOUT = 'paidout';
+        STATE_DONE = 'done';
 
 }

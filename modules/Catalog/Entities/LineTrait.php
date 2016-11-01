@@ -18,6 +18,7 @@ trait LineTrait {
     protected $predictions;
     protected $transitions;
     protected $state;
+    protected $winningSide;
 
     // Cached aggregate calculations
     protected $rollingInventory;
@@ -57,6 +58,14 @@ trait LineTrait {
 
     public function getSide() {
         return $this->side;
+    }
+
+    public function setWinningSide(Side $winningSide) {
+        $this->winningSide = $winningSide;
+    }
+
+    public function getWinningSide() : ?Side {
+        return $this->winningSide;
     }
 
     public function getOdds() {

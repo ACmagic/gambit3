@@ -27,6 +27,7 @@ class StateMapping extends EntityMapping {
         $builder->belongsTo(Workflow::class,'workflow');
         $builder->string('machineName')->length(128)->default('');
         $builder->string('humanName')->length(128)->default('');
+        $builder->smallInteger('weight');
         $builder->timestamp('createdAt');
         $builder->timestamp('updatedAt');
 

@@ -8,6 +8,7 @@ abstract class State {
     protected $workflow;
     protected $humanName;
     protected $machineName;
+    protected $weight;
     protected $createdAt;
     protected $updatedAt;
 
@@ -37,6 +38,14 @@ abstract class State {
 
     public function setMachineName($machineName) {
         $this->machineName = $machineName;
+    }
+
+    public function setWeight(int $weight) {
+        $this->weight = $weight;
+    }
+
+    public function getWeight() : int {
+        return $this->weight;
     }
 
     public function getCreatedAt() {

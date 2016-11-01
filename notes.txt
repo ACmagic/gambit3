@@ -163,6 +163,17 @@ Using json contains path
 select  * from sale_advertised_lines WHERE JSON_CONTAINS_PATH('{"type": "Modules\\\\Sales\\\\Entities\\\\SalePointSpread", "spread": 5, "game_id": 1, "pick_id": 11}','one','@predictions_cache[0]');
 
 --------------------------------------------------
+Payouts
+
+advertised_line_payouts
+- posting_id (pk)
+- advertised_line_id
+
+accepted_line_payouts
+- posting_id (pk)
+- accepted_line_id
+
+--------------------------------------------------
 
 MySQL >= 5.7.8
 

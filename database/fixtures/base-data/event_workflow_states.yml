@@ -3,19 +3,24 @@ Modules\Event\Entities\EventWorkflowState:
       workflow: '@event_workflow_default'
       machineName: 'pending'
       humanName: 'Pending'
+      weight: 0
     'event_workflow_state_open (extends abstract_workflow_state)':
       workflow: '@event_workflow_default'
       machineName: 'open'
       humanName: 'Open'
+      weight: 1
     'event_workflow_state_inprogress (extends abstract_workflow_state)':
       workflow: '@event_workflow_default'
       machineName: 'inprogress'
       humanName: 'Inprogress'
+      weight: 2
     'event_workflow_state_complete (extends abstract_workflow_state)':
       workflow: '@event_workflow_default'
       machineName: 'complete'
       humanName: 'Complete'
+      weight: 3
     'event_workflow_state_done (extends abstract_workflow_state)':
       workflow: '@event_workflow_default'
       machineName: 'done'
       humanName: 'Done'
+      weight: 5

@@ -14,8 +14,11 @@ class AdvertisedLine {
     protected $createdAt;
     protected $updatedAt;
 
+    protected $payouts;
+
     public function __construct() {
         $this->acceptedLines = new ArrayCollection();
+        $this->payouts = new ArrayCollection();
     }
 
     public function getId() {

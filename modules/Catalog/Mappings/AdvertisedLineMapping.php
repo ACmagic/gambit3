@@ -6,6 +6,7 @@ use Modules\Catalog\Entities\Line;
 use Modules\Catalog\Entities\AdvertisedLine;
 use LaravelDoctrine\Fluent\Fluent;
 use Modules\Catalog\Entities\AcceptedLine;
+use Modules\Accounting\Entities\Posting as PostingEntity;
 
 class AdvertisedLineMapping extends EntityMapping {
 
@@ -26,6 +27,9 @@ class AdvertisedLineMapping extends EntityMapping {
         $builder->bigIncrements('id');
 
         $builder->hasMany(AcceptedLine::class,'acceptedLines')->mappedBy('advertisedLine')->fetchExtraLazy();
+
+        // Payouts
+        $builder->manyToMany(PostingEntity::class,'payouts')->joinTable('advertised_line_payouts')->cascadePersist()->fetchExtraLazy();
 
         // @todo: Was this a mistake
         //$builder->manyToMany(Account::class,'accounts')->joinTable('customer_accounts')->cascadePersist();

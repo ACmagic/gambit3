@@ -4,6 +4,7 @@ use LaravelDoctrine\Fluent\EntityMapping;
 use Modules\Customer\Entities\Customer;
 use Modules\Catalog\Entities\AcceptedLine;
 use LaravelDoctrine\Fluent\Fluent;
+use Modules\Accounting\Entities\Posting as PostingEntity;
 
 class AcceptedLineMapping extends EntityMapping {
 
@@ -22,6 +23,9 @@ class AcceptedLineMapping extends EntityMapping {
     public function map(Fluent $builder) {
         $builder->table('accepted_lines');
         $builder->bigIncrements('id');
+
+        // Payouts
+        $builder->manyToMany(PostingEntity::class,'payouts')->joinTable('accepted_line_payouts')->cascadePersist()->fetchExtraLazy();
 
         $builder->belongsTo(Customer::class,'customer');
 
