@@ -307,3 +307,67 @@ What about the dynamic/implicit routes like:
 sports/football/nfl/{event}/lines
 
 How do we handle those??
+
+---------------------------------------------------------
+
+-- This will trigger when a line transitions to closed state. Once a line
+   is closed the left over inventory can be paid back to the advertiser in
+   the form of a charge back.
+
+Charge back logic -- paying back advertiser for lines not accepted.
+
+Get all advertised lines that require charge backs.
+
+-- Fetches all advertised lines with left over inventory
+SELECT
+      l.id
+  FROM
+      advertised_lines l
+  LEFT OUTER
+  JOIN
+      accepted_lines al
+    ON
+      l.id = al.advertised_line_id
+ WHERE
+     l.lineId = :lineId
+ GROUP
+    BY
+     l.id
+HAVING
+     l.inventory > SUM(al.quantity)
+
+-- Fetch left over inventory of an advertised line.
+SELECT
+      l.inventory - SUM(al.quantity) leftoverInventory
+  FROM
+      advertised_lines l
+  LEFT OUTER
+  JOIN
+      accepted_lines al
+    ON
+      l.id = al.advertised_line_id
+ WHERE
+      l.id = :Id
+
+-- Fetch the line -- If amount max use amount max otherwise use amount as base. Multiple base by the left over inventory. One
+   thing to note that this calculation will be off if discounts of any type are allowed for sales. Another strategy will
+   need to be used to handle discounts. For now though we can keep it simple stupid.
+
+$amount = bcmul($base,$leftOverInventory,4);
+
+$sale = $saleRepo->findSaleByAdvertisedLineId($lineId);
+
+// Create the charge back.
+$chargeBack = new ChargeBack();
+$chargeBack->setSale($sale);
+$chargeBack->setAmount($amount);
+$chargeBack->setPayback(true);
+$chargeBack->setMemo('Payback left over inventory.');
+$chargeBack->setCreatedAt(CarbonL::now());
+$chargeBack->setUpdatedAt(Carbon::now());
+
+EntityManager::persist($chargeBack);
+EntityManager::flush();
+
+-- Persisting a charge back will trigger a listener in accounting that moves the credits around.
+   -- Should this automation be limited to paybacks? -- require some type of approval otherwise?

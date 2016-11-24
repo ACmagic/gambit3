@@ -5,6 +5,8 @@ namespace Modules\Core\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Modules\Core\Console\Commands\SeedDatabase;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Modules\Catalog\Console\Commands\ProcessCompletedLines;
+use Modules\Catalog\Console\Commands\ProcessClosedLines;
 use Modules\Football\Console\Commands\NFLTeamsFixtureCommand;
 use Modules\Football\Console\Commands\NFLGamesFixtureCommand;
 
@@ -18,6 +20,10 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         // Commands\Inspire::class,
         SeedDatabase::class,
+
+        // Catalog
+        ProcessCompletedLines::class,
+        ProcessClosedLines::class,
 
         // Football
         NFLTeamsFixtureCommand::class,

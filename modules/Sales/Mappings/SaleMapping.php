@@ -8,6 +8,7 @@ use Modules\Sales\Entities\SaleWorkflowTransition;
 use Modules\Core\Entities\Store;
 use Modules\Customer\Entities\Customer;
 use Modules\Sales\Entities\SaleItem;
+use Modules\Sales\Entities\ChargeBack;
 use Modules\Accounting\Entities\Posting as PostingEntity;
 
 class SaleMapping extends EntityMapping {
@@ -38,6 +39,9 @@ class SaleMapping extends EntityMapping {
 
         // Transitions
         $builder->hasMany(SaleWorkflowTransition::class,'transitions')->mappedBy('sale')->fetchExtraLazy()->cascadePersist();
+
+        // Charge backs
+        $builder->hasMany(ChargeBack::class,'chargeBacks')->mappedBy('sale')->fetchExtraLazy()->cascadePersist();
     }
 
 }

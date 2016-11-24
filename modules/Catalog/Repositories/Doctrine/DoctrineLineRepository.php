@@ -10,6 +10,7 @@ use Modules\Catalog\Entities\AdvertisedLine;
 use Modules\Catalog\Entities\AcceptedLine;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\EntityManagerInterface;
+use Modules\Catalog\Entities\LineWorkflowState;
 
 class DoctrineLineRepository implements LineRepository {
 
@@ -145,6 +146,52 @@ class DoctrineLineRepository implements LineRepository {
         $matchedLine = $query->getOneOrNullResult();
 
         return $matchedLine;
+
+    }
+
+    /**
+     * Fetch a flat, one dimensional array of all the completed lines. This is done
+     * instead fetching complete objects for scalability purposes.
+     */
+    public function findIdsOfCompletedLines() : array {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+
+        $qb->select('l.id');
+        $qb->innerJoin('l.state','s');
+        $qb->where('s.machineName = :stateMachineName');
+
+        $qb->setParameter('stateMachineName',LineWorkflowState::STATE_COMPLETE);
+
+        $query = $qb->getQuery();
+        $lines = $query->getArrayResult();
+
+        $ids = array_flatten($lines);
+
+        return $ids;
+
+    }
+
+    /**
+     * Fetch a flat, one dimensional array of all the closed lines. This is done
+     * instead fetching complete objects for scalability purposes.
+     */
+    public function findIdsOfClosedLines() : array {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+
+        $qb->select('l.id');
+        $qb->innerJoin('l.state','s');
+        $qb->where('s.machineName = :stateMachineName');
+
+        $qb->setParameter('stateMachineName',LineWorkflowState::STATE_CLOSED);
+
+        $query = $qb->getQuery();
+        $lines = $query->getArrayResult();
+
+        $ids = array_flatten($lines);
+
+        return $ids;
 
     }
 

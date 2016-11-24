@@ -9,13 +9,28 @@ Modules\Catalog\Entities\LineWorkflowState:
       machineName: 'closed'
       humanName: 'Closed'
       weight: 1
+    'line_workflow_state_payingback (extends abstract_workflow_state)':
+      workflow: '@line_workflow_default'
+      machineName: 'payingback'
+      humanName: 'Paying Back'
+      weight: 2
+    'line_workflow_state_paidback (extends abstract_workflow_state)':
+      workflow: '@line_workflow_default'
+      machineName: 'paidback'
+      humanName: 'Paid Back'
+      weight: 3
     'line_workflow_state_complete (extends abstract_workflow_state)':
       workflow: '@line_workflow_default'
       machineName: 'complete'
       humanName: 'Complete'
-      weight: 2
+      weight: 4
+    'line_workflow_state_payingout (extends abstract_workflow_state)':
+      workflow: '@line_workflow_default'
+      machineName: 'payingout'
+      humanName: 'Paying Out'
+      weight: 5
     'line_workflow_state_done (extends abstract_workflow_state)':
       workflow: '@line_workflow_default'
       machineName: 'done'
       humanName: 'Done'
-      weight: 3
+      weight: 6

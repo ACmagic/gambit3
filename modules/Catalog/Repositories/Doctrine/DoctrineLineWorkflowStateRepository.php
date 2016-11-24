@@ -7,7 +7,7 @@ use Modules\Catalog\Entities\LineWorkflowState;
 class DoctrineLineWorkflowStateRepository extends DoctrineStateRepository implements LineWorkflowStateRepository {
 
     /**
-     * Get paid state.
+     * Get open state.
      *
      * @return LineWorkflowState
      */
@@ -16,12 +16,57 @@ class DoctrineLineWorkflowStateRepository extends DoctrineStateRepository implem
     }
 
     /**
-     * Get submitted state.
+     * Get closed state.
      *
      * @return LineWorkflowState
      */
     public function findClosedState() : LineWorkflowState {
-        return $this->genericRepository->findOneByMachineName(SaleWorkflowState::STATE_CLOSED);
+        return $this->genericRepository->findOneByMachineName(LineWorkflowState::STATE_CLOSED);
+    }
+
+    /**
+     * Get paying back state.
+     *
+     * @return LineWorkflowState
+     */
+    public function findPayingBackState() : LineWorkflowState {
+        return $this->genericRepository->findOneByMachineName(LineWorkflowState::STATE_PAYINGBACK);
+    }
+
+    /**
+     * Get paid back state.
+     *
+     * @return LineWorkflowState
+     */
+    public function findPaidBackState() : LineWorkflowState {
+        return $this->genericRepository->findOneByMachineName(LineWorkflowState::STATE_PAIDBACK);
+    }
+
+    /**
+     * Get complete state.
+     *
+     * @return LineWorkflowState
+     */
+    public function findCompleteState() : LineWorkflowState {
+        return $this->genericRepository->findOneByMachineName(LineWorkflowState::STATE_COMPLETE);
+    }
+
+    /**
+     * Get paying out state.
+     *
+     * @return LineWorkflowState
+     */
+    public function findPayingOutState() : LineWorkflowState {
+        return $this->genericRepository->findOneByMachineName(LineWorkflowState::STATE_PAYINGOUT);
+    }
+
+    /**
+     * Get done state.
+     *
+     * @return LineWorkflowState
+     */
+    public function findDoneState() : LineWorkflowState {
+        return $this->genericRepository->findOneByMachineName(LineWorkflowState::STATE_DONE);
     }
 
 }

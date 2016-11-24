@@ -9,6 +9,8 @@ interface LineRepository {
     public function createQueryBuilderForAdminDataGrid();
     public function matchOpenLine(LineEntity $line);
     public function recomputeCalculatedValues(LineEntity $line);
+    public function findIdsOfCompletedLines() : array;
+    public function findIdsOfClosedLines() : array;
 
     // Cached aggregate calculations
     public function calculateRollingInventory(LineEntity $line) : int;

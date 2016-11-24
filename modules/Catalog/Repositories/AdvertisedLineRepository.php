@@ -26,4 +26,25 @@ interface AdvertisedLineRepository {
      */
     public function matchAvailable(LineContract $line,$amount,$quantity);
 
+    /**
+     * Calculate the left over inventory for the specified advertised line.
+     *
+     * @param int $advertisedLineId
+     *   The advertised line id.
+     *
+     * @return int
+     */
+    public function calculateAvailableInventory(int $advertisedLineId) : int;
+
+    /**
+     * Fetch ids of all advertised lines that have left over inventory by
+     * the specified line id.
+     *
+     * @param int $lineId
+     *   The line id.
+     *
+     * @return array
+     */
+    public function findAllIdsWithLeftOverInventoryByLineId(int $lineId) : array;
+
 }

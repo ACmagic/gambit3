@@ -185,6 +185,7 @@ return [
                 Modules\Sales\Mappings\QuotePointSpreadMapping::class,
 
                 Modules\Sales\Mappings\SaleMapping::class,
+                Modules\Sales\Mappings\ChargeBackMapping::class,
                 Modules\Sales\Mappings\SaleItemMapping::class,
                 Modules\Sales\Mappings\SaleAdvertisedLineMapping::class,
                 Modules\Sales\Mappings\SaleAcceptedLineMapping::class,

@@ -15,6 +15,7 @@ class Sale {
     protected $transactions;
     protected $transitions;
     protected $items;
+    protected $chargeBacks;
     protected $createdAt;
     protected $updatedAt;
 
@@ -22,6 +23,7 @@ class Sale {
         $this->items = new ArrayCollection();
         $this->transactions = new ArrayCollection();
         $this->transitions = new ArrayCollection();
+        $this->chargeBacks = new ArrayCollection();
     }
 
     public function getId() {
@@ -74,6 +76,14 @@ class Sale {
 
     public function addTransition(SaleWorkflowTransition $transition) {
         $this->transitions[] = $transition;
+    }
+
+    public function getChargeBacks() {
+        return $this->chargeBacks;
+    }
+
+    public function addChargeBack(ChargeBack $chargeBack) {
+        $this->chargeBacks[] = $chargeBack;
     }
 
     public function getItems() {
