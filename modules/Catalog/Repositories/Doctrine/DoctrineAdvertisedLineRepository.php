@@ -163,7 +163,7 @@ EOD;
         $qb->select('l.id');
         $qb->leftJoin('l.acceptedLines','al');
         $qb->where('l.line = :lineId');
-        $qb->groupBy('l.id');
+        $qb->groupBy('l.id, l.inventory');
         $qb->having('l.inventory > COALESCE(SUM(al.quantity),0)');
 
         $qb->setParameter('lineId',$lineId);

@@ -12,6 +12,7 @@ use Modules\Accounting\Repositories\AssetTypeRepository;
 use Modules\Accounting\Repositories\AccountRepository;
 use Carbon\Carbon;
 use Modules\Accounting\Entities\Posting as PostingEntity;
+use Modules\Sales\Entities\ChargeBack as ChargeBackEntity;
 
 class DoctrineSubscriber implements EventSubscriber {
 
@@ -47,6 +48,13 @@ class DoctrineSubscriber implements EventSubscriber {
                 $this->executeSaleTransfer2($event);
             } else {
                 $this->executeSaleTransfer($event);
+            }
+
+        } elseif($entity instanceof ChargeBackEntity) {
+
+            // @todo: For now just handle a payback.
+            if($entity->getPayback()) {
+                $this->executePaybackTransfer($event);
             }
 
         }
@@ -178,6 +186,50 @@ class DoctrineSubscriber implements EventSubscriber {
         // Associate transactions with the sale.
         $sale->addTransaction($posting);
         $sale->addTransaction($posting2);
+
+    }
+
+    /**
+     * Transfer funds between accounts for a charge back.
+     *
+     * @param LifecycleEventArgs $event
+     */
+    protected function executePaybackTransfer($event) {
+
+        $em = $event->getObjectManager();
+        $chargeBack = $event->getObject();
+        $sale = $chargeBack->getSale();
+
+        $cost = $chargeBack->getAmount();
+
+        $postingEventRepo = app(PostingEventRepository::class);
+        $assetTypeRepo = app(AssetTypeRepository::class);
+
+        $cashbook = $sale->getStore()->getSite()->getCashBook();
+        $customerInternalAccount = $sale->getCustomer()->getInternalAccount();
+
+        $credit = $assetTypeRepo->findCreditAssetType();
+        $transfer = $postingEventRepo->findTransferEvent();
+
+        // Transfer credit funds from cashbook to customer account.
+        $posting = new PostingEntity();
+        $posting->setAccount($cashbook);
+        $posting->setEvent($transfer);
+        $posting->setAssetType($credit);
+        $posting->setAmount(bcmul($cost,-1,4));
+        $posting->setCreatedAt(Carbon::now());
+        $posting->setUpdatedAt(Carbon::now());
+
+        $posting2 = new PostingEntity();
+        $posting2->setAccount($customerInternalAccount);
+        $posting2->setEvent($transfer);
+        $posting2->setAssetType($credit);
+        $posting2->setAmount($cost);
+        $posting2->setCreatedAt(Carbon::now());
+        $posting2->setUpdatedAt(Carbon::now());
+
+        $em->persist($posting);
+        $em->persist($posting2);
 
     }
 

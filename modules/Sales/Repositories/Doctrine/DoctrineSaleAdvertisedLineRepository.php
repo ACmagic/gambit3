@@ -15,7 +15,7 @@ class DoctrineSaleAdvertisedLineRepository extends DoctrineSaleItemRepository im
      * @return ?SaleAdvertisedLine
      */
     public function findByAdvertisedLineId(int $advertisedLineId) : ?SaleAdvertisedLine {
-        return $this->genericRepository->findOneByAdvertisedLineId($advertisedLineId);
+        return $this->genericRepository->findOneByAdvertisedLine($advertisedLineId);
     }
 
 }
