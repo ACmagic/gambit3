@@ -13,6 +13,6 @@ interface SaleAdvertisedLineRepository extends SaleItemRepository {
      *
      * @return ?SaleAdvertisedLine
      */
-    public function findByAdvertisedLineId(int $advertisedLineId) : ?SaleAdvertisedLine;
+    public function findByAdvertisedLineId(int $advertisedLineId);
 
 }

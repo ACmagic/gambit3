@@ -1,0 +1,6 @@
+2016/11/30
+
+Created new branch "features/dev-downgrade-to-7" to downgrade to php 7.0 from 7.1. This was done due to a seg fault occurring when xdebug stepped into a autoload. Hopefully
+this issue doesn't exist with php 7.1. The process to downgrade to 7.0 from 7.1 was to remove optional return values via : ?.
+
+Confirmed. Debugging works properly in 7.0.

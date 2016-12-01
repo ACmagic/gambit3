@@ -64,7 +64,7 @@ trait LineTrait {
         $this->winningSide = $winningSide;
     }
 
-    public function getWinningSide() : ?Side {
+    public function getWinningSide() {
         return $this->winningSide;
     }
 

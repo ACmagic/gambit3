@@ -19,7 +19,7 @@ interface Line {
     public function setSide(Side $side);
     public function getSide();
     public function setWinningSide(Side $winningSide);
-    public function getWinningSide() : ?Side;
+    public function getWinningSide() /*: ?Side*/;
     public function getOdds();
     //public function getInverseOdds();
     public function setOdds($odds);
