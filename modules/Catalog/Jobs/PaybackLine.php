@@ -40,34 +40,22 @@ class PaybackLine implements ShouldQueue {
         EntityManager::flush();
 
         // Pay back the advertised lines.
-        $ids = $advertisedLineRepo->findAllIdsWithLeftOverInventoryByLineId($this->lineId);
+        $ids = $advertisedLineRepo->findAllIdsWithLeftOverAmountsByLineId($this->lineId);
         foreach($ids as $id) {
 
-            $leftOverInventory = $advertisedLineRepo->calculateAvailableInventory($id);
-            if($leftOverInventory > 0) {
+            $leftOverAmount = $advertisedLineRepo->calculateAvailableAmount($id);
+            if($leftOverAmount > 0) {
 
                 $saleAdvertisedLine = $saleAdvertisedLineRepo->findByAdvertisedLineId($id);
-                $advertisedLine = $saleAdvertisedLine->getAdvertisedLine();
                 $sale = $saleAdvertisedLine->getSale();
 
-                $base = NULL;
-                $amount = $advertisedLine->getAmount();
-                $amountMax = $advertisedLine->getAmountMax();
-
-                if($amountMax && bccomp($amountMax,$amount,4) === 1) {
-                    $base = $amountMax;
-                } else {
-                    $base = $amount;
-                }
-
-                // @todo: Apply odds adjustment to the base.
-
-                $amount = bcmul($base,$leftOverInventory,4);
+                // @todo: Calculate odds adjustment. This is going to be tricky... so say the least.
+                // For now just pretend odds are equal (0).
 
                 // Create the charge back.
                 $chargeBack = new ChargeBack();
                 $chargeBack->setSale($sale);
-                $chargeBack->setAmount($amount);
+                $chargeBack->setAmount($leftOverAmount);
                 $chargeBack->setPayback(true);
                 $chargeBack->setMemo('Payback left over inventory.');
                 $chargeBack->setCreatedAt(Carbon::now());

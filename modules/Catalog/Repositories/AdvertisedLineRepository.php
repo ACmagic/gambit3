@@ -37,6 +37,16 @@ interface AdvertisedLineRepository {
     public function calculateAvailableInventory(int $advertisedLineId) : int;
 
     /**
+     * Calculate the available amount.
+     *
+     * @param int $advertisedLineId
+     *   The advertised line id.
+     *
+     * @return float
+     */
+    public function calculateAvailableAmount(int $advertisedLineId) : float;
+
+    /**
      * Fetch ids of all advertised lines that have left over inventory by
      * the specified line id.
      *
@@ -46,5 +56,16 @@ interface AdvertisedLineRepository {
      * @return array
      */
     public function findAllIdsWithLeftOverInventoryByLineId(int $lineId) : array;
+
+    /**
+     * Fetch ids of all advertised lines that have left over amounts by
+     * the specified line id.
+     *
+     * @param int $lineId
+     *   The line id.
+     *
+     * @return array
+     */
+    public function findAllIdsWithLeftOverAmountsByLineId(int $lineId) : array;
 
 }

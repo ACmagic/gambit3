@@ -148,6 +148,31 @@ EOD;
     }
 
     /**
+     * Calculate the left over amount for the specified advertised line.
+     *
+     * @param int $advertisedLineId
+     *   The advertised line id.
+     *
+     * @return float
+     */
+    public function calculateAvailableAmount(int $advertisedLineId) : float {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+
+        $qb->select('(COALESCE(l.amountMax,l.amount) * l.inventory) - SUM(al.amount * al.inventory)');
+        $qb->leftJoin('l.acceptedLines','al');
+        $qb->where('l.id = :id');
+
+        $qb->setParameter('id',$advertisedLineId);
+
+        $query = $qb->getQuery();
+        $availableInventory = $query->getSingleScalarResult();
+
+        return $availableInventory;
+
+    }
+
+    /**
      * Fetch ids of all advertised lines that have left over inventory by
      * the specified line id.
      *
@@ -165,6 +190,36 @@ EOD;
         $qb->where('l.line = :lineId');
         $qb->groupBy('l.id, l.inventory');
         $qb->having('l.inventory > COALESCE(SUM(al.quantity),0)');
+
+        $qb->setParameter('lineId',$lineId);
+
+        $query = $qb->getQuery();
+        $advertisedLines = $query->getArrayResult();
+
+        $ids = array_flatten($advertisedLines);
+
+        return $ids;
+
+    }
+
+    /**
+     * Fetch ids of all advertised lines that have left over amounts by
+     * the specified line id.
+     *
+     * @param int $lineId
+     *   The line id.
+     *
+     * @return array
+     */
+    public function findAllIdsWithLeftOverAmountsByLineId(int $lineId) : array {
+
+        $qb = $this->genericRepository->createQueryBuilder('l');
+
+        $qb->select('l.id');
+        $qb->leftJoin('l.acceptedLines','al');
+        $qb->where('l.line = :lineId');
+        $qb->groupBy('l.id, l.inventory, l.amountMax, l.amount');
+        $qb->having('(COALESCE(l.amountMax,l.amount) * l.inventory) > SUM(al.amount * al.inventory)');
 
         $qb->setParameter('lineId',$lineId);
 

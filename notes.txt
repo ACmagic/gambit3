@@ -219,6 +219,10 @@ Command to start redis server:
 
 redis-server
 
+Had to manually install redis via pecl due to the current version not being directly compatible with the repo version of php 7.1.0-*
+
+sudo pecl -d preferred_state=stable install --ignore-errors redis && pecl info redis
+
 ---------------------------------------------------
 
 seeker
@@ -371,3 +375,4 @@ EntityManager::flush();
 
 -- Persisting a charge back will trigger a listener in accounting that moves the credits around.
    -- Should this automation be limited to paybacks? -- require some type of approval otherwise?
+
