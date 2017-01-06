@@ -168,6 +168,9 @@ return [
         // Payum
         Payum\LaravelPackage\PayumServiceProvider::class,
 
+        // Api
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+
         /*
          * Laravel doctrine
          */
