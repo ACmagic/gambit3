@@ -489,4 +489,15 @@ Project set-up instructions
 4.) Create database tables and seed database
 
     $ php artisan doctrine:migrations:refresh
+    ** verify tables were created
+
     $ php artisan gambit:core:seed
+    ** verify data inside users, customers, and sports_games tables
+
+5.) vhost set-up
+
+    On host machine add the following lines to the /etc/hosts file.
+
+    192.168.56.104  local.gambit-a
+    192.168.56.104  local.gambit-b
+
