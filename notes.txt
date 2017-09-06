@@ -376,3 +376,69 @@ EntityManager::flush();
 -- Persisting a charge back will trigger a listener in accounting that moves the credits around.
    -- Should this automation be limited to paybacks? -- require some type of approval otherwise?
 
+
+---------------------------------------------
+
+Front-end Pages:
+
+Login
+Logout
+Register
+Games
+- Prediction
+- Lines
+Slip
+Checkout
+Confirmation
+
+--------------------------------------------
+
+Basic Function Test
+
+tear down and up db
+seed db
+MANUAL: Set some NFL games to open status (need to add this to seed process – randomly set 3 games to open status)
+
+-- Functional Test 1
+
+Login
+Navigate to open NFL games
+Add prediction – spread or money line (test both?) – probably
+Configure prediction
+Submit slip
+-- user won't have any credits available
+So user will be asked to purchase credits
+Use will then purchase credits and choose paypal
+They will then be redirected to paypal to login and confirm payment
+Once payment is confirmed they will be redirected back to the site and will have credits.
+User will not be able to confirm and submit their slip.
+After submission nothing currently happens. Should probably redirect with a flash message or something...
+
+Once this done the sale and integrity of the same needs to be confirmed some how.
+Once the sale and its integrity is confirmed we can run run the queue worker.
+Once the queue worker is complete the line should then be available for another user to accept.
+
+-- Functional Test 2
+
+Login (new user)
+Navigate to open nfl games
+View lines for the game that the previous user created a prediction for.
+Accept the prediction – Fill out the form.
+User won't have credits so will be asked to purchase credits.
+Once clicked user will be asked payment method – paypal is the only one available right now.
+Paypal will be selected and when form is submitted the user will be directed to paypal to pay.
+Once payment is made user will be directed back to site with new credits.
+User will then be able to submit the order.
+Once order is submitted nothing currently happens – should redirect with a flash message or something.
+
+Once this done the sale and integrity of the same needs to be confirmed some how.
+Once the sale and its integrity is confirmed we can run run the queue worker.
+Once the queue worker is complete the order should have been fulfilled – verification required.
+
+--------------------------------------------
+
+Tasks
+
+0001 Upgrade from 5.3 to 5.5 (blocked by 0003)
+0002 Replace grunt with mix (blocked by 0001)
+0003 Update vagrant box using most recent vagrant/virtualbox ancd puphpet config
