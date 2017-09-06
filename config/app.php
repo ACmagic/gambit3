@@ -162,14 +162,8 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        // JWT
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-
         // Payum
         Payum\LaravelPackage\PayumServiceProvider::class,
-
-        // Api
-        Dingo\Api\Provider\LaravelServiceProvider::class,
 
         /*
          * Laravel doctrine
@@ -254,12 +248,6 @@ return [
          */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
-        /*
-         * JWT
-         */
-        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
         /*
          * Aliases supplied by Laravel doctrine package.
