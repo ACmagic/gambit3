@@ -441,7 +441,7 @@ Tasks
 
 0001 Upgrade from 5.3 to 5.5 (blocked by 0003)
 0002 Replace grunt with mix (blocked by 0001)
-0003 Update vagrant box using most recent vagrant/virtualbox ancd puphpet config
+0003 Update vagrant box using most recent vagrant/virtualbox ancd puphpet config (DONE)
 
 
 --------------------------------------------
