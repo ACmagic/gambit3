@@ -1,0 +1,453 @@
+vagrantfile:
+    target: local
+    vm:
+        provider:
+            local:
+                box: puphpet/ubuntu1604-x64
+                box_url: puphpet/ubuntu1604-x64
+                box_version: 'false'
+                chosen_virtualizer: virtualbox
+                virtualizers:
+                    virtualbox:
+                        modifyvm:
+                            natdnshostresolver1: false
+                        showgui: 0
+                    vmware:
+                        numvcpus: 1
+                    parallels:
+                        linked_clone: 0
+                        check_guest_tools: 0
+                        update_guest_tools: 0
+                machines:
+                    vflm_5gvkjclz16mz:
+                        id: gambit2
+                        hostname: local.gambit2
+                        network:
+                            private_network: 192.168.56.104
+                            forwarded_port:
+                                vflmnfp_xtu68pievzmq:
+                                    host: '7306'
+                                    guest: '22'
+                        memory: '2048'
+                        cpus: '1'
+        provision:
+            puppet:
+                manifests_path: puphpet/puppet/manifests
+                module_path:
+                    - puphpet/puppet/modules
+                    - puphpet/puppet/manifests
+                options:
+                    - '--verbose'
+                    - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
+        synced_folder:
+            vflsf_pw0o5obufk3r:
+                owner: vagrant
+                group: vagrant
+                source: ~/Workspace/vm/box/gambit2
+                target: /var/www
+                sync_type: nfs
+                smb:
+                    smb_host: ''
+                    smb_username: ''
+                    smb_password: ''
+                    mount_options:
+                        dir_mode: '0775'
+                        file_mode: '0664'
+                rsync:
+                    args:
+                        - '--verbose'
+                        - '--archive'
+                        - '-z'
+                    exclude:
+                        - .vagrant/
+                        - .git/
+                    auto: 'true'
+        usable_port_range:
+            start: 10200
+            stop: 10500
+        post_up_message: ''
+    ssh:
+        host: 'false'
+        port: 'false'
+        private_key_path: 'false'
+        username: vagrant
+        guest_port: 'false'
+        keep_alive: '1'
+        forward_agent: 'false'
+        forward_x11: 'false'
+        shell: 'bash -l'
+        insert_key: 'false'
+    vagrant:
+        host: detect
+    proxy:
+        http: ''
+        https: ''
+        ftp: ''
+        no_proxy: ''
+server:
+    install: '1'
+    packages:
+        - vim
+        - curl
+        - zip
+        - unzip
+users_groups:
+    install: '1'
+    groups: {  }
+    users: {  }
+locale:
+    install: '1'
+    settings:
+        default_locale: null
+        locales:
+            - en_GB.UTF-8
+            - en_US.UTF-8
+        timezone: UTC
+firewall:
+    install: '1'
+    rules:
+        fr_w9tngen2zu5h:
+            port:
+                - '3000'
+            priority: '100'
+            proto: tcp
+            action: accept
+resolv:
+    install: '1'
+    nameservers:
+        - 8.8.8.8
+        - 8.8.4.4
+    domainname: ''
+    searchpath: {  }
+cron:
+    install: '1'
+    jobs: {  }
+nginx:
+    install: '0'
+    settings:
+        version: present
+        default_vhost: 1
+        proxy_buffers: '4 256k'
+        proxy_buffer_size: 128k
+        proxy_connect_timeout: 600s
+        proxy_send_timeout: 600s
+        proxy_read_timeout: 600s
+        names_hash_bucket_size: 128
+    upstreams: {  }
+    vhosts:
+        nxv_6ayax3c2g7ag:
+            server_name: awesome.dev
+            server_aliases:
+                - www.awesome.dev
+            www_root: /var/www/awesome
+            listen_port: '80'
+            client_max_body_size: 1m
+            ssl: '0'
+            locations:
+                nxvl_c75myfgwcjx7:
+                    www_root: ''
+                    location: /
+                    autoindex: 'off'
+                    internal: 'false'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php$is_args$args
+                    fastcgi: ''
+                    fastcgi_index: ''
+                    fastcgi_split_path: ''
+                    proxy: ''
+                    proxy_redirect: ''
+                nxvl_m2vfkzu5o87k:
+                    www_root: ''
+                    location: '~ \.php$'
+                    autoindex: 'off'
+                    internal: 'false'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php$is_args$args
+                    fastcgi: '127.0.0.1:9000'
+                    fastcgi_index: index.php
+                    fastcgi_split_path: '^(.+\.php)(/.*)$'
+                    fast_cgi_params_extra:
+                        - 'SCRIPT_FILENAME $request_filename'
+                        - 'APP_ENV dev'
+                    set:
+                        - '$path_info $fastcgi_path_info'
+                    proxy: ''
+                    proxy_redirect: ''
+    proxies: {  }
+apache:
+    install: '1'
+    settings:
+        version: 2.4
+        user: www-data
+        group: www-data
+        default_vhost: true
+        manage_user: false
+        manage_group: false
+        sendfile: 0
+    modules:
+        - proxy_fcgi
+        - rewrite
+    vhosts:
+        av_wo8y2bxr5tg3:
+            servername: local.gambit-a
+            docroot: /var/www/local.gambit/public
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+                - 'APP_STORE test1.store1'
+            setenvif:
+                - 'Authorization "(.*)" HTTP_AUTHORIZATION=$1'
+            custom_fragment: ''
+            ssl: '0'
+            ssl_cert: LETSENCRYPT
+            ssl_key: LETSENCRYPT
+            ssl_chain: LETSENCRYPT
+            ssl_certs_dir: LETSENCRYPT
+            ssl_protocol: ''
+            ssl_cipher: ''
+            directories:
+                avd_xuf6nzwaua4g:
+                    path: /var/www/local.gambit/public
+                    directoryindex: ''
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - 'all granted'
+                    custom_fragment: ''
+                    provider: directory
+            files_match:
+                avfm_juu2hb1htt15:
+                    path: \.php$
+                    sethandler: 'proxy:fcgi://127.0.0.1:9000'
+                    custom_fragment: ''
+                    provider: filesmatch
+        av_o5100jzpav8o:
+            servername: local.gambit-b
+            docroot: /var/www/local.gambit/public
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+                - 'APP_STORE test2.store4'
+            setenvif:
+                - 'Authorization "(.*)" HTTP_AUTHORIZATION=$1'
+            custom_fragment: ''
+            ssl: '0'
+            ssl_cert: LETSENCRYPT
+            ssl_key: LETSENCRYPT
+            ssl_chain: LETSENCRYPT
+            ssl_certs_dir: LETSENCRYPT
+            ssl_protocol: ''
+            ssl_cipher: ''
+            directories:
+                avd_rgimj7255kik:
+                    path: /var/www/local.gambit/public
+                    directoryindex: ''
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - 'all granted'
+                    custom_fragment: ''
+                    provider: directory
+letsencrypt:
+    install: '1'
+    settings:
+        email: sme.s.key@gmail.com
+        webserver_service: ''
+    domains: {  }
+php:
+    install: '1'
+    settings:
+        version: '7.1'
+    modules:
+        php:
+            - cli
+            - intl
+            - mcrypt
+            - gd
+            - curl
+            - mbstring
+            - bcmath
+            - mysql
+            - xml
+            - zip
+        pear: {  }
+        pecl:
+            - redis
+    ini:
+        display_errors: 'On'
+        error_reporting: '-1'
+        session.save_path: /var/lib/php/session
+        date.timezone: UTC
+    fpm_ini:
+        error_log: /var/log/php-fpm.log
+    fpm_pools:
+        phpfp_svk4f3vdzi3z:
+            ini:
+                prefix: www
+                listen: '127.0.0.1:9000'
+                security.limit_extensions: .php
+                user: vagrant
+                group: vagrant
+    composer: '1'
+    composer_home: ''
+xdebug:
+    install: '1'
+    settings:
+        xdebug.default_enable: '1'
+        xdebug.remote_connect_back: '1'
+        xdebug.remote_enable: '1'
+        xdebug.remote_handler: dbgp
+        xdebug.remote_port: '9000'
+        xdebug.idekey: PHPStorm
+        xdebug.remote_host: 192.168.1.64
+blackfire:
+    install: '0'
+    settings:
+        server_id: ''
+        server_token: ''
+        agent:
+            http_proxy: ''
+            https_proxy: ''
+            log_file: stderr
+            log_level: '1'
+        php:
+            agent_timeout: '0.25'
+            log_file: ''
+            log_level: '1'
+xhprof:
+    install: '0'
+wpcli:
+    install: '0'
+    version: v0.19.0
+drush:
+    install: '0'
+    version: 6.3.0
+ruby:
+    install: '1'
+    versions: {  }
+python:
+    install: '1'
+    packages: {  }
+    versions: {  }
+nodejs:
+    install: '1'
+    settings:
+        version: '5'
+    npm_packages:
+        - grunt-cli
+mariadb:
+    install: '0'
+    settings:
+        version: '10.1'
+        root_password: '123'
+        override_options: {  }
+    users:
+        mariadbnu_7zv8yfxa3ff4:
+            name: dbuser
+            password: '123'
+    databases:
+        mariadbnd_0yj0i0620dtp:
+            name: dbname
+            sql: ''
+    grants:
+        mariadbng_im8tt9dc9rsv:
+            user: dbuser
+            table: '*.*'
+            privileges:
+                - ALL
+mysql:
+    install: '1'
+    settings:
+        version: 5.7.13
+        root_password: '-Password1'
+        override_options: {  }
+    users:
+        mysqlnu_fm41ps4fx6d7:
+            name: gambit
+            password: '-Password1'
+    databases:
+        mysqlnd_dfaflc0g6j2c:
+            name: gambit
+            sql: ''
+    grants:
+        mysqlng_9hy1s03541hb:
+            user: gambit
+            table: 'gambit.*'
+            privileges:
+                - ALL
+postgresql:
+    install: '0'
+    settings:
+        global:
+            encoding: UTF8
+            version: '9.4'
+        server:
+            postgres_password: '123'
+    databases: {  }
+    users: {  }
+    grants: {  }
+mongodb:
+    install: '0'
+    settings:
+        bind_ip: 127.0.0.1
+        port: '27017'
+    globals:
+        version: 2.6.0
+    databases: {  }
+redis:
+    install: '1'
+    settings:
+        port: '6379'
+sqlite:
+    install: '0'
+    databases: {  }
+mailhog:
+    install: '1'
+    settings:
+        smtp_ip: 0.0.0.0
+        smtp_port: 1025
+        http_ip: 0.0.0.0
+        http_port: '8025'
+        path: /usr/local/bin/mailhog
+beanstalkd:
+    install: '0'
+    settings:
+        listenaddress: 0.0.0.0
+        listenport: '11300'
+        maxjobsize: '65535'
+        maxconnections: '1024'
+        binlogdir: /var/lib/beanstalkd/binlog
+        binlogfsync: null
+        binlogsize: '10485760'
+    beanstalk_console: 0
+rabbitmq:
+    install: '0'
+    settings:
+        port: '5672'
+    users: {  }
+    vhosts: {  }
+    plugins: {  }
+elastic_search:
+    install: '0'
+    settings:
+        version: 2.1.0
+        java_install: true
+    instances: {  }
+solr:
+    install: '0'
+    settings:
+        version: 4.10.2
+        port: '8984'
+
