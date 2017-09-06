@@ -76,7 +76,7 @@ class LineEditForm extends BaseForm {
 
     }
 
-    public function setFormOptions($formOptions) {
+    public function setFormOptions(array $formOptions) {
 
         parent::setFormOptions($formOptions);
 

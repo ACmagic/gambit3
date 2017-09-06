@@ -180,10 +180,9 @@ return [
         LaravelDoctrine\Extensions\BeberleiExtensionsServiceProvider::class,
 
         /*
-         * Pingpong labs modules
+         * New, maintained modules package (replaces Ping-pong labs modules)
          */
-        Pingpong\Generators\GeneratorsServiceProvider::class,
-        Pingpong\Modules\ModulesServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
 
         // Twig bridge
         TwigBridge\ServiceProvider::class,
@@ -262,7 +261,7 @@ return [
         /*
          * Aliases supplied by the Pingpong labs modules package.
          */
-        'Module'        => Pingpong\Modules\Facades\Module::class,
+        'Module'        => Nwidart\Modules\Facades\Module::class,
 
         /*
          * Twig bridge

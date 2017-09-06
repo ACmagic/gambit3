@@ -59,7 +59,7 @@ class MoneyLineForm extends Form {
 
     }
 
-    public function setFormOptions($formOptions) {
+    public function setFormOptions(array $formOptions) {
 
         parent::setFormOptions($formOptions);
 
