@@ -13,9 +13,9 @@
     "require": {
         "php": ">=5.6.4",
         "doctrine/dbal": "dev-dev-json-support as 2.5",
-        "laravel/framework": "5.4.*",
-        "laravel-doctrine/orm": "1.3.*",
-        "nwidart/laravel-modules": "^1.0",
+        "laravel/framework": "5.5.*",
+        "laravel-doctrine/orm": "1.4.*",
+        "nwidart/laravel-modules": "^2.0",
         "laravel-doctrine/fluent": "1.1.*",
         "laravel-doctrine/migrations": "1.1.*",
         "laravel-doctrine/extensions": "1.0.*",
