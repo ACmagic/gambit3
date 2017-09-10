@@ -4,6 +4,7 @@ use Illuminate\Support\ServiceProvider;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Core\Context\ContextManager;
 use Modules\Core\Context\ContextResolver;
+use Laravel\Passport\Passport;
 use Mesour\Components\Application\IApplication;
 use Mesour\UI\Application as UiApplication;
 use Mesour\Components\Application\Request as UiRequest;
@@ -44,6 +45,9 @@ class CoreServiceProvider extends ServiceProvider {
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
+
+		// Passport integration
+        Passport::routes();
 	}
 
 	/**
@@ -60,6 +64,8 @@ class CoreServiceProvider extends ServiceProvider {
 			return $theApp;
 		});
 		$this->app->alias(IApplication::class,'uiapp');*/
+
+		Passport::ignoreMigrations();
 
 		$this->app->singleton('context.resolver',function($app) {
 			$resolvers = $app->tagged('context_resolver');

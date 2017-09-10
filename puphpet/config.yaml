@@ -344,7 +344,7 @@ python:
 nodejs:
     install: '1'
     settings:
-        version: '5'
+        version: '7'
     npm_packages:
         - grunt-cli
 mariadb:

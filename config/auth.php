@@ -47,7 +47,13 @@ return [
         'users'=> [
             'driver'=> 'session',
             'provider'=> 'users',
-        ]
+        ],
+
+        // Customers API – api is hard coded in passport... might be a little tricky to have two separate APIs because of this...
+        'api'=> [
+            'driver'=> 'passport',
+            'provider'=> 'customers',
+        ],
 
     ],
 

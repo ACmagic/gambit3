@@ -59,7 +59,7 @@ class CustomerServiceProvider extends ServiceProvider {
 		// Tag resolvers.
 		$this->app->tag([CustomerPoolResolver::class,CustomerResolver::class], 'context_resolver');
 
-		$this->app->bind(CustomerRepository::class,function() {
+		$this->app->bind(CustomerRepository::class,function($app) {
 			return new DoctrineCustomerRepository(
 				EntityManager::getRepository(CustomerEntity::class)
 			);

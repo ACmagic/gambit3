@@ -148,6 +148,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        // Passport
+        Laravel\Passport\PassportServiceProvider::class,
+
         /*
          * Collective extensions that are no longer installed by default since 5.1.
          */

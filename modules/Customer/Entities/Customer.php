@@ -2,15 +2,17 @@
 
 use LaravelDoctrine\ORM\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Laravel\Passport\HasApiTokens;
 use Doctrine\Common\Collections\ArrayCollection;
 use Carbon\Carbon;
 use Modules\Accounting\Entities\Account as AccountEntity;
 use Modules\Accounting\Entities\AccountType as AccountTypeEntity;
 use Modules\Sales\Entities\Quote as QuoteEntity;
+use Modules\Customer\Repositories\CustomerRepository;
 
 class Customer implements AuthenticatableContract {
 
-    use Authenticatable;
+    use Authenticatable, HasApiTokens;
 
     protected $id;
     protected $email;
@@ -114,6 +116,27 @@ class Customer implements AuthenticatableContract {
 
         return bccomp($finalCost,$balance,2) < 1;
 
+    }
+
+    /**
+     * Passport integration.
+     *
+     * @param string $userIdentifier
+     * @return Customer
+     */
+    public function findForPassport($userIdentifier) : ?Customer {
+        $customerRepository = app(CustomerRepository::class);
+        return $customerRepository->findInSiteByEmail($userIdentifier);
+
+    }
+
+    /**
+     * Passport integration.
+     *
+     * @return int
+     */
+    public function getKey() : int {
+        return $this->getId();
     }
 
 }

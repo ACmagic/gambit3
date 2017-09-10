@@ -1,12 +1,14 @@
 <?php namespace Modules\Core\Entities;
 
 use LaravelDoctrine\ORM\Auth\Authenticatable;
+use Modules\Core\Repositories\UserRepository;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Laravel\Passport\HasApiTokens;
 use Carbon\Carbon;
 
 class User implements AuthenticatableContract {
 
-    use Authenticatable;
+    use Authenticatable, HasApiTokens;
 
     protected $id;
     protected $email;
@@ -52,6 +54,28 @@ class User implements AuthenticatableContract {
 
         return $data;
 
+    }
+
+    /**
+     * Passport integration.
+     *
+     * @param string $userIdentifier
+     * @return User
+     */
+    public function findForPassport($userIdentifier) : ?User {
+
+        $userRepository = app(UserRepository::class);
+        return $userRepository->findOneByEmail($userIdentifier);
+
+    }
+
+    /**
+     * Passport integration.
+     *
+     * @return int
+     */
+    public function getKey() : int {
+        return $this->getId();
     }
 
 }

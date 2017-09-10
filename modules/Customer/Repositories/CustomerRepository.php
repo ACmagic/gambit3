@@ -4,5 +4,6 @@ interface CustomerRepository {
 
     public function findById($id);
     public function findAll();
+    public function findInSiteByEmail($email);
 
 }
