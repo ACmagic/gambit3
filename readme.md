@@ -52,6 +52,59 @@
 
     192.168.56.104  local.gambit-a
     192.168.56.104  local.gambit-b
+    
+# Gambit Architecture
+
+## Predictable
+
+A predictable is an entity which a prediction can be made on. The system currently
+supports one single type of predictable: event. The concept of making a prediction
+on an event is the foundation of the entire platform. The architecture is a plugin
+based based. Therefore, new plugins (predictable) can be added as needed.
+
+## Prediction Types
+
+A prediction type is a type of prediction. Different types of predictions will require
+differing data/options for customers to make their prediction. For example, a money line
+prediction on a sporting event like a football game only requires one to pick the winning
+team in the event. However, a point spread prediction on a sporting event also requires
+a spread. Like the predictable system this is also plugin based. New types of predictions
+can be added as needed such as a prediction to handle over/under bets.
+
+## Sites and Stores
+
+The system has been built to scale and support multiple sites. It is a two tier architecture. The top
+level tier is referred to as a "site". A single site will share the same customer pool across its store.
+Each site has a completely separate customer pool. Customer pool as the term implies are all the customers
+that have registered in the store. Stores are meant to serve the purpose of differing themes or languages
+for a single site.
+
+## Products
+
+The system has three types of products having been built as a glorified ecomm solution. The first
+type is an advertised line. An advertised line is indirectly created when customers submit a bet slip with a prediction that they
+have made. Once submitted the advertised line will become available for other customers to
+accept. The second type of product is a accepted line. An accepted line is a product where the customer
+accepts the inverse scenario of the advertised line. The last type of product is a credit. To purchase and 
+accept lines credits will be used.
+
+## Quotes and Sales
+
+Keeping with the philosophy of an ecomm set-up orders are divided between two parts: quotes and sales. A quote
+is sale that has not been fulfilled yet and can be thought of as the "cart". Cart in the system is referred 
+to as a slip but cart and slip are essentially synonymous. A slip that has been been submitted is turned
+into a sale. A sale will contain much of the same data that the quote had for record keeping and fulfillment
+purposes.
+
+## Accounting
+
+A ledger based system has been implemented to track all sales and transfers of funds between customers
+and each individual site. The ledger currently supports two types of assets: usd and credits. Two
+cashbooks are maintained for each site and customer. On cashbook is for external sales that involve
+exchanging real money for credits and vice versa. The other is an internal cashbook that tracks credit
+based exchanges only.
+
+
 
 # Laravel PHP Framework
 

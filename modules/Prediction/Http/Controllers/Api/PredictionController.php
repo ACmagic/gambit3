@@ -18,6 +18,10 @@ class PredictionController extends AbstractBaseController {
         $this->fractal = $fractal;
     }
 
+    public function getNew() {
+
+    }
+
     public function getNewConfigure($type,$id,$predictionType) {
 
         $theType = PredictionTypeManager::getType($predictionType);
@@ -39,14 +43,10 @@ class PredictionController extends AbstractBaseController {
             'errors_enabled'=> false
         ];
         $form = $theType->getFrontendForm($args);
-
-        //$form->renderForm();
-        //return response()->json($form);
-
         $resource = new Item($form,new FormTransformer());
 
         $data = $this->fractal->createData($resource)->toArray();
-        return response()->json($data); // or return it in a Response
+        return response()->json($data);
 
     }
 
