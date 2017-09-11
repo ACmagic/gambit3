@@ -8,7 +8,8 @@ class EventTransformer extends TransformerAbstract {
     public function transform(EventEntity $event) {
         return [
             'id'=> $event->getId(),
-            'displayTitle'=> $event->getDisplayTitle()
+            'displayTitle'=> $event->getDisplayTitle(),
+            'startsAt'=> $event->getStartsAt()->toDateTimeString()
         ];
     }
 
