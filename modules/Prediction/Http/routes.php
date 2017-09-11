@@ -17,9 +17,10 @@ Route::group(['middleware' => ['web']], function () {
 		'as'=> 'prediction.add'
 	]);
 
+});
 
-
-    // api
+// Api
+Route::group(['middleware' => ['api']], function () {
 
     Route::get('api/prediction/new/{type}/{id}/{predictionType}',[
         'uses'=> 'Modules\Prediction\Http\Controllers\Api\PredictionController@getNewConfigure',
