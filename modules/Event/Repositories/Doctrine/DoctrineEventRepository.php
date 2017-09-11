@@ -34,6 +34,15 @@ class DoctrineEventRepository implements EventRepository {
 
     public function findOpenEventsByCategory($categoryId) {
 
+        $query = $this->buildQueryOpenEventsByCategory($categoryId);
+        $events = $query->getResult();
+
+        return $events;
+
+    }
+
+    public function buildQueryOpenEventsByCategory($categoryId) {
+
         $qb = $this->genericRepository->createQueryBuilder('e');
         $qb->innerJoin('e.state','s');
         $qb->innerJoin('e.categories','c');
@@ -44,9 +53,8 @@ class DoctrineEventRepository implements EventRepository {
         $qb->setParameter('categoryId',$categoryId);
 
         $query = $qb->getQuery();
-        $events = $query->getResult();
 
-        return $events;
+        return $query;
 
     }
 

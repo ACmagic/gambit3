@@ -34,3 +34,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('api/category/{categoryId}','Modules\Catalog\Http\Controllers\Api\CategoryController@getIndex');
 
 });
+
+// Api
+Route::group(['middleware' => ['api']], function () {
+
+    Route::get('/api/category/{categoryId}/events','Modules\Catalog\Http\Controllers\Api\CategoryController@getEvents');
+
+});

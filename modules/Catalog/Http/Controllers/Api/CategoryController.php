@@ -5,7 +5,11 @@ namespace Modules\Catalog\Http\Controllers\Api;
 use Modules\Core\Http\Controllers\Api\AbstractBaseController;
 use Modules\Event\Repositories\EventRepository;
 use Modules\Event\Repositories\CategoryRepository;
-use JMS\Serializer\SerializerBuilder;
+use League\Fractal\Manager as FractalManager;
+use League\Fractal\Resource\Collection;
+use Modules\Event\Entities\Transformers\EventTransformer;
+use League\Fractal\Pagination\DoctrinePaginatorAdapter;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class CategoryController extends AbstractBaseController {
 
@@ -19,33 +23,37 @@ class CategoryController extends AbstractBaseController {
      */
     protected $categoryRepository;
 
+    /**
+     * FractalManager
+     */
+    protected $fractal;
+
     public function __construct(
         EventRepository $eventRepository,
-        CategoryRepository $categoryRepository
+        CategoryRepository $categoryRepository,
+        FractalManager $fractal
     ) {
         $this->eventRepository = $eventRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->fractal = $fractal;
     }
 
-    public function getIndex($categoryId) {
+    public function getEvents($categoryId) {
 
         $category = $this->categoryRepository->findById($categoryId);
-        $events = $this->eventRepository->findOpenEventsByCategory($categoryId);
+        $query = $this->eventRepository->buildQueryOpenEventsByCategory($category->getId());
 
-        $data = [];
+        $query->setFirstResult(0);
+        $query->setMaxResults(100);
 
-        foreach($events as $event) {
+        $paginator = new Paginator($query);
+        $resource = new Collection($paginator,new EventTransformer());
+        $paginatorAdapter = new DoctrinePaginatorAdapter($paginator,function() {
 
-            //$item = [];
-            //$item['id'] = $event->getId();
+        });
+        $resource->setPaginator($paginatorAdapter);
 
-            $data[] = $event;
-        }
-
-        //return view('catalog::frontend.category.index',['events'=>$events,'category'=>$category]);
-
-        //$serializer = SerializerBuilder::create()->build();
-        //$jsonContent = $serializer->serialize($events, 'json');
+        $data = $this->fractal->createData($resource)->toArray();
         return response()->json($data); // or return it in a Response
 
     }

@@ -5,6 +5,7 @@ use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Core\Context\ContextManager;
 use Modules\Core\Context\ContextResolver;
 use Laravel\Passport\Passport;
+use League\Fractal\Manager as FractalManager;
 use Mesour\Components\Application\IApplication;
 use Mesour\UI\Application as UiApplication;
 use Mesour\Components\Application\Request as UiRequest;
@@ -133,6 +134,9 @@ class CoreServiceProvider extends ServiceProvider {
 				]);*/
 
 		});
+
+		// Fractal manager
+        $this->app->singleton(FractalManager::class);
 
 	}
 
