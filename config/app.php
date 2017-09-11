@@ -148,6 +148,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        // Allow CORS (cross origin requests)
+        Barryvdh\Cors\ServiceProvider::class,
+
         // Passport
         Laravel\Passport\PassportServiceProvider::class,
 

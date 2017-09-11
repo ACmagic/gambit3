@@ -44,7 +44,8 @@
         "ocramius/proxy-manager": "~2.0.2",
         "syslogic/doctrine-json-functions": "1.*@dev",
         "laravel/passport": "^4.0",
-        "league/fractal": "^0.17.0"
+        "league/fractal": "^0.17.0",
+        "barryvdh/laravel-cors": "^0.9.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

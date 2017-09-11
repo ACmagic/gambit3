@@ -1,0 +1,66 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list>
+      <Biscuit>
+        <option name="date" value="1505089499000" />
+        <option name="domain" value="local.gambit-a" />
+        <option name="name" value="XDEBUG_SESSION" />
+        <option name="path" value="/" />
+        <option name="value" value="PHPStorm" />
+      </Biscuit>
+    </list>
+  </option>
+  <option name="httpMethod" value="POST" />
+  <option name="urlBase" value="http://local.gambit-a" />
+  <option name="urlPath" value="oauth/token" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="*/*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="grant_type" />
+        <option name="value" value="password" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="client_id" />
+        <option name="value" value="3" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="client_secret" />
+        <option name="value" value="5NjswIWoOakBQ6bYGb794ACq2SVl5vq8XImkZ2mu" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="username" />
+        <option name="value" value="huels.eliza@example.org" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="password" />
+        <option name="value" value="-Password1" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="scope" />
+        <option name="value" value="*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="XDEBUG_SESSION_START" />
+        <option name="value" value="PHPStorm" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="false" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>
