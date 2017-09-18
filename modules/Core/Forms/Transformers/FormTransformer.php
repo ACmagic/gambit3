@@ -36,7 +36,7 @@ class FormTransformer extends TransformerAbstract {
         $fields = $form->getFields();
         foreach($fields as $field) {
             $name = $field->getName();
-            $data['fields'][$name] = $this->transformField($field);
+            $data['fields'][] = $this->transformField($field);
         }
 
         return $data;

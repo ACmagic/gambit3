@@ -5,7 +5,9 @@ use Modules\Prediction\Facades\PredictableManager;
 use Modules\Prediction\Facades\PredictionTypeManager;
 use League\Fractal\Manager as FractalManager;
 use League\Fractal\Resource\Item;
+use League\Fractal\Resource\Collection;
 use Modules\Core\Forms\Transformers\FormTransformer;
+use Modules\Prediction\PredictionTransformer;
 
 class PredictionController extends AbstractBaseController {
 
@@ -18,7 +20,19 @@ class PredictionController extends AbstractBaseController {
         $this->fractal = $fractal;
     }
 
-    public function getNew() {
+    public function getNew($type,$id) {
+
+        $predictable = PredictableManager::getPredictable($type,$id);
+        $types = PredictionTypeManager::getTypes($predictable);
+
+        if(!PredictableManager::isPredictionAllowed($predictable)) {
+            abort(403,'Betting not allowed for specified event.');
+        }
+
+        $resource = new Collection($types,new PredictionTransformer);
+
+        $data = $this->fractal->createData($resource)->toArray();
+        return response()->json($data);
 
     }
 
