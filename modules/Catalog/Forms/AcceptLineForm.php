@@ -27,14 +27,14 @@ class AcceptLineForm extends BaseForm {
             $quantityVal = 'between:1,'.$this->line->getRealTimeInventory();
         }
 
-        $this->add('amount','text',[
+        $this->add('amount','number',[
             'label'=> 'Amount:',
             'type'=> 'number',
             'default_value'=> $amount,
             'rules'=> 'required|integer|'.$amountVal,
         ]);
 
-        $this->add('quantity','text',[
+        $this->add('quantity','number',[
             'label'=> 'Quantity:',
             'type'=> 'number',
             'default_value'=> 1,

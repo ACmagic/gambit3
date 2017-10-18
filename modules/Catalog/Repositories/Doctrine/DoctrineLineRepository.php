@@ -275,6 +275,7 @@ class DoctrineLineRepository implements LineRepository {
 
     }
 
+    // @todo: This is not working properly
     public function calculateRealTimeInventory(LineEntity $line) : int {
 
         $qb = $this->genericRepository->createQueryBuilder('l');

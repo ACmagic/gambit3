@@ -10,6 +10,7 @@ use Modules\Catalog\Repositories\LineRepository;
 use Modules\Sales\Entities\ChargeBack;
 use Carbon\Carbon;
 use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Catalog\Entities\Side as SideEntity;
 
 class PaybackLine implements ShouldQueue {
 
@@ -48,9 +49,19 @@ class PaybackLine implements ShouldQueue {
 
                 $saleAdvertisedLine = $saleAdvertisedLineRepo->findByAdvertisedLineId($id);
                 $sale = $saleAdvertisedLine->getSale();
+                $side = $saleAdvertisedLine->getSide();
+                $odds = $saleAdvertisedLine->getOdds();
 
-                // @todo: Calculate odds adjustment. This is going to be tricky... so say the least.
-                // For now just pretend odds are equal (0).
+                // Factor odds adjustment into left over amount.
+                if($side->getMachineName() === SideEntity::SIDE_HOUSE && $odds != 0) {
+
+                    if($odds < 0) {
+                        $leftOverAmount = bcadd($leftOverAmount,bcdiv($leftOverAmount,bcmul($odds * -1,'.01',4),4),4);
+                    } else {
+                        $leftOverAmount = bcmul($leftOverAmount,bcmul($odds,'.01',4),4);
+                    }
+
+                }
 
                 // Create the charge back.
                 $chargeBack = new ChargeBack();

@@ -159,7 +159,7 @@ EOD;
 
         $qb = $this->genericRepository->createQueryBuilder('l');
 
-        $qb->select('(COALESCE(l.amountMax,l.amount) * l.inventory) - SUM(al.amount * al.inventory)');
+        $qb->select('(COALESCE(l.amountMax,l.amount) * l.inventory) - SUM(al.amount * al.quantity)');
         $qb->leftJoin('l.acceptedLines','al');
         $qb->where('l.id = :id');
 
@@ -219,7 +219,7 @@ EOD;
         $qb->leftJoin('l.acceptedLines','al');
         $qb->where('l.line = :lineId');
         $qb->groupBy('l.id, l.inventory, l.amountMax, l.amount');
-        $qb->having('(COALESCE(l.amountMax,l.amount) * l.inventory) > SUM(al.amount * al.inventory)');
+        $qb->having('(COALESCE(l.amountMax,l.amount) * l.inventory) > SUM(al.amount * al.quantity)');
 
         $qb->setParameter('lineId',$lineId);
 

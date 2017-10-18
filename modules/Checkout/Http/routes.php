@@ -18,7 +18,7 @@ Route::group(['middleware' => ['web']], function () {
 		'middleware'=> 'auth.customer',
 	]);
 
-	Route::get('checkout/complete}',[
+	Route::get('checkout/complete',[
 		'uses'=> 'Modules\Checkout\Http\Controllers\Frontend\CheckoutController@getComplete',
 		'as'=> 'checkout.complete',
 		'middleware'=> 'auth.customer',
@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web']], function () {
 		'middleware'=> 'auth.customer',
 	]);
 
-	Route::post('checkout/gateway}',[
+	Route::post('checkout/gateway',[
 		'uses'=> 'Modules\Checkout\Http\Controllers\Frontend\CheckoutController@postGateway',
 		'as'=> 'checkout.gateway.post',
 		'middleware'=> 'auth.customer',
