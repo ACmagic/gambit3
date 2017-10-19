@@ -132,6 +132,31 @@ trait LineTrait {
 
     /*
      * -------------------------------------------------------------------------------------------
+     * Utility methods to promote DRY code.
+     * -------------------------------------------------------------------------------------------
+     */
+
+    /**
+     * Determine whether the advertiser won the line.
+     *
+     * @throws \Exception
+     * @return bool
+     */
+    public function isAdvertiserWinner(): bool {
+
+        $winningSide = $this->getWinningSide();
+
+        if($winningSide === NULL) {
+            throw new \Exception('Unable to resolve line winner without winning side.');
+        }
+
+        $bool = $this->getSide()->getId() === $this->getWinningSide()->getId();
+        return $bool;
+
+    }
+
+    /*
+     * -------------------------------------------------------------------------------------------
      * Cached aggregated calculations
      * -------------------------------------------------------------------------------------------
      */

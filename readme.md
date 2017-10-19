@@ -88,6 +88,20 @@ accept. The second type of product is a accepted line. An accepted line is a pro
 accepts the inverse scenario of the advertised line. The last type of product is a credit. To purchase and 
 accept lines credits will be used.
 
+### Lines and Advertised Lines
+
+When a customer first enters the exchange they will be able to pick an open event. Once they have choosen
+an open events they will be able to create a prediction on the event. The customer will be able to do this for x
+number events. Once the customer is finished they will visit their slip and fill additional
+details such as; min and max bet, odds, quantity available. The customer will than go through the checkout
+process. Once the checkout process is complete advertised line will be created. The advertised line will represent a single
+customers line. There may be x number of advertised lines with the same exact predictions but only
+a single line with same predictions. Advertised lines are created in a background job that will
+run in a deferred queue with priority. This done do to the added overhead of checking whether
+a matching line already exists, updating cached aggregate data, and creating the advertised line.
+
+### Accepted Lines
+
 ## Quotes and Sales
 
 Keeping with the philosophy of an ecomm set-up orders are divided between two parts: quotes and sales. A quote
@@ -103,7 +117,6 @@ and each individual site. The ledger currently supports two types of assets: usd
 cashbooks are maintained for each site and customer. On cashbook is for external sales that involve
 exchanging real money for credits and vice versa. The other is an internal cashbook that tracks credit
 based exchanges only.
-
 
 
 # Laravel PHP Framework

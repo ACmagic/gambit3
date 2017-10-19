@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Modules\Catalog\Repositories\LineRepository;
 use Modules\Catalog\Repositories\LineWorkflowStateRepository;
 use LaravelDoctrine\ORM\Facades\EntityManager;
+use Modules\Catalog\Contracts\Entities\Line as LineContract;
 
 class PayoutLine implements ShouldQueue {
 
@@ -32,19 +33,49 @@ class PayoutLine implements ShouldQueue {
         $doneState = $lineWorkflowStateRepo->findDoneState();
 
         $line = $lineRepo->findById($this->lineId);
-        $line->setState($payingOutState);
+        //$line->setState($payingOutState);
 
-        EntityManager::persist($line);
-        EntityManager::flush();
+        if($line->isAdvertiserWinner()) {
+            $this->payoutAdvertiser($line);
+        } else {
+            $this->payoutAcceptees($line);
+        }
+
+        //EntityManager::persist($line);
+        //EntityManager::flush();
 
         // Pay out the line.
 
 
         // Update the state to done to complete pay out process.
-        $line->setState($doneState);
+        //$line->setState($doneState);
 
-        EntityManager::persist($line);
-        EntityManager::flush();
+        //EntityManager::persist($line);
+        //EntityManager::flush();
+
+    }
+
+    /**
+     * Payout implementation for advertiser winner.
+     *
+     * @param LineContract $line
+     *   The line to payout.
+     *
+     * @return void
+     */
+    protected function payoutAdvertiser(LineContract $line) {
+
+    }
+
+    /**
+     * Payout implementation for acceptees winner.
+     *
+     * @param LineContract $line
+     *   The line to payout.
+     *
+     * @return void.
+     */
+    protected function payoutAcceptees(LineContract $line) {
 
     }
 

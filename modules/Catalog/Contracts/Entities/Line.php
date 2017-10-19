@@ -35,6 +35,9 @@ interface Line {
     public function addTransition(LineWorkflowTransition $transition);
     public function doRebuildPredictionsCache();
 
+    // utility methods.
+    public function isAdvertiserWinner(): bool;
+
     // Cached aggregate calculations
     public function getRollingInventory() : int;
     public function setRollingInventory(int $rollingInventory);
