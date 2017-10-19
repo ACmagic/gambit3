@@ -44,6 +44,10 @@ trait LineTrait {
         $this->advertisedLines[] = $advertisedLine;
     }
 
+    public function getAdvertisedLines() {
+        return $this->advertisedLines;
+    }
+
     public function setStore(Store $store) {
         $this->store = $store;
     }

@@ -14,6 +14,7 @@ interface Line {
     public function getPredictions();
     public function addPrediction(Prediction $predication);
     public function addAdvertisedLine(AdvertisedLine $advertisedLine);
+    public function getAdvertisedLines();
     public function setStore(Store $store);
     public function getStore();
     public function setSide(Side $side);

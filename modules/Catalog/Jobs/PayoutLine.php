@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Modules\Catalog\Repositories\LineRepository;
+use Modules\Catalog\Repositories\AcceptedLineRepository;
 use Modules\Catalog\Repositories\LineWorkflowStateRepository;
 use LaravelDoctrine\ORM\Facades\EntityManager;
 use Modules\Catalog\Contracts\Entities\Line as LineContract;
@@ -17,14 +18,22 @@ class PayoutLine implements ShouldQueue {
 
     protected $lineId;
 
+    /**
+     * @var AcceptedLineRepository
+     */
+    protected $acceptedLineRepo;
+
     public function __construct($lineId) {
         $this->lineId = $lineId;
     }
 
     public function handle(
         LineRepository $lineRepo,
+        AcceptedLineRepository $acceptedLineRepo,
         LineWorkflowStateRepository $lineWorkflowStateRepo
     ) {
+
+        $this->acceptedLineRepo = $acceptedLineRepo;
 
         // @todo: Prevent line from being payed out multiple times.
 
@@ -64,6 +73,26 @@ class PayoutLine implements ShouldQueue {
      * @return void
      */
     protected function payoutAdvertiser(LineContract $line) {
+
+        $advertisedLines = $line->getAdvertisedLines();
+
+        $total = count($advertisedLines);
+
+        $start = 0;
+        $limit = 1; // 1 for testing.
+
+        $pagedAdvertisedLines = $advertisedLines->slice($start,$limit);
+
+        foreach($pagedAdvertisedLines as $advertisedLine) {
+
+            $amount = $this->acceptedLineRepo->sumTotalAmountByAdvertisedLineId($advertisedLine->getId());
+
+            echo $advertisedLine->getId();
+        }
+
+        // Iterate through each advertised line
+        //$line->getAdvertisedLines()
+          // calculate payout for advertised line
 
     }
 
