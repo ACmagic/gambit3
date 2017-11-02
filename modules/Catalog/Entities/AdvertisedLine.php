@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use Modules\Customer\Entities\Customer;
 use Doctrine\Common\Collections\ArrayCollection;
+use Modules\Accounting\Entities\Posting;
 
 class AdvertisedLine {
 
@@ -55,6 +56,10 @@ class AdvertisedLine {
 
     public function setUpdatedAt(Carbon $updatedAt) {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function addPayout(Posting $payout) {
+        $this->payouts[] = $payout;
     }
 
 }

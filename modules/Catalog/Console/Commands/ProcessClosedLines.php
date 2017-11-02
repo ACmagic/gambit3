@@ -47,9 +47,9 @@ class ProcessClosedLines extends Command {
 
         $ids = $this->lineRepo->findIdsOfClosedLines();
         foreach($ids as $id) {
-            $this->line('Queued payback for line '.$id);
             $job = (new PaybackLine($id))->delay(10);
             dispatch($job);
+            $this->line('Queued line '.$id);
         }
 
     }

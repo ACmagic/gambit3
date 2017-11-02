@@ -25,7 +25,7 @@ class DoctrineAcceptedLineRepository implements AcceptedLineRepository {
      * to the passed advertised line id.
      *
      * @param int $advertisedLineId
-     *   The advertiesed line id.
+     *   The advertised line id.
      *
      * @return int
      */

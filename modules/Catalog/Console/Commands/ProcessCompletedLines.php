@@ -49,6 +49,7 @@ class ProcessCompletedLines extends Command {
         foreach($ids as $id) {
             $job = (new PayoutLine($id))->delay(10);
             dispatch($job);
+            $this->line('Queued line '.$id);
         }
 
     }
