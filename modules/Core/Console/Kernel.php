@@ -4,6 +4,7 @@ namespace Modules\Core\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Modules\Core\Console\Commands\SeedDatabase;
+use Modules\Core\Console\Commands\QueueFakeJob;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Modules\Catalog\Console\Commands\ProcessCompletedLines;
 use Modules\Catalog\Console\Commands\ProcessClosedLines;
@@ -20,6 +21,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         // Commands\Inspire::class,
         SeedDatabase::class,
+        QueueFakeJob::class,
 
         // Catalog
         ProcessCompletedLines::class,

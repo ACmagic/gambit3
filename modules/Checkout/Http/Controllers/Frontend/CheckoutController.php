@@ -165,6 +165,8 @@ class CheckoutController extends AbstractBaseController {
         // When a previous quote exists restore it.
         CartFacade::restoreQuote();
 
+        // @todo: Set flash message and redirect to home page?
+
     }
 
     public function getGateway() {
@@ -206,6 +208,7 @@ class CheckoutController extends AbstractBaseController {
 
         $storage = $payum->getStorage(PayumArrayObject::class);
 
+        // Get cost of quote.
         $cost = bcadd($quote->calculateTotalCost(),0,2);
 
         $details = $storage->create();
@@ -395,12 +398,21 @@ class CheckoutController extends AbstractBaseController {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
 
-        $amount = $quote->calculateTotalCost();
+        $quoteAmount = $quote->calculateTotalCost();
         $siteId = Site::getSiteId();
         $site = $this->siteRepo->findById($siteId);
 
         $customerId = CustomerFacade::getCustomerId();
         $customer = $this->customerRepo->findById($customerId);
+
+        // Customers current balance.
+        $balance = $customer->getInternalAccount()->getBalance();
+
+        if($balance > 0) {
+            $amount = bcsub($quoteAmount,$balance,2);
+        } else {
+            $amount = $quoteAmount;
+        }
 
         /*
          * @todo: Should consider creating a factory to create boilerplate quote.

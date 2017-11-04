@@ -104,7 +104,7 @@ class PayoutLine implements ShouldQueue {
         // @todo: Implement batch processing / pagination.
         $total = count($advertisedLines);
         $start = 0;
-        $limit = 1; // 1 for testing.
+        $limit = 100; // 1 for testing.
 
         $pagedAdvertisedLines = $advertisedLines->slice($start,$limit);
 
@@ -128,8 +128,7 @@ class PayoutLine implements ShouldQueue {
                 if($odds < 0) {
                     $amount = bcadd($amount,bcadd($amount,bcdiv($amount,bcmul($odds * -1,'.01',4),4),4),4);
                 } else {
-                    // @todo
-                    //$leftOverAmount = bcmul($leftOverAmount,bcmul($odds,'.01',4),4);
+                    $amount = bcadd($amount,bcmul($amount,bcmul($odds,'.01',4),4),4);
                 }
 
             }
