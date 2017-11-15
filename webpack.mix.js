@@ -1,5 +1,9 @@
 let mix = require('laravel-mix');
 
+// see: https://github.com/JeffreyWay/laravel-mix/issues/879
+mix.webpackConfig({devtool: 'source-map'});
+//mix.sourceMaps();
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,13 +15,22 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.styles([
-    'bower_components/bootstrap/dist/css/bootstrap.css',
-    'bower_components/font-awesome/css/font-awesome.css',
-    'modules/Core/Resources/css/layout/frontend/default.css'
-],'public/dist/css/frontend.css');
+// Back-end / administrative facing assets.
+mix.sass(
+    'modules/Core/Resources/scss/admin.scss'
+    //'vendor/mesour/datagrid/public/mesour.grid.min.css'
+, 'public/dist/css/admin.css');
 
-mix.scripts([
-    'bower_components/jquery/dist/jquery.js',
-    'bower_components/bootstrap/dist/js/bootstrap.js'
+mix.js([
+    'modules/Core/Resources/js/admin.js',
+    'vendor/mesour/datagrid/public/mesour.grid.min.js'
+], 'public/dist/js/admin.js');
+
+// front-end client facing assets
+mix.sass(
+    'modules/Core/Resources/scss/frontend.scss'
+,'public/dist/css/frontend.css');
+
+mix.js([
+    'modules/Core/Resources/js/frontend.js'
 ], 'public/dist/js/frontend.js');

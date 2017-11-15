@@ -6,6 +6,8 @@ Homestead.json
 bower_components/*
 node_modules/*
 public/dist/*
+public/fonts/*
+public/mix-manifest.json
 storage/proxies/*
 storage/oauth-private.key
 storage/oauth-public.key

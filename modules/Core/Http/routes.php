@@ -24,5 +24,6 @@ Route::group(['middleware' => ['web','auth.admin']], function () {
     Route::get('/admin/sites','Modules\Core\Http\Controllers\Admin\SiteController@getIndex');
     Route::post('/admin/sites','Modules\Core\Http\Controllers\Admin\SiteController@getIndex');
     Route::get('/admin/stores','Modules\Core\Http\Controllers\Admin\StoreController@getIndex');
+    Route::get('/admin/passport','Modules\Core\Http\Controllers\Admin\PassportController@getIndex');
 
 });

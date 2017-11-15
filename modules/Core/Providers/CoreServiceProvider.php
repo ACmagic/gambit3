@@ -6,9 +6,11 @@ use Modules\Core\Context\ContextManager;
 use Modules\Core\Context\ContextResolver;
 use Laravel\Passport\Passport;
 use League\Fractal\Manager as FractalManager;
+use Illuminate\Support\Facades\Event;
 use Mesour\Components\Application\IApplication;
 use Mesour\UI\Application as UiApplication;
 use Mesour\Components\Application\Request as UiRequest;
+use Modules\Core\Subscribers\RoutingSubscriber;
 use Payum\Core\PayumBuilder;
 use Modules\Core\Contracts\Context\Site as SiteContract;
 use Modules\Core\Contracts\Context\Store as StoreContract;
@@ -49,6 +51,9 @@ class CoreServiceProvider extends ServiceProvider {
 
 		// Passport integration
         Passport::routes();
+
+        // Register subscribers.
+        Event::subscribe(RoutingSubscriber::class);
 	}
 
 	/**
